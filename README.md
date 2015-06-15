@@ -3,7 +3,7 @@ _**Repositório com scripts úteis para sistemas baseados em Unix**_
 
 ### Wifi
 * ``RevDk3-r1`` - crack wifi com WPS liberado - [**Tutorial**](http://www.matthewhknight.com/cracking-wps-revdk3-r1)
-* ``trocaMac.sh`` - script para _troca_ de mac da placa wifi.
+* ``trocaMac.sh`` - script para _troca_ de mac da placa wifi(Necessita ter instalado o ``macchanger``).
 
 ### CustomMousePad
 
@@ -13,11 +13,11 @@ _**Repositório com scripts úteis para sistemas baseados em Unix**_
 
 ### Alias
 
-* ``.bash_aliases`` - alias uteis (_Tutorial-TODO_)
+* ``.bash_aliases`` - alias uteis [**Tutorial**](http://www.vivaolinux.com.br/dica/Criando-aliases-uteis)
 
 ### Git
 
-* ``.gitconfig`` - alias uteis para comando git (_Tutorial-TODO_)
+* ``.gitconfig`` - alias uteis para comando git [**Tutorial**](http://githowto.com/aliases)
 * ``github.sh``  - script para abrir o github no repositorio e branch atual
 	* Usar o seguinte comando para utiliza-lo: ``sudo ln -s /<caminhoAteOScript>/github.sh /usr/bin/github`` e apos isso usar o comando quando quiser abrir o repo: ``github``
 
