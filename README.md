@@ -18,6 +18,9 @@ _**Repositório com scripts úteis para sistemas baseados em Unix**_
 ### Git
 
 * ``.gitconfig`` - alias uteis para comando git (_Tutorial-TODO_)
+* ``github.sh``  - script para abrir o github no repositorio e branch atual
+	* Usar o seguinte comando para utiliza-lo: ``sudo ln -s /<caminhoAteOScript>/github.sh /usr/bin/github`` e apos isso usar o comando quando quiser abrir o repo: ``github``
+
 
 ### Tmux && Tmuxinator
 
