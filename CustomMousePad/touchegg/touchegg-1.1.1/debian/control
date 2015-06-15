@@ -1,0 +1,27 @@
+Source: touchegg
+Section: misc
+Priority: optional
+Maintainer: Kubuntu Developers <kubuntu-devel@lists.ubuntu.com>
+Build-Depends: debhelper (>= 8.0.0), libqt4-dev,
+ libgeis-dev, libx11-dev, libxtst-dev, libxext-dev
+Standards-Version: 3.9.3
+Homepage: http://code.google.com/p/touchegg
+Vcs-Browser: http://bazaar.launchpad.net/~kubuntu-packagers/kubuntu-packaging/touchegg
+Vcs-Bzr: lp:~kubuntu-packagers/kubuntu-packaging/touchegg
+
+Package: touchegg
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Multitouch gesture recognizer
+ Touchégg is a cross-platform multitouch gesture recognizer
+ that allows associating actions to each gesture.
+
+Package: touchegg-dbg
+Section: debug
+Architecture: any
+Priority: extra
+Depends: ${misc:Depends}, touchegg (= ${binary:Version})
+Description: debugging symbols for Touchégg
+ This package contains debugging files used to investigate problems with
+ Touchégg. Install this package if you are experiencing crashes of the
+ Touchégg application and wish to report a problem to the developers.

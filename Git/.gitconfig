@@ -1,0 +1,108 @@
+[user]
+	name = Eric Dallo
+	email = ericdallo06@hotmail.com
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+
+[apply]
+  whitespace = nowarn
+[color]
+  ui = auto
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+[alias]
+  ci = commit
+  br = branch
+  co = checkout
+  df = diff -b
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%an, %cr)%Creset' --abbrev-commit --date=relative
+  rclone = clone --reference /git/cache.git/
+  ph = push origin HEAD
+
+  last  = cat-file commit HEAD
+  sta    = ls-files --exclude-per-directory=.gitignore \
+    --exclude-from=.git/info/exclude \
+    -t -o -u -s -m -d
+
+  st = status
+
+  stc   = diff --stat --name-status --cached
+  cat   = -p cat-file -p
+  up    = !git remote update ; git gc
+  pup	= pull origin production
+  fu	= fetch origin
+  pum	= pull origin master
+  fupum = !git co master && git fu && git pum
+  fupup = !git co production && git fu && git pup
+  rebasemaster = !branch=\"`git branch 2>/dev/null | grep \\* | awk '{ print $2 }'`\" && echo \"Rebasing $branch from master...\" && git fupum && git co $branch && git rebase master
+  cob = !git fetch origin && git co -b $1 origin/$1 && echo \"Checked out origin branch:\"
+  cod = "!git br -D $1 2> /dev/null; git cob $1"
+  debug = !GIT_PAGER= gdb --args git
+
+  top = !eval cd "$(pwd)/$(git rev-parse --show-cdup)" && pwd
+
+  push-head = !git push origin `git symbolic-ref HEAD`
+  publish = push publish
+  pushall = !git remote | xargs -n1 git push
+  pushalltags = !git remote | xargs -n1 git push --tags
+
+  tblog = log --not-grep='Auto-increment of build number due to changes in directory '
+  tbk   = !gitk --not-grep='Auto-increment of build number due to changes in directory '
+
+  vgc = repack -f -a -d --depth=250 --window=250
+  nvgc = !ionice -n7 nice -n20 git vgc
+
+  svnup = !git config --get-regexp 'svn-remote.*url' | cut -d . -f 2 | xargs -n1 git svn fetch
+
+  log1 = log --pretty=oneline --abbrev-commit --decorate
+
+  findnext = rev-list --reverse -n1 HEAD..master
+  checkoutnext = !git checkout `git findnext`
+
+  # example: git subdo pull
+  subdo = submodule foreach git
+
+  case = !sh -c 'exec /home/oxygen/bart/work/git-case/git-case.git/git-case-$0 ${0+"$@"}'
+
+  edit-last-commit = !vim `git diff-tree -r --name-only HEAD HEAD~1`
+  edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
+  add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+
+  amend = commit --amend -C HEAD
+	ls = !git lg
+	di = diff
+
+[merge]
+	tool = vimdiff
+[core]
+	excludesfile = /Users/developer/.gitignore_global
+	editor = vim
+[diff]
+	tool = diffmerge
+	merge = p4merge
+[difftool "diffmerge"]
+	cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
+[mergetool "diffmerge"]
+	cmd = "diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\""
+  trustExitCode = true
+[mergetool "p4merge"]
+  cmd = /Applications/p4merge.app/Contents/MacOS/p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
+  keepTemporaries = false
+  trustExitCode = false
+  keepBackup = false
+[push]
+	default = simple
