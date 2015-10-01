@@ -1,15 +1,35 @@
-#alias media='cd /home/eric/github/media && ls -a'
-#alias upmedia='media && git add . && git commit -m "" && git push'
-alias goo='cd /home/eric/Google\ Drive/ && ls'
+EC2IP="52.24.4.97"
 
+alias fpo="sudo shutdown -P 0"
+
+alias git='hub'
 alias killmux='tmux kill-window -a && exit'
+alias tm='mux start tab'
+alias s='espeak'
+alias hey='s -v pt-br "se liga, cabô"'
+alias hlog='heroku logs -t --app vetkatia'
 
+alias mywtf="mvn clean eclipse:clean eclipse:eclipse -Dwtpversion=2.0"
+alias rtomcat='killtomcat && sleep 3 && starttomcat'
+
+alias restartchrome="killall chrome; google-chrome-stable"
+
+alias myssh="ssh -i /etc/amazon/KaliKey.pem -l ec2-user"
+alias myscp="scp -i /etc/amazon/KaliKey.pem"
+alias sshcubo="myssh ec2-user@$EC2IP"
+alias connect-rds='myssh -N -L 3306:rds-instance.cdcjqn1hexrd.us-west-2.rds.amazonaws.com:3306 ec2-user@$EC2IP'
+alias mysql-rds='mysql -u kali -p -h 127.0.0.1'
+
+alias m="mysql -u root -p"
+alias mysql-fix="scripts/reinstallMysql.sh"
+
+alias restartNet="sudo service network-manager restart"
+#Elo7 alias
 
 alias ll='ls -l'
 
 alias pl="ps aux | grep"
-alias killtomcat="pl [t]omcat | awk '{print \$2}' | xargs kill -9"
-alias tunnel="ssh -N -R 8100:localhost:8080 -i ~/dev/keys/integration.pem ec2-user@integration.elo7.com.br"
+alias killtomcat="pl tomcat | awk '{print \$2}' | xargs kill -9"
 alias elo7.log="tail -f -n 1000 /var/log/elo7/elo7.log"
 alias marketplace="tmuxinator start marketplace"
 
@@ -37,7 +57,7 @@ V3=~/dev/marketplace/elo7/src/main/webapp/v3
 alias rm.assets="rm -rf $V3/common/css && rm -rf $V3/mobile/css && rm -rf $V3/desktop/css && rm -f $V3/common/js/elo7.js && rm -f $V3/mobile/js/mobile.js && rm -f $V3/desktop/js/desktop.js"
 alias wtf="rm.assets; killtomcat; mvn clean eclipse:clean eclipse:eclipse -Dwtpversion=2.0"
 
-alias rehash="source ~/.bash_profile"
+alias rehash="source ~/.zshrc"
 
 # Allows to override Same-Origin policy
 alias ogc='open -a Google\ Chrome --args --disable-web-security'
@@ -45,7 +65,6 @@ alias ogc='open -a Google\ Chrome --args --disable-web-security'
 # Runs grunt in dev
 alias dev='cd /Users/Developer/dev/marketplace/elo7/grunt && ./node_modules/grunt-cli/bin/grunt --gruntfile=gruntfiles/dev.js --base=.'
 
-alias update-dummy="mysqldump -u root -d elo7 | mysql -u root -Delo7_dummy"
 alias run-all-tests="mvn clean test -P run-all-tests"
 alias run-migration="flyway-migration"
 alias curl_api="~/dev/dotfiles/scripts/marketplace/mobile/curl_api.sh"
