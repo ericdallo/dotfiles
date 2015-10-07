@@ -1,4 +1,5 @@
-EC2IP="52.24.4.97"
+EC2CUBO="52.24.4.97"
+EC2TCC="54.69.34.116"
 
 alias fpo="sudo shutdown -P 0"
 
@@ -14,9 +15,12 @@ alias rtomcat='killtomcat && sleep 3 && starttomcat'
 
 alias restartchrome="killall chrome; google-chrome-stable"
 
-alias myssh="ssh -i /etc/amazon/KaliKey.pem -l ec2-user"
-alias myscp="scp -i /etc/amazon/KaliKey.pem"
-alias sshcubo="myssh ec2-user@$EC2IP"
+alias kalissh="ssh -i /etc/amazon/KaliKey.pem -l ec2-user"
+alias tccssh="ssh -i /etc/amazon/tcckey.pem -l ec2-user"
+alias kaliscp="scp -i /etc/amazon/KaliKey.pem"
+alias tccscp="scp -i /etc/amazon/tcckey.pem"
+alias sshcubo="kalissh ec2-user@$EC2CUBO"
+alias sshtcc="tccssh ec2-user@$EC2TCC"
 alias connect-rds='myssh -N -L 3306:rds-instance.cdcjqn1hexrd.us-west-2.rds.amazonaws.com:3306 ec2-user@$EC2IP'
 alias mysql-rds='mysql -u kali -p -h 127.0.0.1'
 
