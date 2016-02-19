@@ -55,6 +55,7 @@ plugins=(git)
 # User configuration
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/kali/.rvm/bin"
+export PATH="$HOME/.rbenv/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -85,3 +86,21 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source ~/.zsh_aliases
 source ~/.bash_aliases
+
+# Add environment variable COCOS_CONSOLE_ROOT for cocos2d-x
+export COCOS_CONSOLE_ROOT=/home/kali/Cocos2d-x/tools/cocos2d-console/bin
+export PATH=$COCOS_CONSOLE_ROOT:$PATH
+
+# Add environment variable COCOS_TEMPLATES_ROOT for cocos2d-x
+export COCOS_TEMPLATES_ROOT=/home/kali/Cocos2d-x/templates
+export PATH=$COCOS_TEMPLATES_ROOT:$PATH
+
+# Add environment variable NDK_ROOT for cocos2d-x
+export NDK_ROOT=/home/kali/Android/Ndk
+export PATH=$NDK_ROOT:$PATH
+
+export ANDROID_SDK_ROOT=/home/kali/Android/Sdk
+export PATH=$ANDROID_SDK_ROOT:$PATH
+
+export ANT_ROOT=/home/kali/ant/
+export PATH=$ANT_ROOT:$PATH

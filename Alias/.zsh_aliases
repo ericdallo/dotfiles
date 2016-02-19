@@ -1,5 +1,7 @@
 EC2CUBO="52.24.4.97"
-EC2TCC="54.69.34.116"
+EC2TCC="54.149.190.224"
+
+alias vpn="sudo openvpn --config ~/VPN/eric.dallo-lin.ovpn"
 
 alias fpo="sudo shutdown -P 0"
 
@@ -25,8 +27,14 @@ alias connect-rds='myssh -N -L 3306:rds-instance.cdcjqn1hexrd.us-west-2.rds.amaz
 alias mysql-rds='mysql -u kali -p -h 127.0.0.1'
 
 alias m="mysql -u root -p"
-alias mysql-fix="scripts/reinstallMysql.sh"
+alias v="vagrant"
+alias k="kill -9 "
 
+alias c='xclip -selection clipboard'
+alias clojure='java -cp ~/clojure-1.8.0/clojure-1.8.0.jar clojure.main'
+
+#Alias temporarios
+alias mysql-fix="scripts/reinstallMysql.sh"
 alias restartNet="sudo service network-manager restart"
 #Elo7 alias
 
