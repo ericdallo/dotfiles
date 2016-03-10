@@ -1,6 +1,8 @@
 EC2CUBO="52.24.4.97"
 EC2TCC="54.149.190.224"
 
+alias al='vim ~/.zsh_aliases'
+
 alias vpn="sudo openvpn --config ~/VPN/eric.dallo-lin.ovpn"
 
 alias fpo="sudo shutdown -P 0"
@@ -17,13 +19,6 @@ alias rtomcat='killtomcat && sleep 3 && starttomcat'
 
 alias restartchrome="killall chrome; google-chrome-stable"
 
-alias kalissh="ssh -i /etc/amazon/KaliKey.pem -l ec2-user"
-alias tccssh="ssh -i /etc/amazon/tcckey.pem -l ec2-user"
-alias kaliscp="scp -i /etc/amazon/KaliKey.pem"
-alias tccscp="scp -i /etc/amazon/tcckey.pem"
-alias sshcubo="kalissh ec2-user@$EC2CUBO"
-alias sshtcc="tccssh ec2-user@$EC2TCC"
-alias connect-rds='myssh -N -L 3306:rds-instance.cdcjqn1hexrd.us-west-2.rds.amazonaws.com:3306 ec2-user@$EC2IP'
 alias mysql-rds='mysql -u kali -p -h 127.0.0.1'
 
 alias m="mysql -u root -p"
@@ -32,10 +27,29 @@ alias k="kill -9 "
 
 alias c='xclip -selection clipboard'
 alias clojure='java -cp ~/clojure-1.8.0/clojure-1.8.0.jar clojure.main'
+alias gb='gradle build'
+alias gr='gradle run'
+alias gi='gradle install'
+alias ge='gradle cleanEclipse eclipse'
+
+
+# Tcc
+
+alias zeus='cd ~/github/zeus && ls'
+alias hades='cd ~/github/hades && ls'
+
+alias kalissh="ssh -i /etc/amazon/KaliKey.pem -l ec2-user"
+alias tccssh="ssh -i /etc/amazon/tcckey.pem -l ec2-user"
+alias kaliscp="scp -i /etc/amazon/KaliKey.pem"
+alias tccscp="scp -i /etc/amazon/tcckey.pem"
+alias sshcubo="kalissh ec2-user@$EC2CUBO"
+alias sshtcc="tccssh ec2-user@$EC2TCC"
+alias connect-rds='myssh -N -L 3306:rds-instance.cdcjqn1hexrd.us-west-2.rds.amazonaws.com:3306 ec2-user@$EC2IP'
+
 
 #Alias temporarios
-alias mysql-fix="scripts/reinstallMysql.sh"
 alias restartNet="sudo service network-manager restart"
+
 #Elo7 alias
 
 alias ll='ls -l'

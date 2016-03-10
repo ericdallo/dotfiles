@@ -30,4 +30,9 @@ name: Satan
 windows:
   - Main: ls
   - Other:
-  - MySQL:  mysql -u root --password=akee1337 
+  - MySQL:  mysql -u root --password=
+  - TCC:
+      layout: main-vertical
+      panes:
+        - hades
+        - zeus
