@@ -46,7 +46,6 @@ alias sshcubo="kalissh ec2-user@$EC2CUBO"
 alias sshtcc="tccssh ec2-user@$EC2TCC"
 alias connect-rds='myssh -N -L 3306:rds-instance.cdcjqn1hexrd.us-west-2.rds.amazonaws.com:3306 ec2-user@$EC2IP'
 
-
 #Alias temporarios
 alias restartNet="sudo service network-manager restart"
 
