@@ -3,6 +3,8 @@ EC2TCC="54.149.190.224"
 
 alias al='vim ~/.zsh_aliases'
 
+alias taghere='ctags -R -f ./.git/tags'
+
 alias vpn="sudo openvpn --config ~/VPN/eric.dallo-lin.ovpn"
 
 alias fpo="sudo shutdown -P 0"
@@ -10,6 +12,7 @@ alias fpo="sudo shutdown -P 0"
 alias git='hub'
 alias killmux='tmux kill-window -a && exit'
 alias tm='mux start tab'
+alias cloj='mux start clojure'
 alias s='espeak'
 alias hey='s -v pt-br "se liga, cabô"'
 alias hlog='heroku logs -t --app vetkatia'
@@ -48,6 +51,7 @@ alias connect-rds='myssh -N -L 3306:rds-instance.cdcjqn1hexrd.us-west-2.rds.amaz
 
 #Alias temporarios
 alias restartNet="sudo service network-manager restart"
+alias login="curl --data 'username=201309003&password=1337' 1.1.3.1/reg.php"
 
 #Elo7 alias
 

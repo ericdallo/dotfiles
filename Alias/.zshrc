@@ -1,3 +1,5 @@
+export EDITOR=vim
+
 # Path to your oh-my-zsh installation.
 export ZSH=/home/$USERNAME/.oh-my-zsh
 export JAVA_HOME="/usr/lib/jvm/jdk1.8.0_60"
@@ -56,6 +58,7 @@ plugins=(git)
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/kali/.rvm/bin"
 export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.vimpkg/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
