@@ -9,12 +9,15 @@ set softtabstop=4   " Sets the number of columns for a TAB
 
 set expandtab       " Expand TABs to spaces
 
+set autoindent
+
 command Tt set softtabstop=2
 command T set softtabstop=4
 map <F2> :NERDTreeToggle<CR>
 map <C-p> :CtrlP
 map <C-a> :bn<CR>
 map <C-z> :bp<CR>
+map <Esc><Esc> :q!<CR>
 
 autocmd FileReadPre,BufReadPre *zeus/Gruntfile.js set shiftwidth=2 softtabstop=2
 autocmd FileType clojure set shiftwidth=2 softtabstop=2
@@ -31,6 +34,7 @@ set runtimepath+=~/.vim/bundle/auto-save
 
 let g:ctrlp_working_path_mode = 0
 let g:auto_save = 1
+let g:auto_save_no_updatetime = 1
 set wildignore+=*/bower_components/**
 set wildignore+=*/node_modules/**
 

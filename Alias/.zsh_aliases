@@ -41,6 +41,8 @@ alias ge='gradle cleanEclipse eclipse'
 alias zeus='cd ~/github/zeus && ls'
 alias hades='cd ~/github/hades && ls'
 
+alias zcode='zeus && vim Gruntfile.js'
+
 alias kalissh="ssh -i /etc/amazon/KaliKey.pem -l ec2-user"
 alias tccssh="ssh -i /etc/amazon/tcckey.pem -l ec2-user"
 alias kaliscp="scp -i /etc/amazon/KaliKey.pem"
