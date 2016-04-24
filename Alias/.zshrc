@@ -107,3 +107,9 @@ export PATH=$ANDROID_SDK_ROOT:$PATH
 
 export ANT_ROOT=/home/kali/ant/
 export PATH=$ANT_ROOT:$PATH
+
+if [ -e /usr/share/terminfo/x/xterm-256color ]; then
+    export TERM='xterm-256color'
+else
+    export TERM='xterm-color'
+fi

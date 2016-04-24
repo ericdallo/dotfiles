@@ -31,7 +31,7 @@ alias k="kill -9 "
 alias c='xclip -selection clipboard'
 alias clojure='java -cp ~/clojure-1.8.0/clojure-1.8.0.jar clojure.main'
 alias gb='gradle build'
-alias gr='gradle run'
+alias gr='gradle runDebug'
 alias gi='gradle install'
 alias ge='gradle cleanEclipse eclipse'
 
