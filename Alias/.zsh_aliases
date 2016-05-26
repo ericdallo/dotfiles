@@ -1,5 +1,3 @@
-EC2CUBO="52.24.4.97"
-EC2TCC="54.149.190.224"
 
 alias al='vim ~/.zsh_aliases'
 
@@ -11,7 +9,7 @@ alias fpo="sudo shutdown -P 0"
 
 alias git='hub'
 alias killmux='tmux kill-window -a && exit'
-alias tm='mux start tab'
+alias tm='tmuxinator start tab'
 alias cloj='mux start clojure'
 alias s='espeak'
 alias hey='s -v pt-br "se liga, cabô"'
@@ -25,7 +23,7 @@ alias restartchrome="killall chrome; google-chrome-stable"
 alias mysql-rds='mysql -u kali -p -h 127.0.0.1'
 
 alias m="mysql -u root -p"
-alias v="vagrant"
+alias v="vim ."
 alias k="kill -9 "
 
 alias c='xclip -selection clipboard'
@@ -34,7 +32,7 @@ alias gb='gradle build'
 alias gr='gradle runDebug'
 alias gi='gradle install'
 alias ge='gradle cleanEclipse eclipse'
-
+alias gt='gradle test'
 
 # Tcc
 
@@ -43,17 +41,15 @@ alias hades='cd ~/github/hades && ls'
 
 alias zcode='zeus && vim Gruntfile.js'
 
-alias kalissh="ssh -i /etc/amazon/KaliKey.pem -l ec2-user"
-alias tccssh="ssh -i /etc/amazon/tcckey.pem -l ec2-user"
-alias kaliscp="scp -i /etc/amazon/KaliKey.pem"
-alias tccscp="scp -i /etc/amazon/tcckey.pem"
-alias sshcubo="kalissh ec2-user@$EC2CUBO"
-alias sshtcc="tccssh ec2-user@$EC2TCC"
-alias connect-rds='myssh -N -L 3306:rds-instance.cdcjqn1hexrd.us-west-2.rds.amazonaws.com:3306 ec2-user@$EC2IP'
+alias gzeus='gcloud compute ssh zeus'
+alias ghades='gcloud compute ssh hades --zone us-central1-b'
+
+alias sqlvpn='sudo /opt/cloudsql/cloud_sql_proxy -dir /opt/cloudsql -instances qual-facul:us-east1:qual-facul-db -credential_file  /opt/cloudsql/qual-facul-1d4b68b88462.json'
+alias sql='mysql -u root -p -S /opt/cloudsql/qual-facul:us-east1:qual-facul-db'
 
 #Alias temporarios
 alias restartNet="sudo service network-manager restart"
-alias login="curl --data 'username=201309003&password=1337' 1.1.3.1/reg.php"
+alias login="curl --data 'username=201309003&password=20130900395' 1.1.3.1/reg.php"
 
 #Elo7 alias
 

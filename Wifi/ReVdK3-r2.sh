@@ -820,7 +820,7 @@ done
 ###########################################################################
 function AIREPLAY {
 while :; do
-aireplay-ng $MON1 -1 100000000 -a "$MAC" -e "$ESSID" -Q -q3 2>> /dev/null| tee /etc/aireplay_tmp.txt > /dev/null;
+aireplay-ng $MON1 -1 100000000 -a "$MAC" -e "$ESSID" -q3 2>> /dev/null| tee /etc/aireplay_tmp.txt > /dev/null;
 echo "Please Wait..." >> /etc/aireplay_tmp.txt 2> /dev/null
 sleep 1;
 done

@@ -2,7 +2,8 @@ export EDITOR=vim
 
 # Path to your oh-my-zsh installation.
 export ZSH=/home/$USERNAME/.oh-my-zsh
-export JAVA_HOME="/usr/lib/jvm/jdk1.8.0_60"
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+# Set name of the theme to load.             
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -90,26 +91,14 @@ source $ZSH/oh-my-zsh.sh
 source ~/.zsh_aliases
 source ~/.bash_aliases
 
-# Add environment variable COCOS_CONSOLE_ROOT for cocos2d-x
-export COCOS_CONSOLE_ROOT=/home/kali/Cocos2d-x/tools/cocos2d-console/bin
-export PATH=$COCOS_CONSOLE_ROOT:$PATH
-
-# Add environment variable COCOS_TEMPLATES_ROOT for cocos2d-x
-export COCOS_TEMPLATES_ROOT=/home/kali/Cocos2d-x/templates
-export PATH=$COCOS_TEMPLATES_ROOT:$PATH
-
-# Add environment variable NDK_ROOT for cocos2d-x
-export NDK_ROOT=/home/kali/Android/Ndk
-export PATH=$NDK_ROOT:$PATH
-
-export ANDROID_SDK_ROOT=/home/kali/Android/Sdk
-export PATH=$ANDROID_SDK_ROOT:$PATH
-
-export ANT_ROOT=/home/kali/ant/
-export PATH=$ANT_ROOT:$PATH
-
 if [ -e /usr/share/terminfo/x/xterm-256color ]; then
     export TERM='xterm-256color'
 else
     export TERM='xterm-color'
 fi
+
+# The next line updates PATH for the Google Cloud SDK.
+source '/opt/google-cloud-sdk/path.zsh.inc'
+
+# The next line enables shell command completion for gcloud.
+source '/opt/google-cloud-sdk/completion.zsh.inc'
