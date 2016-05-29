@@ -44,6 +44,7 @@ alias zcode='zeus && vim Gruntfile.js'
 alias gzeus='gcloud compute ssh zeus'
 alias ghades='gcloud compute ssh hades --zone us-central1-b'
 
+# GCloud
 alias sqlvpn='sudo /opt/cloudsql/cloud_sql_proxy -dir /opt/cloudsql -instances qual-facul:us-east1:qual-facul-db -credential_file  /opt/cloudsql/qual-facul-1d4b68b88462.json'
 alias sql='mysql -u root -p -S /opt/cloudsql/qual-facul:us-east1:qual-facul-db'
 
