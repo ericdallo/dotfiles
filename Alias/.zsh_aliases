@@ -24,14 +24,16 @@ alias mysql-rds='mysql -u kali -p -h 127.0.0.1'
 
 alias m="mysql -u root -p"
 alias v="vim ."
-alias k="kill -9 "
+alias k="kill -9"
 
 alias c='xclip -selection clipboard'
 alias clojure='java -cp ~/clojure-1.8.0/clojure-1.8.0.jar clojure.main'
-alias gb='gradle build'
-alias gr='gradle runDebug'
-alias gi='gradle install'
-alias ge='gradle cleanEclipse eclipse'
+alias gb='gradle clean build'
+alias gr='gradle bootRun'
+alias gweb='gradle runWeb'
+alias gtasks='gradle runTasks'
+alias gi='gradle clean install'
+alias ge='gradle clean cleanEclipse eclipse'
 alias gt='gradle test'
 
 # Tcc
@@ -42,21 +44,31 @@ alias hades='cd ~/github/hades && ls'
 alias zcode='zeus && vim Gruntfile.js'
 
 alias gzeus='gcloud compute ssh zeus'
-alias ghades='gcloud compute ssh hades --zone us-central1-b'
+alias ghades='gcloud compute ssh hades-web --zone us-central1-b'
 
 # GCloud
-alias sqlvpn='sudo /opt/cloudsql/cloud_sql_proxy -dir /opt/cloudsql -instances qual-facul:us-east1:qual-facul-db -credential_file  /opt/cloudsql/qual-facul-1d4b68b88462.json'
-alias sql='mysql -u root -p -S /opt/cloudsql/qual-facul:us-east1:qual-facul-db'
+alias sqlvpn='sudo /opt/cloudsql/cloud_sql_proxy -dir /opt/cloudsql -instances imarket-2016:us-east1:imarket-db -credential_file  /opt/cloudsql/iMarket-2a8d6a0fda40.json'
+alias sqlvpn2='sudo /opt/cloudsql/cloud_sql_proxy -dir /opt/cloudsql -instances qual-facul:us-east1:qual-facul-db -credential_file  /opt/cloudsql/qual-facul-1d4b68b88462.json'
+alias sql='mysql -u root -p -S /opt/cloudsql/imarket-2016:us-east1:imarket-db'
+alias sql2='mysql -u root -p -S /opt/cloudsql/qual-facul:us-east1:qual-facul-db'
 
 #Alias temporarios
 alias restartNet="sudo service network-manager restart"
-alias login="curl --data 'username=201309003&password=20130900395' 1.1.3.1/reg.php"
+alias login="curl -i --data 'username=201309003&password=20130900395' 1.1.3.1/reg.php"
+
+# iMarket
+
+alias list-imarket-web="gcloud compute instance-groups list-instances imarket-web-group --zone us-east1-d |grep imarket-web-group | awk '{print \$1}'"
+#alias gimarket-web="gcloud compute ssh $list0imarket-web --zone us-east1-d"
+alias gimarket-api='gcloud compute ssh imarket-api --zone us-east1-d
+alias gistoque='gcloud compute ssh istoque --zone us-east1-d'
 
 #Elo7 alias
 
 alias ll='ls -l'
 
-alias pl="ps aux | grep"
+alias pl="ps aux | grep -v grep | grep"
+alias awk2="awk '{print \$2}'"
 alias killtomcat="pl tomcat | awk '{print \$2}' | xargs kill -9"
 alias elo7.log="tail -f -n 1000 /var/log/elo7/elo7.log"
 alias marketplace="tmuxinator start marketplace"

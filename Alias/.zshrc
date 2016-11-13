@@ -2,7 +2,9 @@ export EDITOR=vim
 
 # Path to your oh-my-zsh installation.
 export ZSH=/home/$USERNAME/.oh-my-zsh
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_102
+export JAVA7_HOME=/usr/lib/jvm/jdk1.7.0_79
+export GRADLE_OPTS=-Xmx1024m
 # Set name of the theme to load.             
 
 # Set name of the theme to load.
@@ -102,3 +104,6 @@ source '/opt/google-cloud-sdk/path.zsh.inc'
 
 # The next line enables shell command completion for gcloud.
 source '/opt/google-cloud-sdk/completion.zsh.inc'
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
