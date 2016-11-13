@@ -10,6 +10,7 @@ alias fpo="sudo shutdown -P 0"
 alias git='hub'
 alias killmux='tmux kill-window -a && exit'
 alias tm='tmuxinator start tab'
+alias imarket='tmuxinator start imarket'
 alias cloj='mux start clojure'
 alias s='espeak'
 alias hey='s -v pt-br "se liga, cabô"'
@@ -58,10 +59,10 @@ alias login="curl -i --data 'username=201309003&password=20130900395' 1.1.3.1/re
 
 # iMarket
 
-alias list-imarket-web="gcloud compute instance-groups list-instances imarket-web-group --zone us-east1-d |grep imarket-web-group | awk '{print \$1}'"
+# alias list-imarket-web="gcloud compute instance-groups list-instances imarket-web-group --zone us-east1-d |grep imarket-web-group | awk '{print \$1}'"
 #alias gimarket-web="gcloud compute ssh $list0imarket-web --zone us-east1-d"
-alias gimarket-api='gcloud compute ssh imarket-api --zone us-east1-d
-alias gistoque='gcloud compute ssh istoque --zone us-east1-d'
+# alias gimarket-api='gcloud compute ssh imarket-api --zone us-east1-d
+# alias gistoque='gcloud compute ssh istoque --zone us-east1-d'
 
 #Elo7 alias
 

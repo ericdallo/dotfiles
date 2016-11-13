@@ -1,0 +1,18 @@
+# ~/.tmuxinator/tab.yml
+
+name: imarket
+root: ~/
+windows:
+    - WEB-setup:
+        layout: main-vertical
+        panes:
+            - cd ~/github/iMarket-web && npm run dev 
+            - cd ~/github/iMarket-web && npm run start 
+    - WEB: cd ~/github/iMarket-web && clear
+    - API: cd ~/github/iMarket-API && clear
+    - MySQL:  mysql -u root --password= imarket
+    - MySQL-prod:
+        layout: main-vertical
+        panes:
+            - sqlvpn
+            - sql
