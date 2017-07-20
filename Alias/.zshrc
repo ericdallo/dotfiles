@@ -5,6 +5,8 @@ export ZSH=/home/$USERNAME/.oh-my-zsh
 export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_102
 export JAVA7_HOME=/usr/lib/jvm/jdk1.7.0_79
 export GRADLE_OPTS=-Xmx1024m
+export BINTRAY_USER=ericdallo
+export BINTRAY_KEY=94ca5600791255c0d2079e29c723c697a0f8a98f
 # Set name of the theme to load.             
 
 # Set name of the theme to load.

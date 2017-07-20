@@ -31,8 +31,8 @@ windows:
   - Main: ls
   - Other:
   - MySQL:  mysql -u root --password=
-  - TCC:
+  - Another:
       layout: main-vertical
       panes:
-        - hades
-        - zeus
+        - 
+        - 

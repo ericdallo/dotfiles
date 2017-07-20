@@ -37,25 +37,18 @@ alias gi='gradle clean install'
 alias ge='gradle clean cleanEclipse eclipse'
 alias gt='gradle test'
 
-# Tcc
+# Cloud at Cost
 
-alias zeus='cd ~/github/zeus && ls'
-alias hades='cd ~/github/hades && ls'
-
-alias zcode='zeus && vim Gruntfile.js'
-
-alias gzeus='gcloud compute ssh zeus'
-alias ghades='gcloud compute ssh hades-web --zone us-central1-b'
+alias sshcac='ssh root@64.137.215.204'
 
 # GCloud
 alias sqlvpn='sudo /opt/cloudsql/cloud_sql_proxy -dir /opt/cloudsql -instances imarket-2016:us-east1:imarket-db -credential_file  /opt/cloudsql/iMarket-2a8d6a0fda40.json'
 alias sqlvpn2='sudo /opt/cloudsql/cloud_sql_proxy -dir /opt/cloudsql -instances qual-facul:us-east1:qual-facul-db -credential_file  /opt/cloudsql/qual-facul-1d4b68b88462.json'
-alias sql='mysql -u root -p -S /opt/cloudsql/imarket-2016:us-east1:imarket-db'
-alias sql2='mysql -u root -p -S /opt/cloudsql/qual-facul:us-east1:qual-facul-db'
+alias sql='mysql -u root -p -S /opt/cloudsql/imarket-2016:us-east1:imarket-db imarket'
+alias sql2='mysql -u root -p -S /opt/cloudsql/qual-facul:us-east1:qual-facul-db tcc'
 
 #Alias temporarios
 alias restartNet="sudo service network-manager restart"
-alias login="curl -i --data 'username=201309003&password=20130900395' 1.1.3.1/reg.php"
 
 # iMarket
 
