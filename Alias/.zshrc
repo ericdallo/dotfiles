@@ -1,4 +1,5 @@
 export EDITOR=vim
+export PI=192.168.1.108
 
 # Path to your oh-my-zsh installation.
 export ZSH=/home/$USERNAME/.oh-my-zsh

@@ -1,4 +1,7 @@
 
+# Raspiberry
+alias pi='ssh pi@$PI'
+alias torrent='transmission-remote-cli -c $PI'
 alias al='vim ~/.zsh_aliases'
 
 alias taghere='ctags -R -f ./.git/tags'
@@ -39,7 +42,7 @@ alias gt='gradle test'
 
 # Cloud at Cost
 
-alias sshcac='ssh root@64.137.215.204'
+alias sshcac='ssh root@64.137.237.239'
 
 # GCloud
 alias sqlvpn='sudo /opt/cloudsql/cloud_sql_proxy -dir /opt/cloudsql -instances imarket-2016:us-east1:imarket-db -credential_file  /opt/cloudsql/iMarket-2a8d6a0fda40.json'
