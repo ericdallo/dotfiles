@@ -2,12 +2,18 @@ export EDITOR=vim
 export PI=192.168.1.108
 
 # Path to your oh-my-zsh installation.
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/kali/.rvm/bin"
+export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.vimpkg/bin:$PATH"
 export ZSH=/home/$USERNAME/.oh-my-zsh
 export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_102
 export JAVA7_HOME=/usr/lib/jvm/jdk1.7.0_79
 export GRADLE_OPTS=-Xmx1024m
 export BINTRAY_USER=ericdallo
 export BINTRAY_KEY=94ca5600791255c0d2079e29c723c697a0f8a98f
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 # Set name of the theme to load.             
 
 # Set name of the theme to load.
@@ -62,9 +68,6 @@ plugins=(git)
 
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/kali/.rvm/bin"
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="$HOME/.vimpkg/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -93,8 +96,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-source ~/.zsh_aliases
-source ~/.bash_aliases
+[[ -s "~/.zsh_aliases" ]] && source ~/.zsh_aliases
+[[ -s "~/.bash_aliases" ]] && source ~/.bash_aliases
 
 if [ -e /usr/share/terminfo/x/xterm-256color ]; then
     export TERM='xterm-256color'
@@ -102,11 +105,10 @@ else
     export TERM='xterm-color'
 fi
 
-# The next line updates PATH for the Google Cloud SDK.
-source '/opt/google-cloud-sdk/path.zsh.inc'
+source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-# The next line enables shell command completion for gcloud.
-source '/opt/google-cloud-sdk/completion.zsh.inc'
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/greg/.sdkman"
+[[ -s "/home/greg/.sdkman/bin/sdkman-init.sh" ]] && source "/home/greg/.sdkman/bin/sdkman-init.sh"
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+source ~/.functions

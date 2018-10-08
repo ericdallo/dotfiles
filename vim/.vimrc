@@ -18,7 +18,6 @@ autocmd BufWinEnter * NERDTreeMirror
 " autocmd BufWinEnter * colo SweetCandy
 " autocmd BufWinEnter * colo forcecolor
 let g:kolor_bold=1
-colorscheme kolor
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 
 execute pathogen#infect()

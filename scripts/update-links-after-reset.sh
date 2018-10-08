@@ -2,11 +2,11 @@
 
 set -ve
 
-ln -sf ~/git/dotfiles/tmux/.tmux.conf ~/.tmux.conf
-ln -sf ~/git/dotfiles/tmux/.tmuxinator ~/.tmuxinator
-ln -sf ~/git/dotfiles/vim/.vimrc ~/.vimrc
-ln -sf ~/git/dotfiles/alias/.zsh_aliases ~/.zsh_aliases
-ln -sf ~/git/dotfiles/alias/.zshrc ~/.zshrc
-ln -sf ~/git/dotfiles/git/.gitconfig ~/.gitconfig
+ln -sf ~/dev/dotfiles/tmux/.tmux.conf ~/.tmux.conf
+ln -sf ~/dev/dotfiles/tmux/.tmuxinator ~/.tmuxinator
+ln -sf ~/dev/dotfiles/vim/.vimrc ~/.vimrc
+ln -sf ~/dev/dotfiles/alias/.zsh_aliases ~/.zsh_aliases
+ln -sf ~/dev/dotfiles/alias/.zshrc ~/.zshrc
+ln -sf ~/dev/dotfiles/git/.gitconfig ~/.gitconfig
 
 echo "Links updated"

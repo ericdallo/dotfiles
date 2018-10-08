@@ -3,6 +3,7 @@
 alias pi='ssh pi@$PI'
 alias torrent='transmission-remote-cli -c $PI'
 alias al='vim ~/.zsh_aliases'
+alias fu='vim ~/.functions'
 
 alias taghere='ctags -R -f ./.git/tags'
 
@@ -41,8 +42,12 @@ alias ge='gradle clean cleanEclipse eclipse'
 alias gt='gradle test'
 
 # Cloud at Cost
+CAC3_IP="45.62.235.111"
+CAC_IP="64.137.237.239"
 
-alias sshcac='ssh root@64.137.237.239'
+alias sshcac='ssh root@$CAC_IP'
+alias sshcac3='ssh root@$CAC3_IP'
+alias mysql-cac3='mysql -u root -p123mudar -h $CAC3_IP gregflix'
 
 # GCloud
 alias sqlvpn='sudo /opt/cloudsql/cloud_sql_proxy -dir /opt/cloudsql -instances imarket-2016:us-east1:imarket-db -credential_file  /opt/cloudsql/iMarket-2a8d6a0fda40.json'
@@ -62,13 +67,29 @@ alias restartNet="sudo service network-manager restart"
 
 #Elo7 alias
 
+alias ls='ls -G'
 alias ll='ls -l'
+alias hey="osascript -e 'display notification \"acabou\" with title \"ACABOU!\" '"
 
-alias pl="ps aux | grep -v grep | grep"
-alias awk2="awk '{print \$2}'"
-alias killtomcat="pl tomcat | awk '{print \$2}' | xargs kill -9"
+alias pl="ps aux | grep"
+alias killtomcat="pl [t]omcat | awk '{print \$2}' | xargs kill -9"
+alias tunnel="ssh -N -R 8100:localhost:8080 -i ~/dev/keys/integration.pem ec2-user@integration.elo7.com.br"
 alias elo7.log="tail -f -n 1000 /var/log/elo7/elo7.log"
 alias marketplace="tmuxinator start marketplace"
+alias talk7="tmuxinator start talk7"
+alias martell="tmuxinator start martell"
+alias queues="tmuxinator start queues"
+alias busca="tmuxinator start busca"
+alias mosquitto="tmuxinator start mosquitto"
+alias w7="tmuxinator start w7"
+alias sftp-server-start="chmod 755 ~/.ssh/authorized_keys; ssh-keygen -y -f ~/dev/keys/sa-default-key.pem >~/.ssh/authorized_keys; chmod 400 ~/.ssh/authorized_keys; sudo systemsetup -setremotelogin on"
+alias sftp-server-stop="sudo systemsetup -setremotelogin off"
+alias xvfb-fix="mkdir /tmp/.X11-unix && sudo chmod 1777 /tmp/.X11-unix && sudo chown root /tmp/.X11-unix/"
+
+# cenv script to switch between environments
+alias cenv="/bin/bash ~/dev/dotfiles/scripts/environment/cenv.sh"
+alias goto_pay7="/bin/bash ~/dev/dotfiles/scripts/environment/cenv.sh pay7"
+alias goto_mkt="/bin/bash ~/dev/dotfiles/scripts/environment/cenv.sh marketplace"
 
 alias u="cd ../"
 alias uu="cd ../../"
@@ -76,24 +97,32 @@ alias uuu="cd ../../../"
 alias uuuu="cd ../../../../"
 alias uuuuu="cd ../../../../../"
 
+alias g='hitch && git'
+
 # Bundler
 alias b="bundle"
 alias bi="b install --path vendor"
 alias bu="b update"
-alias be="b exec"
+alias be="xvfb-fix; b exec"
 alias binit="bi && b package && echo 'vendor/ruby' >> .gitignore"
 
+alias scpc='scp -i ~/dev/keys/sa-default-key.pem'
+alias sshc='ssh -i ~/dev/keys/sa-default-key.pem -l core'
+alias sshu='ssh -i ~/dev/keys/sa-default-key.pem -l ubuntu'
+alias sshh='ssh -i ~/dev/keys/sa-default-key.pem -l hadoop'
+alias sshTunel='ssh -i ~/dev/keys/sa-default-key.pem -ND 8157 -l hadoop'
 
-alias sshu="ssh -i ~/dev/keys/production_new.pem -l ubuntu"
-alias sshc="ssh -i ~/dev/keys/production_new.pem -l core"
-alias sshi="ssh -i ~/dev/keys/integration.pem -l ec2-user"
-alias sshpn="ssh -i ~/dev/keys/production.pem -l ec2-user"
-alias sshnat="ssh -i ~/dev/keys/production_new.pem -l ec2-user"
+# Update marketplace properties to S3
+alias update-marketplace-properties="ruby ~/dev/dotfiles/scripts/marketplace/update_s3_properties.rb"
+
+# change java versions
+alias use-java7="change-java 7"
+alias use-java8="change-java 8"
 
 V3=~/dev/marketplace/elo7/src/main/webapp/v3
 alias rm.assets="rm -rf $V3/common/css && rm -rf $V3/mobile/css && rm -rf $V3/desktop/css && rm -f $V3/common/js/elo7.js && rm -f $V3/mobile/js/mobile.js && rm -f $V3/desktop/js/desktop.js"
-alias wtf="rm.assets; killtomcat; mvn clean eclipse:clean eclipse:eclipse -Dwtpversion=2.0"
-
+alias wtf="ruby ~/dev/dotfiles/scripts/marketplace/properties-comparator.rb; rm.assets; killtomcat; mvn clean eclipse:clean eclipse:eclipse -Dwtpversion=2.0; ruby ~/dev/dotfiles/scripts/marketplace/properties-comparator.rb"
+alias clean="automator ~/dev/dotfiles/clean.workflow > /dev/null &"
 alias rehash="source ~/.zshrc"
 
 # Allows to override Same-Origin policy
@@ -102,7 +131,115 @@ alias ogc='open -a Google\ Chrome --args --disable-web-security'
 # Runs grunt in dev
 alias dev='cd /Users/Developer/dev/marketplace/elo7/grunt && ./node_modules/grunt-cli/bin/grunt --gruntfile=gruntfiles/dev.js --base=.'
 
+alias ge='gradle cleanEclipse eclipse'
+alias runAtelier='be rails server -p 3003'
+alias ship7-build='cd ~/dev/shipping7-commons && gradle install && cd ../shipping7-worker && ge && cd ../shipping7-scheduler && ge && cd ~/dev'
+alias ship7-sillence="curl -v -X POST -H \"Content-Type: application/json\" -d '{\"dc\":\"sa-east-1\",\"path\":\"silence/shipping7-scheduler-i-07712f3cb3f7f12b4/check_scheduler_process\",\"content\":{\"reason\":\"Automatic deploy reason\",\"source\":\"uchiwa\"},\"expire\": 200}' http://api.sensu.elo7aws.com.br:8080/stashes"
+alias ship7-scheduler-restart="ship7-sillence && fleetctl stop shipping7-scheduler-production.service && sleep 20 && fleetctl start shipping7-scheduler-production.service"
+alias ship7-scheduler-update-properties="ruby ~/dev/dotfiles/scripts/shipping7/update_s3_scheduler_properties.rb"
+alias ship7-worker-update-properties="ruby ~/dev/dotfiles/scripts/shipping7/update_s3_worker_properties.rb"
+
+alias update-dummy="mysqldump -u root -d elo7 | mysql -u root -Delo7_dummy"
 alias run-all-tests="mvn clean test -P run-all-tests"
 alias run-migration="flyway-migration"
+alias migration-run="run-migration"
+alias migration-repair="run-migration repair"
+alias migration-create="run-migration create | xargs sublime"
+alias migration-conflict-resolve="~/dev/dotfiles/scripts/marketplace/migration/conflict_resolve.sh"
 alias curl_api="~/dev/dotfiles/scripts/marketplace/mobile/curl_api.sh"
+alias curl_ajax="~/dev/dotfiles/scripts/marketplace/mobile/curl_ajax.sh"
+alias curl_upload="~/dev/dotfiles/scripts/marketplace/mobile/curl_upload.sh"
 alias i18n="~/dev/dotfiles/scripts/marketplace/i18n/elo7locale.sh"
+alias meclipse="comprop; mvn clean eclipse:clean eclipse:eclipse"
+alias bloquear="ruby ~/dev/dotfiles/scripts/utils/semaphore_block.rb"
+alias liberar="ruby ~/dev/dotfiles/scripts/utils/semaphore_unblock.rb"
+alias playground="ruby ~/dev/dotfiles/scripts/utils/playground.rb"
+
+alias ge="gradle clean cleanEclipse eclipse"
+alias gb="gradle build"
+alias gi="gradle clean install"
+alias change-to-talk7="nginx_elo7_control stop && nginx_talk7_control start"
+alias change-to-elo7="nginx_talk7_control stop && nginx_elo7_control start"
+
+alias postgres-start="postgres -D /usr/local/var/postgres"
+alias cassandra-start="/opt/apache-cassandra/bin/cassandra -f"
+alias cqlsh="/opt/apache-cassandra/bin/cqlsh -C"
+
+alias top10="ps -eo pmem,pcpu,vsize,pid,comm | sort -k 1 -nr | head -10"
+
+alias srun="use-java8 && mvn clean spring-boot:run"
+alias gsrun="./gradlew ':web/server':bootRun"
+
+alias sshelo7ctl="sshc elo7ctl.elo7aws.com.br -t 'bash -ic ./elo7ctl.sh'"
+alias etcdconnect="sshc 172.16.19.211"
+alias comprop="ruby ~/dev/dotfiles/scripts/marketplace/properties-comparator.rb"
+
+mimefunc() {
+	j $1
+	mvn install
+	cd -
+	meclipse
+}
+
+alias mime=mimefunc
+
+alias properties='ruby ~/dev/dotfiles/scripts/marketplace/properties-comparator.rb'
+
+alias s3Copy='sh ~/dev/dotfiles/scripts/harlaw/s3Copy.sh'
+alias s3CopyRange='sh ~/dev/dotfiles/scripts/harlaw/s3CopyRange.sh'
+
+alias mkt-ip="/bin/bash ~/dev/dotfiles/scripts/mkt-ip.sh"
+
+alias fleetctl-us='fleetctl --endpoint=http://us.etcd.elo7aws.com.br:2379'
+
+s3ls () {
+    aws s3 ls "s3://$@"
+}
+getIp () {
+    aws ec2 describe-instances --filter "Name=tag:Name,Values=$@" --output=text |grep PRIVATEIPADDRESS | awk '{print $4}'
+}
+
+listDisks () {
+	percentage=${1:-80}
+	os=${2:-coreos}
+
+	echo "df -Ph | awk '+\$5 >= $percentage {print \$1,\$5,\$6}'" > /tmp/listDisks-coreos
+
+	eol=$'\n'
+
+	echo "\tIP\tMOUNT\tPERCENTAGE\tFOLDER"
+
+	for ip in $(aws ec2 describe-instances --filters "Name=tag:elo7::operating-system,Values=$os" "Name=instance-state-name,Values=pending,running" --query "Reservations[].Instances[].NetworkInterfaces[].PrivateIpAddresses[].PrivateIpAddress" --output text); do
+
+		disks=$(sshc $ip -q -o StrictHostKeyChecking=no 'bash -s' < "/tmp/listDisks-coreos")
+		formattedDisks="${disks/$eol/$eol$ip\t}"
+
+		if [ "$disks" ]; then
+			echo "$ip\t$formattedDisks"
+		fi
+	done
+}
+
+ship7-scheduler-force-task () {
+   sshc $(getIp shipping7-scheduler) -t "curl -X POST localhost/schedulers/$@"
+}
+
+alias eventStream='sh ~/dev/dotfiles/scripts/harlaw/eventStream.sh'
+alias http='sh ~/dev/dotfiles/Scripts/utils/safeHttp.sh'
+
+alias up="ruby ~/dev/dotfiles/scripts/marketplace/update-properties.rb"
+
+alias gw="./gradlew"
+alias gw-install="gw publishToMavenLocal"
+
+alias deeplink='~/dev/scripts/mobile/deeplink.sh'
+alias demail='~/dev/scripts/mobile/demail/demail.sh'
+alias mobile-release='~/dev/scripts/deploy_scripts/mobile_scripts/release.sh'
+
+alias update-citadel-properties="sh ~/dev/dotfiles/scripts/citadel/citadel-pr.sh"
+
+alias apk="./gradlew assembleRelease"
+alias reverse="adb reverse tcp:8081 tcp:8081"
+alias continue="git rebase --continue"
+alias open-apk="open app/build/outputs/apk"
+alias install="./gradlew install"
