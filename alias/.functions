@@ -1,42 +1,7 @@
 #!/bin/bash
 
-function 2vtt {
-    #iconv -f iso-8859-1 -t utf-8 -o "$1.srt" "$1.srt"
-    srt2vtt "$1.srt" > "$1.vtt"
-}
+source .gregflix-functions
 
-function encodeVideo {
-    ffmpeg -y -i "$1.mkv" -c:v libx264 -c:a aac -sn "$1.mp4"
-    2vtt "$1"
-}
-
-function encodeAudio {
-    ffmpeg -y -i "$1.mkv" -c:v copy -c:a aac -sn "$1.mp4"
-    2vtt "$1"
-}
-
-function toMp4 {
-    ffmpeg -y -i "$1.mkv" -c:v copy -c:a copy -map 0:v -map 0:1 -map 0:1 -sn "$1.mp4"
-    2vtt "$1"
-}
-
-function changeEncoding {
-    iconv -f iso-8859-1 -t utf-8 "$1" > "$1" 
-}
-
-function uploadSerie {
-    s3cmd put $1.mp4 s3://gregflix/file.gregflix.site/series/$2/s$3/e$4/$1.mp4 -P --add-header='content-type':'video/mp4' --mime-type='video/mp4'
-    s3cmd put $1.vtt s3://gregflix/file.gregflix.site/series/$2/s$3/e$4/$1.vtt -P --add-header='content-type':'text/vtt' --mime-type='text/vtt'
-    s3cmd put $1.srt s3://gregflix/file.gregflix.site/series/$2/s$3/e$4/$1.srt -P --add-header='content-type':'text/srt' --mime-type='text/srt'
-}
-
-function uploadSerieTrack {
-    s3cmd put $1.vtt s3://gregflix/file.gregflix.site/series/$2/s$3/e$4/$1.vtt -P --add-header='content-type':'text/vtt' --mime-type='text/vtt'
-    s3cmd put $1.srt s3://gregflix/file.gregflix.site/series/$2/s$3/e$4/$1.srt -P --add-header='content-type':'text/srt' --mime-type='text/srt'
-}
-
-function uploadMovie {
-    s3cmd put $1.mp4 s3://gregflix/file.gregflix.site/movies/$2/$1.mp4 -P --add-header='content-type':'video/mp4' --mime-type='video/mp4'
-    s3cmd put $1.vtt s3://gregflix/file.gregflix.site/movies/$2/$1.vtt -P --add-header='content-type':'text/vtt' --mime-type='text/vtt'
-    s3cmd put $1.srt s3://gregflix/file.gregflix.site/movies/$2/$1.srt -P --add-header='content-type':'text/srt' --mime-type='text/srt'
+function flyway-migrate() {
+    mvn -f ~/dev/marketplace/upgrade/ -Dflyway.configFile=flyway.properties -Dflyway.schemas=elo7 flyway:migrate
 }

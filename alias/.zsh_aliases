@@ -27,7 +27,8 @@ alias restartchrome="killall chrome; google-chrome-stable"
 
 alias mysql-rds='mysql -u kali -p -h 127.0.0.1'
 
-alias m="mysql -u root -p"
+alias mdocker="docker exec -it mysql mysql -uroot -p"
+alias m="mysql -uroot -p -h 172.17.0.1"
 alias v="vim ."
 alias k="kill -9"
 
@@ -67,7 +68,7 @@ alias restartNet="sudo service network-manager restart"
 
 #Elo7 alias
 
-alias ls='ls -G'
+alias ls='ls -G --color=auto'
 alias ll='ls -l'
 alias hey="osascript -e 'display notification \"acabou\" with title \"ACABOU!\" '"
 
@@ -105,15 +106,39 @@ alias bi="b install --path vendor"
 alias bu="b update"
 alias be="xvfb-fix; b exec"
 alias binit="bi && b package && echo 'vendor/ruby' >> .gitignore"
-
 alias scpc='scp -i ~/dev/keys/sa-default-key.pem'
+alias uscpc='scp -i ~/dev/keys/us-default-key.pem'
 alias sshc='ssh -i ~/dev/keys/sa-default-key.pem -l core'
+alias usshc='ssh -i ~/dev/keys/us-default-key.pem -l core'
+alias usshu='ssh -i ~/dev/keys/us-default-key.pem -l ubuntu'
 alias sshu='ssh -i ~/dev/keys/sa-default-key.pem -l ubuntu'
-alias sshh='ssh -i ~/dev/keys/sa-default-key.pem -l hadoop'
 alias sshTunel='ssh -i ~/dev/keys/sa-default-key.pem -ND 8157 -l hadoop'
+alias sshh=sshhfunc
+alias usshh=usshhfunc
+alias sshuh='ssh -oStrictHostKeyChecking=no -i ~/dev/keys/us-default-key.pem -l hadoop'
+alias sshh-tunel=sshh-tunel-func
+
+sshhfunc() {
+        echo "Removing host[$1] from known_hosts"
+            ssh-keygen -R $1
+                ssh -oStrictHostKeyChecking=no -i ~/dev/keys/sa-default-key.pem -l hadoop $1
+            }
+
+            usshhfunc() {
+                    echo "Removing host[$1] from known_hosts"
+                        ssh-keygen -R $1
+                            ssh -oStrictHostKeyChecking=no -i ~/dev/keys/us-default-key.pem -l hadoop $1
+                        }
+
+                        sshh-tunel-func() {
+                            echo "Removing host[emr-hive-production.elo7aws.com.br] from known_hosts"
+                                ssh-keygen -R emr-hive-production.elo7aws.com.br
+                                    ssh -oStrictHostKeyChecking=no -i ~/dev/keys/us-default-key.pem -ND 8157 hadoop@emr-hive-production.elo7aws.com.br
+                                }
+
 
 # Update marketplace properties to S3
-alias update-marketplace-properties="ruby ~/dev/dotfiles/scripts/marketplace/update_s3_properties.rb"
+alias update-marketplace-properties="ruby ~/dev/dotfiles-elo7/scripts/marketplace/update_s3_properties.rb"
 
 # change java versions
 alias use-java7="change-java 7"
@@ -121,8 +146,8 @@ alias use-java8="change-java 8"
 
 V3=~/dev/marketplace/elo7/src/main/webapp/v3
 alias rm.assets="rm -rf $V3/common/css && rm -rf $V3/mobile/css && rm -rf $V3/desktop/css && rm -f $V3/common/js/elo7.js && rm -f $V3/mobile/js/mobile.js && rm -f $V3/desktop/js/desktop.js"
-alias wtf="ruby ~/dev/dotfiles/scripts/marketplace/properties-comparator.rb; rm.assets; killtomcat; mvn clean eclipse:clean eclipse:eclipse -Dwtpversion=2.0; ruby ~/dev/dotfiles/scripts/marketplace/properties-comparator.rb"
-alias clean="automator ~/dev/dotfiles/clean.workflow > /dev/null &"
+alias wtf="ruby ~/dev/dotfiles-elo7/scripts/marketplace/properties-comparator.rb; rm.assets; killtomcat; mvn clean eclipse:clean eclipse:eclipse -Dwtpversion=2.0; ruby ~/dev/dotfiles-elo7/scripts/marketplace/properties-comparator.rb"
+alias clean="automator ~/dev/dotfiles-elo7/clean.workflow > /dev/null &"
 alias rehash="source ~/.zshrc"
 
 # Allows to override Same-Origin policy
@@ -136,8 +161,8 @@ alias runAtelier='be rails server -p 3003'
 alias ship7-build='cd ~/dev/shipping7-commons && gradle install && cd ../shipping7-worker && ge && cd ../shipping7-scheduler && ge && cd ~/dev'
 alias ship7-sillence="curl -v -X POST -H \"Content-Type: application/json\" -d '{\"dc\":\"sa-east-1\",\"path\":\"silence/shipping7-scheduler-i-07712f3cb3f7f12b4/check_scheduler_process\",\"content\":{\"reason\":\"Automatic deploy reason\",\"source\":\"uchiwa\"},\"expire\": 200}' http://api.sensu.elo7aws.com.br:8080/stashes"
 alias ship7-scheduler-restart="ship7-sillence && fleetctl stop shipping7-scheduler-production.service && sleep 20 && fleetctl start shipping7-scheduler-production.service"
-alias ship7-scheduler-update-properties="ruby ~/dev/dotfiles/scripts/shipping7/update_s3_scheduler_properties.rb"
-alias ship7-worker-update-properties="ruby ~/dev/dotfiles/scripts/shipping7/update_s3_worker_properties.rb"
+alias ship7-scheduler-update-properties="ruby ~/dev/dotfiles-elo7/scripts/shipping7/update_s3_scheduler_properties.rb"
+alias ship7-worker-update-properties="ruby ~/dev/dotfiles-elo7/scripts/shipping7/update_s3_worker_properties.rb"
 
 alias update-dummy="mysqldump -u root -d elo7 | mysql -u root -Delo7_dummy"
 alias run-all-tests="mvn clean test -P run-all-tests"
@@ -145,7 +170,7 @@ alias run-migration="flyway-migration"
 alias migration-run="run-migration"
 alias migration-repair="run-migration repair"
 alias migration-create="run-migration create | xargs sublime"
-alias migration-conflict-resolve="~/dev/dotfiles/scripts/marketplace/migration/conflict_resolve.sh"
+alias migration-conflict-resolve="~/dev/dotfiles-elo7/scripts/marketplace/migration/conflict_resolve.sh"
 alias curl_api="~/dev/dotfiles/scripts/marketplace/mobile/curl_api.sh"
 alias curl_ajax="~/dev/dotfiles/scripts/marketplace/mobile/curl_ajax.sh"
 alias curl_upload="~/dev/dotfiles/scripts/marketplace/mobile/curl_upload.sh"
@@ -170,9 +195,9 @@ alias top10="ps -eo pmem,pcpu,vsize,pid,comm | sort -k 1 -nr | head -10"
 alias srun="use-java8 && mvn clean spring-boot:run"
 alias gsrun="./gradlew ':web/server':bootRun"
 
-alias sshelo7ctl="sshc elo7ctl.elo7aws.com.br -t 'bash -ic ./elo7ctl.sh'"
+alias sshelo7ctl="usshc elo7ctl -t 'bash -ic ./elo7ctl.sh'"
 alias etcdconnect="sshc 172.16.19.211"
-alias comprop="ruby ~/dev/dotfiles/scripts/marketplace/properties-comparator.rb"
+alias comprop="ruby ~/dev/dotfiles-elo7/scripts/marketplace/properties-comparator.rb"
 
 mimefunc() {
 	j $1
@@ -183,7 +208,7 @@ mimefunc() {
 
 alias mime=mimefunc
 
-alias properties='ruby ~/dev/dotfiles/scripts/marketplace/properties-comparator.rb'
+alias properties='ruby ~/dev/dotfiles-elo7/scripts/marketplace/properties-comparator.rb'
 
 alias s3Copy='sh ~/dev/dotfiles/scripts/harlaw/s3Copy.sh'
 alias s3CopyRange='sh ~/dev/dotfiles/scripts/harlaw/s3CopyRange.sh'
@@ -225,9 +250,9 @@ ship7-scheduler-force-task () {
 }
 
 alias eventStream='sh ~/dev/dotfiles/scripts/harlaw/eventStream.sh'
-alias http='sh ~/dev/dotfiles/Scripts/utils/safeHttp.sh'
+alias http='sh ~/dev/dotfiles-elo7/Scripts/utils/safeHttp.sh'
 
-alias up="ruby ~/dev/dotfiles/scripts/marketplace/update-properties.rb"
+alias up="ruby ~/dev/dotfiles-elo7/scripts/marketplace/update-properties.rb"
 
 alias gw="./gradlew"
 alias gw-install="gw publishToMavenLocal"
@@ -236,10 +261,19 @@ alias deeplink='~/dev/scripts/mobile/deeplink.sh'
 alias demail='~/dev/scripts/mobile/demail/demail.sh'
 alias mobile-release='~/dev/scripts/deploy_scripts/mobile_scripts/release.sh'
 
-alias update-citadel-properties="sh ~/dev/dotfiles/scripts/citadel/citadel-pr.sh"
+alias update-citadel-properties="sh ~/dev/dotfiles-elo7/scripts/citadel/citadel-pr.sh"
 
 alias apk="./gradlew assembleRelease"
 alias reverse="adb reverse tcp:8081 tcp:8081"
 alias continue="git rebase --continue"
 alias open-apk="open app/build/outputs/apk"
 alias install="./gradlew install"
+
+
+# Kubernetes
+
+alias kubelogin="~/dev/dotfiles-elo7/scripts/k8s/configure-k8s.sh"
+alias k8s-config="rm -fr /usr/local/bin/kubectl && rm -f ${HOME}/bin/kubectl && rm -fr ${HOME}/.kube && ${HOME}/dev/dotfiles-elo7/scripts/k8s/configure-k8s.sh"
+alias k8s-config-us="rm -fr /usr/local/bin/kubectl && rm -f ${HOME}/bin/kubectl && rm -fr ${HOME}/.kube && ${HOME}/dev/dotfiles-elo7/scripts/k8s/configure-k8s-us.sh"
+alias kprod="kubectl -n prod"
+

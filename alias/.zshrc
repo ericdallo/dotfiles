@@ -13,7 +13,8 @@ export BINTRAY_USER=ericdallo
 export BINTRAY_KEY=94ca5600791255c0d2079e29c723c697a0f8a98f
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
-export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/bin:$PATH
+export FLEETCTL_ENDPOINT=http://etcd.elo7aws.com.br:2379
 # Set name of the theme to load.             
 
 # Set name of the theme to load.
@@ -96,8 +97,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-[[ -s "~/.zsh_aliases" ]] && source ~/.zsh_aliases
-[[ -s "~/.bash_aliases" ]] && source ~/.bash_aliases
+[[ -s ~/.zsh_aliases ]] && source ~/.zsh_aliases
+[[ -s ~/.bash_aliases ]] && source ~/.bash_aliases
+[[ -s ~/.functions ]] && source ~/.functions
 
 if [ -e /usr/share/terminfo/x/xterm-256color ]; then
     export TERM='xterm-256color'
@@ -111,4 +113,3 @@ source "$HOME/.sdkman/bin/sdkman-init.sh"
 export SDKMAN_DIR="/home/greg/.sdkman"
 [[ -s "/home/greg/.sdkman/bin/sdkman-init.sh" ]] && source "/home/greg/.sdkman/bin/sdkman-init.sh"
 
-source ~/.functions
