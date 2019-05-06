@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source .gregflix-functions
+source $HOME/dev/dotfiles/alias/.gregflix-functions
 
 function flyway-migrate() {
     mvn -f ~/dev/marketplace/upgrade/ -Dflyway.configFile=flyway.properties -Dflyway.schemas=elo7 flyway:migrate

@@ -8,7 +8,7 @@
 	status = auto
 
 [apply]
-  whitespace = nowarn
+  whitespace=fix
 [color]
   ui = auto
 [color "branch"]
@@ -32,6 +32,7 @@
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%an, %cr)%Creset' --abbrev-commit --date=relative
   rclone = clone --reference /git/cache.git/
   ph = push origin HEAD
+  pheroku = push heroku HEAD
 
   last  = cat-file commit HEAD
   sta    = ls-files --exclude-per-directory=.gitignore \

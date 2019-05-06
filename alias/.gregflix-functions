@@ -1,8 +1,11 @@
 #!/bin/bash
 
+source $HOME/dev/dotfiles/alias/.tmdb-functions
+
 function changeEncoding {
     if file -i "$1.srt" |grep -q "iso-8859-1"; then
-        iconv -f ISO-8859-1 -t UTF-8 "$1.srt" -o "$1.srt"
+        iconv -f ISO-8859-1 -t UTF-8 "$1.srt" -o "$1.srt.tmp" &&
+        mv "$1.srt.tmp" "$1.srt"
     fi
 }
 
@@ -31,14 +34,6 @@ function uploadSerie {
     TRACK_PATH=s3://gregflix/file.gregflix.site/series/$2/s$3/e$4/$1.srt
     VTT_PATH=s3://gregflix/file.gregflix.site/series/$2/s$3/e$4/$1.vtt
 
-    s3cmd info $SERIE_PATH >/dev/null 2>&1
-
-    if [[ $? -eq 0 ]]; then
-        echo "Serie already uploaded"
-    else
-        s3cmd put $1.mp4 s3://gregflix/file.gregflix.site/series/$2/s$3/e$4/$1.mp4 -P --add-header='content-type':'video/mp4' --mime-type='video/mp4'
-    fi
-
     s3cmd info $TRACK_PATH >/dev/null 2>&1
 
     if [[ $? -eq 0 ]]; then
@@ -54,6 +49,14 @@ function uploadSerie {
     else
         s3cmd put $1.vtt s3://gregflix/file.gregflix.site/series/$2/s$3/e$4/$1.vtt -P --add-header='content-type':'text/vtt' --mime-type='text/vtt'
     fi
+
+    s3cmd info $SERIE_PATH >/dev/null 2>&1
+
+    if [[ $? -eq 0 ]]; then
+        echo "Serie already uploaded"
+    else
+        s3cmd put $1.mp4 s3://gregflix/file.gregflix.site/series/$2/s$3/e$4/$1.mp4 -P --add-header='content-type':'video/mp4' --mime-type='video/mp4'
+    fi
 }
 
 function uploadSerieTrack {
@@ -61,18 +64,18 @@ function uploadSerieTrack {
     s3cmd put $1.srt s3://gregflix/file.gregflix.site/series/$2/s$3/e$4/$1.srt -P --add-header='content-type':'text/srt' --mime-type='text/srt'
 }
 
+function uploadMovieTrack {
+    TRACK_PATH=s3://gregflix/file.gregflix.site/movies/$2/$1.srt
+    VTT_PATH=s3://gregflix/file.gregflix.site/movies/$2/$1.vtt
+
+    s3cmd put $1.srt $TRACK_PATH -P --add-header='content-type':'text/srt' --mime-type='text/srt'
+    s3cmd put $1.vtt $VTT_PATH -P --add-header='content-type':'text/vtt' --mime-type='text/vtt'
+}
+
 function uploadMovie {
     MOVIE_PATH=s3://gregflix/file.gregflix.site/movies/$2/$1.mp4
     TRACK_PATH=s3://gregflix/file.gregflix.site/movies/$2/$1.srt
     VTT_PATH=s3://gregflix/file.gregflix.site/movies/$2/$1.vtt
-
-    s3cmd info $MOVIE_PATH >/dev/null 2>&1
-
-    if [[ $? -eq 0 ]]; then
-        echo "Movie already uploaded"
-    else
-        s3cmd put $1.mp4 $MOVIE_PATH -P --add-header='content-type':'video/mp4' --mime-type='video/mp4'
-    fi
 
     s3cmd info $TRACK_PATH >/dev/null 2>&1
 
@@ -88,6 +91,14 @@ function uploadMovie {
         echo "VTT already uploaded"
     else
         s3cmd put $1.vtt $VTT_PATH -P --add-header='content-type':'text/vtt' --mime-type='text/vtt'
+    fi
+
+    s3cmd info $MOVIE_PATH >/dev/null 2>&1
+
+    if [[ $? -eq 0 ]]; then
+        echo "Movie already uploaded"
+    else
+        s3cmd put $1.mp4 $MOVIE_PATH -P --add-header='content-type':'video/mp4' --mime-type='video/mp4'
     fi
 }
 
@@ -122,7 +133,7 @@ function insertSerieSQL {
 }
 
 function processVideo {
-    if [ "$#" -eq 7 ] || [ "$#" -eq 4 ]; then
+    if [ "$#" -eq 7 ] || [ "$#" -eq 4 ] || [ "$#" -eq 5 ] || [ "$#" -eq 3 ]; then
         
         if [ ! -f "$3.mp4" ]; then
             if mediainfo --Inform="Video;Codec=%CodecID%" "$3.mkv" |grep -q 'MPEG4'; then
@@ -136,12 +147,22 @@ function processVideo {
             2vtt "$3"
         fi
 
-        if [ "$#" -eq 7 ]; then
+        if [ "$#" -eq 7 ] || [ "$#" -eq 5 ]; then
+        	EPISODE_NAME="${6:=$(getEpisodeName $1 $4 $5)}"
+        	EPISODE_NAME=${EPISODE_NAME//\'}
+        	EPISODE_NAME=${EPISODE_NAME//\"}
+        	EPISODE_DESCRIPTION="${7:=$(getEpisodeDescription $1 $4 $5)}"
+        	EPISODE_DESCRIPTION=${EPISODE_DESCRIPTION//\'}
+        	EPISODE_DESCRIPTION=${EPISODE_DESCRIPTION//\"}
+        	
+
             uploadSerie $3 $2 $4 $5
-            insertSerieSQL $1 $2 $3 $4 $5 $6 $7
+            insertSerieSQL $1 $2 $3 $4 $5 $EPISODE_NAME $EPISODE_DESCRIPTION
         else
+        	MOVIE_DESCRIPTION="${4:=$(getMovieDescription $1)}"
+
             uploadMovie $3 $2
-            insertMovieSQL $1 $2 $3 $4
+            insertMovieSQL $1 $2 $3 $MOVIE_DESCRIPTION
         fi
 
         return
@@ -149,4 +170,8 @@ function processVideo {
 
     echo "inform all parameters:\n\nFor Serie:\n1-Name\n2-Slug\n3-File name\n4-Season\n5-Episode\n6-Episode name\n7-Episode description\n\nFor Movie:\n1-Name\n2-Slug\n3-File name\n4-Description"
     return 1
+}
+
+function dump-gregflix {
+    mysqldump -u root -p123mudar -h $CAC3_IP gregflix > ~/cac/gregflix/gregflix-$1-$2.sql
 }

@@ -1,0 +1,35 @@
+#!/bin/bash
+
+TMDB_BASE_URL="https://api.themoviedb.org/3"
+
+TMDB_MOVIE_URL="$TMDB_BASE_URL/search/movie?api_key=33057cfd52b346e4cac13439c65ee6f4&page=1"
+TMDB_SEARCH_SERIE_URL="$TMDB_BASE_URL/search/tv?api_key=33057cfd52b346e4cac13439c65ee6f4&page=1"
+
+
+function getEpisodeName {
+	EPISODE_ID_CURL="$TMDB_SEARCH_SERIE_URL&query=${1// /%20}"
+	EPISODE_ID="$(curl -s $EPISODE_ID_CURL |jq -r ".results[0].id")"
+
+	TMDB_SEARCH_SERIE_EPISODE_URL="$TMDB_BASE_URL/tv/$EPISODE_ID/season/$2/episode/$3?api_key=33057cfd52b346e4cac13439c65ee6f4"
+	EPISODE_DESCRIPTION="$(curl -s $TMDB_SEARCH_SERIE_EPISODE_URL |jq -r .name)"
+
+	echo $EPISODE_DESCRIPTION
+}
+
+function getEpisodeDescription {
+	EPISODE_ID_CURL="$TMDB_SEARCH_SERIE_URL&query=${1// /%20}"
+	EPISODE_ID="$(curl -s $EPISODE_ID_CURL |jq -r ".results[0].id")"
+
+	TMDB_SEARCH_SERIE_EPISODE_URL="$TMDB_BASE_URL/tv/$EPISODE_ID/season/$2/episode/$3?api_key=33057cfd52b346e4cac13439c65ee6f4"
+	EPISODE_DESCRIPTION="$(curl -s $TMDB_SEARCH_SERIE_EPISODE_URL |jq -r .overview)"
+
+	echo $EPISODE_DESCRIPTION
+}
+
+function getMovieDescription {
+	CURL_URL="$TMDB_MOVIE_URL&query=${1// /%20}"
+
+	MOVIE_DESCRIPTION=$(curl -s $CURL_URL |jq -r ".results[0].overview")
+
+	echo $MOVIE_DESCRIPTION
+}

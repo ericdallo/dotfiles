@@ -1,3 +1,5 @@
+source ~/.critical-keys
+
 export EDITOR=vim
 export PI=192.168.1.108
 
@@ -15,6 +17,8 @@ export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/bin:$PATH
 export FLEETCTL_ENDPOINT=http://etcd.elo7aws.com.br:2379
+
+export K8S_USERNAME=eric.dallo
 # Set name of the theme to load.             
 
 # Set name of the theme to load.
@@ -65,13 +69,14 @@ ZSH_THEME="simple"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git kubectl)
 
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
+source /usr/local/share/chruby/chruby.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -112,4 +117,9 @@ source "$HOME/.sdkman/bin/sdkman-init.sh"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/greg/.sdkman"
 [[ -s "/home/greg/.sdkman/bin/sdkman-init.sh" ]] && source "/home/greg/.sdkman/bin/sdkman-init.sh"
+
+eval "$(rbenv init -)"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
 

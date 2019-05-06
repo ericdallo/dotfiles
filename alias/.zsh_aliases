@@ -1,13 +1,32 @@
+#!/bin/bash
+
+# FGCOM
+alias adminLogin="curl -i -X POST -d username=admin -d password=123mudar -c /tmp/cookie localhost:7777/login"
+alias clientLogin="curl -i -X POST -d username=client -d password=123mudar -c /tmp/cookie localhost:7777/login"
+alias engineeringLogin="curl -i -X POST -d username=enginering -d password=123mudar -c /tmp/cookie localhost:7777/login"
+alias maintenanceLogin="curl -i -X POST -d username=maintenance -d password=123mudar -c /tmp/cookie localhost:7777/login"
+
+# Unity
+
+DEVICE_IP="192.168.1.29"
+function unity-apk-install() {
+    adb connect $DEVICE_IP &&
+    sleep 2 &&
+    adb -s $DEVICE_IP uninstall com.gregcodes.$1 &&
+    adb -s $DEVICE_IP install ~/games-dev/apks/$1.apk &&
+    adb -s $DEVICE_IP shell am start -n com.gregcodes.$1/com.unity3d.player.UnityPlayerActivity
+}
 
 # Raspiberry
 alias pi='ssh pi@$PI'
 alias torrent='transmission-remote-cli -c $PI'
 alias al='vim ~/.zsh_aliases'
-alias fu='vim ~/.functions'
+alias fu='sublime ~/dev/dotfiles/alias/'
 
 alias taghere='ctags -R -f ./.git/tags'
 
 alias vpn="sudo openvpn --config ~/VPN/eric.dallo-lin.ovpn"
+alias vpn-pay7="sudo openvpn --config ~/VPN/pay7/pay7.ovpn"
 
 alias fpo="sudo shutdown -P 0"
 
@@ -43,11 +62,12 @@ alias ge='gradle clean cleanEclipse eclipse'
 alias gt='gradle test'
 
 # Cloud at Cost
-CAC3_IP="45.62.235.111"
-CAC_IP="64.137.237.239"
+CAC3_IP="gregflix.site"
+CAC_IP="104.167.110.209"
 
 alias sshcac='ssh root@$CAC_IP'
 alias sshcac3='ssh root@$CAC3_IP'
+alias deploy-gregflix='sshcac3 "./start-app.sh"'
 alias mysql-cac3='mysql -u root -p123mudar -h $CAC3_IP gregflix'
 
 # GCloud
@@ -71,6 +91,8 @@ alias restartNet="sudo service network-manager restart"
 alias ls='ls -G --color=auto'
 alias ll='ls -l'
 alias hey="osascript -e 'display notification \"acabou\" with title \"ACABOU!\" '"
+alias mread2="mysql -h elo7-read2-db.elo7aws.com.br -r -u root -ppingPong2013 elo7 -A"
+alias minteg="mysql -h elo7-integration-db.elo7aws.com.br -r -u root -ppingPong2013 elo7 -A"
 
 alias pl="ps aux | grep"
 alias killtomcat="pl [t]omcat | awk '{print \$2}' | xargs kill -9"
@@ -273,7 +295,11 @@ alias install="./gradlew install"
 # Kubernetes
 
 alias kubelogin="~/dev/dotfiles-elo7/scripts/k8s/configure-k8s.sh"
+alias kubelogin-plantonista="export VAULT_PKI_ROLE=plantonista; kubelogin"
 alias k8s-config="rm -fr /usr/local/bin/kubectl && rm -f ${HOME}/bin/kubectl && rm -fr ${HOME}/.kube && ${HOME}/dev/dotfiles-elo7/scripts/k8s/configure-k8s.sh"
 alias k8s-config-us="rm -fr /usr/local/bin/kubectl && rm -f ${HOME}/bin/kubectl && rm -fr ${HOME}/.kube && ${HOME}/dev/dotfiles-elo7/scripts/k8s/configure-k8s-us.sh"
 alias kprod="kubectl -n prod"
+alias k8s-sa="kubectl config use-context k8s-prod"
+alias k8s-us="kubectl config use-context k8s-prod-us"
+
 
