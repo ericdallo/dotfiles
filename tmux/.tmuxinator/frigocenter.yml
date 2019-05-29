@@ -1,0 +1,46 @@
+# ~/.tmuxinator/tab.yml
+
+name: frigocenter
+root: ~/dev/
+
+# Optional tdddmux socket
+# socket_name: foo
+
+# Runs before everything. Use it to start daemons etc.
+# pre: sudo /etc/rc.d/mysqld start
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+# pre_window: rbenv shell 2.0.0-p247
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+
+# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# tmux_command: byobu
+
+# Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
+# startup_window: logs
+
+# Controls whether the tmux session should be attached to automatically. Defaults to true.
+# attach: false
+
+# Runs after everything. Use it to attach to tmux with custom options etc.
+# post: tmux -CC attach -t tab
+windows:
+  - running:
+      layout: 6f75,191x46,0,0{95x46,0,0[95x23,0,0,13,95x22,0,24,22],95x46,96,0,17}]
+      panes:
+          - cd ~/dev/frigocenter-api && gradle bootRun
+          - cd ~/dev/frigocenter-web && npm run start
+          - cd ~/dev/frigocenter-web && npm run dev
+  - Git:
+      layout: main-vertical
+      panes:
+          - cd ~/dev/frigocenter-api && git st
+          - cd ~/dev/frigocenter-web && git st
+  - MySQL:  m frigocenter
+  - Another:
+      layout: main-vertical
+      panes:
+        - 
+        - 

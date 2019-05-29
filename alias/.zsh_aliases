@@ -33,6 +33,7 @@ alias fpo="sudo shutdown -P 0"
 alias git='hub'
 alias killmux='tmux kill-window -a && exit'
 alias tm='tmuxinator start tab'
+alias frigocenter='tmuxinator start frigocenter'
 alias imarket='tmuxinator start imarket'
 alias cloj='mux start clojure'
 alias s='espeak'
@@ -68,7 +69,7 @@ CAC_IP="104.167.110.209"
 alias sshcac='ssh root@$CAC_IP'
 alias sshcac3='ssh root@$CAC3_IP'
 alias deploy-gregflix='sshcac3 "./start-app.sh"'
-alias mysql-cac3='mysql -u root -p123mudar -h $CAC3_IP gregflix'
+alias mysql-cac3='mysql -u root -p$GREGFLIX_PASS -h $CAC3_IP gregflix'
 
 # GCloud
 alias sqlvpn='sudo /opt/cloudsql/cloud_sql_proxy -dir /opt/cloudsql -instances imarket-2016:us-east1:imarket-db -credential_file  /opt/cloudsql/iMarket-2a8d6a0fda40.json'
@@ -301,5 +302,4 @@ alias k8s-config-us="rm -fr /usr/local/bin/kubectl && rm -f ${HOME}/bin/kubectl 
 alias kprod="kubectl -n prod"
 alias k8s-sa="kubectl config use-context k8s-prod"
 alias k8s-us="kubectl config use-context k8s-prod-us"
-
 
