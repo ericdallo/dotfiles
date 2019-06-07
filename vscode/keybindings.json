@@ -1,0 +1,95 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        "key": "ctrl+t ctrl+u",
+        "command": "editor.action.transformToUppercase"
+    },
+    {
+        "key": "ctrl+t ctrl+l",
+        "command": "editor.action.transformToLowercase"
+    },
+    {
+        "key": "ctrl+l ctrl+p",
+        "command": "editor.action.deleteLines",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+d",
+        "command": "-editor.action.deleteLines",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+f10",
+        "command": "clojureVSCode.evalAndShowResult"
+    },
+    {
+        "key": "ctrl+k ctrl+v",
+        "command": "markdown-preview-enhanced.openPreviewToTheSide",
+        "when": "editorLangId == 'markdown'"
+    },
+    {
+        "key": "ctrl+k v",
+        "command": "-markdown-preview-enhanced.openPreviewToTheSide",
+        "when": "editorLangId == 'markdown'"
+    },
+    {
+      "key": "alt+enter",
+      "command": "calva.evaluateSelection"
+    },
+    {
+      "key": "ctrl+alt+c e",
+      "command": "-calva.evaluateSelection"
+    },
+    {
+      "key": "alt+\\",
+      "command": "calva.evaluateCurrentTopLevelForm"
+    },
+    {
+      "key": "ctrl+alt+c space",
+      "command": "-calva.evaluateCurrentTopLevelForm"
+    },
+    {
+      "key": "shift+alt+enter",
+      "command": "calva.evalCurrentFormInREPLWindow"
+    },
+    {
+      "key": "ctrl+alt+c alt+e",
+      "command": "-calva.evalCurrentFormInREPLWindow"
+    },
+    {
+      "key": "shift+alt+\\",
+      "command": "calva.evalCurrentTopLevelFormInREPLWindow"
+    },
+    {
+      "key": "ctrl+alt+c alt+space",
+      "command": "-calva.evalCurrentTopLevelFormInREPLWindow"
+    },
+    {
+      "key": "alt+c alt+j",
+      "command": "calva.jackIn"
+    },
+    {
+      "key": "ctrl+alt+c ctrl+alt+j",
+      "command": "-calva.jackIn"
+    },
+    {
+      "key": "alt+backspace",
+      "command": "workbench.action.closePanel"
+    },
+    {
+      "key": "alt+c alt+enter",
+      "command": "calva.loadFile"
+    },
+    {
+      "key": "ctrl+alt+c enter",
+      "command": "-calva.loadFile"
+    },
+    {
+      "key": "alt+c alt+n",
+      "command": "calva.setREPLNamespace"
+    },
+    {
+      "key": "ctrl+alt+c alt+n",
+      "command": "-calva.setREPLNamespace"
+    }
+]
