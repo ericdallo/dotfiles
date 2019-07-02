@@ -1,95 +1,210 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
-    {
-        "key": "ctrl+t ctrl+u",
-        "command": "editor.action.transformToUppercase"
-    },
-    {
-        "key": "ctrl+t ctrl+l",
-        "command": "editor.action.transformToLowercase"
-    },
-    {
-        "key": "ctrl+l ctrl+p",
-        "command": "editor.action.deleteLines",
-        "when": "editorTextFocus"
-    },
-    {
-        "key": "ctrl+d",
-        "command": "-editor.action.deleteLines",
-        "when": "editorTextFocus"
-    },
-    {
-        "key": "ctrl+f10",
-        "command": "clojureVSCode.evalAndShowResult"
-    },
-    {
-        "key": "ctrl+k ctrl+v",
-        "command": "markdown-preview-enhanced.openPreviewToTheSide",
-        "when": "editorLangId == 'markdown'"
-    },
-    {
-        "key": "ctrl+k v",
-        "command": "-markdown-preview-enhanced.openPreviewToTheSide",
-        "when": "editorLangId == 'markdown'"
-    },
-    {
-      "key": "alt+enter",
-      "command": "calva.evaluateSelection"
-    },
-    {
-      "key": "ctrl+alt+c e",
-      "command": "-calva.evaluateSelection"
-    },
-    {
-      "key": "alt+\\",
-      "command": "calva.evaluateCurrentTopLevelForm"
-    },
-    {
-      "key": "ctrl+alt+c space",
-      "command": "-calva.evaluateCurrentTopLevelForm"
-    },
-    {
-      "key": "shift+alt+enter",
-      "command": "calva.evalCurrentFormInREPLWindow"
-    },
-    {
-      "key": "ctrl+alt+c alt+e",
-      "command": "-calva.evalCurrentFormInREPLWindow"
-    },
-    {
-      "key": "shift+alt+\\",
-      "command": "calva.evalCurrentTopLevelFormInREPLWindow"
-    },
-    {
-      "key": "ctrl+alt+c alt+space",
-      "command": "-calva.evalCurrentTopLevelFormInREPLWindow"
-    },
-    {
-      "key": "alt+c alt+j",
-      "command": "calva.jackIn"
-    },
-    {
-      "key": "ctrl+alt+c ctrl+alt+j",
-      "command": "-calva.jackIn"
-    },
-    {
-      "key": "alt+backspace",
-      "command": "workbench.action.closePanel"
-    },
-    {
-      "key": "alt+c alt+enter",
-      "command": "calva.loadFile"
-    },
-    {
-      "key": "ctrl+alt+c enter",
-      "command": "-calva.loadFile"
-    },
-    {
-      "key": "alt+c alt+n",
-      "command": "calva.setREPLNamespace"
-    },
-    {
-      "key": "ctrl+alt+c alt+n",
-      "command": "-calva.setREPLNamespace"
-    }
+  {
+    "key": "ctrl+t ctrl+u",
+    "command": "editor.action.transformToUppercase"
+  },
+  {
+    "key": "ctrl+t ctrl+l",
+    "command": "editor.action.transformToLowercase"
+  },
+  {
+    "key": "ctrl+l ctrl+p",
+    "command": "editor.action.deleteLines",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+d",
+    "command": "-editor.action.deleteLines",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+k ctrl+v",
+    "command": "markdown-preview-enhanced.openPreviewToTheSide",
+    "when": "editorLangId == 'markdown'"
+  },
+  {
+    "key": "ctrl+k v",
+    "command": "-markdown-preview-enhanced.openPreviewToTheSide",
+    "when": "editorLangId == 'markdown'"
+  },
+  {
+    "key": "alt+enter",
+    "command": "calva.evaluateSelection"
+  },
+  {
+    "key": "ctrl+alt+c e",
+    "command": "-calva.evaluateSelection"
+  },
+  {
+    "key": "alt+\\",
+    "command": "calva.evaluateCurrentTopLevelForm"
+  },
+  {
+    "key": "ctrl+alt+c space",
+    "command": "-calva.evaluateCurrentTopLevelForm"
+  },
+  {
+    "key": "shift+alt+enter",
+    "command": "calva.evalCurrentFormInREPLWindow"
+  },
+  {
+    "key": "ctrl+alt+c alt+e",
+    "command": "-calva.evalCurrentFormInREPLWindow"
+  },
+  {
+    "key": "shift+alt+\\",
+    "command": "calva.evalCurrentTopLevelFormInREPLWindow"
+  },
+  {
+    "key": "ctrl+alt+c alt+space",
+    "command": "-calva.evalCurrentTopLevelFormInREPLWindow"
+  },
+  {
+    "key": "alt+c alt+j",
+    "command": "calva.jackIn"
+  },
+  {
+    "key": "ctrl+alt+c ctrl+alt+j",
+    "command": "-calva.jackIn"
+  },
+  {
+    "key": "alt+backspace",
+    "command": "workbench.action.closePanel"
+  },
+  {
+    "key": "alt+c alt+enter",
+    "command": "calva.loadFile"
+  },
+  {
+    "key": "ctrl+alt+c enter",
+    "command": "-calva.loadFile"
+  },
+  {
+    "key": "alt+c alt+n",
+    "command": "calva.setREPLNamespace"
+  },
+  {
+    "key": "ctrl+alt+c alt+n",
+    "command": "-calva.setREPLNamespace"
+  },
+  {
+    "key": "shift+9",
+    "command": "paredit.wrapAroundParens",
+    "when": "editorTextFocus && editorHasSelection && !editorReadOnly && editorLangId =~ /clojure|scheme|lisp/ && paredit:keyMap =~ /original|strict/"
+  },
+  {
+    "key": "[",
+    "command": "paredit.wrapAroundSquare",
+    "when": "editorHasSelection && editorTextFocus && !editorReadOnly && editorLangId =~ /clojure|scheme|lisp/ && paredit:keyMap =~ /original|strict/"
+  },
+  {
+    "key": "shift+[",
+    "command": "paredit.wrapAroundCurly",
+    "when": "editorHasSelection && editorTextFocus && !editorReadOnly && editorLangId =~ /clojure|scheme|lisp/ && paredit:keyMap =~ /original|strict/"
+  },
+  {
+    "key": "shift+alt+-",
+    "command": "paredit.backwardSexp",
+    "when": "calva:pareditValid && paredit:keyMap =~ /original|strict/"
+  },
+  {
+    "key": "ctrl+left",
+    "command": "-paredit.backwardSexp",
+    "when": "calva:pareditValid && paredit:keyMap =~ /original|strict/"
+  },
+  {
+    "key": "shift+alt+=",
+    "command": "paredit.forwardSexp",
+    "when": "calva:pareditValid && paredit:keyMap =~ /original|strict/"
+  },
+  {
+    "key": "ctrl+right",
+    "command": "-paredit.forwardSexp",
+    "when": "calva:pareditValid && paredit:keyMap =~ /original|strict/"
+  },
+  {
+    "key": "shift+alt+-",
+    "command": "paredit.barfSexpForward",
+    "when": "calva:pareditValid && paredit:keyMap =~ /original|strict/"
+  },
+  {
+    "key": "ctrl+left",
+    "command": "-paredit.barfSexpForward",
+    "when": "calva:pareditValid && paredit:keyMap =~ /original|strict/"
+  },
+  {
+    "key": "shift+alt+=",
+    "command": "paredit.slurpSexpForward",
+    "when": "calva:pareditValid && paredit:keyMap =~ /original|strict/"
+  },
+  {
+    "key": "ctrl+right",
+    "command": "-paredit.slurpSexpForward",
+    "when": "calva:pareditValid && paredit:keyMap =~ /original|strict/"
+  },
+  {
+    "key": "ctrl+shift+alt+=",
+    "command": "paredit.barfSexpBackward",
+    "when": "calva:pareditValid && paredit:keyMap =~ /original|strict/"
+  },
+  {
+    "key": "ctrl+shift+right",
+    "command": "-paredit.barfSexpBackward",
+    "when": "calva:pareditValid && paredit:keyMap =~ /original|strict/"
+  },
+  {
+    "key": "ctrl+shift+alt+-",
+    "command": "paredit.slurpSexpBackward",
+    "when": "calva:pareditValid && paredit:keyMap =~ /original|strict/"
+  },
+  {
+    "key": "ctrl+shift+left",
+    "command": "-paredit.slurpSexpBackward",
+    "when": "calva:pareditValid && paredit:keyMap =~ /original|strict/"
+  },
+  {
+    "key": "shift+alt+w",
+    "command": "paredit.sexpRangeExpansion",
+    "when": "calva:pareditValid && paredit:keyMap =~ /original|strict/"
+  },
+  {
+    "key": "ctrl+w",
+    "command": "-paredit.sexpRangeExpansion",
+    "when": "calva:pareditValid && paredit:keyMap =~ /original|strict/"
+  },
+  {
+    "key": "tab",
+    "command": "calva-fmt.formatCurrentForm",
+    "when": "editorTextFocus && !editorReadOnly && !hasOtherSuggestions && !suggestWidgetVisible && editorLangId == 'clojure'"
+  },
+  {
+    "key": "tab",
+    "command": "-calva-fmt.formatCurrentForm",
+    "when": "editorTextFocus && !editorReadOnly && !hasOtherSuggestions && !suggestWidgetVisible && editorLangId == 'clojure'"
+  },
+  {
+    "key": "alt+t",
+    "command": "calva.runNamespaceTests"
+  },
+  {
+    "key": "ctrl+alt+c t",
+    "command": "-calva.runNamespaceTests"
+  },
+  {
+    "key": "shift+alt+t",
+    "command": "calva.runAllTests"
+  },
+  {
+    "key": "ctrl+alt+c shift+t",
+    "command": "-calva.runAllTests"
+  },
+  {
+    "key": "ctrl+shift+alt+t",
+    "command": "calva.rerunTests"
+  },
+  {
+    "key": "ctrl+alt+c ctrl+t",
+    "command": "-calva.rerunTests"
+  }
 ]

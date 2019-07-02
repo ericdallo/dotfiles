@@ -4,9 +4,10 @@ export EDITOR=vim
 export PI=192.168.1.108
 
 # Path to your oh-my-zsh installation.
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/kali/.rvm/bin"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/.vimpkg/bin:$PATH"
+export PATH="$HOME/.emacs.d/bin:$PATH"
 export ZSH=/home/$USERNAME/.oh-my-zsh
 export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_102
 export JAVA7_HOME=/usr/lib/jvm/jdk1.7.0_79

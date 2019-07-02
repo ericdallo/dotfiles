@@ -1,39 +1,49 @@
 {
-    "window.zoomLevel": 1,
-    "workbench.colorTheme": "Monokai",
-    "files.associations": {
-        "*.ect": "html",
-        "*.clj": "clojure"
-    },
-    "files.autoSave": "afterDelay",
-    "explorer.confirmDelete": false,
-    "java.configuration.checkProjectSettingsExclusions": false,
-    "editor.suggestSelection": "first",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "search.location": "sidebar",
-    "explorer.confirmDragAndDrop": false,
-    "calva.paredit.defaultKeyMap": "none",
-    "editor.detectIndentation": false,
-    "editor.tabSize": 2,
-     "editor.tokenColorCustomizations": {
-        "textMateRules": [
-            {
-                "scope": [
-                    "constant.keyword.clojure"
-                ],
-                "settings": {
-                    "foreground": "#9cdcfeff"
-                }
-            },
-            {
-                "scope": [
-                    "punctuation.section.expression.begin.clojure",
-                    "punctuation.section.expression.end.trailing.clojure"
-                ],
-                "settings": {
-                    "foreground": "#999"
-                }
-            }
-        ]
-    }
+  "window.zoomLevel": 1,
+  "workbench.colorTheme": "Monokai",
+  "files.associations": {
+    "*.ect": "html",
+    "*.clj": "clojure"
+  },
+  "files.autoSave": "afterDelay",
+  "explorer.confirmDelete": false,
+  "java.configuration.checkProjectSettingsExclusions": false,
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "search.location": "sidebar",
+  "explorer.confirmDragAndDrop": false,
+  "editor.detectIndentation": true,
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": [
+          "constant.keyword.clojure"
+        ],
+        "settings": {
+          "foreground": "#7afcf5"
+        }
+      },
+      {
+        "scope": [
+          "punctuation.section.expression.begin.clojure",
+          "punctuation.section.expression.end.trailing.clojure"
+        ],
+        "settings": {
+          "foreground": "#999"
+        }
+      }
+    ]
+  },
+  "calva.paredit.defaultKeyMap": "none",
+  "calva.lintOnSave": false,
+  "bracket-pair-colorizer-2.colors": [
+    "LightGray",
+    "Orchid",
+    "Gold",
+    "LightSkyBlue",
+    "LightGreen"
+  ],
+  "calva.testOnSave": true,
+  "calva.evalOnSave": true,
+  "workbench.startupEditor": "newUntitledFile"
 }
