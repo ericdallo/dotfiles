@@ -1,0 +1,5 @@
+#!/bin/bash
+
+export GREGFLIX_PASS=
+export BINTRAY_USER=
+export BINTRAY_KEY=

@@ -7,30 +7,26 @@ alias engineeringLogin="curl -i -X POST -d username=enginering -d password=123mu
 alias maintenanceLogin="curl -i -X POST -d username=maintenance -d password=123mudar -c /tmp/cookie localhost:7777/login"
 
 # Unity
-
 DEVICE_IP="192.168.1.29"
-function unity-apk-install() {
-    adb connect $DEVICE_IP &&
-    sleep 2 &&
-    adb -s $DEVICE_IP uninstall com.gregcodes.$1 &&
-    adb -s $DEVICE_IP install ~/games-dev/apks/$1.apk &&
-    adb -s $DEVICE_IP shell am start -n com.gregcodes.$1/com.unity3d.player.UnityPlayerActivity
-}
 
 # Raspiberry
 alias pi='ssh pi@$PI'
 alias torrent='transmission-remote-cli -c $PI'
+
 alias al='vim ~/.zsh_aliases'
 alias fu='sublime ~/dev/dotfiles/alias/'
 
 alias taghere='ctags -R -f ./.git/tags'
 
-alias vpn="sudo openvpn --config ~/VPN/eric.dallo-lin.ovpn"
-alias vpn-pay7="sudo openvpn --config ~/VPN/pay7/pay7.ovpn"
-
+# Utils
+alias ls='ls -G --color=auto'
+alias ll='ls -l'
 alias fpo="sudo shutdown -P 0"
-
 alias git='hub'
+alias pl="ps aux | grep"
+alias rehash="source ~/.zshrc"
+alias ge='gradle cleanEclipse eclipse'
+
 alias killmux='tmux kill-window -a && exit'
 alias tm='tmuxinator start tab'
 alias frigocenter='tmuxinator start frigocenter'
@@ -38,14 +34,8 @@ alias imarket='tmuxinator start imarket'
 alias cloj='mux start clojure'
 alias s='espeak'
 alias hey='s -v pt-br "se liga, cabô"'
-alias hlog='heroku logs -t --app vetkatia'
 
-alias mywtf="mvn clean eclipse:clean eclipse:eclipse -Dwtpversion=2.0"
-alias rtomcat='killtomcat && sleep 3 && starttomcat'
-
-alias restartchrome="killall chrome; google-chrome-stable"
-
-alias mysql-rds='mysql -u kali -p -h 127.0.0.1'
+alias restart-chrome="killall chrome; google-chrome-stable"
 
 alias mdocker="docker exec -it mysql mysql -uroot -p"
 alias m="mysql -uroot -p -h 172.17.0.1"
@@ -53,7 +43,6 @@ alias v="vim ."
 alias k="kill -9"
 
 alias c='xclip -selection clipboard'
-alias clojure='java -cp ~/clojure-1.8.0/clojure-1.8.0.jar clojure.main'
 alias gb='gradle clean build'
 alias gr='gradle bootRun'
 alias gweb='gradle runWeb'
@@ -71,235 +60,5 @@ alias sshcac3='ssh root@$CAC3_IP'
 alias deploy-gregflix='sshcac3 "./start-app.sh"'
 alias mysql-cac3='mysql -u root -p$GREGFLIX_PASS -h $CAC3_IP gregflix'
 
-# GCloud
-alias sqlvpn='sudo /opt/cloudsql/cloud_sql_proxy -dir /opt/cloudsql -instances imarket-2016:us-east1:imarket-db -credential_file  /opt/cloudsql/iMarket-2a8d6a0fda40.json'
-alias sqlvpn2='sudo /opt/cloudsql/cloud_sql_proxy -dir /opt/cloudsql -instances qual-facul:us-east1:qual-facul-db -credential_file  /opt/cloudsql/qual-facul-1d4b68b88462.json'
-alias sql='mysql -u root -p -S /opt/cloudsql/imarket-2016:us-east1:imarket-db imarket'
-alias sql2='mysql -u root -p -S /opt/cloudsql/qual-facul:us-east1:qual-facul-db tcc'
-
 #Alias temporarios
-alias restartNet="sudo service network-manager restart"
-
-# iMarket
-
-# alias list-imarket-web="gcloud compute instance-groups list-instances imarket-web-group --zone us-east1-d |grep imarket-web-group | awk '{print \$1}'"
-#alias gimarket-web="gcloud compute ssh $list0imarket-web --zone us-east1-d"
-# alias gimarket-api='gcloud compute ssh imarket-api --zone us-east1-d
-# alias gistoque='gcloud compute ssh istoque --zone us-east1-d'
-
-#Elo7 alias
-
-alias ls='ls -G --color=auto'
-alias ll='ls -l'
-alias hey="osascript -e 'display notification \"acabou\" with title \"ACABOU!\" '"
-alias mread2="mysql -h elo7-read2-db.elo7aws.com.br -r -u root -ppingPong2013 elo7 -A"
-alias minteg="mysql -h elo7-integration-db.elo7aws.com.br -r -u root -ppingPong2013 elo7 -A"
-
-alias pl="ps aux | grep"
-alias killtomcat="pl [t]omcat | awk '{print \$2}' | xargs kill -9"
-alias tunnel="ssh -N -R 8100:localhost:8080 -i ~/dev/keys/integration.pem ec2-user@integration.elo7.com.br"
-alias elo7.log="tail -f -n 1000 /var/log/elo7/elo7.log"
-alias marketplace="tmuxinator start marketplace"
-alias talk7="tmuxinator start talk7"
-alias martell="tmuxinator start martell"
-alias queues="tmuxinator start queues"
-alias busca="tmuxinator start busca"
-alias mosquitto="tmuxinator start mosquitto"
-alias w7="tmuxinator start w7"
-alias sftp-server-start="chmod 755 ~/.ssh/authorized_keys; ssh-keygen -y -f ~/dev/keys/sa-default-key.pem >~/.ssh/authorized_keys; chmod 400 ~/.ssh/authorized_keys; sudo systemsetup -setremotelogin on"
-alias sftp-server-stop="sudo systemsetup -setremotelogin off"
-alias xvfb-fix="mkdir /tmp/.X11-unix && sudo chmod 1777 /tmp/.X11-unix && sudo chown root /tmp/.X11-unix/"
-
-# cenv script to switch between environments
-alias cenv="/bin/bash ~/dev/dotfiles/scripts/environment/cenv.sh"
-alias goto_pay7="/bin/bash ~/dev/dotfiles/scripts/environment/cenv.sh pay7"
-alias goto_mkt="/bin/bash ~/dev/dotfiles/scripts/environment/cenv.sh marketplace"
-
-alias u="cd ../"
-alias uu="cd ../../"
-alias uuu="cd ../../../"
-alias uuuu="cd ../../../../"
-alias uuuuu="cd ../../../../../"
-
-alias g='hitch && git'
-
-# Bundler
-alias b="bundle"
-alias bi="b install --path vendor"
-alias bu="b update"
-alias be="xvfb-fix; b exec"
-alias binit="bi && b package && echo 'vendor/ruby' >> .gitignore"
-alias scpc='scp -i ~/dev/keys/sa-default-key.pem'
-alias uscpc='scp -i ~/dev/keys/us-default-key.pem'
-alias sshc='ssh -i ~/dev/keys/sa-default-key.pem -l core'
-alias usshc='ssh -i ~/dev/keys/us-default-key.pem -l core'
-alias usshu='ssh -i ~/dev/keys/us-default-key.pem -l ubuntu'
-alias sshu='ssh -i ~/dev/keys/sa-default-key.pem -l ubuntu'
-alias sshTunel='ssh -i ~/dev/keys/sa-default-key.pem -ND 8157 -l hadoop'
-alias sshh=sshhfunc
-alias usshh=usshhfunc
-alias sshuh='ssh -oStrictHostKeyChecking=no -i ~/dev/keys/us-default-key.pem -l hadoop'
-alias sshh-tunel=sshh-tunel-func
-
-sshhfunc() {
-        echo "Removing host[$1] from known_hosts"
-            ssh-keygen -R $1
-                ssh -oStrictHostKeyChecking=no -i ~/dev/keys/sa-default-key.pem -l hadoop $1
-            }
-
-            usshhfunc() {
-                    echo "Removing host[$1] from known_hosts"
-                        ssh-keygen -R $1
-                            ssh -oStrictHostKeyChecking=no -i ~/dev/keys/us-default-key.pem -l hadoop $1
-                        }
-
-                        sshh-tunel-func() {
-                            echo "Removing host[emr-hive-production.elo7aws.com.br] from known_hosts"
-                                ssh-keygen -R emr-hive-production.elo7aws.com.br
-                                    ssh -oStrictHostKeyChecking=no -i ~/dev/keys/us-default-key.pem -ND 8157 hadoop@emr-hive-production.elo7aws.com.br
-                                }
-
-
-# Update marketplace properties to S3
-alias update-marketplace-properties="ruby ~/dev/dotfiles-elo7/scripts/marketplace/update_s3_properties.rb"
-
-# change java versions
-alias use-java7="change-java 7"
-alias use-java8="change-java 8"
-
-V3=~/dev/marketplace/elo7/src/main/webapp/v3
-alias rm.assets="rm -rf $V3/common/css && rm -rf $V3/mobile/css && rm -rf $V3/desktop/css && rm -f $V3/common/js/elo7.js && rm -f $V3/mobile/js/mobile.js && rm -f $V3/desktop/js/desktop.js"
-alias wtf="ruby ~/dev/dotfiles-elo7/scripts/marketplace/properties-comparator.rb; rm.assets; killtomcat; mvn clean eclipse:clean eclipse:eclipse -Dwtpversion=2.0; ruby ~/dev/dotfiles-elo7/scripts/marketplace/properties-comparator.rb"
-alias clean="automator ~/dev/dotfiles-elo7/clean.workflow > /dev/null &"
-alias rehash="source ~/.zshrc"
-
-# Allows to override Same-Origin policy
-alias ogc='open -a Google\ Chrome --args --disable-web-security'
-
-# Runs grunt in dev
-alias dev='cd /Users/Developer/dev/marketplace/elo7/grunt && ./node_modules/grunt-cli/bin/grunt --gruntfile=gruntfiles/dev.js --base=.'
-
-alias ge='gradle cleanEclipse eclipse'
-alias runAtelier='be rails server -p 3003'
-alias ship7-build='cd ~/dev/shipping7-commons && gradle install && cd ../shipping7-worker && ge && cd ../shipping7-scheduler && ge && cd ~/dev'
-alias ship7-sillence="curl -v -X POST -H \"Content-Type: application/json\" -d '{\"dc\":\"sa-east-1\",\"path\":\"silence/shipping7-scheduler-i-07712f3cb3f7f12b4/check_scheduler_process\",\"content\":{\"reason\":\"Automatic deploy reason\",\"source\":\"uchiwa\"},\"expire\": 200}' http://api.sensu.elo7aws.com.br:8080/stashes"
-alias ship7-scheduler-restart="ship7-sillence && fleetctl stop shipping7-scheduler-production.service && sleep 20 && fleetctl start shipping7-scheduler-production.service"
-alias ship7-scheduler-update-properties="ruby ~/dev/dotfiles-elo7/scripts/shipping7/update_s3_scheduler_properties.rb"
-alias ship7-worker-update-properties="ruby ~/dev/dotfiles-elo7/scripts/shipping7/update_s3_worker_properties.rb"
-
-alias update-dummy="mysqldump -u root -d elo7 | mysql -u root -Delo7_dummy"
-alias run-all-tests="mvn clean test -P run-all-tests"
-alias run-migration="flyway-migration"
-alias migration-run="run-migration"
-alias migration-repair="run-migration repair"
-alias migration-create="run-migration create | xargs sublime"
-alias migration-conflict-resolve="~/dev/dotfiles-elo7/scripts/marketplace/migration/conflict_resolve.sh"
-alias curl_api="~/dev/dotfiles/scripts/marketplace/mobile/curl_api.sh"
-alias curl_ajax="~/dev/dotfiles/scripts/marketplace/mobile/curl_ajax.sh"
-alias curl_upload="~/dev/dotfiles/scripts/marketplace/mobile/curl_upload.sh"
-alias i18n="~/dev/dotfiles/scripts/marketplace/i18n/elo7locale.sh"
-alias meclipse="comprop; mvn clean eclipse:clean eclipse:eclipse"
-alias bloquear="ruby ~/dev/dotfiles/scripts/utils/semaphore_block.rb"
-alias liberar="ruby ~/dev/dotfiles/scripts/utils/semaphore_unblock.rb"
-alias playground="ruby ~/dev/dotfiles/scripts/utils/playground.rb"
-
-alias ge="gradle clean cleanEclipse eclipse"
-alias gb="gradle build"
-alias gi="gradle clean install"
-alias change-to-talk7="nginx_elo7_control stop && nginx_talk7_control start"
-alias change-to-elo7="nginx_talk7_control stop && nginx_elo7_control start"
-
-alias postgres-start="postgres -D /usr/local/var/postgres"
-alias cassandra-start="/opt/apache-cassandra/bin/cassandra -f"
-alias cqlsh="/opt/apache-cassandra/bin/cqlsh -C"
-
-alias top10="ps -eo pmem,pcpu,vsize,pid,comm | sort -k 1 -nr | head -10"
-
-alias srun="use-java8 && mvn clean spring-boot:run"
-alias gsrun="./gradlew ':web/server':bootRun"
-
-alias sshelo7ctl="usshc elo7ctl -t 'bash -ic ./elo7ctl.sh'"
-alias etcdconnect="sshc 172.16.19.211"
-alias comprop="ruby ~/dev/dotfiles-elo7/scripts/marketplace/properties-comparator.rb"
-
-mimefunc() {
-	j $1
-	mvn install
-	cd -
-	meclipse
-}
-
-alias mime=mimefunc
-
-alias properties='ruby ~/dev/dotfiles-elo7/scripts/marketplace/properties-comparator.rb'
-
-alias s3Copy='sh ~/dev/dotfiles/scripts/harlaw/s3Copy.sh'
-alias s3CopyRange='sh ~/dev/dotfiles/scripts/harlaw/s3CopyRange.sh'
-
-alias mkt-ip="/bin/bash ~/dev/dotfiles/scripts/mkt-ip.sh"
-
-alias fleetctl-us='fleetctl --endpoint=http://us.etcd.elo7aws.com.br:2379'
-
-s3ls () {
-    aws s3 ls "s3://$@"
-}
-getIp () {
-    aws ec2 describe-instances --filter "Name=tag:Name,Values=$@" --output=text |grep PRIVATEIPADDRESS | awk '{print $4}'
-}
-
-listDisks () {
-	percentage=${1:-80}
-	os=${2:-coreos}
-
-	echo "df -Ph | awk '+\$5 >= $percentage {print \$1,\$5,\$6}'" > /tmp/listDisks-coreos
-
-	eol=$'\n'
-
-	echo "\tIP\tMOUNT\tPERCENTAGE\tFOLDER"
-
-	for ip in $(aws ec2 describe-instances --filters "Name=tag:elo7::operating-system,Values=$os" "Name=instance-state-name,Values=pending,running" --query "Reservations[].Instances[].NetworkInterfaces[].PrivateIpAddresses[].PrivateIpAddress" --output text); do
-
-		disks=$(sshc $ip -q -o StrictHostKeyChecking=no 'bash -s' < "/tmp/listDisks-coreos")
-		formattedDisks="${disks/$eol/$eol$ip\t}"
-
-		if [ "$disks" ]; then
-			echo "$ip\t$formattedDisks"
-		fi
-	done
-}
-
-ship7-scheduler-force-task () {
-   sshc $(getIp shipping7-scheduler) -t "curl -X POST localhost/schedulers/$@"
-}
-
-alias eventStream='sh ~/dev/dotfiles/scripts/harlaw/eventStream.sh'
-alias http='sh ~/dev/dotfiles-elo7/Scripts/utils/safeHttp.sh'
-
-alias up="ruby ~/dev/dotfiles-elo7/scripts/marketplace/update-properties.rb"
-
-alias gw="./gradlew"
-alias gw-install="gw publishToMavenLocal"
-
-alias deeplink='~/dev/scripts/mobile/deeplink.sh'
-alias demail='~/dev/scripts/mobile/demail/demail.sh'
-alias mobile-release='~/dev/scripts/deploy_scripts/mobile_scripts/release.sh'
-
-alias update-citadel-properties="sh ~/dev/dotfiles-elo7/scripts/citadel/citadel-pr.sh"
-
-alias apk="./gradlew assembleRelease"
-alias reverse="adb reverse tcp:8081 tcp:8081"
-alias continue="git rebase --continue"
-alias open-apk="open app/build/outputs/apk"
-alias install="./gradlew install"
-
-
-# Kubernetes
-
-alias kubelogin="~/dev/dotfiles-elo7/scripts/k8s/configure-k8s.sh"
-alias kubelogin-plantonista="export VAULT_PKI_ROLE=plantonista; kubelogin"
-alias k8s-config="rm -fr /usr/local/bin/kubectl && rm -f ${HOME}/bin/kubectl && rm -fr ${HOME}/.kube && ${HOME}/dev/dotfiles-elo7/scripts/k8s/configure-k8s.sh"
-alias k8s-config-us="rm -fr /usr/local/bin/kubectl && rm -f ${HOME}/bin/kubectl && rm -fr ${HOME}/.kube && ${HOME}/dev/dotfiles-elo7/scripts/k8s/configure-k8s-us.sh"
-alias kprod="kubectl -n prod"
-alias k8s-sa="kubectl config use-context k8s-prod"
-alias k8s-us="kubectl config use-context k8s-prod-us"
-
+alias restart-net="sudo service network-manager restart"

@@ -5,21 +5,18 @@ export PI=192.168.1.108
 
 # Path to your oh-my-zsh installation.
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="$HOME/.vimpkg/bin:$PATH"
-export PATH="$HOME/.emacs.d/bin:$PATH"
+export PATH="$PATH:$HOME/.rbenv/bin"
+export PATH="$PATH:$HOME/.vimpkg/bin"
+export PATH="$PATH:$HOME/.emacs.d/bin"
+export PATH="$PATH:$HOME/.rvm/bin"
 export ZSH=/home/$USERNAME/.oh-my-zsh
 export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_102
 export JAVA7_HOME=/usr/lib/jvm/jdk1.7.0_79
 export GRADLE_OPTS=-Xmx1024m
-export BINTRAY_USER=ericdallo
-export BINTRAY_KEY=94ca5600791255c0d2079e29c723c697a0f8a98f
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/bin:$PATH
-export FLEETCTL_ENDPOINT=http://etcd.elo7aws.com.br:2379
 
-export K8S_USERNAME=eric.dallo
 # Set name of the theme to load.             
 
 # Set name of the theme to load.
@@ -120,7 +117,4 @@ export SDKMAN_DIR="/home/greg/.sdkman"
 [[ -s "/home/greg/.sdkman/bin/sdkman-init.sh" ]] && source "/home/greg/.sdkman/bin/sdkman-init.sh"
 
 eval "$(rbenv init -)"
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
 

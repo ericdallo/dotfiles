@@ -2,6 +2,10 @@
 
 source $HOME/dev/dotfiles/alias/.gregflix-functions
 
-function flyway-migrate() {
-    mvn -f ~/dev/marketplace/upgrade/ -Dflyway.configFile=flyway.properties -Dflyway.schemas=elo7 flyway:migrate
+function unity-apk-install() {
+    adb connect $DEVICE_IP &&
+    sleep 2 &&
+    adb -s $DEVICE_IP uninstall com.gregcodes.$1 &&
+    adb -s $DEVICE_IP install ~/games-dev/apks/$1.apk &&
+    adb -s $DEVICE_IP shell am start -n com.gregcodes.$1/com.unity3d.player.UnityPlayerActivity
 }
