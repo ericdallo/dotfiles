@@ -1,8 +1,0 @@
-name: marketplace
-root: ~/dev
-windows:
-  - terminal: ls
-  - terminal2: ls
-  - mkt-dev-js: cd ~/dev/marketplace/elo7/frontend/elo7 && npm install && npm run dev:js
-  - mkt-dev-css: cd ~/dev/marketplace/elo7/frontend/elo7 && npm install && npm run dev:css
-  - vpn: vpn
