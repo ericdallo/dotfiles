@@ -2,15 +2,19 @@
 
 set -ve
 
-ln -sf ~/dev/dotfiles/tmux/.tmux.conf ~/.tmux.conf
-ln -sf ~/dev/dotfiles/tmux/.tmuxinator ~/.tmuxinator
-ln -sf ~/dev/dotfiles/vim/.vimrc ~/.vimrc
-ln -sf ~/dev/dotfiles/alias/.zsh_aliases ~/.zsh_aliases
-ln -sf ~/dev/dotfiles/alias/.zshrc ~/.zshrc
-ln -sf ~/dev/dotfiles/git/.gitconfig ~/.gitconfig
-ln -sf ~/dev/dotfiles/alias/.functions ~/.functions
-ln -sf ~/dev/dotfiles/vscode/keybindings.json ~/.config/Code/User/keybindings.json
-ln -sf ~/dev/dotfiles/vscode/settings.json ~/.config/Code/User/settings.json
-ln -sf ~/dev/dotfiles/emacs/.doom.d ~/.doom.d
+DOTFILES_DIR=~/dev/dotfiles
+
+ln -sf $DOTFILES_DIR/tmux/.tmux.conf ~/.tmux.conf
+ln -sf $DOTFILES_DIR/tmux/.tmuxinator ~/.tmuxinator
+ln -sf $DOTFILES_DIR/vim/.vimrc ~/.vimrc
+ln -sf $DOTFILES_DIR/basic/.zsh_aliases ~/.zsh_aliases
+ln -sf $DOTFILES_DIR/basic/.zshrc ~/.zshrc
+ln -sf $DOTFILES_DIR/git/.gitconfig ~/.gitconfig
+ln -sf $DOTFILES_DIR/basic/.functions ~/.functions
+ln -sf $DOTFILES_DIR/vscode/keybindings.json ~/.config/Code/User/keybindings.json
+ln -sf $DOTFILES_DIR/vscode/settings.json ~/.config/Code/User/settings.json
+ln -sf $DOTFILES_DIR/emacs/.doom.d ~/.doom.d
+
+ln -sf $DOTFILES_DIR/gregflix/.gregflix-functions ~/.gregflix-functions
 
 echo "Links updated"

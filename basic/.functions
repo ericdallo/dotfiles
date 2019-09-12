@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source $HOME/dev/dotfiles/alias/.gregflix-functions
+source $HOME/.gregflix-functions
 
 function unity-apk-install() {
     adb connect $DEVICE_IP &&
