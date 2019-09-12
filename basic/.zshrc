@@ -5,7 +5,6 @@ export PI=192.168.1.108
 
 # Path to your oh-my-zsh installation.
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
-export PATH="$PATH:$HOME/.rbenv/bin"
 export PATH="$PATH:$HOME/.vimpkg/bin"
 export PATH="$PATH:$HOME/.emacs.d/bin"
 export PATH="$PATH:$HOME/.rvm/bin"
@@ -39,6 +38,4 @@ source "$HOME/.sdkman/bin/sdkman-init.sh"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/greg/.sdkman"
 [[ -s "/home/greg/.sdkman/bin/sdkman-init.sh" ]] && source "/home/greg/.sdkman/bin/sdkman-init.sh"
-
-eval "$(rbenv init -)"
 

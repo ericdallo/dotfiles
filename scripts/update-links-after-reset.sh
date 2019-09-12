@@ -16,5 +16,6 @@ ln -sf $DOTFILES_DIR/vscode/settings.json ~/.config/Code/User/settings.json
 ln -sf $DOTFILES_DIR/emacs/.doom.d ~/.doom.d
 
 ln -sf $DOTFILES_DIR/gregflix/.gregflix-functions ~/.gregflix-functions
+ln -sf $DOTFILES_DIR/gregflix/.tmdb-functions ~/.tmdb-functions
 
 echo "Links updated"

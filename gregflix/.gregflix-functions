@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source $HOME/dev/dotfiles/alias/.tmdb-functions
+source $HOME/.tmdb-functions
 
 function changeEncoding {
     if file -i "$1.srt" |grep -q "iso-8859-1"; then
