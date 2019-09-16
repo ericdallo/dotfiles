@@ -1,0 +1,28 @@
+{:known-macros [schema.core/defschema
+                schema.core/defn
+                schema.core/def
+                schema.core/with-fn-validation
+                common-core.exceptions/try-type
+                state-flow.core/flow
+                common-datomic.test-helpers/let-entities
+                clojure.test/deftest
+                midje.sweet/facts
+                midje.sweet/fact
+                fact
+                facts
+                midje.sweet/tabular
+                midje.sweet/provided
+                postman.aux.init/defflow
+                &
+                anything
+                any]
+ :known-tags [nu/time
+              nu/date
+              nu/local-time
+              nu/year-month
+              nu/month-day
+              nu/loose-enum-unknown
+              nu/url]
+ :ignored-unused-namespaces [clojure.test
+                             midje.sweet
+                             matcher-combinators.midje]}
