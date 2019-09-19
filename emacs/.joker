@@ -10,12 +10,15 @@
                 midje.sweet/fact
                 fact
                 facts
-                midje.sweet/tabular
-                midje.sweet/provided
+                tabular
+                provided
+                with-state-changes
+                before
                 postman.aux.init/defflow
                 &
                 anything
-                any]
+                any
+                defedge]
  :known-tags [nu/time
               nu/date
               nu/local-time
