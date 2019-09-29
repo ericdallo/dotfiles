@@ -5,6 +5,8 @@ export PI=192.168.1.108
 
 # Path to your oh-my-zsh installation.
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export NIX_PATH="$HOME/bin:/run/wrappers/bin:$HOME/.nix-profile/bin:/etc/profiles/per-user/$USER/bin:/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin"
+export PATH="$PATH:$NIX_PATH"
 export PATH="$PATH:$HOME/.vimpkg/bin"
 export PATH="$PATH:$HOME/.emacs.d/bin"
 export PATH="$PATH:$HOME/.rvm/bin"
