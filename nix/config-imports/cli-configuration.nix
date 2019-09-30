@@ -18,6 +18,9 @@
     usbutils
     xclip
     grub
+    oh-my-zsh
+    tmux
+    tmuxinator
   ];
 
   fonts = {
@@ -34,6 +37,16 @@
         enable = true;
         plugins = [ "git" "sudo" "docker" "kubectl" ];
       };
+      interactiveShellInit = ''
+        export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh/
+
+        # Customize your oh-my-zsh options here
+        ZSH_THEME="simple"
+        plugins=(git)
+
+        source $ZSH/oh-my-zsh.sh
+      '';
+      promptInit = "";
     };
     bash.enableCompletion = true;
   };

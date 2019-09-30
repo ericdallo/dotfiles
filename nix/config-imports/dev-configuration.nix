@@ -28,6 +28,13 @@
       leiningen
       vcsodeWithExtension
       gitAndTools.hub
+      (eclipses.eclipseWithPlugins {
+        eclipse = eclipses.eclipse-java;
+        jvmArgs = [ "-Xms6000m" "-Xmx8096m" ];
+        plugins = with eclipses.plugins;
+          [ gradle ];
+      })
+      android-studio
     ];
 
   # Java
