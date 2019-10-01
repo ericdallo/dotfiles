@@ -2,23 +2,30 @@
                 schema.core/defn
                 schema.core/def
                 schema.core/with-fn-validation
+                midje.sweet/facts
+                midje.sweet/fact
+                midje.sweet/fact
+                midje.sweet/facts
+                midje.sweet/tabular
+                midje.sweet/provided
+                midje.sweet/against-background
+                midje.sweet/irrelevant
+                midje.sweet/with-state-changes
+                midje.sweet/before
+                midje.sweet/just
+                clojure.test.check.properties/for-all
+                clojure.test/deftest
+                bonafont.logic.flow-edge/def
+                defedge
+                logic.flow-edge/def
                 common-core.exceptions/try-type
                 state-flow.core/flow
                 common-datomic.test-helpers/let-entities
-                clojure.test/deftest
-                midje.sweet/facts
-                midje.sweet/fact
-                fact
-                facts
-                tabular
-                provided
-                with-state-changes
-                before
                 postman.aux.init/defflow
+                contains
                 &
                 anything
-                any
-                defedge]
+                any]
  :known-tags [nu/time
               nu/date
               nu/local-time
@@ -28,4 +35,8 @@
               nu/url]
  :ignored-unused-namespaces [clojure.test
                              midje.sweet
-                             matcher-combinators.midje]}
+                             matcher-combinators.midje]
+ :rules 
+     {:unused-as            true
+      :unused-fn-parameters true
+      :fn-with-empty-body	true}}

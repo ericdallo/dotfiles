@@ -1,7 +1,6 @@
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
 
 ;; Place your private configuration here
-
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (add-to-list 'auto-mode-alist '("\\.repl\\'" . clojure-mode))
 
@@ -10,11 +9,11 @@
 
 ;; set window title with "[project] filename"
 (setq frame-title-format
-      (setq icon-title-format
-            '(""
-              (:eval
-               (format "[%s] " (projectile-project-name)))
-              "%b")))
+    (setq icon-title-format
+          '(""
+            (:eval
+              (format "[%s] " (projectile-project-name)))
+            "%b")))
 
 ;; font
 (setq doom-font (font-spec :family "Hack" :size 18)
@@ -48,12 +47,18 @@
   (flow 1)))
 
 ;; clj-refactor
-(setq cljr-inject-dependencies-at-jack-in nil)
+;(setq cljr-inject-dependencies-at-jack-in nil)
+;(setq cljr-warn-on-eval nil)
+;(setq cljr-ignore-analyzer-errors t)
 (defun my-clojure-mode-hook ()
-    (clj-refactor-mode 1)
-    (yas-minor-mode 1) ; for adding require/use/import statements
+  (setq cljr-warn-on-eval nil
+        ;cljr-eagerly-build-asts-on-startup nil
+        ;cljr-inject-dependencies-at-jack-in nil
+        cider-show-error-buffer 'only-in-repl)
+  (clj-refactor-mode 1)
+  (yas-minor-mode 1) ; for adding require/use/import statements
     ;; This choice of keybinding leaves cider-macroexpand-1 unbound
-    (cljr-add-keybindings-with-prefix "C-c C-c"))
+  (cljr-add-keybindings-with-prefix "C-c C-c"))
 (add-hook 'clojure-mode-hook #'my-clojure-mode-hook)
 
 (setq cljr-clojure-test-declaration
