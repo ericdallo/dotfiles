@@ -2,25 +2,28 @@
 
 {
   environment.systemPackages = with pkgs; [
-    wget
-    vim
     ag
     curl
     emacs
+    file
+    ffmpeg
     gitFull
+    grub
     jq
     lshw
     manpages
     openssl
+    oh-my-zsh
+    s3cmd
     telnet
+    tmux
+    tmuxinator
     unrar
     unzip
     usbutils
+    vim
+    wget
     xclip
-    grub
-    oh-my-zsh
-    tmux
-    tmuxinator
   ];
 
   fonts = {

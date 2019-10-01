@@ -1,5 +1,14 @@
 #!/bin/bash
 
 export GREGFLIX_PASS=
+
+export AWS_ACCESS_KEY=
+export AWS_SECRET_KEY=
+export AWS_S3_ENDPOINT=
+
 export BINTRAY_USER=
 export BINTRAY_KEY=
+
+export FRIGOCENTER_DB_USER=
+export FRIGOCENTER_DB_PASS=
+export FRIGOCENTER_DB_HOST=
