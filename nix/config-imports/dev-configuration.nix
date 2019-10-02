@@ -4,6 +4,11 @@
 
   environment.systemPackages = with pkgs;
   let
+    my-python-packages = python-packages: with python-packages; [
+      pandas
+      jupyter
+    ];
+    python-with-my-packages = python3.withPackages my-python-packages;
     vcsodeWithExtension = vscode-with-extensions.override {
       # When the extension is already available in the default extensions set.
       vscodeExtensions = with vscode-extensions; [
@@ -21,20 +26,22 @@
     };
   in
     [
+      android-studio
+      awscli
       clojure
       docker-compose
-      awscli
-      joker
-      leiningen
-      vcsodeWithExtension
-      gitAndTools.hub
       (eclipses.eclipseWithPlugins {
         eclipse = eclipses.eclipse-java;
         jvmArgs = [ "-Xms6000m" "-Xmx8096m" ];
         plugins = with eclipses.plugins;
           [ gradle ];
       })
-      android-studio
+      gitAndTools.hub
+      joker
+      leiningen
+      mysql57
+      python-with-my-packages
+      vcsodeWithExtension
     ];
 
   # Java

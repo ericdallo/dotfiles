@@ -38,19 +38,24 @@
       enable = true;
       ohMyZsh = {
         enable = true;
-        plugins = [ "git" "sudo" "docker" "kubectl" ];
+        plugins = [ "git" "sudo" "docker" "kubectl" "zsh-autosuggestions"];
       };
       interactiveShellInit = ''
         export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh/
 
         # Customize your oh-my-zsh options here
         ZSH_THEME="simple"
-        plugins=(git)
+        plugins=(git zsh-autosuggestions sudo docker kubectl)
 
         source $ZSH/oh-my-zsh.sh
       '';
       promptInit = "";
     };
     bash.enableCompletion = true;
+
+    tmux = {
+      enable = true;
+      clock24 = true;
+      };
   };
 }

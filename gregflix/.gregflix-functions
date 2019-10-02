@@ -154,7 +154,6 @@ function processVideo {
         	EPISODE_DESCRIPTION="${7:=$(getEpisodeDescription $1 $4 $5)}"
         	EPISODE_DESCRIPTION=${EPISODE_DESCRIPTION//\'}
         	EPISODE_DESCRIPTION=${EPISODE_DESCRIPTION//\"}
-        	
 
             uploadSerie $3 $2 $4 $5
             insertSerieSQL $1 $2 $3 $4 $5 $EPISODE_NAME $EPISODE_DESCRIPTION
