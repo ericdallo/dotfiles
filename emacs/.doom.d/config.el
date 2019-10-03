@@ -28,7 +28,6 @@
                     (font-spec :family "Font Awesome 5 Brands")
                     nil 'append))
 
-
 ;; Maximize buffer
 (defun toggle-maximize-buffer ()
   (interactive)
@@ -50,7 +49,7 @@
 ;(setq cljr-inject-dependencies-at-jack-in nil)
 ;(setq cljr-warn-on-eval nil)
 ;(setq cljr-ignore-analyzer-errors t)
-(defun my-clojure-mode-hook ()
+(defun cljr-clojure-mode-hook ()
   (setq cljr-warn-on-eval nil
         ;cljr-eagerly-build-asts-on-startup nil
         ;cljr-inject-dependencies-at-jack-in nil
@@ -59,7 +58,7 @@
   (yas-minor-mode 1) ; for adding require/use/import statements
     ;; This choice of keybinding leaves cider-macroexpand-1 unbound
   (cljr-add-keybindings-with-prefix "C-c C-c"))
-(add-hook 'clojure-mode-hook #'my-clojure-mode-hook)
+(add-hook 'clojure-mode-hook #'cljr-clojure-mode-hook)
 
 (setq cljr-clojure-test-declaration
       "[midje.sweet :refer :all]")
@@ -81,6 +80,38 @@
   (define-key clj-refactor-map "\C-ctl" #'cljr-thread-last-all)
   (define-key clj-refactor-map "\C-cu" #'cljr-unwind)
   (define-key clj-refactor-map "\C-cU" #'cljr-unwind-all))
+
+;; paredit
+
+(defun reverse-transpose-sexps (arg)
+  (interactive "*p")
+  (transpose-sexps (- arg))
+  ;; when transpose-sexps can no longer transpose, it throws an error and code
+  ;; below this line won't be executed. So, we don't have to worry about side
+  ;; effects of backward-sexp and forward-sexp.
+  (backward-sexp (1+ arg))
+  (forward-sexp 1))
+
+(eval-after-load "paredit"
+  '(progn
+     (global-unset-key (kbd "M-<left>"))
+     (global-unset-key (kbd "M-<right>"))
+     (define-key paredit-mode-map (kbd "C-<left>") nil)
+     (define-key paredit-mode-map (kbd "C-<right>") nil)
+     (define-key paredit-mode-map (kbd "M-<up>") nil)
+     (define-key paredit-mode-map (kbd "M-<down>") nil)))
+(add-hook 'paredit-mode-hook
+          (lambda ()
+            (global-set-key (kbd "M-<up>") 'reverse-transpose-sexps)
+            (global-set-key (kbd "M-<down>") 'transpose-sexps)
+            (define-key paredit-mode-map (kbd "M-S-<right>") 'paredit-backward-barf-sexp)
+            (define-key paredit-mode-map (kbd "M-S-<left>") 'paredit-backward-slurp-sexp)
+            (define-key paredit-mode-map (kbd "M-<right>") 'paredit-forward-slurp-sexp)
+            (define-key paredit-mode-map (kbd "M-<left>") 'paredit-forward-barf-sexp)
+            (define-key paredit-mode-map (kbd "C-c <left>") 'paredit-backward)
+            (define-key paredit-mode-map (kbd "C-c <right>") 'paredit-forward)))
+(add-hook 'clojure-mode-hook 'paredit-mode)
+
 
 ;; themes
 (custom-set-variables
