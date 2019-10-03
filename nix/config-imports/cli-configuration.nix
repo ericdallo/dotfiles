@@ -9,7 +9,7 @@
     ffmpeg
     gitFull
     grub
-    # home-manager
+    home-manager
     jq
     lshw
     manpages
@@ -59,6 +59,6 @@
     tmux = {
       enable = true;
       clock24 = true;
-      };
+    };
   };
 }
