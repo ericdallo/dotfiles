@@ -5,12 +5,12 @@
     [
       franz
       gimp
-      gnomeExtensions.battery-status
+      # gnomeExtensions.battery-status #broken
       # gnomeExtensions.drop-down-terminal
       google-chrome
       gparted
       inkscape
-      # postman
+      postman
       skype
       slack
       teamviewer

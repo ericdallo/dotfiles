@@ -9,6 +9,7 @@
     ffmpeg
     gitFull
     grub
+    # home-manager
     jq
     lshw
     manpages
@@ -18,6 +19,7 @@
     telnet
     tmux
     tmuxinator
+    tree
     unrar
     unzip
     usbutils
@@ -36,16 +38,17 @@
   programs = {
     zsh = {
       enable = true;
+      syntaxHighlighting.enable = true;
       ohMyZsh = {
         enable = true;
-        plugins = [ "git" "sudo" "docker" "kubectl" "zsh-autosuggestions"];
+        plugins = [ "git" "sudo" "docker" "kubectl"];
       };
       interactiveShellInit = ''
         export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh/
 
         # Customize your oh-my-zsh options here
         ZSH_THEME="simple"
-        plugins=(git zsh-autosuggestions sudo docker kubectl)
+        plugins=(git sudo docker kubectl)
 
         source $ZSH/oh-my-zsh.sh
       '';
