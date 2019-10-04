@@ -112,7 +112,6 @@
             (define-key paredit-mode-map (kbd "C-c <right>") 'paredit-forward)))
 (add-hook 'clojure-mode-hook 'paredit-mode)
 
-
 ;; themes
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
