@@ -1,9 +1,11 @@
 { stdenv, fetchFromGitHub, pkgs, ... }:
 
 {
-
   environment.systemPackages = with pkgs;
+
   let
+    pkgs-stable = import (fetchTarball http://nixos.org/channels/nixos-19.03/nixexprs.tar.xz) {};
+
     my-python-packages = python-packages: with python-packages; [
       pandas
       jupyter
@@ -37,10 +39,11 @@
           [ gradle ];
       })
       gitAndTools.hub
-      joker
+      pkgs-stable.joker
       leiningen
       mysql57
       python-with-my-packages
+      sassc
       vcsodeWithExtension
     ];
 
