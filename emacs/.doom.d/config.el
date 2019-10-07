@@ -84,6 +84,7 @@
                    ("dth" . "common-datomic.test-helpers")
                    ("t-money" . "common-core.types.money")
                    ("d" . "datomic.api")
+                   ("pp" . "clojure.pprint")
                    ("init" . "postmanaux.init")))
     (add-to-list 'cljr-magic-require-namespaces mapping t))
 

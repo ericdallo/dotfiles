@@ -1,7 +1,13 @@
-{:known-macros [schema.core/defschema
-                schema.core/defn
-                schema.core/def
-                schema.core/with-fn-validation
+{:known-macros [bonafont.logic.flow-edge/def
+                clojure.test.check.properties/for-all
+                clojure.test/deftest
+                compojure.core/GET
+                common-core.exceptions/try-type
+                common-datomic.test-helpers/let-entities
+                [compojure.core/defroutes [request]]
+                defedge
+                korma.db/defdb
+                logic.flow-edge/def
                 midje.sweet/facts
                 midje.sweet/fact
                 midje.sweet/fact
@@ -13,14 +19,11 @@
                 midje.sweet/with-state-changes
                 midje.sweet/before
                 midje.sweet/just
-                clojure.test.check.properties/for-all
-                clojure.test/deftest
-                bonafont.logic.flow-edge/def
-                defedge
-                logic.flow-edge/def
-                common-core.exceptions/try-type
+                schema.core/defschema
+                schema.core/defn
+                schema.core/def
+                schema.core/with-fn-validation
                 state-flow.core/flow
-                common-datomic.test-helpers/let-entities
                 postman.aux.init/defflow
                 contains
                 &

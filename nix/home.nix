@@ -22,6 +22,10 @@ in {
       ".gregflix-functions".source = dotfilesDir + /gregflix/.tmdb-functions;
       ".tmdb-functions".source = dotfilesDir + /gregflix/.gregflix-functions;
 
+      # Joker
+      ".joker".source = dotfilesDir + /emacs/.joker;
+      ".jokerd".source = dotfilesDir + /emacs/.jokerd;
+
       # Tmux
       ".tmux.conf".source = dotfilesDir + /tmux/.tmux.conf;
       ".tmuxinator".source = dotfilesDir + /tmux/.tmuxinator;

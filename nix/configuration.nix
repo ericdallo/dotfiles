@@ -25,6 +25,10 @@
   boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
 
   networking.hostName = "gregnix"; # Define your hostname.
+  networking.extraHosts = ''
+    172.17.0.1 mysql
+    172.17.0.1 datomic
+  '';
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
