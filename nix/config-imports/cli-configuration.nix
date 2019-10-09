@@ -5,6 +5,7 @@
     ag
     curl
     emacs
+    espeak
     file
     ffmpeg
     gitFull
