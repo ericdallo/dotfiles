@@ -81,8 +81,11 @@
   (define-key clj-refactor-map "\C-cu" #'cljr-unwind)
   (define-key clj-refactor-map "\C-cU" #'cljr-unwind-all))
 
-;; paredit
+;; Expand-region
+(global-set-key (kbd "M-=") 'er/expand-region)
+(global-set-key (kbd "M--") (lambda () (interactive) (er/expand-region -1)))
 
+;; paredit
 (defun reverse-transpose-sexps (arg)
   (interactive "*p")
   (transpose-sexps (- arg))
