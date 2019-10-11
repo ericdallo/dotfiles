@@ -172,6 +172,35 @@ function processVideo {
     return 1
 }
 
-function dump-gregflix {
-    mysqldump -u root -p$GREGFLIX_PASS -h $CAC3_IP gregflix > ~/cac/gregflix/gregflix-$1-$2.sql
+function gregflix-dev-create-user {
+    cd ~/dev/gregflix
+    lein exec resources/scripts/create_user.clj "datomic:free://localhost:4334/gregflix?password=123mudar" $1 $2 $3
+}
+
+function gregflix-prod-create-user {
+    cd ~/dev/gregflix
+    lein exec resources/scripts/create_user.clj "datomic:free://gregflix.site:4334/gregflix?password=$GREGFLIX_DATOMIC_DB_PASS" $1 $2 $3
+}
+
+function gregflix-dev-dump {
+    docker start datomic
+    docker exec datomic bin/datomic -Xmx4g -Xms4g backup-db "datomic:free://localhost:4334/gregflix?password=123mudar" file:backup
+    docker cp datomic:/datomic/backup ~/Documents/gregflix/backups/datomic/backup-dev-$(date +%d-%m-%Y)
+}
+
+function gregflix-prod-dump {
+    docker start datomic
+    docker exec datomic bin/datomic -Xmx4g -Xms4g backup-db "datomic:free://gregflix.site:4334/gregflix?password=$GREGFLIX_DATOMIC_DB_PASS" file:backup-prod
+    docker cp datomic:/datomic/backup-prod/ ~/Documents/gregflix/backups/datomic/backup-prod-$(date +%d-%m-%Y)
+}
+
+function gregflix-dev-restore-dump {
+    docker cp ~/Documents/gregflix/backups/datomic/backup-prod-$1-$2-$3 datomic:/datomic/backup
+    docker exec datomic bin/datomic -Xmx4g -Xms4g restore-db file:backup 'datomic:free://localhost:4334/gregflix?password=123mudar'
+}
+
+function gregflix-prod-restore-dump {
+    scp -r ~/Documents/gregflix/backups/datomic/backup-prod-$1-$2-$3 root@$CAC3_IP:backup-prod
+    sshcac3 'docker cp backup-prod datomic:/datomic/backup-prod'
+    sshcac3 "docker exec datomic bin/datomic -Xmx4g -Xms4g restore-db file:backup-prod 'datomic:free://gregflix.site:4334/gregflix?password=${GREGFLIX_DATOMIC_DB_PASS}'"
 }
