@@ -16,7 +16,7 @@ function changeEncoding {
 
 function 2vtt {
     changeEncoding "$1"
-    srt2vtt "$1.srt"
+    srt-vtt "$1.srt"
 }
 
 function encodeVideo {
@@ -138,6 +138,7 @@ function gregflix-prod-db-add-serie {
 }
 
 function gregflix-prod-process-video {
+    set -ve
     if [ "$#" -eq 7 ] || [ "$#" -eq 4 ] || [ "$#" -eq 5 ] || [ "$#" -eq 3 ]; then
         
         if [ ! -f "$3.mp4" ]; then
