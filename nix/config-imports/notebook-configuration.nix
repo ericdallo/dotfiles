@@ -21,7 +21,7 @@
   # Configure special hardware in laptops.
   hardware = {
     # Enable bluetooth.
-    bluetooth.enable = false;
+    bluetooth.enable = true;
 
     pulseaudio = {
       package = pkgs.pulseaudioFull;

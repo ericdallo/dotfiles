@@ -9,9 +9,13 @@
     file
     ffmpeg
     gitFull
+    gnumake
     grub
     home-manager
+    imagemagick
+    inotify-tools
     jq
+    killall
     lshw
     manpages
     openssl

@@ -19,8 +19,9 @@ in {
       ".functions".source = dotfilesDir + /basic/.functions;
 
       # Gregflix
-      ".tmdb-functions".source = dotfilesDir + /gregflix/.gregflix-functions;
-      ".gregflix-functions".source = dotfilesDir + /gregflix/.tmdb-functions;
+      ".tmdb-functions".source = dotfilesDir + /gregflix/.tmdb-functions;
+      ".gregflix-functions".source = dotfilesDir + /gregflix/.gregflix-functions;
+      ".s3cfg".source = dotfilesDir + /gregflix/.s3cfg;
 
       # Joker
       ".joker".source = dotfilesDir + /emacs/.joker;

@@ -6,15 +6,32 @@
   let
     pkgs-stable = import (fetchTarball http://nixos.org/channels/nixos-19.03/nixexprs.tar.xz) {};
 
-    my-python-packages = python-packages: with python-packages; [
+    jotform = python37.pkgs.buildPythonPackage {
+      pname = "jotform";
+      version = "python_3_compatibility";
+
+      src = pkgs.fetchFromGitHub {
+        owner = "atleta";
+        repo = "jotform-api-python";
+        rev = "082cfe7906de14d1f999cf1259a863d8e4d9da81";
+        sha256 = "04kn2yp4szmzvc2viy5kyb6yj5s5l21klv2hf8d6ygfa95f7w4wx";
+      };
+
+      doCheck = false;
+    };
+
+    custom-python-packages = python-packages: with python-packages; [
       pandas
       jupyter
+      pillow
+      jotform
     ];
-    python-with-my-packages = python3.withPackages my-python-packages;
+    python-with-my-packages = python3.withPackages custom-python-packages;
     vcsodeWithExtension = vscode-with-extensions.override {
       # When the extension is already available in the default extensions set.
       vscodeExtensions = with vscode-extensions; [
         bbenoist.Nix
+        python
       ]
       # Concise version from the vscode market place when not available in the default set.
       ++ vscode-utils.extensionsFromVscodeMarketplace [
@@ -39,9 +56,11 @@
           [ gradle ];
       })
       gitAndTools.hub
+      heroku
       pkgs-stable.joker
       leiningen
       mysql57
+      nodejs
       python-with-my-packages
       sassc
       vcsodeWithExtension

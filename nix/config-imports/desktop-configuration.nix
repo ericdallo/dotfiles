@@ -17,6 +17,7 @@
       teamviewer
       transmission-gtk
       vlc
+      (wine.override { wineBuild = "wineWow"; })
       woeusb
     ];
 
