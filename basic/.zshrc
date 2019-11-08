@@ -1,8 +1,7 @@
 source ~/.critical-keys
 
 export EDITOR=vim
-export PI=192.168.1.108
-
+export DOTFILES_DIR="~/dev/dotfiles"
 export GRADLE_OPTS=-Xmx1024m
 
 [[ -s ~/.zsh_aliases ]] && source ~/.zsh_aliases

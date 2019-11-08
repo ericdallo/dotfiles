@@ -58,6 +58,7 @@
       gitAndTools.hub
       heroku
       pkgs-stable.joker
+      clj-kondo
       leiningen
       mysql57
       nodejs
