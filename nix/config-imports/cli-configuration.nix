@@ -18,6 +18,7 @@
     killall
     lshw
     manpages
+    mediainfo
     openssl
     oh-my-zsh
     s3cmd
