@@ -1,5 +1,10 @@
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
 
+(let ((nudev-emacs-path "~/dev/nu/nudev/ides/emacs/"))
+  (when (file-directory-p nudev-emacs-path)
+    (add-to-list 'load-path nudev-emacs-path)
+    (require 'nu)))
+
 ;; Place your private configuration here
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (add-to-list 'auto-mode-alist '("\\.repl\\'" . clojure-mode))
@@ -9,11 +14,11 @@
 
 ;; set window title with "[project] filename"
 (setq frame-title-format
-    (setq icon-title-format
-          '(""
-            (:eval
-              (format "[%s] " (projectile-project-name)))
-            "%b")))
+      (setq icon-title-format
+            '(""
+              (:eval
+               (format "[%s] " (projectile-project-name)))
+              "%b")))
 
 ;; font
 (setq doom-font (font-spec :family "Hack" :size 18)
@@ -27,6 +32,9 @@
   (set-fontset-font t 'unicode
                     (font-spec :family "Font Awesome 5 Brands")
                     nil 'append))
+
+;; enable minibuffer to work correctly in evil mode
+(setq evil-collection-setup-minibuffer t)
 
 ;; Maximize buffer
 (defun toggle-maximize-buffer ()
@@ -90,6 +98,14 @@
 (global-set-key (kbd "M-=") 'er/expand-region)
 (global-set-key (kbd "M--") (lambda () (interactive) (er/expand-region -1)))
 
+; custom rgrep
+; TODO
+(defun rg-ignoring-folder (&optional arg symbol)
+    "ripgrep selected word in project excluding folder"
+    (interactive
+     (list current-prefix-arg (or (thing-at-point 'symbol t) "")))
+    (+ivy/project-search nil (rxt-quote-pcre symbol)))
+
 ;; paredit
 (defun reverse-transpose-sexps (arg)
   (interactive "*p")
@@ -136,3 +152,5 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(load! "+bindings")
