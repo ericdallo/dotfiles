@@ -215,7 +215,7 @@ function gregflix-dev-restore-dump {
 }
 
 function gregflix-prod-restore-dump {
-    scp -r ~/Documents/gregflix/backups/datomic/backup-prod-$1-$2-$3 root@$CAC3_IP:backup-prod
+    scp -r $1 root@$CAC3_IP:backup-prod
     sshcac3 'docker cp backup-prod datomic:/datomic/backup-prod'
-    sshcac3 'docker exec datomic bin/datomic -Xmx4g -Xms4g restore-db file:backup-prod "$GREGFLIX_PROD_DB_URI"'
+    sshcac3 'docker exec datomic bin/datomic -Xmx4g -Xms4g restore-db file:backup-prod $GREGFLIX_PROD_DB_URI'
 }

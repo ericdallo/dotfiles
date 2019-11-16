@@ -63,6 +63,7 @@
       mysql57
       nodejs
       python-with-my-packages
+      sass
       sassc
       vcsodeWithExtension
     ];

@@ -27,7 +27,7 @@
   networking.hostName = "gregnix"; # Define your hostname.
   networking.extraHosts = ''
     172.17.0.1 mysql
-    172.17.0.1 datomic
+    172.17.0.2 datomic
   '';
 
   # Configure network proxy if necessary
@@ -81,7 +81,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.greg = {
 	isNormalUser = true;
-	extraGroups = [ "wheel" "networkmanager" "video"];
+	extraGroups = [ "wheel" "networkmanager" "video" "audio"];
 	shell = pkgs.zsh;
   };
   nix.allowedUsers = [ "greg" ];
