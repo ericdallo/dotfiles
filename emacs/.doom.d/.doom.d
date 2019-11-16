@@ -1,1 +1,0 @@
-/home/greg/dev/dotfiles/emacs/.doom.d

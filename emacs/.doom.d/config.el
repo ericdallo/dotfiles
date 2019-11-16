@@ -5,25 +5,27 @@
     (add-to-list 'load-path nudev-emacs-path)
     (require 'nu)))
 
-;; Place your private configuration here
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (add-to-list 'auto-mode-alist '("\\.repl\\'" . clojure-mode))
 
-;; disable confirmation message on exit
-(setq confirm-kill-emacs nil)
+(setq
+ confirm-kill-emacs nil ;; disable confirmation message on exit
 
-;; set window title with "[project] filename"
-(setq frame-title-format
-      (setq icon-title-format
-            '(""
-              (:eval
-               (format "[%s] " (projectile-project-name)))
-              "%b")))
+ projectile-project-search-path '("~/dev/")
 
-;; font
-(setq doom-font (font-spec :family "Hack" :size 18)
-      doom-big-font-increment 4
-      doom-unicode-font (font-spec :family "DejaVu Sans"))
+ frame-title-format (setq icon-title-format  ;; set window title with "[project] filename"
+                          '(""
+                            (:eval
+                             (format "[%s] " (projectile-project-name)))
+                            "%b"))
+
+ doom-font (font-spec :family "Hack" :size 18)
+ doom-big-font-increment 4
+ doom-unicode-font (font-spec :family "DejaVu Sans")
+
+ evil-collection-setup-minibuffer t ;; enable minibuffer to work correctly in evil mode
+
+ cljr-clojure-test-declaration "[midje.sweet :refer :all]")
 
 (add-hook! 'after-make-frame-functions
   (set-fontset-font t 'unicode
@@ -32,9 +34,6 @@
   (set-fontset-font t 'unicode
                     (font-spec :family "Font Awesome 5 Brands")
                     nil 'append))
-
-;; enable minibuffer to work correctly in evil mode
-(setq evil-collection-setup-minibuffer t)
 
 ;; Maximize buffer
 (defun toggle-maximize-buffer ()
@@ -73,9 +72,6 @@
   (cljr-add-keybindings-with-prefix "C-c C-c"))
 (add-hook 'clojure-mode-hook #'cljr-clojure-mode-hook)
 
-(setq cljr-clojure-test-declaration
-      "[midje.sweet :refer :all]")
-
 (with-eval-after-load 'clj-refactor
   (setq cljr-thread-all-but-last t)
   (dolist (mapping '(("s"   . "schema.core")
@@ -93,10 +89,6 @@
   (define-key clj-refactor-map "\C-ctl" #'cljr-thread-last-all)
   (define-key clj-refactor-map "\C-cu" #'cljr-unwind)
   (define-key clj-refactor-map "\C-cU" #'cljr-unwind-all))
-
-;; Expand-region
-(global-set-key (kbd "M-=") 'er/expand-region)
-(global-set-key (kbd "M--") (lambda () (interactive) (er/expand-region -1)))
 
 ; custom rgrep
 ; TODO
