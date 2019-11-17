@@ -13,6 +13,8 @@
 
  projectile-project-search-path '("~/dev/")
 
+ counsel-rg-base-command "rg -i -M 120 --no-heading --line-number --color never %s ."
+
  frame-title-format (setq icon-title-format  ;; set window title with "[project] filename"
                           '(""
                             (:eval
@@ -91,12 +93,14 @@
   (define-key clj-refactor-map "\C-cU" #'cljr-unwind-all))
 
 ; custom rgrep
-; TODO
-(defun rg-ignoring-folder (&optional arg symbol)
-    "ripgrep selected word in project excluding folder"
-    (interactive
-     (list current-prefix-arg (or (thing-at-point 'symbol t) "")))
-    (+ivy/project-search nil (rxt-quote-pcre symbol)))
+(defun rg-ignoring-folders (folders)
+  "ripgrep selected word in project excluding folder"
+  (let ((symbol (thing-at-point 'symbol t))
+        (args (mapconcat 'identity
+                         (mapcar #'(lambda(folder) (concat "-g '!" folder "/*'"))
+                                 folders)
+                         " ")))
+    (counsel-rg symbol (counsel--git-root) args)))
 
 ;; paredit
 (defun reverse-transpose-sexps (arg)

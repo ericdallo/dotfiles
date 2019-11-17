@@ -5,8 +5,11 @@
 
 (map! :leader
 
-      :desc "Search for symbol in project excluding test folder"
-      "&" #'rg-ignoring-folder)
+      :desc "Search for symbol in project excluding test folders"
+      "&" (lambda () (interactive) (rg-ignoring-folders (list "test" "postman")))
+
+      :desc "Search for symbol in project excluding src folder"
+      "(" (lambda () (interactive) (rg-ignoring-folders (list "src"))))
 
 ;; Expand-region
 (global-set-key (kbd "M-=") 'er/expand-region)
