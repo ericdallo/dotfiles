@@ -21,6 +21,7 @@
     mediainfo
     openssl
     oh-my-zsh
+    ripgrep
     s3cmd
     telnet
     tmux
