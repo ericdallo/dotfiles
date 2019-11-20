@@ -39,10 +39,10 @@ windows:
       panes:
           - cd ~/dev/frigocenter-api && git st
           - cd ~/dev/frigocenter-web && git st
-  - MySQL:  m frigocenter
+  - MySQL:  docker start mysql && m frigocenter
   - MySQL-PROD:  mysql-frigo
   - Another:
       layout: main-vertical
       panes:
-        - 
+        -
         - 

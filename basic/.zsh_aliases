@@ -9,6 +9,7 @@ alias mysql-frigo="mysql -u $FRIGOCENTER_DB_USER -p'$FRIGOCENTER_DB_PASS' -h $FR
 
 # Unity
 DEVICE_IP="192.168.1.29"
+PI=192.168.1.108
 
 # Raspiberry
 alias pi='ssh pi@$PI'
@@ -37,6 +38,7 @@ alias cloj='mux start clojure'
 alias s='espeak'
 alias hey='s -v pt-br "se liga, cabô"'
 
+alias dotfiles="code $DOTFILES_DIR"
 alias restart-chrome="killall chrome; google-chrome-stable"
 
 alias mdocker="docker exec -it mysql mysql -uroot -p"

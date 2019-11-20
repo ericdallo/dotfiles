@@ -9,3 +9,16 @@ function unity-apk-install() {
     adb -s $DEVICE_IP install ~/games-dev/apks/$1.apk &&
     adb -s $DEVICE_IP shell am start -n com.gregcodes.$1/com.unity3d.player.UnityPlayerActivity
 }
+
+function miband-build() {
+    TZ=Europe/Berlin wine ~/Documents/MiBand/MiBandWFTool_1.4.1/PaletteImageMode/WatchFace.exe $1
+}
+
+function miband-watch() {
+    inotifywait -m -e close_write *.png $1 |
+    while read -r filename event; do
+        if [ ${#filename} -eq 8 ] || [ "$filename" = "$1" ]; then
+            miband-build *.json
+        fi
+    done
+}

@@ -18,4 +18,7 @@ ln -sf $DOTFILES_DIR/emacs/.doom.d ~/.doom.d
 ln -sf $DOTFILES_DIR/gregflix/.gregflix-functions ~/.gregflix-functions
 ln -sf $DOTFILES_DIR/gregflix/.tmdb-functions ~/.tmdb-functions
 
+ln -sf $DOTFILES_DIR/nix/configuration.nix /etc/nixos/configuration.nix
+ln -sf $DOTFILES_DIR/nix/config-imports /etc/nixos/config-imports
+
 echo "Links updated"
