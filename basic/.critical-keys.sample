@@ -1,6 +1,8 @@
 #!/bin/bash
 
 export GREGFLIX_PASS=
+export GREGFLIX_DATOMIC_ADMIN_PASS=
+export GREGFLIX_DATOMIC_DB_PASS=
 
 export AWS_ACCESS_KEY=
 export AWS_SECRET_KEY=
