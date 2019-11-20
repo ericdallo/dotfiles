@@ -3,10 +3,10 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-
 {
   imports =
     [
+      /etc/nixos/host.nix
       ./config-imports/hardware-configuration.nix
       ./config-imports/notebook-configuration.nix
       ./config-imports/desktop-configuration.nix
@@ -15,19 +15,9 @@
       ./config-imports/misc-configuration.nix
     ];
 
-  # Use the GRUB 2 boot loader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.version = 2;
-  boot.loader.grub.efiSupport = true;
-  # boot.loader.grub.efiInstallAsRemovable = true;
-  # boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  # Define on which hard drive you want to install Grub.
-  boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
-
-  networking.hostName = "gregnix"; # Define your hostname.
   networking.extraHosts = ''
     172.17.0.1 mysql
-    172.17.0.2 datomic
+    172.17.0.1 datomic
   '';
 
   # Configure network proxy if necessary
@@ -36,8 +26,8 @@
 
   # Select internationalisation properties.
    i18n = {
-	consoleKeyMap = "us-acentos";
-	defaultLocale = "en_US.UTF-8";
+     consoleKeyMap = "us-acentos";
+     defaultLocale = "en_US.UTF-8";
   };
 
   # Set your time zone.
@@ -80,9 +70,9 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.greg = {
-	isNormalUser = true;
-	extraGroups = [ "wheel" "networkmanager" "video" "audio"];
-	shell = pkgs.zsh;
+    isNormalUser = true;
+    extraGroups = [ "wheel" "networkmanager" "video" "audio"];
+    shell = pkgs.zsh;
   };
   nix.allowedUsers = [ "greg" ];
 
@@ -90,6 +80,6 @@
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "19.03"; # Did you read the comment?
+  system.stateVersion = "19.09"; # Did you read the comment?
 
 }
