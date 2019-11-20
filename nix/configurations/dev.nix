@@ -4,7 +4,7 @@
   environment.systemPackages = with pkgs;
 
   let
-    pkgs-stable = import (fetchTarball http://nixos.org/channels/nixos-19.03/nixexprs.tar.xz) {};
+    stable = import (fetchTarball http://nixos.org/channels/nixos-19.09/nixexprs.tar.xz) {};
 
     jotform = python37.pkgs.buildPythonPackage {
       pname = "jotform";
@@ -57,7 +57,7 @@
       })
       gitAndTools.hub
       heroku
-      pkgs-stable.joker
+      stable.joker
       clj-kondo
       leiningen
       mysql57
@@ -68,14 +68,12 @@
       vcsodeWithExtension
     ];
 
-  # Java
   programs.java = {
     enable = true;
     package = pkgs.jdk8;
   };
 
   virtualisation = {
-    # Enable Docker.
     docker.enable = true;
 
     # Enable VirtualBox.

@@ -5,7 +5,6 @@
     [
       franz
       gimp
-      # gnomeExtensions.battery-status #broken
       gnomeExtensions.drop-down-terminal
       gnome3.gnome-tweaks
       google-chrome

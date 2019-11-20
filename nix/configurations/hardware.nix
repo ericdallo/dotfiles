@@ -1,10 +1,7 @@
 { pkgs, ... }:
 
 {
-  nixpkgs.config.allowUnfree = true;
-
   networking = {
-    # wireless.enable = true;
 
     networkmanager = {
       enable = true;
