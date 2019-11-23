@@ -20,9 +20,9 @@
     172.17.0.1 datomic
   '';
 
-   i18n = {
-     consoleKeyMap = "us-acentos";
-     defaultLocale = "en_US.UTF-8";
+  i18n = {
+    consoleKeyMap = "us-acentos";
+    defaultLocale = "en_US.UTF-8";
   };
 
   time.timeZone = "America/Sao_Paulo";

@@ -32,6 +32,7 @@
     usbutils
     vim
     wget
+    wirelesstools
     xclip
   ];
 

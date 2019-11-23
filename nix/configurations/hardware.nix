@@ -10,13 +10,15 @@
     };
   };
 
- environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     blueman
     iw
   ];
 
   # Configure special hardware in laptops.
   hardware = {
+    enableRedistributableFirmware = true;
+
     # Enable bluetooth.
     bluetooth.enable = true;
 
