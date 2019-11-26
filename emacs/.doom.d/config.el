@@ -49,15 +49,16 @@
 
 ;; clojure-mode
 (with-eval-after-load 'clojure-mode
+  (require 'flycheck-clj-kondo)
   (define-clojure-indent
-  (fact 1)
-  (facts 1)
-  (flow 1)
-  (fnk 1)
-  (provided 1)
-  (clojure.test.check/quick-check 2)
-  (clojure.test.check.properties/for-all 2)
-  (common-datomic.test-helpers/let-entities 2)))
+    (fact 1)
+    (facts 1)
+    (flow 1)
+    (fnk 1)
+    (provided 1)
+    (clojure.test.check/quick-check 2)
+    (clojure.test.check.properties/for-all 2)
+    (common-datomic.test-helpers/let-entities 2)))
 
 ;; clj-refactor
 ;(setq cljr-inject-dependencies-at-jack-in nil)

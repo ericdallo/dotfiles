@@ -3,6 +3,7 @@
 {
   environment.systemPackages = with pkgs; [
     ag
+    appimage-run
     curl
     emacs
     espeak

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Nix
+alias rebuild="sudo nixos-rebuild switch"
+
 # FGCOM
 alias adminLogin="curl -i -X POST -d username=admin -d password=123mudar -c /tmp/cookie localhost:7777/login"
 alias clientLogin="curl -i -X POST -d username=client -d password=123mudar -c /tmp/cookie localhost:7777/login"
@@ -15,8 +18,8 @@ PI=192.168.1.108
 alias pi='ssh pi@$PI'
 alias torrent='transmission-remote-cli -c $PI'
 
-alias al='vim ~/.zsh_aliases'
-alias fu='sublime ~/dev/dotfiles/alias/'
+alias al='$EDITOR ~/.zsh_aliases'
+alias fu='$EDITOR ~/dev/dotfiles/alias/'
 
 alias taghere='ctags -R -f ./.git/tags'
 
@@ -24,7 +27,6 @@ alias taghere='ctags -R -f ./.git/tags'
 alias ls='ls -G --color=auto'
 alias ll='ls -l'
 alias fpo="sudo shutdown -P 0"
-alias git='hub'
 alias pl="ps aux | grep"
 alias rehash="source ~/.zshrc"
 alias ge='gradle cleanEclipse eclipse'
@@ -34,16 +36,13 @@ alias tm='tmuxinator start tab'
 alias frigocenter='tmuxinator start frigocenter'
 alias nubank='tmuxinator start nubank'
 alias imarket='tmuxinator start imarket'
-alias cloj='mux start clojure'
 alias s='espeak'
 alias hey='s -v pt-br "se liga, cabô"'
 
-alias dotfiles="code $DOTFILES_DIR"
+alias dotfiles="$EDITOR $DOTFILES_DIR"
 alias restart-chrome="killall chrome; google-chrome-stable"
 
-alias mdocker="docker exec -it mysql mysql -uroot -p"
 alias m="mysql -uroot -p -h 172.17.0.1"
-alias v="vim ."
 alias k="kill -9"
 
 alias c='xclip -selection clipboard'
@@ -64,5 +63,5 @@ alias sshcac3='ssh root@$CAC3_IP'
 alias deploy-gregflix='sshcac3 "./start-app.sh"'
 alias mysql-cac3='mysql -u root -p$GREGFLIX_PASS -h $CAC3_IP gregflix'
 
-#Alias temporarios
+# Alias temporarios
 alias restart-net="sudo service network-manager restart"

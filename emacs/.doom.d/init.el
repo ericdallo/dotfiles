@@ -78,7 +78,6 @@
        flycheck          ; tasing you for every semicolon you forget
        ;flycheck-joker
        flycheck-clj-kondo
-       (require 'flycheck-clj-kondo)
        ;(require 'flycheck-joker)
 
 

@@ -57,11 +57,12 @@
       })
       gitAndTools.hub
       heroku
-      stable.joker
+      # stable.joker
       clj-kondo
       leiningen
       mysql57
       nodejs
+      nodePackages.node2nix
       python-with-my-packages
       sass
       sassc

@@ -200,17 +200,17 @@ function gregflix-prod-db-create-user {
 function gregflix-dev-dump {
     docker start datomic
     docker exec datomic bin/datomic -Xmx4g -Xms4g backup-db $GREGFLIX_DEV_DB_URI file:backup
-    docker cp datomic:/datomic/backup ~/Documents/gregflix/backups/datomic/backup-dev-$(date +%d-%m-%Y)
+    docker cp datomic:/datomic/backup ~/Documents/Gregflix/backups/datomic/backup-dev-$(date +%d-%m-%Y)
 }
 
 function gregflix-prod-dump {
     docker start datomic
     docker exec datomic bin/datomic -Xmx4g -Xms4g backup-db $GREGFLIX_PROD_DB_URI file:backup-prod
-    docker cp datomic:/datomic/backup-prod/ ~/Documents/gregflix/backups/datomic/backup-prod-$(date +%d-%m-%Y)
+    docker cp datomic:/datomic/backup-prod/ ~/Documents/Gregflix/backups/datomic/backup-prod-$(date +%d-%m-%Y)
 }
 
 function gregflix-dev-restore-dump {
-    docker cp ~/Documents/gregflix/backups/datomic/backup-prod-$1-$2-$3 datomic:/datomic/backup
+    docker cp ~/Documents/Gregflix/backups/datomic/backup-prod-$1-$2-$3 datomic:/datomic/backup
     docker exec datomic bin/datomic -Xmx4g -Xms4g restore-db file:backup "$GREGFLIX_DEV_DB_URI"
 }
 

@@ -12,6 +12,8 @@ in {
       # Critical keys
       # ".critical-keys".source = dotfilesDir + /basic/.critical-keys.sample;
 
+      #".clj-kondo".source = dotfilesDir + /emacs/.clj-kondo;
+
       # Doom
       ".doom.d".source = dotfilesDir + /emacs/.doom.d;
 
