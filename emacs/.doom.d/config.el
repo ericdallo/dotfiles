@@ -144,12 +144,10 @@
                clojurex-mode))
     (add-to-list 'lsp-language-id-configuration `(,m . "clojure"))))
 
-(use-package lsp-ui
-  :ensure t
+(use-package! lsp-ui
   :commands lsp-ui-mode)
 
-(use-package company-lsp
-  :ensure t
+(use-package! company-lsp
   :commands company-lsp)
 
 ;; themes
