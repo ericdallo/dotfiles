@@ -69,9 +69,13 @@
       vcsodeWithExtension
     ];
 
-  programs.java = {
-    enable = true;
-    package = pkgs.jdk8;
+  programs = {
+    java = {
+      enable = true;
+      package = pkgs.jdk8;
+    };
+
+    adb.enable = true;
   };
 
   virtualisation = {

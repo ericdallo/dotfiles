@@ -1,5 +1,11 @@
 source ~/.critical-keys
 
+
+# TODO use flutter as a nix derivation
+export PATH="$PATH:$HOME/flutter/flutter/bin"
+# TODO create a clojure-lsp as a nix derivation
+export PATH="$PATH:$HOME/clojure-lsp"
+
 export EDITOR=emacs
 export DOTFILES_DIR="~/dev/dotfiles"
 export GRADLE_OPTS=-Xmx1024m
