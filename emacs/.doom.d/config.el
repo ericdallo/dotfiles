@@ -133,7 +133,7 @@
   :commands lsp
   :init
   (setq lsp-enable-indentation nil
-        lsp-print-io t)
+        lsp-prefer-flymake nil)
   :custom
   ((lsp-clojure-server-command '("bash" "-c" "/home/greg/clojure-lsp/clojure-lsp"))) ;TODO fix to dynamic path
 

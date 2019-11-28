@@ -1,0 +1,5 @@
+{"macro-defs" {schema.core/defschema [:declaration :elements]
+               schema.core/defn [:declaration {:element [:params :bound-elements]} ]
+               schema.core/def [:declaration :elements]}
+ "use-metadata-for-privacy?" true
+ "dependency-scheme" "jar"}
