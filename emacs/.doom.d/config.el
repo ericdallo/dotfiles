@@ -150,4 +150,21 @@
 (use-package! company-lsp
   :commands company-lsp)
 
+(use-package! dart-mode
+  :init
+  (setq lsp-dart-analysis-sdk "~/flutter/flutter/bin/cache/dart-sdk/"
+        dart-format-on-save t))
+
+(use-package! flutter
+  :after dart-mode
+  :bind (:map dart-mode-map
+          ("C-M-x" . #'flutter-run-or-hot-reload))
+  :init
+  (setq flutter-sdk-path "~/flutter/flutter/")) ;TODO after package flutter
+
+(use-package! flutter-l10n-flycheck
+  :after flutter
+  :config
+  (flutter-l10n-flycheck-setup))
+
 (load! "+bindings")
