@@ -48,6 +48,7 @@
       android-studio
       awscli
       clojure
+      dart
       docker-compose
       (eclipses.eclipseWithPlugins {
         eclipse = eclipses.eclipse-java;
@@ -76,13 +77,6 @@
     };
 
     adb.enable = true;
-  };
-
-  virtualisation = {
-    docker.enable = true;
-
-    # Enable VirtualBox.
-    # virtualbox.host.enable = true;
   };
 
   users.users.greg.extraGroups = [ "docker" "vboxusers" ];

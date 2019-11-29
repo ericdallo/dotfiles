@@ -15,7 +15,7 @@ in {
       #".clj-kondo".source = dotfilesDir + /emacs/.clj-kondo;
 
       # Doom
-      ".doom.d".source = dotfilesDir + /emacs/.doom.d;
+      #".doom.d".source = dotfilesDir + /emacs/.doom.d;
 
       # Functions
       ".functions".source = dotfilesDir + /basic/.functions;

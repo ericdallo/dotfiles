@@ -8,6 +8,13 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
+  virtualisation = {
+    docker.enable = true;
+
+    # Enable VirtualBox.
+    # virtualbox.host.enable = true;
+  };
+
   nix.maxJobs = lib.mkDefault 8;
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 }
