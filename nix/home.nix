@@ -3,11 +3,6 @@ let
   dotfilesDir = ~/dev/dotfiles;
 in {
   home = {
-
-    sessionVariables = {
-      DOTFILES_DIR = dotfilesDir;
-    };
-
     file = {
       # Critical keys
       # ".critical-keys".source = dotfilesDir + /basic/.critical-keys.sample;

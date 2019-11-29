@@ -7,7 +7,7 @@ export PATH="$PATH:$HOME/flutter/flutter/bin"
 export PATH="$PATH:$HOME/clojure-lsp"
 
 export EDITOR=emacs
-export DOTFILES_DIR="~/dev/dotfiles"
+export DOTFILES_DIR="$HOME/dev/dotfiles"
 export GRADLE_OPTS=-Xmx1024m
 
 [[ -s ~/.zsh_aliases ]] && source ~/.zsh_aliases

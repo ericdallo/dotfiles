@@ -2,7 +2,7 @@
 
 set -ve
 
-DOTFILES_DIR=~/dev/dotfiles
+DOTFILES_DIR=$HOME/dev/dotfiles
 
 ln -sf $DOTFILES_DIR/tmux/.tmux.conf ~/.tmux.conf
 ln -sf $DOTFILES_DIR/tmux/.tmuxinator ~/.tmuxinator
