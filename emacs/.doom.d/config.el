@@ -129,11 +129,13 @@
    (define-key paredit-mode-map (kbd "C-c <right>") 'paredit-forward))
 
 (use-package! lsp-mode
-  :hook ((clojure-mode . lsp))
+  :hook ((clojure-mode . lsp)
+         (dart-mode . lsp))
   :commands lsp
   :init
   (setq lsp-enable-indentation nil
-        lsp-prefer-flymake nil)
+        lsp-prefer-flymake nil
+        lsp-log-io t)
   :custom
   ((lsp-clojure-server-command '("bash" "-c" "/home/greg/clojure-lsp/clojure-lsp"))) ;TODO fix to dynamic path
 
@@ -152,7 +154,7 @@
 
 (use-package! dart-mode
   :init
-  (setq lsp-dart-analysis-sdk "~/flutter/flutter/bin/cache/dart-sdk/"
+  (setq lsp-dart-analysis-sdk "~/flutter/bin/cache/dart-sdk/"
         dart-format-on-save t))
 
 (use-package! flutter
@@ -160,11 +162,15 @@
   :bind (:map dart-mode-map
           ("C-M-x" . #'flutter-run-or-hot-reload))
   :init
-  (setq flutter-sdk-path "~/flutter/flutter/")) ;TODO after package flutter
+  (setq flutter-sdk-path "~/flutter/")) ;TODO after package flutter
 
 (use-package! flutter-l10n-flycheck
   :after flutter
   :config
   (flutter-l10n-flycheck-setup))
+
+(after! projectile
+  (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")
+  (add-to-list 'projectile-project-root-files-bottom-up "BUILD"))
 
 (load! "+bindings")
