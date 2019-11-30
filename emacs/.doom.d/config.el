@@ -135,6 +135,7 @@
   :init
   (setq lsp-enable-indentation nil
         lsp-prefer-flymake nil
+        lsp-print-performance t
         lsp-log-io t)
   :custom
   ((lsp-clojure-server-command '("bash" "-c" "/home/greg/clojure-lsp/clojure-lsp"))) ;TODO fix to dynamic path
@@ -149,10 +150,19 @@
 (use-package! lsp-ui
   :commands lsp-ui-mode
   :config
+  (setq lsp-ui-doc-enable t
+        lsp-ui-doc-use-childframe t
+        lsp-ui-doc-position 'top
+        lsp-ui-doc-include-signature t
+        lsp-ui-peek-enable t
+        lsp-ui-peek-list-width 60
+        lsp-ui-peek-peek-height 25)
   (define-key lsp-mode-map (kbd "M-[") 'lsp-ui-sideline-apply-code-actions))
 
 (use-package! company-lsp
-  :commands company-lsp)
+  :commands company-lsp
+  :config
+  (setq company-lsp-async t))
 
 (use-package! dart-mode
   :init
