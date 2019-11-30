@@ -147,7 +147,9 @@
     (add-to-list 'lsp-language-id-configuration `(,m . "clojure"))))
 
 (use-package! lsp-ui
-  :commands lsp-ui-mode)
+  :commands lsp-ui-mode
+  :config
+  (define-key lsp-mode-map (kbd "M-[") 'lsp-ui-sideline-apply-code-actions))
 
 (use-package! company-lsp
   :commands company-lsp)
