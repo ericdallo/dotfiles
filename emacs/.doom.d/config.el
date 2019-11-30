@@ -154,8 +154,13 @@
 
 (use-package! dart-mode
   :init
-  (setq lsp-dart-analysis-sdk "~/flutter/bin/cache/dart-sdk/"
+  (setq dart-sdk-path "~/flutter/bin/cache/dark-sdk/"
+        lsp-dart-analysis-sdk "~/flutter/bin/cache/dart-sdk/"
         dart-format-on-save t))
+
+(use-package! dart-server
+  :config
+  (define-key dart-mode-map (kbd "M-p") 'dart-server-format))
 
 (use-package! flutter
   :after dart-mode
