@@ -114,7 +114,7 @@ function gregflix-prod-upload-movie-track {
 }
 
 function gregflix-prod-db-add-movie {
-    MOVIE_EXISTS=$(lein exec $GREGFLIX_SCRIPTS_PATH/movie_exists.clj $GREGFLIX_PROD_DB_URI $2)
+    MOVIE_EXISTS=$(cd $GREGFLIX_PATH && lein exec $GREGFLIX_SCRIPTS_PATH/movie_exists.clj $GREGFLIX_PROD_DB_URI $2)
 
     if [ "$MOVIE_EXISTS" = "1" ]; then
         echo "Movie already in DB"
@@ -123,13 +123,13 @@ function gregflix-prod-db-add-movie {
 
     echo "Inserting into db for $1 - $2 - $3 - $4"
 
-    lein exec $GREGFLIX_SCRIPTS_PATH/add_movie.clj $GREGFLIX_PROD_DB_URI $1 $2 $3 $4
+    $(cd $GREGFLIX_PATH && lein exec $GREGFLIX_SCRIPTS_PATH/add_movie.clj $GREGFLIX_PROD_DB_URI $1 $2 $3 $4)
 
     echo "Movie inserted successfully!"
 }
 
 function gregflix-prod-db-add-serie {
-    SERIE_EXISTS=$(lein exec $GREGFLIX_SCRIPTS_PATH/serie_exists.clj $GREGFLIX_PROD_DB_URI $2 $4 $5)
+    SERIE_EXISTS=$(cd $GREGFLIX_PATH && lein exec $GREGFLIX_SCRIPTS_PATH/serie_exists.clj $GREGFLIX_PROD_DB_URI $2 $4 $5)
 
     if [ "$SERIE_EXISTS" = "1" ]; then
         echo "Serie already in DB"
@@ -138,7 +138,7 @@ function gregflix-prod-db-add-serie {
 
     echo "Inserting into db for $1 - $2 - $3 - $4 - $5 - $6 - $7"
 
-    lein exec $GREGFLIX_SCRIPTS_PATH/add_serie.clj $GREGFLIX_PROD_DB_URI $1 $2 $3 $4 $5 $6 $7
+    $(cd $GREGFLIX_PATH && lein exec $GREGFLIX_SCRIPTS_PATH/add_serie.clj $GREGFLIX_PROD_DB_URI $1 $2 $3 $4 $5 $6 $7)
 
     echo "Serie inserted successfully!"
 }
@@ -190,11 +190,11 @@ function gregflix-prod-process-video {
 }
 
 function gregflix-dev-db-create-user {
-    lein exec $GREGFLIX_SCRIPTS_PATH/create_user.clj $GREGFLIX_DEV_DB_URI $1 $2 $3
+    $(cd $GREGFLIX_PATH && lein exec $GREGFLIX_SCRIPTS_PATH/create_user.clj $GREGFLIX_DEV_DB_URI $1 $2 $3)
 }
 
 function gregflix-prod-db-create-user {
-    lein exec $GREGFLIX_SCRIPTS_PATH/create_user.clj $GREGFLIX_PROD_DB_URI $1 $2 $3
+    $(cd $GREGFLIX_PATH && lein exec $GREGFLIX_SCRIPTS_PATH/create_user.clj $GREGFLIX_PROD_DB_URI $1 $2 $3)
 }
 
 function gregflix-dev-dump {
