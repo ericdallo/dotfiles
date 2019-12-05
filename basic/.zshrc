@@ -1,6 +1,5 @@
 source ~/.critical-keys
 
-
 # TODO use flutter as a nix derivation
 export PATH="$PATH:$HOME/flutter/bin"
 # TODO create a clojure-lsp as a nix derivation

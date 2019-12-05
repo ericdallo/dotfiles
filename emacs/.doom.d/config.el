@@ -20,7 +20,7 @@
                             (:eval
                              (format "[%s] " (projectile-project-name)))
                             "%b"))
-
+ company-idle-delay 0
  doom-font (font-spec :family "Hack" :size 18)
  doom-big-font-increment 4
  doom-unicode-font (font-spec :family "DejaVu Sans")
@@ -130,13 +130,12 @@
 
 (use-package! lsp-mode
   :hook ((clojure-mode . lsp)
-         (dart-mode . lsp))
+         (dart-mode . lsp)
+         (java-mode . lsp))
   :commands lsp
   :init
-  (setq lsp-enable-indentation nil
-        lsp-prefer-flymake nil
-        lsp-print-performance t
-        lsp-log-io t)
+  (setq lsp-enable-indentation t
+        lsp-prefer-flymake nil)
   :custom
   ((lsp-clojure-server-command '("bash" "-c" "/home/greg/clojure-lsp/clojure-lsp"))) ;TODO fix to dynamic path
 
@@ -150,11 +149,7 @@
 (use-package! lsp-ui
   :commands lsp-ui-mode
   :config
-  (setq lsp-ui-doc-enable t
-        lsp-ui-doc-use-childframe t
-        lsp-ui-doc-position 'top
-        lsp-ui-doc-include-signature t
-        lsp-ui-peek-enable t
+  (setq lsp-ui-peek-enable t
         lsp-ui-peek-list-width 60
         lsp-ui-peek-peek-height 25)
   (define-key lsp-mode-map (kbd "M-[") 'lsp-ui-sideline-apply-code-actions))
@@ -162,7 +157,12 @@
 (use-package! company-lsp
   :commands company-lsp
   :config
-  (setq company-lsp-async t))
+  (setq company-lsp-async t
+        company-lsp-filter-candidates t
+        company-lsp-cache-candidates nil))
+
+(use-package! lsp-java
+  :after lsp)
 
 (use-package! dart-mode
   :init
@@ -171,8 +171,9 @@
         dart-format-on-save t))
 
 (use-package! dart-server
-  :config
-  (define-key dart-mode-map (kbd "M-p") 'dart-server-format))
+  :bind
+  (:map dart-mode-map
+    ("M-p" . dart-server-format)))
 
 (use-package! flutter
   :after dart-mode
