@@ -24,6 +24,7 @@
     oh-my-zsh
     ripgrep
     s3cmd
+    srt-to-vtt-cl
     telnet
     tmux
     tmuxinator

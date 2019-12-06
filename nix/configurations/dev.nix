@@ -61,7 +61,7 @@
       # stable.joker
       clj-kondo
       leiningen
-      mysql57
+      mysql
       nodejs
       nodePackages.node2nix
       python-with-my-packages

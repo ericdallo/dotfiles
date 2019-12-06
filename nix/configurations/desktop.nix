@@ -10,6 +10,7 @@
       google-chrome
       gparted
       inkscape
+      ntfsprogs
       postman
       skype
       slack
