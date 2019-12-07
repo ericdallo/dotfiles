@@ -134,10 +134,10 @@
          (java-mode . lsp))
   :commands lsp
   :init
-  (setq lsp-enable-indentation t
+  (setq lsp-enable-indentation nil
         lsp-prefer-flymake nil)
   :custom
-  ((lsp-clojure-server-command '("bash" "-c" "/home/greg/clojure-lsp/clojure-lsp"))) ;TODO fix to dynamic path
+  ((lsp-clojure-server-command '("bash" "-c" "~/clojure-lsp/clojure-lsp"))) ;TODO fix to dynamic path
 
   :config
   (dolist (m '(clojure-mode
