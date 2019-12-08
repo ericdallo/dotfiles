@@ -17,7 +17,7 @@
     gnumake
     gotop
     grub
-    home-manager
+    stable.home-manager
     imagemagick
     inotify-tools
     jq

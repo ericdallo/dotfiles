@@ -1,44 +1,36 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 let
-  dotfilesDir = ~/dev/dotfiles;
+  dotfilesDir = "$HOME/dev/dotfiles";
 in {
   home = {
-    file = {
-      # Critical keys
-      # ".critical-keys".source = dotfilesDir + /basic/.critical-keys.sample;
+    activation.linkFiles = config.lib.dag.entryAfter ["writeBoundary"] ''
+        # ln -sf ${dotfilesDir}/basic/.critical-keys.sample ~/.critical-keys
+        ln -sf ${dotfilesDir}/basic/.zsh_aliases ~/.zsh_aliases
+        ln -sf ${dotfilesDir}/basic/.zshrc ~/.zshrc
+        ln -sf ${dotfilesDir}/basic/.functions ~/.functions
 
-      #".clj-kondo".source = dotfilesDir + /emacs/.clj-kondo;
+        ln -Tsf ${dotfilesDir}/emacs/.doom.d ~/.doom.d
+        ln -Tsf ${dotfilesDir}/emacs/.lsp ~/.lsp
+        ln -Tsf ${dotfilesDir}/emacs/.clj-kondo ~/.clj-kondo
+        ln -sf ${dotfilesDir}/emacs/.joker ~/.joker
+        ln -Tsf ${dotfilesDir}/emacs/.jokerd ~/.jokerd
 
-      # Doom
-      #".doom.d".source = dotfilesDir + /emacs/.doom.d;
+        ln -sf ${dotfilesDir}/git/.gitconfig ~/.gitconfig
 
-      # Functions
-      ".functions".source = dotfilesDir + /basic/.functions;
+        ln -sf ${dotfilesDir}/gregflix/.tmdb-functions ~/.tmdb-functions
+        ln -sf ${dotfilesDir}/gregflix/.gregflix-functions ~/.gregflix-functions
+        ln -sf ${dotfilesDir}/gregflix/.s3cfg ~/.s3cfg
 
-      # Gregflix
-      ".tmdb-functions".source = dotfilesDir + /gregflix/.tmdb-functions;
-      ".gregflix-functions".source = dotfilesDir + /gregflix/.gregflix-functions;
-      ".s3cfg".source = dotfilesDir + /gregflix/.s3cfg;
+        ln -sf ${dotfilesDir}/tmux/.tmux.conf ~/.tmux.conf
+        ln -Tsf ${dotfilesDir}/tmux/.tmuxinator ~/.tmuxinator
 
-      # Joker
-      ".joker".source = dotfilesDir + /emacs/.joker;
-      ".jokerd".source = dotfilesDir + /emacs/.jokerd;
+        ln -sf ${dotfilesDir}/vim/.vimrc ~/.vimrc
 
-      # Tmux
-      ".tmux.conf".source = dotfilesDir + /tmux/.tmux.conf;
-      ".tmuxinator".source = dotfilesDir + /tmux/.tmuxinator;
+        ln -sf ${dotfilesDir}/vscode/keybindings.json ~/.config/Code/User/keybindings.json
+        ln -sf ${dotfilesDir}/vscode/settings.json ~/.config/Code/User/settings.json
 
-      # Vim
-      ".vimrc".source = dotfilesDir + /vim/.vimrc;
-
-      # VScode
-      ".config/Code/User/keybindings.json".source = dotfilesDir + /vscode/keybindings.json;
-      ".config/Code/User/settings.json".source = dotfilesDir + /vscode/settings.json;
-
-      # Zsh
-      ".zsh_aliases".source = dotfilesDir + /basic/.zsh_aliases;
-      ".zshrc".source = dotfilesDir + /basic/.zshrc;
-    };
+        ln -sf ${dotfilesDir}/urxvt/.Xresources ~/.Xresources
+    '';
   };
 
   # Let Home Manager install and manage itself.
@@ -55,10 +47,6 @@ in {
       enable = true;
 
       package = pkgs.gitAndTools.hub;
-
-      includes = [
-        { path = "${dotfilesDir}/git/.gitconfig"; }
-      ];
 
     };
 
