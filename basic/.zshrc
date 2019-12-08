@@ -12,5 +12,3 @@ export GRADLE_OPTS=-Xmx1024m
 [[ -s ~/.zsh_aliases ]] && source ~/.zsh_aliases
 [[ -s ~/.bash_aliases ]] && source ~/.bash_aliases
 [[ -s ~/.functions ]] && source ~/.functions
-
-xmodmap ~/.Xmodmap

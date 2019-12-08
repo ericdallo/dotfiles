@@ -53,7 +53,7 @@ in {
 
     vim = {
       enable = true;
-      plugins = [  ];
+      plugins = [ ];
     };
   };
 }

@@ -45,8 +45,8 @@
 !*.colorUL:
 
 !! URxvt Appearance
-URxvt.font:     xft:bitstream vera sans mono:size=14:antialias=true
-URxvt.boldFont: xft:bitstream vera sans mono:bold:size=14:antialias=true
+URxvt.font:     xft:Hack:size=12:antialias=true
+URxvt.boldFont: xft:Hack:bold:size=12:antialias=true
 URxvt.letterSpace: -1
 URxvt.lineSpace: 0
 URxvt.geometry: 180x180
