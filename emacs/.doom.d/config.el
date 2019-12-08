@@ -13,7 +13,7 @@
 
  projectile-project-search-path '("~/dev/")
 
- counsel-rg-base-command "rg -i -M 120 --no-heading --line-number --color never %s ."
+ counsel-rg-base-command "rg -i -M 600 --no-heading --line-number --color never %s ."
 
  frame-title-format (setq icon-title-format  ;; set window title with "[project] filename"
                           '(""
@@ -190,5 +190,7 @@
 (after! projectile
   (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")
   (add-to-list 'projectile-project-root-files-bottom-up "BUILD"))
+
+
 
 (load! "+bindings")

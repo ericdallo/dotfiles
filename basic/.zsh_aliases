@@ -3,6 +3,9 @@
 # Nix
 alias rebuild="sudo nixos-rebuild switch"
 
+# urxvt
+alias reload-urxvt="xrdb ~/.Xresources"
+
 # FGCOM
 alias adminLogin="curl -i -X POST -d username=admin -d password=123mudar -c /tmp/cookie localhost:7777/login"
 alias clientLogin="curl -i -X POST -d username=client -d password=123mudar -c /tmp/cookie localhost:7777/login"

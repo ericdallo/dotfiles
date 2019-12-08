@@ -1,7 +1,11 @@
 { pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs;
+
+  let
+    stable = import (fetchTarball http://nixos.org/channels/nixos-19.09/nixexprs.tar.xz) {};
+  in [
     ag
     appimage-run
     curl
@@ -11,6 +15,7 @@
     ffmpeg
     gitFull
     gnumake
+    gotop
     grub
     home-manager
     imagemagick
@@ -23,6 +28,7 @@
     openssl
     oh-my-zsh
     ripgrep
+    stable.rxvt_unicode-with-plugins
     s3cmd
     srt-to-vtt-cl
     telnet
@@ -31,11 +37,13 @@
     tree
     unrar
     unzip
+    urxvt_font_size
     usbutils
     vim
     wget
     wirelesstools
-    xclip
+    wmctrl
+    xsel
   ];
 
   fonts = {
@@ -70,5 +78,15 @@
       enable = true;
       clock24 = true;
     };
+  };
+
+  systemd.user.services."urxvtd" = {
+    enable = true;
+    description = "rxvt unicode daemon";
+    wantedBy = [ "default.target" ];
+    path = [ pkgs.rxvt_unicode ];
+    serviceConfig.Restart = "always";
+    serviceConfig.RestartSec = 2;
+    serviceConfig.ExecStart = "${pkgs.rxvt_unicode}/bin/urxvtd -q -o";
   };
 }
