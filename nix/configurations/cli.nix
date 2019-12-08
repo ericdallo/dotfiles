@@ -17,7 +17,7 @@
     gnumake
     gotop
     grub
-    stable.home-manager
+    home-manager
     imagemagick
     inotify-tools
     jq
@@ -89,4 +89,5 @@
     serviceConfig.RestartSec = 2;
     serviceConfig.ExecStart = "${pkgs.rxvt_unicode}/bin/urxvtd -q -o";
   };
+
 }

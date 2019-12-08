@@ -27,6 +27,7 @@
       vlc
       (wine.override { wineBuild = "wineWow"; })
       woeusb
+      xorg.xmodmap
     ];
 
   services.xserver.enable = true;
@@ -37,6 +38,7 @@
       current-workspace-only=true
     '';
   };
+
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.displayManager.gdm.wayland = false;
 
