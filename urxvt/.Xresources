@@ -68,17 +68,17 @@ URxvt.keysym.Control-Left: \033[1;5D
 URxvt.keysym.Control-Shift-Up: font-size:increase
 URxvt.keysym.Control-Shift-Down: font-size:decrease
 URxvt.keysym.F11: perl:fullscreen:switch
-
-!! Copy Paste & Other Extensions
-URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select,font-size,fullscreen
-URxvt.copyCommand: xclip -i -selection clipboard
-URxvt.pasteCommand: xclip -o -selection clipboard
 URxvt.keysym.Shift-Control-C: perl:clipboard:copy
 URxvt.keysym.Shift-Control-V: perl:clipboard:paste
-URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
-URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-e: perl:keyboard-select:activate
 URxvt.keysym.M-s: perl:keyboard-select:search
 URxvt.keysym.M-u: perl:url-select:select_next
-URxvt.urlLauncher: google-chrome-stable
-URxvt.underlineURLs: true
-URxvt.urlButton: 1
+URxvt.keysym.C-Delete:    matcher:last
+
+!! Copy Paste & Other Extensions
+URxvt.perl-ext-common: default,matcher,clipboard,keyboard-select,font-size,fullscreen
+URxvt.clipboard.autocopy: true
+URxvt.url-launcher: google-chrome-stable
+URxvt.matcher.button: 1
+URxvt.matcher.pattern.1: \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
+URxvt.matcher.pattern.2: \\B(/\\S+?):(\\d+)(?=:|$)
