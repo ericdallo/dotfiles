@@ -43,6 +43,7 @@ alias s='espeak'
 alias hey='s -v pt-br "se liga, cabô"'
 
 alias dotfiles="$EDITOR $DOTFILES_DIR"
+alias reload-xmodmap="~/dev/dotfiles/scripts/load-xmodmap.sh"
 alias restart-chrome="killall chrome; google-chrome-stable"
 
 alias m="mysql -uroot -p -h 172.17.0.1"
