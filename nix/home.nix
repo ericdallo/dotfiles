@@ -10,6 +10,8 @@ in {
         ln -sf ${dotfilesDir}/basic/.functions ~/.functions
         ln -sf ${dotfilesDir}/basic/.Xmodmap ~/.Xmodmap
 
+        ln -sf ${dotfilesDir}/autostart/xmodmap.desktop ~/.config/autostart/xmodmap.desktop
+
         ln -Tsf ${dotfilesDir}/emacs/.doom.d ~/.doom.d
         ln -Tsf ${dotfilesDir}/emacs/.lsp ~/.lsp
         ln -Tsf ${dotfilesDir}/emacs/.clj-kondo ~/.clj-kondo
