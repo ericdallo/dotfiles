@@ -43,6 +43,8 @@
         }
       ];
     };
+
+    flutter = (import (builtins.fetchTarball "https://github.com/babariviere/nixpkgs/archive/flutter-init.tar.gz") {}).flutter;
   in
     [
       android-studio
@@ -56,6 +58,7 @@
         plugins = with eclipses.plugins;
           [ gradle ];
       })
+      # flutter
       gitAndTools.hub
       heroku
       # stable.joker

@@ -26,6 +26,7 @@
       transmission-gtk
       vlc
       (wine.override { wineBuild = "wineWow"; })
+      wireshark
       woeusb
       xorg.xmodmap
     ];

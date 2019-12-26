@@ -20,8 +20,9 @@
     172.17.0.1 datomic
   '';
 
+  console.keyMap = "us-acentos";
+
   i18n = {
-    consoleKeyMap = "us-acentos";
     defaultLocale = "en_US.UTF-8";
   };
 

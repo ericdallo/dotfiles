@@ -43,6 +43,7 @@
     wget
     wirelesstools
     wmctrl
+    websocat
     xsel
   ];
 
