@@ -26,13 +26,9 @@ root: ~/
 
 # Runs after everything. Use it to attach to tmux with custom options etc.
 # post: tmux -CC attach -t tab
-name: Satan
+name: Personal
 windows:
-  - Main: ls
-  - Other:
-  - MySQL:  mysql -u root --password=
-  - Another:
-      layout: main-vertical
-      panes:
-        - 
-        - 
+  - Main: 
+  - Second:
+  - Third:
+  - Fourth:
