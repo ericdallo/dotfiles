@@ -8,6 +8,8 @@
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (add-to-list 'auto-mode-alist '("\\.repl\\'" . clojure-mode))
 
+(setq-default evil-kill-on-visual-paste nil)
+
 (setq
  confirm-kill-emacs nil ;; disable confirmation message on exit
 
@@ -137,7 +139,8 @@
   (setq lsp-enable-indentation nil
         lsp-prefer-flymake nil)
   :custom
-  ((lsp-clojure-server-command '("bash" "-c" "~/clojure-lsp/clojure-lsp"))) ;TODO fix to dynamic path
+  (;(lsp-clojure-server-command '("java" "-jar" "/home/greg/.clj-kondo/clj-kondo-lsp-server.jar"))) ;TODO fix to dynamic path
+   (lsp-clojure-server-command '("bash" "-c" "~/clojure-lsp/clojure-lsp")))
 
   :config
   (dolist (m '(clojure-mode
@@ -149,17 +152,31 @@
 (use-package! lsp-ui
   :commands lsp-ui-mode
   :config
-  (setq lsp-ui-peek-enable t
-        lsp-ui-peek-list-width 60
-        lsp-ui-peek-peek-height 25)
+  (setq lsp-ui-peek-enable nil
+        )
   (define-key lsp-mode-map (kbd "M-[") 'lsp-ui-sideline-apply-code-actions))
+
+(use-package! company
+    :init
+    :config
+    (setq company-idle-delay 0.02
+          company-minimum-prefix-length 2
+          company-echo-delay 0
+          company-dabbrev-downcase nil
+          company-dabbrev-code-everywhere t
+          company-dabbrev-code-modes t
+          company-dabbrev-code-ignore-case t
+          company-tooltip-align-annotations t
+          company-transformers '(company-sort-prefer-same-case-prefix)))
 
 (use-package! company-lsp
   :commands company-lsp
   :config
   (setq company-lsp-async t
-        company-lsp-filter-candidates t
-        company-lsp-cache-candidates nil))
+        ;company-lsp-filter-candidates t
+        ;company-lsp-cache-candidates nil
+        )
+  (push '(company-lsp :with company-yasnippet) company-backends))
 
 (use-package! lsp-java
   :after lsp)
@@ -190,7 +207,5 @@
 (after! projectile
   (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")
   (add-to-list 'projectile-project-root-files-bottom-up "BUILD"))
-
-
 
 (load! "+bindings")
