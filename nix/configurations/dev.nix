@@ -50,6 +50,7 @@
       android-studio
       awscli
       clojure
+      clojure-lsp
       dart
       docker-compose
       (eclipses.eclipseWithPlugins {
@@ -58,11 +59,11 @@
         plugins = with eclipses.plugins;
           [ gradle ];
       })
-      # flutter
+      flutter
       gitAndTools.hub
       heroku
-      # stable.joker
-      clj-kondo
+      joker
+      #clj-kondo
       leiningen
       mysql
       nodejs

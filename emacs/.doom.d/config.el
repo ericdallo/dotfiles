@@ -15,7 +15,7 @@
 
  projectile-project-search-path '("~/dev/")
 
- counsel-rg-base-command "rg -i -M 600 --no-heading --line-number --color never %s ."
+ counsel-rg-base-command "rg -i -M 1000 --no-heading --line-number --color never %s ."
 
  frame-title-format (setq icon-title-format  ;; set window title with "[project] filename"
                           '(""
@@ -61,7 +61,7 @@
   :after clojure-mode
   :init
   (setq cljr-warn-on-eval nil
-        cljr-thread-all-but-last t)
+        clojure-thread-all-but-last t)
   (setq cljr-magic-require-namespaces
         '(("s"   . "schema.core")
           ("th"  . "common-core.test-helpers")
@@ -139,8 +139,7 @@
   (setq lsp-enable-indentation nil
         lsp-prefer-flymake nil)
   :custom
-  (;(lsp-clojure-server-command '("java" "-jar" "/home/greg/.clj-kondo/clj-kondo-lsp-server.jar"))) ;TODO fix to dynamic path
-   (lsp-clojure-server-command '("bash" "-c" "~/clojure-lsp/clojure-lsp")))
+  ((lsp-clojure-server-command '("bash" "-c" "clojure-lsp")))
 
   :config
   (dolist (m '(clojure-mode
