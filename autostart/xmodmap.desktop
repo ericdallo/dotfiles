@@ -1,6 +1,0 @@
-[Desktop Entry]
-Name=Xmodmap
-Exec=/home/greg/dev/dotfiles/scripts/load-xmodmap.sh
-Terminal=false
-Type=Application
-StartupNotify=false
