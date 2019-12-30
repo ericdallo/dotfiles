@@ -10,6 +10,14 @@ in {
     tmpOnTmpfs = true;
   };
 
+  console.keyMap = "us-acentos";
+
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+  };
+
+  time.timeZone = "America/Sao_Paulo";
+
   services.xserver.displayManager.sessionCommands = "${pkgs.xorg.xmodmap}/bin/xmodmap ${xmodmapLayout}";
 
   system.autoUpgrade = {

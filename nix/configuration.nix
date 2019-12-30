@@ -20,14 +20,6 @@
     172.17.0.1 datomic
   '';
 
-  console.keyMap = "us-acentos";
-
-  i18n = {
-    defaultLocale = "en_US.UTF-8";
-  };
-
-  time.timeZone = "America/Sao_Paulo";
-
   nixpkgs.config.allowUnfree = true;
 
   services.openssh.enable = true;
