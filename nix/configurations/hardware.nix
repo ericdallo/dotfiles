@@ -8,6 +8,8 @@
       dhcp = "internal";
       dns = "dnsmasq";
     };
+
+    firewall.allowedTCPPorts = [8080];
   };
 
   environment.systemPackages = with pkgs; [

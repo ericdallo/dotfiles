@@ -158,8 +158,8 @@
 (use-package! company
     :init
     :config
-    (setq company-idle-delay 0.02
-          company-minimum-prefix-length 2
+    (setq company-idle-delay 1.02
+          company-minimum-prefix-length 4
           company-echo-delay 0
           company-dabbrev-downcase nil
           company-dabbrev-code-everywhere t

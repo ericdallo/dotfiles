@@ -89,7 +89,7 @@
 [merge]
 	tool = vimdiff
 [core]
-	excludesfile = /Users/developer/.gitignore_global
+	excludesfile = /home/greg/.gitignore_global
 	editor = vim
 [diff]
 	tool = diffmerge

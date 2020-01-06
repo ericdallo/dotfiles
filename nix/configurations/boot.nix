@@ -12,7 +12,7 @@
     docker.enable = true;
 
     # Enable VirtualBox.
-    # virtualbox.host.enable = true;
+    virtualbox.host.enable = true;
   };
 
   nix.maxJobs = lib.mkDefault 8;
