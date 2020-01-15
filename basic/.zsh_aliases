@@ -59,13 +59,12 @@ alias ge='gradle clean cleanEclipse eclipse'
 alias gt='gradle test'
 
 # Cloud at Cost
-CAC3_IP="gregflix.site"
-CAC_IP="104.167.110.209"
+GREGFLIX_IP="gregflix.site"
+GRUBE_API_IP="38.240.11.39"
 
-alias sshcac='ssh root@$CAC_IP'
-alias sshcac3='ssh root@$CAC3_IP'
-alias deploy-gregflix='sshcac3 "./start-app.sh"'
-alias mysql-cac3='mysql -u root -p$GREGFLIX_PASS -h $CAC3_IP gregflix'
+alias ssh-grube-api='ssh root@$GRUBE_API_IP'
+alias ssh-gregflix='ssh root@$GREGFLIX_IP'
+alias deploy-gregflix='ssh-gregflix "./start-app.sh"'
 
 # Alias temporarios
 alias restart-net="sudo service network-manager restart"
