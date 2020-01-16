@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 export GREGFLIX_PASS=
 export GREGFLIX_DATOMIC_ADMIN_PASS=

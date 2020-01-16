@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Nix
 alias rebuild="sudo nixos-rebuild switch"
@@ -6,25 +6,10 @@ alias rebuild="sudo nixos-rebuild switch"
 # urxvt
 alias reload-urxvt="xrdb ~/.Xresources"
 
-# FGCOM
-alias adminLogin="curl -i -X POST -d username=admin -d password=123mudar -c /tmp/cookie localhost:7777/login"
-alias clientLogin="curl -i -X POST -d username=client -d password=123mudar -c /tmp/cookie localhost:7777/login"
-alias engineeringLogin="curl -i -X POST -d username=enginering -d password=123mudar -c /tmp/cookie localhost:7777/login"
-alias maintenanceLogin="curl -i -X POST -d username=maintenance -d password=123mudar -c /tmp/cookie localhost:7777/login"
-alias mysql-frigo="mysql -u $FRIGOCENTER_DB_USER -p'$FRIGOCENTER_DB_PASS' -h $FRIGOCENTER_DB_HOST --ssl-ca=/home/greg/Documents/FGCOM/RDS/amazon-rds-ca-cert.pem frigocenter"
-
-# Unity
-DEVICE_IP="192.168.1.29"
-PI=192.168.1.108
-
 # Raspiberry
+PI=192.168.1.108
 alias pi='ssh pi@$PI'
 alias torrent='transmission-remote-cli -c $PI'
-
-alias al='$EDITOR ~/.zsh_aliases'
-alias fu='$EDITOR ~/dev/dotfiles/alias/'
-
-alias taghere='ctags -R -f ./.git/tags'
 
 # Utils
 alias ls='ls -G --color=auto'
@@ -32,31 +17,22 @@ alias ll='ls -l'
 alias fpo="sudo shutdown -P 0"
 alias pl="ps aux | grep"
 alias rehash="source ~/.zshrc"
-alias ge='gradle cleanEclipse eclipse'
+alias al='$EDITOR ~/.zsh_aliases'
+alias fu='$EDITOR ~/dev/dotfiles/alias/'
 
 alias killmux='tmux kill-window -a && exit'
 alias tm='tmuxinator start tab'
-alias frigocenter='tmuxinator start frigocenter'
-alias nubank='tmuxinator start nubank'
-alias imarket='tmuxinator start imarket'
 alias s='espeak'
 alias hey='s -v pt-br "se liga, cabô"'
 
 alias dotfiles="$EDITOR $DOTFILES_DIR"
-alias reload-xmodmap="~/dev/dotfiles/scripts/load-xmodmap.sh"
 alias restart-chrome="killall chrome; google-chrome-stable"
 
 alias m="mysql -uroot -p -h 172.17.0.1"
 alias k="kill -9"
 
 alias c='xclip -selection clipboard'
-alias gb='gradle clean build'
-alias gr='gradle bootRun'
-alias gweb='gradle runWeb'
-alias gtasks='gradle runTasks'
-alias gi='gradle clean install'
 alias ge='gradle clean cleanEclipse eclipse'
-alias gt='gradle test'
 
 # Cloud at Cost
 GREGFLIX_IP="gregflix.site"
@@ -68,3 +44,6 @@ alias deploy-gregflix='ssh-gregflix "./start-app.sh"'
 
 # Alias temporarios
 alias restart-net="sudo service network-manager restart"
+
+source $HOME/.frigocenter_aliases 2> /dev/null
+source $HOME/.nubank_aliases 2> /dev/null

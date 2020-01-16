@@ -1,6 +1,4 @@
-#!/bin/bash
-
-source $HOME/.gregflix-functions
+#!/usr/bin/env bash
 
 ANDROID_EMULATOR_NIX_FOLDER="$DOTFILES_DIR/nix/android"
 ANDROID_EMULATOR_CONFIG_FILE="$HOME/.android/avd/device.avd/config.ini"
@@ -38,3 +36,5 @@ function miband-watch() {
         fi
     done
 }
+
+source $HOME/.gregflix-functions 2> /dev/null
