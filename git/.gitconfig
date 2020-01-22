@@ -53,6 +53,7 @@
   cob = !git fetch origin && git co -b $1 origin/$1 && echo \"Checked out origin branch:\"
   cod = "!git br -D $1 2> /dev/null; git cob $1"
   debug = !GIT_PAGER= gdb --args git
+	cia = !git ci --amend --no-edit
 
   top = !eval cd "$(pwd)/$(git rev-parse --show-cdup)" && pwd
 
