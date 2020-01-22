@@ -46,7 +46,7 @@
       ];
     };
 
-    flutter = (import (builtins.fetchTarball "https://github.com/babariviere/nixpkgs/archive/flutter-init.tar.gz") {}).flutter;
+    flutter = (import (fetchTarball https://github.com/babariviere/nixpkgs/archive/flutter-init.tar.gz) {}).flutter;
   in
     [
       android-studio

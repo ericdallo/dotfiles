@@ -139,7 +139,7 @@
   (setq lsp-enable-indentation nil
         lsp-prefer-flymake nil)
   :custom
-  ((lsp-clojure-server-command '("bash" "-c" "clojure-lsp")))
+  ((lsp-clojure-server-command '("bash" "-c" "~/clojure-lsp/clojure-lsp")))
 
   :config
   (dolist (m '(clojure-mode
@@ -149,10 +149,10 @@
     (add-to-list 'lsp-language-id-configuration `(,m . "clojure"))))
 
 (use-package! lsp-ui
+  :after lsp-mode
   :commands lsp-ui-mode
   :config
-  (setq lsp-ui-peek-enable nil
-        )
+  (setq lsp-ui-peek-enable convenience)
   (define-key lsp-mode-map (kbd "M-[") 'lsp-ui-sideline-apply-code-actions))
 
 (use-package! company
@@ -173,7 +173,7 @@
   :config
   (setq company-lsp-async t
         ;company-lsp-filter-candidates t
-        ;company-lsp-cache-candidates nil
+        company-lsp-cache-candidates nil
         )
   (push '(company-lsp :with company-yasnippet) company-backends))
 
