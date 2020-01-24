@@ -3,6 +3,7 @@
 {
   networking.hostName = "gregnix-ssd";
   boot.loader.grub.device = "/dev/sda";
+  boot.loader.grub.efiSupport = true;
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/c0337d4e-4d87-46b6-81f9-3bcdc79ff5ae";

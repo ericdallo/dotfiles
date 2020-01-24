@@ -3,6 +3,9 @@ let
   dotfilesDir = "$HOME/.dotfiles";
 in {
   home = {
+    packages = with pkgs; [
+      fzf
+    ];
 
     activation.linkFiles = config.lib.dag.entryAfter ["writeBoundary"] ''
         cp -n ${dotfilesDir}/basic/.critical-keys.sample ~/.critical-keys
