@@ -2,3 +2,4 @@
 
 source $HOME/.nurc
 source $HOME/.nubank_aliases
+export PATH="$NU_HOME/nucli.py/bin:$PATH"
