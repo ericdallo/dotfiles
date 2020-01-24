@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
 alias nubank='tmuxinator start nubank'
+alias grt="nu auth get-refresh-token"
+alias rt="nu auth refresh-token"

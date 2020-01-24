@@ -24,6 +24,7 @@
     killall
     lshw
     manpages
+    nssTools
     mediainfo
     openssl
     oh-my-zsh

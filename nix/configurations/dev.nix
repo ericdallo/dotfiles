@@ -25,7 +25,7 @@
       jupyter
       matplotlib
       pip
-      virtualenv
+      virtualenvwrapper
       seaborn
       pillow
       jotform
