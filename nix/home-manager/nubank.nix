@@ -9,6 +9,7 @@ in {
         ln -sf ${dotfilesDir}/basic/.zsh_aliases ~/.zsh_aliases
         ln -sf ${dotfilesDir}/basic/.nubank_aliases ~/.nubank_aliases
         ln -sf ${dotfilesDir}/basic/.zshrc ~/.zshrc
+        ln -sf ${dotfilesDir}/basic/.nubank-extra ~/.extra
         ln -sf ${dotfilesDir}/basic/.functions ~/.functions
         ln -sf ${dotfilesDir}/basic/.Xmodmap ~/.Xmodmap
 
