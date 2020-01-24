@@ -9,7 +9,6 @@ if [ -z "$2" ]; then
     echo "Second arg must be 'personal' or 'nubank'";
     exit 1
 fi
-exit 0
 
 set -ve
 

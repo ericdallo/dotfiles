@@ -3,6 +3,7 @@ let
   dotfilesDir = "$HOME/.dotfiles";
 in {
   home = {
+
     activation.linkFiles = config.lib.dag.entryAfter ["writeBoundary"] ''
         cp -n ${dotfilesDir}/basic/.critical-keys.sample ~/.critical-keys
         ln -sf ${dotfilesDir}/basic/.zsh_aliases ~/.zsh_aliases
@@ -23,9 +24,6 @@ in {
         ln -Tsf ${dotfilesDir}/tmux/.tmuxinator ~/.tmuxinator
 
         ln -sf ${dotfilesDir}/vim/.vimrc ~/.vimrc
-
-        ln -sf ${dotfilesDir}/vscode/keybindings.json ~/.config/Code/User/keybindings.json
-        ln -sf ${dotfilesDir}/vscode/settings.json ~/.config/Code/User/settings.json
 
         ln -sf ${dotfilesDir}/urxvt/.Xresources ~/.Xresources
     '';

@@ -24,11 +24,13 @@
       pandas
       jupyter
       matplotlib
+      pip
+      virtualenv
       seaborn
       pillow
       jotform
     ];
-    python-with-my-packages = stable.python3.withPackages custom-python-packages;
+    python-with-my-packages = stable.python3Full.withPackages custom-python-packages;
     vcsodeWithExtension = vscode-with-extensions.override {
       # When the extension is already available in the default extensions set.
       vscodeExtensions = with vscode-extensions; [
