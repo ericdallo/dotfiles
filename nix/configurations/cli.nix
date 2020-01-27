@@ -15,6 +15,7 @@
     ffmpeg
     gitFull
     gnumake
+    gnupg
     gotop
     grub
     home-manager
@@ -28,6 +29,7 @@
     mediainfo
     openssl
     oh-my-zsh
+    pinentry
     ripgrep
     stable.rxvt_unicode-with-plugins
     s3cmd
@@ -56,6 +58,8 @@
   };
 
   programs = {
+    gnupg.agent.enable = true;
+
     zsh = {
       enable = true;
       syntaxHighlighting.enable = true;
