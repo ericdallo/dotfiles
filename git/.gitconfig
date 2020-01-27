@@ -1,11 +1,11 @@
 [user]
-	name = Eric Dallo
-	email = ericdallo06@hotmail.com
+  name = Eric Dallo
+  email = ericdallo06@hotmail.com
 [color]
-	branch = auto
-	diff = auto
-	interactive = auto
-	status = auto
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
 
 [apply]
   whitespace=fix
@@ -44,16 +44,16 @@
   stc   = diff --stat --name-status --cached
   cat   = -p cat-file -p
   up    = !git remote update ; git gc
-  pup	= pull origin production
-  fu	= fetch origin
-  pum	= pull origin master
+  pup   = pull origin production
+  fu    = fetch origin
+  pum   = pull origin master
   fupum = !git co master && git fu && git pum
   fupup = !git co production && git fu && git pup
   rebasemaster = !branch=\"`git branch 2>/dev/null | grep \\* | awk '{ print $2 }'`\" && echo \"Rebasing $branch from master...\" && git fupum && git co $branch && git rebase master
   cob = !git fetch origin && git co -b $1 origin/$1 && echo \"Checked out origin branch:\"
   cod = "!git br -D $1 2> /dev/null; git cob $1"
   debug = !GIT_PAGER= gdb --args git
-	cia = !git ci --amend --no-edit
+  cia = !git ci --amend --no-edit
 
   top = !eval cd "$(pwd)/$(git rev-parse --show-cdup)" && pwd
 
@@ -75,7 +75,6 @@
   findnext = rev-list --reverse -n1 HEAD..master
   checkoutnext = !git checkout `git findnext`
 
-  # example: git subdo pull
   subdo = submodule foreach git
 
   case = !sh -c 'exec /home/oxygen/bart/work/git-case/git-case.git/git-case-$0 ${0+"$@"}'
@@ -85,20 +84,20 @@
   add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
 
   amend = commit --amend -C HEAD
-	ls = !git lg
-	di = diff
+  ls = !git lg
+  di = diff
 [merge]
-	tool = vimdiff
+  tool = vimdiff
 [core]
-	excludesfile = /home/greg/.gitignore_global
-	editor = vim
+  excludesfile = ~/.gitignore_global
+  editor = vim
 [diff]
-	tool = diffmerge
-	merge = p4merge
+  tool = diffmerge
+  merge = p4merge
 [difftool "diffmerge"]
-	cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
+  cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
 [mergetool "diffmerge"]
-	cmd = "diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\""
+  cmd = "diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\""
   trustExitCode = true
 [mergetool "p4merge"]
   cmd = /Applications/p4merge.app/Contents/MacOS/p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
