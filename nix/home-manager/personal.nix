@@ -18,6 +18,7 @@ in {
         ln -Tsf ${dotfilesDir}/emacs/.jokerd ~/.jokerd
 
         ln -sf ${dotfilesDir}/git/.gitconfig ~/.gitconfig
+        ln -sf ${dotfilesDir}/git/.gitignore_global ~/.gitignore_global
 
         ln -sf ${dotfilesDir}/gregflix/.tmdb-functions ~/.tmdb-functions
         ln -sf ${dotfilesDir}/gregflix/.gregflix-functions ~/.gregflix-functions
