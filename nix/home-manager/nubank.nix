@@ -5,6 +5,7 @@ in {
   home = {
     packages = with pkgs; [
       fzf
+      xsv
     ];
 
     activation.linkFiles = config.lib.dag.entryAfter ["writeBoundary"] ''
