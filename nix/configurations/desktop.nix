@@ -4,6 +4,7 @@
   fonts.fonts = with pkgs;
     [
       roboto
+      noto-fonts-emoji
     ];
 
   environment.systemPackages = with pkgs;

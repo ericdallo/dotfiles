@@ -47,6 +47,8 @@
       ];
     };
 
+    nixpkgs.config.android_sdk.accept_license = true;
+
     flutter = (import (fetchTarball https://github.com/babariviere/nixpkgs/archive/flutter-init.tar.gz) {}).flutter;
   in
     [

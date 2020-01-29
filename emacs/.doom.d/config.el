@@ -152,7 +152,7 @@
   :after lsp-mode
   :commands lsp-ui-mode
   :config
-  (setq lsp-ui-peek-enable convenience)
+  (setq lsp-ui-peek-enable nil)
   (define-key lsp-mode-map (kbd "M-[") 'lsp-ui-sideline-apply-code-actions))
 
 (use-package! company
