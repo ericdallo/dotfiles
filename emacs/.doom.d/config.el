@@ -139,7 +139,7 @@
   (setq lsp-enable-indentation nil
         lsp-prefer-flymake nil)
   :custom
-  ((lsp-clojure-server-command '("bash" "-c" "~/clojure-lsp/clojure-lsp")))
+  ((lsp-clojure-server-command '("bash" "-c" "clojure-lsp")))
 
   :config
   (dolist (m '(clojure-mode

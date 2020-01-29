@@ -23,6 +23,7 @@
     inotify-tools
     jq
     killall
+    kubectl
     lshw
     manpages
     nssTools
