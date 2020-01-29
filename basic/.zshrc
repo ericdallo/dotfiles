@@ -8,6 +8,7 @@ source ~/.critical-keys
 export EDITOR=emacs
 export DOTFILES_DIR="$HOME/.dotfiles"
 export GRADLE_OPTS=-Xmx1024m
+export GPG_TTY=$(tty)
 
 [[ -s ~/.zsh_aliases ]] && source ~/.zsh_aliases
 [[ -s ~/.bash_aliases ]] && source ~/.bash_aliases
