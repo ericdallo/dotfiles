@@ -7,7 +7,7 @@ with import <nixpkgs> {
 
 androidenv.emulateApp {
   name = "nix-android";
-  platformVersion = "29";
+  platformVersion = "28";
   enableGPU = true;
   abiVersion = "x86";
   avdHomeDir = "$HOME";
