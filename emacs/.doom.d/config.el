@@ -158,7 +158,7 @@
 (use-package! company
     :init
     :config
-    (setq company-idle-delay 1.02
+    (setq company-idle-delay 0.02
           company-minimum-prefix-length 4
           company-echo-delay 0
           company-dabbrev-downcase nil
@@ -173,7 +173,7 @@
   :config
   (setq company-lsp-async t
         ;company-lsp-filter-candidates t
-        company-lsp-cache-candidates nil
+        ;company-lsp-cache-candidates nil
         )
   (push '(company-lsp :with company-yasnippet) company-backends))
 

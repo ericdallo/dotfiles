@@ -36,7 +36,7 @@ alias ge='gradle clean cleanEclipse eclipse'
 
 # Cloud at Cost
 GREGFLIX_IP="gregflix.site"
-GRUBE_API_IP="38.240.11.39"
+GRUBE_API_IP="64.137.160.54"
 
 alias ssh-grube-api='ssh root@$GRUBE_API_IP'
 alias ssh-gregflix='ssh root@$GREGFLIX_IP'
