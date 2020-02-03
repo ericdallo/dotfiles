@@ -15,6 +15,12 @@
 
  projectile-project-search-path '("~/dev/")
 
+ mode-line-default-help-echo nil ;; disable mouse help
+ show-help-function nil
+
+ evil-split-window-below t
+ evil-vsplit-window-right t
+
  counsel-rg-base-command "rg -i -M 1000 --no-heading --line-number --color never %s ."
 
  frame-title-format (setq icon-title-format  ;; set window title with "[project] filename"
@@ -22,7 +28,6 @@
                             (:eval
                              (format "[%s] " (projectile-project-name)))
                             "%b"))
- company-idle-delay 0
  doom-font (font-spec :family "Hack" :size 18)
  doom-big-font-increment 4
  doom-unicode-font (font-spec :family "DejaVu Sans")
@@ -38,6 +43,15 @@
   (set-fontset-font t 'unicode
                     (font-spec :family "Font Awesome 5 Brands")
                     nil 'append))
+(defun open-dotfiles ()
+  "Browse the files in $DOTFILES_DIR"
+  (interactive)
+  (doom-project-browse (expand-file-name "~/.dotfiles")))
+
+(defun find-in-dotfiles ()
+  "Open a file somewhere in $DOTFILES_DIR via a fuzzy filename search."
+  (interactive)
+  (doom-project-find-file (expand-file-name "~/.dotfiles")))
 
 ;; Maximize buffer
 (defun toggle-maximize-buffer ()
@@ -49,20 +63,12 @@
       (delete-other-windows))))
 (global-set-key (kbd "<f12>") 'toggle-maximize-buffer)
 
-(use-package! flycheck-clj-kondo
-  :after clojure-mode
-  :config
-  (dolist (checkers '((clj-kondo-clj . clojure-joker)
-                      (clj-kondo-cljs . clojurescript-joker)
-                      (clj-kondo-cljc . clojure-joker)
-                      (clj-kondo-edn . edn-joker)))))
-
 (use-package! clj-refactor
   :after clojure-mode
   :init
   (setq cljr-warn-on-eval nil
-        clojure-thread-all-but-last t)
-  (setq cljr-magic-require-namespaces
+        clojure-thread-all-but-last t
+        cljr-magic-require-namespaces
         '(("s"   . "schema.core")
           ("th"  . "common-core.test-helpers")
           ("gen" . "common-test.generators")
@@ -85,9 +91,9 @@
     (clojure.test.check.properties/for-all 2)
     (common-datomic.test-helpers/let-entities 2))
 
-  (setq cider-show-error-buffer 'only-in-repl)
-  (clj-refactor-mode 1)
-  (yas-minor-mode 1) ; for adding require/use/import statements
+  (setq cider-show-error-buffer 'only-in-repl
+        clj-refactor-mode 1
+        yas-minor-mode 1) ; for adding require/use/import statements
   (cljr-add-keybindings-with-prefix "C-c C-c")
 
   (defun reverse-transpose-sexps (arg)
@@ -156,7 +162,6 @@
   (define-key lsp-mode-map (kbd "M-[") 'lsp-ui-sideline-apply-code-actions))
 
 (use-package! company
-    :init
     :config
     (setq company-idle-delay 0.02
           company-minimum-prefix-length 4
@@ -197,11 +202,6 @@
           ("C-M-x" . #'flutter-run-or-hot-reload))
   :init
   (setq flutter-sdk-path "~/flutter/")) ;TODO after package flutter
-
-(use-package! flutter-l10n-flycheck
-  :after flutter
-  :config
-  (flutter-l10n-flycheck-setup))
 
 (after! projectile
   (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")
