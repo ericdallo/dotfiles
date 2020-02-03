@@ -64,7 +64,7 @@
         plugins = with eclipses.plugins;
           [ gradle ];
       })
-      flutter
+      #flutter
       gitAndTools.hub
       heroku
       joker

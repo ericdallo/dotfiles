@@ -66,7 +66,7 @@
       syntaxHighlighting.enable = true;
       ohMyZsh = {
         enable = true;
-        plugins = [ "git" "sudo" "docker" "kubectl"];
+        plugins = [ "git" "sudo" "docker"];
       };
       interactiveShellInit = ''
         export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh/

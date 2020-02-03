@@ -158,7 +158,8 @@
   :after lsp-mode
   :commands lsp-ui-mode
   :config
-  (setq lsp-ui-peek-enable nil)
+  (setq lsp-ui-peek-enable nil
+        lsp-ui-peek-list-width 60)
   (define-key lsp-mode-map (kbd "M-[") 'lsp-ui-sideline-apply-code-actions))
 
 (use-package! company
