@@ -7,6 +7,8 @@
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (add-to-list 'auto-mode-alist '("\\.repl\\'" . clojure-mode))
+(add-to-list 'auto-mode-alist '("\\.ect\\'" . html-mode))
+(remove-hook 'html-mode-hook #'turn-on-auto-fill)
 
 (setq-default evil-kill-on-visual-paste nil)
 
@@ -34,7 +36,8 @@
 
  evil-collection-setup-minibuffer t ;; enable minibuffer to work correctly in evil mode
 
- cljr-clojure-test-declaration "[midje.sweet :refer :all]")
+ cljr-clojure-test-declaration "[midje.sweet :refer :all]"
+ flycheck-disabled-checkers '(scss-stylelint))
 
 (add-hook! 'after-make-frame-functions
   (set-fontset-font t 'unicode
@@ -143,7 +146,8 @@
   :commands lsp
   :init
   (setq lsp-enable-indentation nil
-        lsp-prefer-flymake nil)
+        lsp-prefer-flymake nil
+        lsp-log-io t)
   :custom
   ((lsp-clojure-server-command '("bash" "-c" "clojure-lsp")))
 
@@ -184,12 +188,33 @@
   (push '(company-lsp :with company-yasnippet) company-backends))
 
 (use-package! lsp-java
-  :after lsp)
+  :after lsp
+  :config
+  (setq ;;lsp-java-java-path "/usr/lib/jvm/java-8-openjdk/bin/java"
+        ;; lsp-java-java-path "/usr/lib/jvm/java-8-openjdk" ;; still not working. Note, this directory is existed
+        lsp-java-workspace-cache-dir t
+        lsp-java-format-enabled t
+        lsp-java-format-comments-enabled t
+        lsp-java-save-action-organize-imports t
+        lsp-java-save-action-organize-imports t
+        lsp-java-import-gradle-enabled t
+        lsp-java-import-maven-enabled t
+        lsp-java-auto-build t
+        lsp-log-io t
+        lsp-java-progress-report t
+        lsp-java-completion-guess-arguments t
+        lsp-java-enable-file-watch t
+        lsp-file-watch-ignored
+        '(".idea" ".ensime_cache" ".eunit" "node_modules"
+          ".git" ".hg" ".fslckout" "_FOSSIL_"
+          ".bzr" "_darcs" ".tox" ".svn" ".stack-work"
+          "build")))
 
 (use-package! dart-mode
   :init
   (setq dart-sdk-path "~/flutter/bin/cache/dark-sdk/"
         lsp-dart-analysis-sdk "~/flutter/bin/cache/dart-sdk/"
+        lsp-auto-guess-root t
         dart-format-on-save t))
 
 (use-package! dart-server
