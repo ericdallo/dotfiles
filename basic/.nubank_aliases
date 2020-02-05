@@ -3,3 +3,24 @@
 alias nubank='tmuxinator start nubank'
 alias grt="nu auth get-refresh-token"
 alias rt="nu auth refresh-token"
+
+function npmci() {
+    cd $HOME/dev/nu/mini-meta-repo/native/cross-platform/react-native/ && npm ci
+}
+
+function device-mock-start() {
+    sudo mkdir /lib64;sudo ln -sf $(file -L /usr/bin/env | cut -d"," -f5 | cut -d" " -f3) /lib64/ld-linux-x86-64.so.2
+    cd $HOME/dev/nu/mini-meta-repo/native/cross-platform/react-native
+    ./scripts/run-device.sh --platform android --flavor mockApiTest
+}
+
+function device-mock-setup() {
+    cd $HOME/dev/nu/mini-meta-repo/stormguild
+    npm run start:dev
+}
+
+function device-staging-start() {
+    sudo mkdir /lib64;sudo ln -sf $(file -L /usr/bin/env | cut -d"," -f5 | cut -d" " -f3) /lib64/ld-linux-x86-64.so.2
+    cd $HOME/dev/nu/mini-meta-repo/native/cross-platform/react-native
+    ./scripts/run-device.sh --platform android --flavor mockApiTest
+}
