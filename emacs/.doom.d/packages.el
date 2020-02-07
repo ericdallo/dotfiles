@@ -13,6 +13,6 @@
 (package! flycheck-clj-kondo :disable t)
 (package! lsp-java)
 (package! lsp-mode)
-(package! lsp-ui)
+(package! lsp-ui :disable t)
 (package! scss-mode)
 (package! paredit)

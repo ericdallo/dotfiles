@@ -13,23 +13,26 @@
 (setq-default evil-kill-on-visual-paste nil)
 
 (setq
+ history-length 100
  confirm-kill-emacs nil ;; disable confirmation message on exit
 
- projectile-project-search-path '("~/dev/")
+ ;; projectile-project-search-path '("~/dev/")
 
  mode-line-default-help-echo nil ;; disable mouse help
  show-help-function nil
+ gc-cons-threshold 100000000
+ vc-handled-backends nil
 
  evil-split-window-below t
  evil-vsplit-window-right t
 
  counsel-rg-base-command "rg -i -M 1000 --no-heading --line-number --color never %s ."
 
- frame-title-format (setq icon-title-format  ;; set window title with "[project] filename"
-                          '(""
-                            (:eval
-                             (format "[%s] " (projectile-project-name)))
-                            "%b"))
+ ;; frame-title-format (setq icon-title-format  ;; set window title with "[project] filename"
+ ;;                          '(""
+ ;;                            (:eval
+ ;;                             (format "[%s] " (projectile-project-name)))
+ ;;                            "%b"))
  doom-font (font-spec :family "Hack" :size 18)
  doom-big-font-increment 4
  doom-unicode-font (font-spec :family "DejaVu Sans")
@@ -39,6 +42,13 @@
  cljr-clojure-test-declaration "[midje.sweet :refer :all]"
  flycheck-disabled-checkers '(scss-stylelint))
 
+(defadvice find-file (before make-directory-maybe (filename &optional wildcards) activate)
+  "Create parent directory if not exists while visiting file."
+  (unless (file-exists-p filename)
+    (let ((dir (file-name-directory filename)))
+      (unless (file-exists-p dir)
+        (make-directory dir t)))))
+
 (add-hook! 'after-make-frame-functions
   (set-fontset-font t 'unicode
                     (font-spec :family "Font Awesome 5 Free")
@@ -46,15 +56,15 @@
   (set-fontset-font t 'unicode
                     (font-spec :family "Font Awesome 5 Brands")
                     nil 'append))
-(defun open-dotfiles ()
-  "Browse the files in $DOTFILES_DIR"
-  (interactive)
-  (doom-project-browse (expand-file-name "~/.dotfiles")))
+;; (defun open-dotfiles ()
+;;   "Browse the files in $DOTFILES_DIR"
+;;   (interactive)
+;;   (doom-project-browse (expand-file-name "~/.dotfiles")))
 
-(defun find-in-dotfiles ()
-  "Open a file somewhere in $DOTFILES_DIR via a fuzzy filename search."
-  (interactive)
-  (doom-project-find-file (expand-file-name "~/.dotfiles")))
+;; (defun find-in-dotfiles ()
+;;   "Open a file somewhere in $DOTFILES_DIR via a fuzzy filename search."
+;;   (interactive)
+;;   (doom-project-find-file (expand-file-name "~/.dotfiles")))
 
 ;; Maximize buffer
 (defun toggle-maximize-buffer ()
@@ -163,15 +173,18 @@
   :commands lsp-ui-mode
   :config
   (setq lsp-ui-peek-enable nil
-        lsp-ui-peek-list-width 60)
+        lsp-ui-peek-list-width 60
+        lsp-ui-peek-always-show t)
+
   (define-key lsp-mode-map (kbd "M-[") 'lsp-ui-sideline-apply-code-actions))
 
 (use-package! company
     :config
-    (setq company-idle-delay 0.02
+    (setq company-idle-delay 0.5
           company-minimum-prefix-length 4
           company-echo-delay 0
-          company-dabbrev-downcase nil
+          company-dabbrev-downcase 0
+          rompany-candidates-cache t
           company-dabbrev-code-everywhere t
           company-dabbrev-code-modes t
           company-dabbrev-code-ignore-case t
@@ -200,7 +213,7 @@
         lsp-java-import-gradle-enabled t
         lsp-java-import-maven-enabled t
         lsp-java-auto-build t
-        lsp-log-io t
+        lsp-log-io nil
         lsp-java-progress-report t
         lsp-java-completion-guess-arguments t
         lsp-java-enable-file-watch t
@@ -229,8 +242,8 @@
   :init
   (setq flutter-sdk-path "~/flutter/")) ;TODO after package flutter
 
-(after! projectile
-  (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")
-  (add-to-list 'projectile-project-root-files-bottom-up "BUILD"))
+;; (after! projectile
+;;   (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")
+;;   (add-to-list 'projectile-project-root-files-bottom-up "BUILD"))
 
 (load! "+bindings")
