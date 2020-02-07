@@ -13,7 +13,11 @@ windows:
           -  while true ; do clear; nu savings barcode provider status prod; sleep 10; done
           -  while true ; do clear; nu ser curl GET global fitbank-client /api/admin/balance -f; sleep 10; done
           - cd $NU_HOME
-  - 1:
-  - 2:
+  - Mobile:
+      layout: 6eba,211x55,0,0{105x55,0,0,1,105x55,106,0[105x27,106,0,7,105x27,106,28,8]}
+      panes:
+        - cd ~/dev/nu/mini-meta-repo
+        - cd ~/dev/nu/mini-meta-repo/native/cross-platform/react-native
+        - cd ~/dev/nu/mini-meta-repo
   - 3:
   - 4:

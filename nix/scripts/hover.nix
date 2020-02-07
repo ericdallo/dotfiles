@@ -12,5 +12,4 @@ with import <nixpkgs> {}; {
                         xorg.libXi
                         ];
     };
-
 }
