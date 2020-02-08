@@ -11,6 +11,7 @@
     curl
     emacs
     espeak
+    fd
     file
     ffmpeg
     gitFull
@@ -28,6 +29,7 @@
     manpages
     nssTools
     mediainfo
+    nixfmt
     openssl
     oh-my-zsh
     pinentry

@@ -174,7 +174,7 @@
   :config
   (setq lsp-ui-peek-enable nil
         lsp-ui-peek-list-width 60
-        lsp-ui-peek-always-show t)
+        lsp-ui-peek-always-show nil)
 
   (define-key lsp-mode-map (kbd "M-[") 'lsp-ui-sideline-apply-code-actions))
 
