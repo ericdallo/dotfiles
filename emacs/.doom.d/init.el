@@ -12,6 +12,9 @@
        ;;chinese
        ;;japanese
 
+       :checkers
+       syntax            ; tasing you for every semicolon you forget
+
        :completion
        company           ; the ultimate code completion backend
        ;;helm              ; the *other* search engine for love and life
@@ -22,7 +25,7 @@
        ;;deft              ; notational velocity for Emacs
        doom              ; what makes DOOM look the way it does
        doom-dashboard    ; a nifty splash screen for Emacs
-       doom-quit         ; DOOM quit-message prompts when you quit Emacs
+       ;;doom-quit         ; DOOM quit-message prompts when you quit Emacs
        ;;fill-column       ; a `fill-column' indicator
        hl-todo           ; highlight TODO/FIXME/NOTE tags
        ;;indent-guides     ; highlighted indent columns
@@ -75,7 +78,6 @@
        ;;editorconfig      ; let someone else argue about tabs vs spaces
        ;;ein               ; tame Jupyter notebooks with emacs
        eval              ; run code, run (also, repls)
-       flycheck          ; tasing you for every semicolon you forget
 
        ;;flyspell          ; tasing you for misspelling mispelling
        ;;gist              ; interacting with github gists
@@ -178,20 +180,16 @@
        ;; provides a Spacemacs-inspired keybinding scheme and a smartparens
        ;; config. Use it as a reference for your own modules.
        (default +bindings +smartparens))
+
+;; TODO remove below if confirm theme is configured
 ;; themes
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (doom-molokai)))
- '(custom-safe-themes
-   (quote
-    ("be9645aaa8c11f76a10bcf36aaf83f54f4587ced1b9b679b55639c87404e2499" "dc677c8ebead5c0d6a7ac8a5b109ad57f42e0fe406e4626510e638d36bcc42df" "7dc3fe8fadb914563790a3fbe587fd455626442f66da333ea4de2c455feefb98" "f951343d4bbe5a90dba0f058de8317ca58a6822faa65d8463b0e751a07ec887c" "4e132458143b6bab453e812f03208075189deca7ad5954a4abb27d5afce10a9a" "6b2636879127bf6124ce541b1b2824800afc49c6ccd65439d6eb987dbf200c36" "136f5f950d1521f68aa3cfe491fb3e5a572dcaa350827e52c2de58a97beadc3d" "a8c210aa94c4eae642a34aaf1c5c0552855dfca2153fa6dd23f3031ce19453d4" default)))
- '(lsp-clojure-server-command (quote ("bash" "-c" "/home/greg/clojure-lsp/clojure-lsp")) t))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+;; (custom-set-variables
+;;  ;; custom-set-variables was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  '(custom-enabled-themes (quote (doom-molokai)))
+;;  '(custom-safe-themes
+;;    (quote
+;;     ("be9645aaa8c11f76a10bcf36aaf83f54f4587ced1b9b679b55639c87404e2499" "dc677c8ebead5c0d6a7ac8a5b109ad57f42e0fe406e4626510e638d36bcc42df" "7dc3fe8fadb914563790a3fbe587fd455626442f66da333ea4de2c455feefb98" "f951343d4bbe5a90dba0f058de8317ca58a6822faa65d8463b0e751a07ec887c" "4e132458143b6bab453e812f03208075189deca7ad5954a4abb27d5afce10a9a" "6b2636879127bf6124ce541b1b2824800afc49c6ccd65439d6eb987dbf200c36" "136f5f950d1521f68aa3cfe491fb3e5a572dcaa350827e52c2de58a97beadc3d" "a8c210aa94c4eae642a34aaf1c5c0552855dfca2153fa6dd23f3031ce19453d4" default)))
+;;  )

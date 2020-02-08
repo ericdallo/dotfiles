@@ -8,18 +8,20 @@
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (add-to-list 'auto-mode-alist '("\\.repl\\'" . clojure-mode))
 (add-to-list 'auto-mode-alist '("\\.ect\\'" . html-mode))
-(remove-hook 'html-mode-hook #'turn-on-auto-fill)
+(add-hook 'html-mode-hook #'turn-off-auto-fill)
 
 (setq-default evil-kill-on-visual-paste nil)
 
 (setq
+ doom-theme 'doom-molokai
  history-length 100
  confirm-kill-emacs nil ;; disable confirmation message on exit
+ mode-line-default-help-echo nil ;; disable mouse help
+ show-help-function nil
 
  projectile-project-search-path '("~/dev/")
 
- mode-line-default-help-echo nil ;; disable mouse help
- show-help-function nil
+ ;; performance
  gc-cons-threshold 100000000
  vc-handled-backends nil
 
@@ -33,6 +35,7 @@
                             (:eval
                              (format "[%s] " (projectile-project-name)))
                             "%b"))
+
  doom-font (font-spec :family "Hack" :size 18)
  doom-big-font-increment 4
  doom-unicode-font (font-spec :family "DejaVu Sans")
@@ -48,14 +51,6 @@
     (let ((dir (file-name-directory filename)))
       (unless (file-exists-p dir)
         (make-directory dir t)))))
-
-(add-hook! 'after-make-frame-functions
-  (set-fontset-font t 'unicode
-                    (font-spec :family "Font Awesome 5 Free")
-                    nil 'append)
-  (set-fontset-font t 'unicode
-                    (font-spec :family "Font Awesome 5 Brands")
-                    nil 'append))
 
 (defun open-dotfiles ()
   "Browse the files in $DOTFILES_DIR"
@@ -74,7 +69,6 @@
     (progn
       (window-configuration-to-register '_)
       (delete-other-windows))))
-(global-set-key (kbd "<f12>") 'toggle-maximize-buffer)
 
 (use-package! clj-refactor
   :after clojure-mode
@@ -124,30 +118,8 @@
                            " ")))
       (counsel-rg symbol (counsel--git-root) args))))
 
-(after! clj-refactor
-  (define-key clj-refactor-map "\C-ctf" #'cljr-thread-first-all)
-  (define-key clj-refactor-map "\C-ctl" #'cljr-thread-last-all)
-  (define-key clj-refactor-map "\C-cu" #'cljr-unwind)
-  (define-key clj-refactor-map "\C-cU" #'cljr-unwind-all))
-
 (use-package! paredit
-  :hook ((clojure-mode . paredit-mode))
-  :config
-   (global-unset-key (kbd "M-<left>"))
-   (global-unset-key (kbd "M-<right>"))
-   (define-key paredit-mode-map (kbd "C-<left>") nil)
-   (define-key paredit-mode-map (kbd "C-<right>") nil)
-   (define-key paredit-mode-map (kbd "M-<up>") nil)
-   (define-key paredit-mode-map (kbd "M-<down>") nil)
-
-   (global-set-key (kbd "M-<up>") 'reverse-transpose-sexps)
-   (global-set-key (kbd "M-<down>") 'transpose-sexps)
-   (define-key paredit-mode-map (kbd "M-S-<right>") 'paredit-backward-barf-sexp)
-   (define-key paredit-mode-map (kbd "M-S-<left>") 'paredit-backward-slurp-sexp)
-   (define-key paredit-mode-map (kbd "M-<right>") 'paredit-forward-slurp-sexp)
-   (define-key paredit-mode-map (kbd "M-<left>") 'paredit-forward-barf-sexp)
-   (define-key paredit-mode-map (kbd "C-c <left>") 'paredit-backward)
-   (define-key paredit-mode-map (kbd "C-c <right>") 'paredit-forward))
+  :hook ((clojure-mode . paredit-mode)))
 
 (use-package! lsp-mode
   :hook ((clojure-mode . lsp)
@@ -174,9 +146,7 @@
   :config
   (setq lsp-ui-peek-enable nil
         lsp-ui-peek-list-width 60
-        lsp-ui-peek-always-show nil)
-
-  (define-key lsp-mode-map (kbd "M-[") 'lsp-ui-sideline-apply-code-actions))
+        lsp-ui-peek-always-show nil))
 
 (use-package! company
     :config
@@ -229,14 +199,10 @@
         dart-format-on-save t))
 
 (use-package! dart-server
-  :bind
-  (:map dart-mode-map
-    ("M-p" . dart-server-format)))
+  :hook ((dart-mode . dart-server)))
 
 (use-package! flutter
   :after dart-mode
-  :bind (:map dart-mode-map
-          ("C-M-x" . #'flutter-run-or-hot-reload))
   :init
   (setq flutter-sdk-path "~/flutter/")) ;TODO after package flutter
 
