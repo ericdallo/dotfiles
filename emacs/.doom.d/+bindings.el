@@ -9,13 +9,13 @@
       "f T" #'open-dotfiles
 
       :desc "find file in dotfiles"
-      "f t" #'find-in-dotfiles)
+      "f t" #'find-in-dotfiles
+
+      :desc "Find references"
+      "c D" #'lsp-find-references)
 
 (after! clojure-mode
   (map! :leader
-       
-        :desc "Find references"
-        "c D" #'lsp-find-references
 
         :desc "Search for symbol in project excluding test folders"
         "&" (lambda () (interactive) (rg-ignoring-folders (list "test" "postman")))

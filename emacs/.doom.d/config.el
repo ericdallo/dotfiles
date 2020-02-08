@@ -16,7 +16,7 @@
  history-length 100
  confirm-kill-emacs nil ;; disable confirmation message on exit
 
- ;; projectile-project-search-path '("~/dev/")
+ projectile-project-search-path '("~/dev/")
 
  mode-line-default-help-echo nil ;; disable mouse help
  show-help-function nil
@@ -28,11 +28,11 @@
 
  counsel-rg-base-command "rg -i -M 1000 --no-heading --line-number --color never %s ."
 
- ;; frame-title-format (setq icon-title-format  ;; set window title with "[project] filename"
- ;;                          '(""
- ;;                            (:eval
- ;;                             (format "[%s] " (projectile-project-name)))
- ;;                            "%b"))
+ frame-title-format (setq icon-title-format  ;; set window title with "[project] filename"
+                          '(""
+                            (:eval
+                             (format "[%s] " (projectile-project-name)))
+                            "%b"))
  doom-font (font-spec :family "Hack" :size 18)
  doom-big-font-increment 4
  doom-unicode-font (font-spec :family "DejaVu Sans")
@@ -56,18 +56,18 @@
   (set-fontset-font t 'unicode
                     (font-spec :family "Font Awesome 5 Brands")
                     nil 'append))
-;; (defun open-dotfiles ()
-;;   "Browse the files in $DOTFILES_DIR"
-;;   (interactive)
-;;   (doom-project-browse (expand-file-name "~/.dotfiles")))
 
-;; (defun find-in-dotfiles ()
-;;   "Open a file somewhere in $DOTFILES_DIR via a fuzzy filename search."
-;;   (interactive)
-;;   (doom-project-find-file (expand-file-name "~/.dotfiles")))
+(defun open-dotfiles ()
+  "Browse the files in $DOTFILES_DIR"
+  (interactive)
+  (doom-project-browse (expand-file-name "~/.dotfiles")))
 
-;; Maximize buffer
-(defun toggle-maximize-buffer ()
+(defun find-in-dotfiles ()
+  "Open a file somewhere in $DOTFILES_DIR via a fuzzy filename search."
+  (interactive)
+  (doom-project-find-file (expand-file-name "~/.dotfiles")))
+
+(defun toggle-maximize-buffer () ;; Maximize buffer
   (interactive)
   (if (= 1 (length (window-list)))
       (jump-to-register '_)
@@ -203,9 +203,7 @@
 (use-package! lsp-java
   :after lsp
   :config
-  (setq ;;lsp-java-java-path "/usr/lib/jvm/java-8-openjdk/bin/java"
-        ;; lsp-java-java-path "/usr/lib/jvm/java-8-openjdk" ;; still not working. Note, this directory is existed
-        lsp-java-workspace-cache-dir t
+  (setq lsp-java-workspace-cache-dir t
         lsp-java-format-enabled t
         lsp-java-format-comments-enabled t
         lsp-java-save-action-organize-imports t
@@ -242,8 +240,8 @@
   :init
   (setq flutter-sdk-path "~/flutter/")) ;TODO after package flutter
 
-;; (after! projectile
-;;   (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")
-;;   (add-to-list 'projectile-project-root-files-bottom-up "BUILD"))
+(after! projectile
+  (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")
+  (add-to-list 'projectile-project-root-files-bottom-up "BUILD"))
 
 (load! "+bindings")
