@@ -90,8 +90,8 @@
         :desc "Dart format"
         "M-p" #'dart-server-format))
 
-(after! flutter
+(after! dart-mode
   (map! :leader
 
         :desc "Flutter run or hot reload"
-        "M k" #'flutter-run-or-hot-reload))
+        "m k" #'flutter-run-or-hot-reload))
