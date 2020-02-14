@@ -10,7 +10,7 @@ function npmci() {
 }
 
 function device-mock-start() {
-    sudo mkdir /lib64;sudo ln -sf $(file -L /usr/bin/env | cut -d"," -f5 | cut -d" " -f3) /lib64/ld-linux-x86-64.so.2
+    # sudo mkdir /lib64;sudo ln -sf $(file -L /usr/bin/env | cut -d"," -f5 | cut -d" " -f3) /lib64/ld-linux-x86-64.so.2
     cd $HOME/dev/nu/mini-meta-repo/native/cross-platform/react-native
     ./scripts/run-device.sh --platform android --flavor mockApiTest
 }
@@ -21,7 +21,7 @@ function device-mock-setup() {
 }
 
 function device-staging-start() {
-    sudo mkdir /lib64;sudo ln -sf $(file -L /usr/bin/env | cut -d"," -f5 | cut -d" " -f3) /lib64/ld-linux-x86-64.so.2
+    # sudo mkdir /lib64;sudo ln -sf $(file -L /usr/bin/env | cut -d"," -f5 | cut -d" " -f3) /lib64/ld-linux-x86-64.so.2
     cd $HOME/dev/nu/mini-meta-repo/native/cross-platform/react-native
-    ./scripts/run-device.sh --platform android --flavor mockApiTest
+    ./scripts/run-device.sh --platform android --flavor staging
 }
