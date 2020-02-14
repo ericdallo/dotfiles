@@ -5,6 +5,11 @@
 
 (define-key evil-normal-state-map (kbd "M-r") 'evil-multiedit-match-all)
 
+(map! :n
+
+      :desc "Multi edit lines"
+      "M-r" #'evil-multiedit-match-all)
+
 (map! :nvi
 
       :desc "Toggle buffer full screen"
@@ -37,6 +42,7 @@
 (after! paredit
   (define-key paredit-mode-map (kbd "C-<left>") nil)
   (define-key paredit-mode-map (kbd "C-<right>") nil)
+
   (map! :nvi
 
         :desc "Forward barf"
@@ -63,14 +69,14 @@
         :desc "Forward"
         "C-c <right>" #'paredit-forward))
 
-(after! clojure-mode
-  (map! :leader
+(map! :after clojure-mode
+      :leader
 
-        :desc "Search for symbol in project excluding test folders"
-        "&" (lambda () (interactive) (rg-ignoring-folders (list "test" "postman")))
+      :desc "Search for symbol in project excluding test folders"
+      "&" (lambda () (interactive) (rg-ignoring-folders (list "test" "postman")))
 
-        :desc "Search for symbol in project excluding src folder"
-        "(" (lambda () (interactive) (rg-ignoring-folders (list "src")))))
+      :desc "Search for symbol in project excluding src folder"
+      "(" (lambda () (interactive) (rg-ignoring-folders (list "src"))))
 
 (after! clj-refactor
   (define-key clj-refactor-map "\C-ctf" #'cljr-thread-first-all)
@@ -84,14 +90,18 @@
         :desc "LSP-ui apply code action"
         "M-[" #'lsp-ui-sideline-apply-code-actions))
 
-(after! dart-server
-  (map! :nvi
+(map! :after dart-server
+      :nvi
 
-        :desc "Dart format"
-        "M-p" #'dart-server-format))
+      :desc "Dart format"
+      "M-p" #'dart-server-format)
 
-(after! dart-mode
-  (map! :leader
+(map! :after dart-mode
+      :leader
+      :prefix ("m" . "tools")
 
-        :desc "Flutter run or hot reload"
-        "m k" #'flutter-run-or-hot-reload))
+      :desc "Flutter run or hot reload"
+      "j" #'flutter-run-or-hot-reload
+
+      :desc "Hover run or hot reload"
+      "k" #'hover-run-or-hot-reload)

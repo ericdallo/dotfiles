@@ -210,3 +210,8 @@
   (add-to-list 'projectile-project-root-files-bottom-up "BUILD"))
 
 (load! "+bindings")
+
+(load! "local/hover.el")
+
+(use-package! hover
+  :after dart-mode)
