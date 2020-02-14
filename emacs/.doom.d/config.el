@@ -119,7 +119,8 @@
       (counsel-rg symbol (counsel--git-root) args))))
 
 (use-package! paredit
-  :hook ((clojure-mode . paredit-mode)))
+  :hook ((clojure-mode . paredit-mode)
+         (emacs-lisp-mode . paredit-mode)))
 
 (use-package! lsp-mode
   :hook ((clojure-mode . lsp)
@@ -202,9 +203,7 @@
   :hook ((dart-mode . dart-server)))
 
 (use-package! flutter
-  :after dart-mode
-  :init
-  (setq flutter-sdk-path "~/flutter/")) ;TODO after package flutter
+  :after dart-mode)
 
 (after! projectile
   (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")

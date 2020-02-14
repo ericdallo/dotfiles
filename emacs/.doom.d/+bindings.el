@@ -8,7 +8,7 @@
 (map! :nvi
 
       :desc "Toggle buffer full screen"
-      "<f12>" #'toggle-maximize-buffer
+      "<f10>" #'toggle-maximize-buffer
 
       :desc "Expand region"
       "M-=" #'er/expand-region

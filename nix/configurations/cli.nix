@@ -75,7 +75,7 @@
 
         # Customize your oh-my-zsh options here
         ZSH_THEME="simple"
-        plugins=(git sudo docker kubectl)
+        plugins=(git sudo docker)
 
         source $ZSH/oh-my-zsh.sh
       '';
