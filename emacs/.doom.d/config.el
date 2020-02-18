@@ -149,6 +149,13 @@
         lsp-ui-peek-list-width 60
         lsp-ui-peek-always-show nil))
 
+(load! "local/lsp-treemacs.el")
+
+(use-package lsp-treemacs
+  :after lsp-mode
+  :config
+  (lsp-treemacs-sync-mode 1))
+
 (use-package! company
     :config
     (setq company-idle-delay 0.5

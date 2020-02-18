@@ -90,6 +90,15 @@
         :desc "LSP-ui apply code action"
         "M-[" #'lsp-ui-sideline-apply-code-actions))
 
+(map! :after lsp-treemacs
+      :leader
+
+      :desc "LSP treemacs error"
+      "c X" #'lsp-treemacs-errors-list
+
+      :desc "LSP treemacs find references"
+      "c R" (lambda () (interactive) (lsp-treemacs-references t)))
+
 (map! :after dart-server
       :nvi
 
