@@ -23,6 +23,7 @@ in {
         ln -Tsf ${dotfilesDir}/emacs/.clj-kondo ~/.clj-kondo
         ln -sf ${dotfilesDir}/emacs/.joker ~/.joker
         ln -Tsf ${dotfilesDir}/emacs/.jokerd ~/.jokerd
+        ln -sf ${dotfilesDir}/emacs/.midje ~/.midje
 
         ln -sf ${dotfilesDir}/git/.gitconfig ~/.gitconfig
         ln -sf ${dotfilesDir}/git/.gitignore_global ~/.gitignore_global
