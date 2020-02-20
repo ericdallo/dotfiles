@@ -14,6 +14,6 @@
 (package! lsp-java)
 (package! lsp-mode)
 (package! lsp-ui)
-(package! lsp-treemacs :disable t)
+(package! lsp-treemacs)
 (package! scss-mode)
 (package! paredit)

@@ -7,6 +7,7 @@ in {
       fzf
       gcc
       xsv
+      git-lfs
     ];
 
     activation.linkFiles = config.lib.dag.entryAfter ["writeBoundary"] ''
