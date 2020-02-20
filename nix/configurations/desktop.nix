@@ -20,6 +20,7 @@
       flat-remix-icon-theme
       materia-theme
       ntfsprogs
+      peek
       postman
       skype
       slack

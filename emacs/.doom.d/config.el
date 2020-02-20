@@ -179,7 +179,7 @@
   (push '(company-lsp :with company-yasnippet) company-backends))
 
 (use-package! lsp-java
-  :after lsp
+  :after java-mode
   :config
   (setq lsp-java-workspace-cache-dir t
         lsp-java-format-enabled t
@@ -209,8 +209,13 @@
 (use-package! dart-server
   :hook ((dart-mode . dart-server)))
 
+(load! "local/flutter.el")
+
 (use-package! flutter
-  :after dart-mode)
+  :after dart-mode
+  :init
+  (setq
+   flutter-sdk-path (concat (getenv "HOME") "/flutter")))
 
 (after! projectile
   (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")
