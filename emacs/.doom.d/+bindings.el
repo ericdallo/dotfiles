@@ -37,7 +37,7 @@
       "c d" #'lsp-find-definition
 
       :desc "Find references"
-      "c D" #'lsp-find-references)
+      "c D" (lambda () (interactive) (lsp-treemacs-references '(4))))
 
 (after! paredit
   (define-key paredit-mode-map (kbd "C-<left>") nil)
@@ -112,4 +112,10 @@
       "j" #'flutter-run-or-hot-reload
 
       :desc "Hover run or hot reload"
-      "k" #'hover-run-or-hot-reload)
+      "k" #'hover-run-or-hot-reload
+
+      :desc "Run current file test"
+      "t" #'flutter-test-current-file
+
+      :desc "Run all tests"
+      "T" #'flutter-test-all)
