@@ -129,7 +129,7 @@
   :commands lsp
   :init
   (setq lsp-enable-indentation nil
-        lsp-prefer-flymake nil
+        lsp-diagnostic-package nil
         lsp-log-io t)
   :custom
   ((lsp-clojure-server-command '("bash" "-c" "clojure-lsp")))
