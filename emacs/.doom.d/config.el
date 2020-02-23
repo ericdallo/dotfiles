@@ -11,6 +11,7 @@
 (add-hook 'html-mode-hook #'turn-off-auto-fill)
 
 (setq-default evil-kill-on-visual-paste nil)
+(global-git-gutter-mode)
 
 (setq
  doom-theme 'doom-molokai
@@ -123,6 +124,11 @@
 (use-package! paredit
   :hook ((clojure-mode . paredit-mode)
          (emacs-lisp-mode . paredit-mode)))
+
+(use-package! parrot
+  :config
+  (setq parrot-keep-partying t)
+  (parrot-mode))
 
 (use-package! lsp-mode
   :hook ((clojure-mode . lsp)
