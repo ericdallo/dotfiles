@@ -17,6 +17,8 @@
  history-length 100
  confirm-kill-emacs nil ;; disable confirmation message on exit
  mode-line-default-help-echo nil ;; disable mouse help
+ mode-line-format (list
+                  '(:eval (list (nyan-create))))
  show-help-function nil
 
  projectile-project-search-path '("~/dev/")
@@ -130,7 +132,7 @@
   :init
   (setq lsp-enable-indentation nil
         lsp-diagnostic-package nil
-        lsp-log-io t)
+        lsp-log-io nil)
   :custom
   ((lsp-clojure-server-command '("bash" "-c" "clojure-lsp")))
 
@@ -147,6 +149,7 @@
   :config
   (setq lsp-ui-peek-enable nil
         lsp-ui-peek-list-width 60
+        lsp-ui-peek-fontify 'always
         lsp-ui-peek-always-show nil))
 
 (use-package lsp-treemacs
@@ -155,26 +158,32 @@
   (lsp-treemacs-sync-mode 1))
 
 (use-package! company
-    :config
-    (setq company-idle-delay 0.5
-          company-minimum-prefix-length 4
-          company-echo-delay 0
-          company-dabbrev-downcase 0
-          rompany-candidates-cache t
-          company-dabbrev-code-everywhere t
-          company-dabbrev-code-modes t
-          company-dabbrev-code-ignore-case t
-          company-tooltip-align-annotations t
-          company-transformers '(company-sort-prefer-same-case-prefix)))
+  :custom
+  (setq company-minimum-prefix-length 3
+        company-tooltip-align-annotations t
+        company-show-numbers t
+        company-dabbrev-downcase t))
+
+(use-package! company-box
+  :hook (company-mode . company-box-mode)
+  :config
+  (setq company-box-backends-colors nil
+        company-box-doc-enable nil
+        company-box-show-single-candidate t
+        company-box-max-candidates 50)
+  (advice-add 'company-next-page :after #'company-box--change-line)
+  (advice-add 'company-previous-page :after #'company-box--change-line)
+  (advice-add 'company-search-candidates :after #'company-box--change-line)
+  (advice-add 'company-filter-candidates :after #'company-box--change-line)
+  (advice-add 'company-search-repeat-forward :after #'company-box--change-line)
+  (advice-add 'company-search-repeat-backward :after #'company-box--change-line))
 
 (use-package! company-lsp
   :commands company-lsp
   :config
   (setq company-lsp-async t
-        ;company-lsp-filter-candidates t
-        ;company-lsp-cache-candidates nil
-        )
-  (push '(company-lsp :with company-yasnippet) company-backends))
+        company-lsp-cache-candidates t
+        company-lsp-filter-candidates t))
 
 (use-package! lsp-java
   :after java-mode
@@ -187,7 +196,6 @@
         lsp-java-import-gradle-enabled t
         lsp-java-import-maven-enabled t
         lsp-java-auto-build t
-        lsp-log-io nil
         lsp-java-progress-report t
         lsp-java-completion-guess-arguments t
         lsp-java-enable-file-watch t
