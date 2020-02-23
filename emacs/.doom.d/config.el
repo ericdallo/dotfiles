@@ -10,6 +10,46 @@
 (add-to-list 'auto-mode-alist '("\\.ect\\'" . html-mode))
 (add-hook 'html-mode-hook #'turn-off-auto-fill)
 
+(defadvice find-file (before make-directory-maybe (filename &optional wildcards) activate)
+  "Create parent directory if not exists while visiting file."
+  (unless (file-exists-p filename)
+    (let ((dir (file-name-directory filename)))
+      (unless (file-exists-p dir)
+        (make-directory dir t)))))
+
+(defun open-dotfiles ()
+  "Browse the files in $DOTFILES_DIR"
+  (interactive)
+  (doom-project-browse (expand-file-name "~/.dotfiles")))
+
+(defun find-in-dotfiles ()
+  "Open a file somewhere in $DOTFILES_DIR via a fuzzy filename search."
+  (interactive)
+  (doom-project-find-file (expand-file-name "~/.dotfiles")))
+
+(defun toggle-maximize-buffer () ;; Maximize buffer
+  (interactive)
+  (if (= 1 (length (window-list)))
+      (jump-to-register '_)
+    (progn
+      (window-configuration-to-register '_)
+      (delete-other-windows))))
+
+(defun reverse-transpose-sexps (arg)
+    (interactive "*p")
+    (transpose-sexps (- arg))
+    (backward-sexp (1+ arg))
+    (forward-sexp 1))
+
+  (defun rg-ignoring-folders (folders)
+    "ripgrep selected word in project excluding folder"
+    (let ((symbol (thing-at-point 'symbol t))
+          (args (mapconcat 'identity
+                           (mapcar #'(lambda(folder) (concat "-g '!" folder "/*'"))
+                                   folders)
+                           " ")))
+      (counsel-rg symbol (counsel--git-root) args)))
+
 (setq-default evil-kill-on-visual-paste nil)
 (global-git-gutter-mode)
 
@@ -36,48 +76,23 @@
  frame-title-format (setq icon-title-format  ;; set window title with "[project] filename"
                           '(""
                             (:eval
-                             (format "[%s] " (projectile-project-name)))
+                             (format "%s - " (projectile-project-name)))
                             "%b"))
 
  doom-font (font-spec :family "Hack" :size 18)
- doom-big-font-increment 4
+ doom-big-font-increment 2
  doom-unicode-font (font-spec :family "DejaVu Sans")
 
  evil-collection-setup-minibuffer t ;; enable minibuffer to work correctly in evil mode
 
- cljr-clojure-test-declaration "[midje.sweet :refer :all]"
  flycheck-disabled-checkers '(scss-stylelint))
-
-(defadvice find-file (before make-directory-maybe (filename &optional wildcards) activate)
-  "Create parent directory if not exists while visiting file."
-  (unless (file-exists-p filename)
-    (let ((dir (file-name-directory filename)))
-      (unless (file-exists-p dir)
-        (make-directory dir t)))))
-
-(defun open-dotfiles ()
-  "Browse the files in $DOTFILES_DIR"
-  (interactive)
-  (doom-project-browse (expand-file-name "~/.dotfiles")))
-
-(defun find-in-dotfiles ()
-  "Open a file somewhere in $DOTFILES_DIR via a fuzzy filename search."
-  (interactive)
-  (doom-project-find-file (expand-file-name "~/.dotfiles")))
-
-(defun toggle-maximize-buffer () ;; Maximize buffer
-  (interactive)
-  (if (= 1 (length (window-list)))
-      (jump-to-register '_)
-    (progn
-      (window-configuration-to-register '_)
-      (delete-other-windows))))
 
 (use-package! clj-refactor
   :after clojure-mode
-  :init
+  :config
   (setq cljr-warn-on-eval nil
         clojure-thread-all-but-last t
+        cljr-clojure-test-declaration "[midje.sweet :refer :all]"
         cljr-magic-require-namespaces
         '(("s"   . "schema.core")
           ("th"  . "common-core.test-helpers")
@@ -90,7 +105,8 @@
           ("pp" . "clojure.pprint")
           ("init" . "postmanaux.init"))))
 
-(after! clojure-mode
+(use-package! clojure-mode
+  :config
   (define-clojure-indent
     (fact 1)
     (facts 1)
@@ -104,64 +120,7 @@
   (setq cider-show-error-buffer 'only-in-repl
         clj-refactor-mode 1
         yas-minor-mode 1) ; for adding require/use/import statements
-  (cljr-add-keybindings-with-prefix "C-c C-c")
-
-  (defun reverse-transpose-sexps (arg)
-    (interactive "*p")
-    (transpose-sexps (- arg))
-    (backward-sexp (1+ arg))
-    (forward-sexp 1))
-
-  (defun rg-ignoring-folders (folders)
-    "ripgrep selected word in project excluding folder"
-    (let ((symbol (thing-at-point 'symbol t))
-          (args (mapconcat 'identity
-                           (mapcar #'(lambda(folder) (concat "-g '!" folder "/*'"))
-                                   folders)
-                           " ")))
-      (counsel-rg symbol (counsel--git-root) args))))
-
-(use-package! paredit
-  :hook ((clojure-mode . paredit-mode)
-         (emacs-lisp-mode . paredit-mode)))
-
-(use-package! parrot
-  :config
-  (setq parrot-keep-partying t)
-  (parrot-mode))
-
-(use-package! lsp-mode
-  :hook ((clojure-mode . lsp)
-         (dart-mode . lsp)
-         (java-mode . lsp))
-  :commands lsp
-  :init
-  (setq lsp-enable-indentation nil
-        lsp-diagnostic-package nil
-        lsp-log-io nil)
-  :custom
-  ((lsp-clojure-server-command '("bash" "-c" "clojure-lsp")))
-
-  :config
-  (dolist (m '(clojure-mode
-               clojurec-mode
-               clojurescript-mode
-               clojurex-mode))
-    (add-to-list 'lsp-language-id-configuration `(,m . "clojure"))))
-
-(use-package! lsp-ui
-  :after lsp-mode
-  :commands lsp-ui-mode
-  :config
-  (setq lsp-ui-peek-enable nil
-        lsp-ui-peek-list-width 60
-        lsp-ui-peek-fontify 'always
-        lsp-ui-peek-always-show nil))
-
-(use-package lsp-treemacs
-  :after lsp-mode
-  :config
-  (lsp-treemacs-sync-mode 1))
+  (cljr-add-keybindings-with-prefix "C-c C-c"))
 
 (use-package! company
   :custom
@@ -191,6 +150,25 @@
         company-lsp-cache-candidates t
         company-lsp-filter-candidates t))
 
+(use-package! dart-mode
+  :init
+  (setq dart-sdk-path "~/flutter/bin/cache/dark-sdk/"
+        lsp-dart-analysis-sdk "~/flutter/bin/cache/dart-sdk/"
+        lsp-auto-guess-root t
+        dart-format-on-save t))
+
+(use-package! dart-server
+  :hook ((dart-mode . dart-server)))
+
+(use-package! flutter
+  :after dart-mode
+  :init
+  (setq
+   flutter-sdk-path (concat (getenv "HOME") "/flutter")))
+
+(use-package! hover
+  :after dart-mode)
+
 (use-package! lsp-java
   :after java-mode
   :config
@@ -211,29 +189,50 @@
           ".bzr" "_darcs" ".tox" ".svn" ".stack-work"
           "build")))
 
-(use-package! dart-mode
+(use-package! lsp-mode
+  :hook ((clojure-mode . lsp)
+         (dart-mode . lsp)
+         (java-mode . lsp))
+  :commands lsp
   :init
-  (setq dart-sdk-path "~/flutter/bin/cache/dark-sdk/"
-        lsp-dart-analysis-sdk "~/flutter/bin/cache/dart-sdk/"
-        lsp-auto-guess-root t
-        dart-format-on-save t))
+  (setq lsp-enable-indentation nil
+        lsp-diagnostic-package nil
+        lsp-log-io nil)
+  :custom
+  ((lsp-clojure-server-command '("bash" "-c" "clojure-lsp")))
 
-(use-package! dart-server
-  :hook ((dart-mode . dart-server)))
+  :config
+  (dolist (m '(clojure-mode
+               clojurec-mode
+               clojurescript-mode
+               clojurex-mode))
+    (add-to-list 'lsp-language-id-configuration `(,m . "clojure"))))
 
-(use-package! flutter
-  :after dart-mode
-  :init
-  (setq
-   flutter-sdk-path (concat (getenv "HOME") "/flutter")))
+(use-package lsp-treemacs
+  :after lsp-mode
+  :config
+  (lsp-treemacs-sync-mode 1))
+
+(use-package! lsp-ui
+  :after lsp-mode
+  :commands lsp-ui-mode
+  :config
+  (setq lsp-ui-peek-enable nil
+        lsp-ui-peek-list-width 60
+        lsp-ui-peek-fontify 'always
+        lsp-ui-peek-always-show nil))
+
+(use-package! paredit
+  :hook ((clojure-mode . paredit-mode)
+         (emacs-lisp-mode . paredit-mode)))
+
+(use-package! parrot
+  :config
+  (setq parrot-keep-partying t)
+  (parrot-mode))
 
 (after! projectile
   (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")
   (add-to-list 'projectile-project-root-files-bottom-up "BUILD"))
 
 (load! "+bindings")
-
-(load! "local/hover.el")
-
-(use-package! hover
-  :after dart-mode)
