@@ -9,13 +9,13 @@
 
   environment.systemPackages = with pkgs;
     [
-      conky
       franz
       gimp
       gnomeExtensions.drop-down-terminal
       gnome3.gnome-tweaks
       google-chrome
       gparted
+      i3lock-fancy
       inkscape
       flat-remix-icon-theme
       materia-theme
@@ -28,9 +28,7 @@
       transmission-gtk
       vlc
       (wine.override { wineBuild = "wineWow"; })
-      wireshark
       woeusb
-      xorg.xmodmap
     ];
 
   services.xserver.enable = true;

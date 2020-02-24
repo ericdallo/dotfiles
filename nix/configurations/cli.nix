@@ -30,6 +30,7 @@
     manpages
     nssTools
     mediainfo
+    neofetch
     nixfmt
     openssl
     oh-my-zsh
