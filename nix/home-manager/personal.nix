@@ -1,41 +1,12 @@
 { pkgs, config, ... }:
 let
   dotfilesDir = "$HOME/.dotfiles";
+
 in {
-  dconf.settings = {
-    "org/gnome/settings-daemon/plugins/media-keys" = {
-      custom-keybindings = [
-        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
-        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
-        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
-        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/"
-      ];
-    };
-
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-      name = "terminal";
-      command = "urxvt";
-      binding = "<Alt>t";
-    };
-
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
-      name = "lock";
-      command = "i3lock-fancy -f Roboto-Medium";
-      binding = "<Alt>l";
-    };
-
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
-      name = "nautilius";
-      command = "nautilus";
-      binding = "<Alt>q";
-    };
-
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3" = {
-      name = "swith-workspace";
-      command = "bash -c \"~/.dotfiles/scripts/alternate-desktop.sh\"";
-      binding = "<Alt>backslash";
-    };
-  };
+  imports = [
+    ./common/programs.nix
+    ./common/dconf.nix
+  ];
 
   home = {
     activation.linkFiles = config.lib.dag.entryAfter ["writeBoundary"] ''
@@ -69,28 +40,5 @@ in {
 
         ln -sf ${dotfilesDir}/urxvt/.Xresources ~/.Xresources
     '';
-  };
-
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
-  programs.home-manager.path = https://github.com/rycee/home-manager/archive/master.tar.gz;
-
-  programs = {
-
-    emacs = {
-      enable = true;
-    };
-
-    git = {
-      enable = true;
-
-      package = pkgs.gitAndTools.hub;
-
-    };
-
-    vim = {
-      enable = true;
-      plugins = [ ];
-    };
   };
 }

@@ -12,6 +12,7 @@
       franz
       gimp
       gnomeExtensions.drop-down-terminal
+      gnome3.dconf-editor
       gnome3.gnome-tweaks
       google-chrome
       gparted

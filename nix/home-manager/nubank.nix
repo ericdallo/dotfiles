@@ -2,6 +2,11 @@
 let
   dotfilesDir = "$HOME/.dotfiles";
 in {
+  imports = [
+    ./common/programs.nix
+    ./common/dconf.nix
+  ];
+
   home = {
     packages = with pkgs; [
       fzf
@@ -36,27 +41,5 @@ in {
 
         ln -sf ${dotfilesDir}/urxvt/.Xresources ~/.Xresources
     '';
-  };
-
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
-  programs.home-manager.path = https://github.com/rycee/home-manager/archive/master.tar.gz;
-
-  programs = {
-
-    emacs = {
-      enable = true;
-    };
-
-    git = {
-      enable = true;
-
-      package = pkgs.gitAndTools.hub;
-    };
-
-    vim = {
-      enable = true;
-      plugins = [ ];
-    };
   };
 }
