@@ -160,12 +160,12 @@ function gregflix-prod-process-video {
         fi
 
         if [ "$#" -eq 7 ] || [ "$#" -eq 5 ]; then
-        	EPISODE_NAME="${6:=$(getEpisodeName $1 $4 $5)}"
-        	EPISODE_NAME=${EPISODE_NAME//\'}
-        	EPISODE_NAME=${EPISODE_NAME//\"}
-        	EPISODE_DESCRIPTION="${7:=$(getEpisodeDescription $1 $4 $5)}"
-        	EPISODE_DESCRIPTION=${EPISODE_DESCRIPTION//\'}
-        	EPISODE_DESCRIPTION=${EPISODE_DESCRIPTION//\"}
+            EPISODE_NAME="${6:=$(getEpisodeName $1 $4 $5)}"
+            EPISODE_NAME=${EPISODE_NAME//\'}
+            EPISODE_NAME=${EPISODE_NAME//\"}
+            EPISODE_DESCRIPTION="${7:=$(getEpisodeDescription $1 $4 $5)}"
+            EPISODE_DESCRIPTION=${EPISODE_DESCRIPTION//\'}
+            EPISODE_DESCRIPTION=${EPISODE_DESCRIPTION//\"}
 
             echo 'Uploading serie...'
             gregflix-prod-upload-serie $3 $2 $4 $5
@@ -173,7 +173,7 @@ function gregflix-prod-process-video {
             echo 'Adding to database...'
             gregflix-prod-db-add-serie $1 $2 $3 $4 $5 $EPISODE_NAME $EPISODE_DESCRIPTION
         else
-        	MOVIE_DESCRIPTION="${4:=$(getMovieDescription $1)}"
+            MOVIE_DESCRIPTION="${4:=$(getMovieDescription $1)}"
 
             echo 'Uploading movie...'
             gregflix-prod-upload-movie $3 $2
@@ -181,6 +181,8 @@ function gregflix-prod-process-video {
             echo 'Adding to database...'
             gregflix-prod-db-add-movie $1 $2 $3 $MOVIE_DESCRIPTION
         fi
+
+        gregflix-prod-dump
 
         return
     fi
