@@ -13,7 +13,7 @@
 (map! :nvi
 
       :desc "Toggle buffer full screen"
-      "<f10>" #'toggle-maximize-buffer
+      "<f10>" #'doom/window-maximize-buffer
 
       :desc "Expand region"
       "M-=" #'er/expand-region

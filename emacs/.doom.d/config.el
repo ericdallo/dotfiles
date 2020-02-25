@@ -27,14 +27,6 @@
   (interactive)
   (doom-project-find-file (expand-file-name "~/.dotfiles")))
 
-(defun toggle-maximize-buffer () ;; Maximize buffer
-  (interactive)
-  (if (= 1 (length (window-list)))
-      (jump-to-register '_)
-    (progn
-      (window-configuration-to-register '_)
-      (delete-other-windows))))
-
 (defun reverse-transpose-sexps (arg)
     (interactive "*p")
     (transpose-sexps (- arg))
@@ -51,7 +43,6 @@
       (counsel-rg symbol (counsel--git-root) args)))
 
 (setq-default evil-kill-on-visual-paste nil)
-(global-git-gutter-mode)
 
 (setq
  doom-theme 'doom-molokai
@@ -64,8 +55,6 @@
 
  projectile-project-search-path '("~/dev/")
 
- ;; performance
- gc-cons-threshold 100000000
  vc-handled-backends nil
 
  evil-split-window-below t
@@ -123,7 +112,7 @@
   (cljr-add-keybindings-with-prefix "C-c C-c"))
 
 (use-package! company
-  :custom
+  :config
   (setq company-minimum-prefix-length 3
         company-tooltip-align-annotations t
         company-show-numbers t
@@ -132,10 +121,7 @@
 (use-package! company-box
   :hook (company-mode . company-box-mode)
   :config
-  (setq company-box-backends-colors nil
-        company-box-doc-enable nil
-        company-box-show-single-candidate t
-        company-box-max-candidates 50)
+  ;; Fix <prior>/<next> on company-box
   (advice-add 'company-next-page :after #'company-box--change-line)
   (advice-add 'company-previous-page :after #'company-box--change-line)
   (advice-add 'company-search-candidates :after #'company-box--change-line)
