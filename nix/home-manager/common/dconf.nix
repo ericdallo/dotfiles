@@ -1,5 +1,14 @@
 {
   dconf.settings = {
+    "org/gnome/shell" = {
+      disable-user-extensions = false;
+
+      enabled-extensions = [
+        "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
+        "hibernate-status@dromi"
+      ];
+    };
+
     "org/gnome/settings-daemon/plugins/media-keys" = {
       custom-keybindings = [
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"

@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
-{
+let
+  gnomeExtensions-hibernate-status = (import (fetchTarball https://github.com/ericdallo/nixpkgs/archive/gnome-extensions-hibernate-status.tar.gz) {}).gnomeExtensions.hibernate-status;
+in {
   fonts.fonts = with pkgs;
     [
       roboto
@@ -11,7 +13,8 @@
     [
       franz
       gimp
-      gnomeExtensions.drop-down-terminal
+      gnomeExtensions-hibernate-status
+      gnomeExtensions.sound-output-device-chooser
       gnome3.dconf-editor
       gnome3.gnome-tweaks
       google-chrome
