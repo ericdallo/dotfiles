@@ -55,8 +55,6 @@
 
  projectile-project-search-path '("~/dev/")
 
- vc-handled-backends nil
-
  evil-split-window-below t
  evil-vsplit-window-right t
 
