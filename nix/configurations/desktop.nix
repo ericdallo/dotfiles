@@ -2,6 +2,7 @@
 
 let
   gnomeExtensions-hibernate-status = (import (fetchTarball https://github.com/ericdallo/nixpkgs/archive/gnome-extensions-hibernate-status.tar.gz) {}).gnomeExtensions.hibernate-status;
+  gnomeExtensions-draw-on-your-screen = (import (fetchTarball https://github.com/ericdallo/nixpkgs/archive/gnome-extensions-drawn-on-your-screen.tar.gz) {}).gnomeExtensions.draw-on-your-screen;
 in {
   fonts.fonts = with pkgs;
     [
@@ -14,6 +15,7 @@ in {
       franz
       gimp
       gnomeExtensions-hibernate-status
+      gnomeExtensions-draw-on-your-screen
       gnomeExtensions.sound-output-device-chooser
       gnome3.dconf-editor
       gnome3.gnome-tweaks
