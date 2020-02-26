@@ -37,7 +37,7 @@
       "c d" #'lsp-find-definition
 
       :desc "Find references"
-      "c D" (lambda () (interactive) (lsp-treemacs-references '(4))))
+      "c D" #'lsp-find-references)
 
 (after! paredit
   (define-key paredit-mode-map (kbd "C-<left>") nil)
