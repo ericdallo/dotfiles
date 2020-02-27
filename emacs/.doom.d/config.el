@@ -146,9 +146,10 @@
 
 (use-package! flutter
   :after dart-mode
-  :init
+  :config
   (setq
-   flutter-sdk-path (concat (getenv "HOME") "/flutter")))
+   flutter-sdk-path (concat (getenv "HOME") "/flutter"))
+  (set-popup-rule! "\\*compilation\\*" :side 'right :width 0.5))
 
 (use-package! hover
   :after dart-mode)

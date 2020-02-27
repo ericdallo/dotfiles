@@ -3,7 +3,7 @@
 # Nix
 alias rebuild="sudo nixos-rebuild switch"
 alias flutter-fix="sudo mkdir /lib64;sudo ln -sf $(file -L /usr/bin/env | cut -d"," -f5 | cut -d" " -f3) /lib64/ld-linux-x86-64.so.2"
-alias flutter-go="nix-shell $DOTFILES_DIR/nix/scripts/hover.nix --run 'hover run'"
+alias flutter-go="nix-shell $DOTFILES_DIR/nix/scripts/hover.nix --run '$HOME/gocode/bin/hover run'"
 alias flutter-watch="flutter pub run build_runner watch --verbose --delete-conflicting-outputs"
 
 # urxvt
