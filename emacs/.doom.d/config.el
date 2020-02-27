@@ -47,6 +47,7 @@
 (setq
  doom-theme 'doom-molokai
  history-length 100
+ indent-tabs-mode nil
  confirm-kill-emacs nil ;; disable confirmation message on exit
  mode-line-default-help-echo nil ;; disable mouse help
  mode-line-format (list
@@ -71,8 +72,7 @@
  doom-unicode-font (font-spec :family "DejaVu Sans")
 
  evil-collection-setup-minibuffer t ;; enable minibuffer to work correctly in evil mode
-
- flycheck-disabled-checkers '(scss-stylelint))
+)
 
 (use-package! clj-refactor
   :after clojure-mode
