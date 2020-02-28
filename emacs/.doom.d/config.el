@@ -191,7 +191,8 @@
                clojurec-mode
                clojurescript-mode
                clojurex-mode))
-    (add-to-list 'lsp-language-id-configuration `(,m . "clojure"))))
+    (add-to-list 'lsp-language-id-configuration `(,m . "clojure")))
+  (advice-add #'lsp-rename :after (lambda (&rest _) (projectile-save-project-buffers))))
 
 (use-package lsp-treemacs
   :after lsp-mode

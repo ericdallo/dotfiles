@@ -1,7 +1,8 @@
 with import <nixpkgs> {}; {
     hoverDerivation = stdenv.mkDerivation {
-        name = "hover-deps";
-        buildInputs = [ go
+        name = "hover";
+        buildInputs = [ libGL
+                        glfw
                         pkgconfig
                         glfw
                         xorg.libX11

@@ -31,13 +31,7 @@
       "f T" #'open-dotfiles
 
       :desc "Find file in dotfiles"
-      "f t" #'find-in-dotfiles
-
-      :desc "Find definition"
-      "c d" #'lsp-find-definition
-
-      :desc "Find references"
-      "c D" #'lsp-find-references)
+      "f t" #'find-in-dotfiles)
 
 (after! paredit
   (define-key paredit-mode-map (kbd "C-<left>") nil)
