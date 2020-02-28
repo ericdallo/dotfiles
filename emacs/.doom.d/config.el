@@ -33,14 +33,14 @@
     (backward-sexp (1+ arg))
     (forward-sexp 1))
 
-  (defun rg-ignoring-folders (folders)
-    "ripgrep selected word in project excluding folder"
-    (let ((symbol (thing-at-point 'symbol t))
-          (args (mapconcat 'identity
-                           (mapcar #'(lambda(folder) (concat "-g '!" folder "/*'"))
-                                   folders)
-                           " ")))
-      (counsel-rg symbol (counsel--git-root) args)))
+(defun rg-ignoring-folders (folders)
+  "ripgrep selected word in project excluding folder"
+  (let ((symbol (thing-at-point 'symbol t))
+        (args (mapconcat 'identity
+                         (mapcar #'(lambda(folder) (concat "-g '!" folder "/*'"))
+                                 folders)
+                         " ")))
+    (counsel-rg symbol (counsel--git-root) args)))
 
 (setq-default evil-kill-on-visual-paste nil)
 
@@ -107,7 +107,8 @@
   (setq cider-show-error-buffer 'only-in-repl
         clj-refactor-mode 1
         yas-minor-mode 1) ; for adding require/use/import statements
-  (cljr-add-keybindings-with-prefix "C-c C-c"))
+  (cljr-add-keybindings-with-prefix "C-c C-c")
+  (set-popup-rule! "^\\*cider-repl" :side 'right :width 0.5))
 
 (use-package! company
   :config

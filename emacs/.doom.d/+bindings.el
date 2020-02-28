@@ -15,6 +15,18 @@
       :desc "Toggle buffer full screen"
       "<f10>" #'doom/window-maximize-buffer
 
+      :desc "increase window width"
+      "C-S-<right>" (lambda () (interactive) (enlarge-window 10 t))
+
+      :desc "decrease window width"
+      "C-S-<left>" (lambda () (interactive) (enlarge-window -10 t))
+
+      :desc "increase window height"
+      "C-S-<up>" (lambda () (interactive) (enlarge-window 10))
+
+      :desc "decrease window height"
+      "C-S-<down>" (lambda () (interactive) (enlarge-window -10))
+
       :desc "Expand region"
       "M-=" #'er/expand-region
 
