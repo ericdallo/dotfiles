@@ -53,6 +53,7 @@
  mode-line-format (list
                   '(:eval (list (nyan-create))))
  show-help-function nil
+ evil-multiedit-smart-match-boundaries nil
 
  projectile-project-search-path '("~/dev/")
 
