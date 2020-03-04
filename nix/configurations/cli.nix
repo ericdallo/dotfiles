@@ -31,7 +31,7 @@
     nssTools
     mediainfo
     neofetch
-    nixfmt
+    # nixfmt
     openssl
     oh-my-zsh
     pinentry

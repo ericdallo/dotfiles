@@ -154,7 +154,9 @@
   (set-popup-rule! "\\*compilation\\*" :side 'right :width 0.5))
 
 (use-package! hover
-  :after dart-mode)
+  :after dart-mode
+  :config
+  (setq hover-hot-reload-on-save t))
 
 (use-package! lsp-java
   :after java-mode
