@@ -120,6 +120,9 @@
       :desc "Hover run or hot reload"
       "k" #'hover-run-or-hot-reload
 
+      :desc "Hover run or hot restart"
+      "K" #'hover-run-or-hot-restart
+
       :desc "Run current file test"
       "t" #'flutter-test-current-file
 
