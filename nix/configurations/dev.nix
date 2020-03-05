@@ -49,6 +49,7 @@
 
     #flutter = (import (fetchTarball https://github.com/babariviere/nixpkgs/archive/flutter-init.tar.gz) {}).flutter;
     hover = (import (fetchTarball https://github.com/ericdallo/nixpkgs/archive/hover-flutter.tar.gz) {}).hover;
+    clojure-lsp = (import (fetchTarball https://github.com/r-ryantm/nixpkgs/archive/auto-update/clojure-lsp.tar.gz) {}).clojure-lsp;
   in
     [
       android-studio
