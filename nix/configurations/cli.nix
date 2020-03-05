@@ -2,15 +2,10 @@
 
 {
   environment.systemPackages = with pkgs;
-
-  let
-    stable = import (fetchTarball http://nixos.org/channels/nixos-19.09/nixexprs.tar.xz) {};
-
-  in [
+  [
     ag
     appimage-run
     curl
-    emacs
     espeak
     fd
     file

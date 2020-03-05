@@ -4,8 +4,6 @@
   environment.systemPackages = with pkgs;
 
   let
-    stable = import (fetchTarball http://nixos.org/channels/nixos-19.09/nixexprs.tar.xz) {};
-
     jotform = python37.pkgs.buildPythonPackage {
       pname = "jotform";
       version = "python_3_compatibility";
@@ -65,6 +63,7 @@
         plugins = with eclipses.plugins;
           [ gradle ];
       })
+      emacsGit
       #flutter
       gitAndTools.hub
       go
