@@ -116,7 +116,8 @@
   (setq company-minimum-prefix-length 3
         company-tooltip-align-annotations t
         company-show-numbers t
-        company-dabbrev-downcase t))
+        company-dabbrev-downcase t)
+  (add-to-list 'company-backends 'company-nixos-options))
 
 (use-package! company-box
   :hook (company-mode . company-box-mode)

@@ -8,6 +8,7 @@
 (package! company)
 (package! company-box :recipe (:host github :repo "yyoncho/company-box" :branch "size"))
 (package! company-lsp)
+(package! company-nixos-options)
 (package! dart-mode)
 (package! dart-server)
 (package! flutter)
