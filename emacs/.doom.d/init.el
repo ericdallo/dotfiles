@@ -14,7 +14,7 @@
 
        :checkers
        syntax            ; tasing you for every semicolon you forget
-
+       
        :completion
        (company +childframe)           ; the ultimate code completion backend
        ;;helm              ; the *other* search engine for love and life

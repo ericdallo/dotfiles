@@ -113,10 +113,11 @@
 
 (use-package! company
   :config
-  (setq company-minimum-prefix-length 3
-        company-tooltip-align-annotations t
-        company-show-numbers t
-        company-dabbrev-downcase t)
+  (setq ;;company-minimum-prefix-length 3
+        ;;company-tooltip-align-annotations t
+        ;;company-show-numbers t
+        ;;company-dabbrev-downcase t
+        )
   (add-to-list 'company-backends 'company-nixos-options))
 
 (use-package! company-box
@@ -158,6 +159,10 @@
   :after dart-mode
   :config
   (setq hover-hot-reload-on-save t))
+
+(use-package! java-mode
+  :config
+  (setq doom-modeline-buffer-file-name-style 'truncate-with-project))
 
 (use-package! lsp-java
   :after java-mode
