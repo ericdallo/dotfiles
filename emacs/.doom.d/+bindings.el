@@ -120,21 +120,21 @@
       :desc "Run class tests"
       "T" #'dap-java-run-test-class)
 
-(map! :after flutter
-      :leader
-      :prefix ("m" . "tools")
+(after! flutter
+  (map! :leader
+        :prefix ("m" . "tools")
 
-      :desc "Flutter run or hot reload"
-      "j" #'flutter-run-or-hot-reload
+        :desc "Flutter run or hot reload"
+        "j" #'flutter-run-or-hot-reload
 
-      :desc "Hover run or hot reload"
-      "k" #'hover-run-or-hot-reload
+        :desc "Hover run or hot reload"
+        "k" #'hover-run-or-hot-reload
 
-      :desc "Hover run or hot restart"
-      "K" #'hover-run-or-hot-restart
+        :desc "Hover run or hot restart"
+        "K" #'hover-run-or-hot-restart
 
-      :desc "Run current file test"
-      "t" #'flutter-test-current-file
+        :desc "Run current file test"
+        "t" #'flutter-test-current-file
 
-      :desc "Run all tests"
-      "T" #'flutter-test-all)
+        :desc "Run all tests"
+        "T" #'flutter-test-all))
