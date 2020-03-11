@@ -110,7 +110,17 @@
       :desc "Dart format"
       "M-p" #'dart-server-format)
 
-(map! :after dart-mode
+(map! :after dap-java
+      :leader
+      :prefix ("m" . "tools")
+
+      :desc "Run method test"
+      "t" #'dap-java-run-test-method
+
+      :desc "Run class tests"
+      "T" #'dap-java-run-test-class)
+
+(map! :after flutter
       :leader
       :prefix ("m" . "tools")
 

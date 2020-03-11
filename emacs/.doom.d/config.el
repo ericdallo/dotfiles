@@ -111,25 +111,24 @@
   (cljr-add-keybindings-with-prefix "C-c C-c")
   (set-popup-rule! "^\\*cider-repl" :side 'right :width 0.5))
 
-(use-package! company
-  :config
-  (setq ;;company-minimum-prefix-length 3
-        ;;company-tooltip-align-annotations t
-        ;;company-show-numbers t
-        ;;company-dabbrev-downcase t
-        )
-  (add-to-list 'company-backends 'company-nixos-options))
+;; (use-package! company
+;;   :config
+;;   (setq ;; company-minimum-prefix-length 3
+;;         ;; company-tooltip-align-annotations t
+;;         ;; company-show-numbers t
+;;         ;; company-dabbrev-downcase t
+;;         ))
 
-(use-package! company-box
-  :hook (company-mode . company-box-mode)
-  :config
-  ;; Fix <prior>/<next> on company-box
-  (advice-add 'company-next-page :after #'company-box--change-line)
-  (advice-add 'company-previous-page :after #'company-box--change-line)
-  (advice-add 'company-search-candidates :after #'company-box--change-line)
-  (advice-add 'company-filter-candidates :after #'company-box--change-line)
-  (advice-add 'company-search-repeat-forward :after #'company-box--change-line)
-  (advice-add 'company-search-repeat-backward :after #'company-box--change-line))
+;; (use-package! company-box
+;;   :hook (company-mode . company-box-mode)
+;;   :config
+;;   ;; Fix <prior>/<next> on company-box
+;;   (advice-add 'company-next-page :after #'company-box--change-line)
+;;   (advice-add 'company-previous-page :after #'company-box--change-line)
+;;   (advice-add 'company-search-candidates :after #'company-box--change-line)
+;;   (advice-add 'company-filter-candidates :after #'company-box--change-line)
+;;   (advice-add 'company-search-repeat-forward :after #'company-box--change-line)
+;;   (advice-add 'company-search-repeat-backward :after #'company-box--change-line))
 
 (use-package! company-lsp
   :commands company-lsp
@@ -137,6 +136,17 @@
   (setq company-lsp-async t
         company-lsp-cache-candidates t
         company-lsp-filter-candidates t))
+
+(use-package! dap-mode
+  :after lsp-mode
+  :config
+  (setq dap-mode 1
+        dap-ui-mode 1))
+
+(use-package! dap-java
+  :after lsp-java
+  :config
+  (set-popup-rule! "server log\\*" :side 'right :width 0.5))
 
 (use-package! dart-mode
   :init
@@ -160,9 +170,9 @@
   :config
   (setq hover-hot-reload-on-save t))
 
-(use-package! java-mode
-  :config
-  (setq doom-modeline-buffer-file-name-style 'truncate-with-project))
+;; (use-package! java-mode
+;;   :config
+;;   (setq doom-modeline-buffer-file-name-style 'truncate-with-project))
 
 (use-package! lsp-java
   :after java-mode

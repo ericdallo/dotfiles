@@ -1,3 +1,4 @@
 emacs/.clj-kondo/.cache
 emacs/.doom.d/local/
+emacs/.doom.d/*.elc
 *result
