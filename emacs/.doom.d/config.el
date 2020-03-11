@@ -111,24 +111,23 @@
   (cljr-add-keybindings-with-prefix "C-c C-c")
   (set-popup-rule! "^\\*cider-repl" :side 'right :width 0.5))
 
-;; (use-package! company
-;;   :config
-;;   (setq ;; company-minimum-prefix-length 3
-;;         ;; company-tooltip-align-annotations t
-;;         ;; company-show-numbers t
-;;         ;; company-dabbrev-downcase t
-;;         ))
+(use-package! company
+  :config
+  (setq company-minimum-prefix-length 3
+        company-tooltip-align-annotations t
+        company-show-numbers t
+        company-dabbrev-downcase t))
 
-;; (use-package! company-box
-;;   :hook (company-mode . company-box-mode)
-;;   :config
-;;   ;; Fix <prior>/<next> on company-box
-;;   (advice-add 'company-next-page :after #'company-box--change-line)
-;;   (advice-add 'company-previous-page :after #'company-box--change-line)
-;;   (advice-add 'company-search-candidates :after #'company-box--change-line)
-;;   (advice-add 'company-filter-candidates :after #'company-box--change-line)
-;;   (advice-add 'company-search-repeat-forward :after #'company-box--change-line)
-;;   (advice-add 'company-search-repeat-backward :after #'company-box--change-line))
+(use-package! company-box
+  :hook (company-mode . company-box-mode)
+  :config
+  ;; Fix <prior>/<next> on company-box
+  (advice-add 'company-next-page :after #'company-box--change-line)
+  (advice-add 'company-previous-page :after #'company-box--change-line)
+  (advice-add 'company-search-candidates :after #'company-box--change-line)
+  (advice-add 'company-filter-candidates :after #'company-box--change-line)
+  (advice-add 'company-search-repeat-forward :after #'company-box--change-line)
+  (advice-add 'company-search-repeat-backward :after #'company-box--change-line))
 
 (use-package! company-lsp
   :commands company-lsp
@@ -149,6 +148,7 @@
   (set-popup-rule! "server log\\*" :side 'right :width 0.5))
 
 (use-package! dart-mode
+  :hook lsp
   :init
   (setq dart-sdk-path "~/flutter/bin/cache/dark-sdk/"
         lsp-dart-analysis-sdk "~/flutter/bin/cache/dart-sdk/"
