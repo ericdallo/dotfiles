@@ -50,8 +50,6 @@
  indent-tabs-mode nil
  confirm-kill-emacs nil ;; disable confirmation message on exit
  mode-line-default-help-echo nil ;; disable mouse help
- mode-line-format (list
-                  '(:eval (list (nyan-create))))
  show-help-function nil
  evil-multiedit-smart-match-boundaries nil
 
@@ -148,7 +146,6 @@
   (set-popup-rule! "server log\\*" :side 'right :width 0.5))
 
 (use-package! dart-mode
-  :hook lsp
   :init
   (setq dart-sdk-path "~/flutter/bin/cache/dark-sdk/"
         lsp-dart-analysis-sdk "~/flutter/bin/cache/dart-sdk/"
@@ -198,15 +195,11 @@
   :hook ((clojure-mode . lsp)
          (dart-mode . lsp)
          (java-mode . lsp))
-  :commands lsp
-  :init
+  :config
   (setq lsp-enable-indentation nil
         lsp-diagnostic-package nil
-        lsp-log-io nil)
-  :custom
-  ((lsp-clojure-server-command '("bash" "-c" "clojure-lsp")))
-
-  :config
+        lsp-log-io nil
+        lsp-clojure-server-command '("bash" "-c" "clojure-lsp"))
   (dolist (m '(clojure-mode
                clojurec-mode
                clojurescript-mode
@@ -223,7 +216,7 @@
   :after lsp-mode
   :commands lsp-ui-mode
   :config
-  (setq lsp-ui-peek-enable nil
+  (setq lsp-ui-peek-enable t
         lsp-ui-peek-list-width 60
         lsp-ui-peek-fontify 'always
         lsp-ui-peek-always-show nil))

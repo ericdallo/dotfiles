@@ -15,7 +15,7 @@
 ;; (package! flutter :recipe (:host github :repo "ericdallo/flutter.el" :branch "test-command"))
 (package! flycheck-clojure)
 (package! flycheck-clj-kondo :disable t)
-(package! hover :recipe (:host github :repo "ericdallo/hover.el" :branch "master"))
+(package! hover)
 (package! lsp-java)
 (package! lsp-mode)
 (package! lsp-ui)
