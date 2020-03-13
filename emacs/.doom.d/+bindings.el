@@ -110,7 +110,8 @@
       :desc "Dart format"
       "M-p" #'dart-server-format)
 
-(map! :after dap-java
+(map! :after java-mode
+      :map java-mode-map
       :leader
       :prefix ("m" . "tools")
 
@@ -121,6 +122,7 @@
       "T" #'dap-java-run-test-class)
 
 (map! :after dart-mode
+      :map dart-mode-map
       :leader
       :prefix ("m" . "tools")
 
