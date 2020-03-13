@@ -7,12 +7,15 @@ in {
     ./common/dconf.nix
   ];
 
+  nixpkgs.config.allowUnfree = true;
+
   home = {
     packages = with pkgs; [
       fzf
       gcc
       xsv
       git-lfs
+      zoom-us
     ];
 
     activation.linkFiles = config.lib.dag.entryAfter ["writeBoundary"] ''
