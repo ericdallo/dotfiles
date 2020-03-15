@@ -169,22 +169,14 @@
 
 ;; (use-package! java-mode
 ;;   :config
-;;   (setq doom-modeline-buffer-file-name-style 'truncate-with-project))
+;;   )
 
 (use-package! lsp-java
-  :after java-mode
-  :config
-  (setq lsp-java-workspace-cache-dir t
-        lsp-java-format-enabled t
-        lsp-java-format-comments-enabled t
-        lsp-java-save-action-organize-imports t
-        lsp-java-save-action-organize-imports t
-        lsp-java-import-gradle-enabled t
-        lsp-java-import-maven-enabled t
-        lsp-java-auto-build t
-        lsp-java-progress-report t
-        lsp-java-completion-guess-arguments t
-        lsp-java-enable-file-watch t
+  :after lsp
+  :init
+  (setq lsp-java-format-settings-url "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml"
+        lsp-java-format-settings-profile "GoogleStyle"
+        lsp-java-save-actions-organize-imports t
         lsp-file-watch-ignored
         '(".idea" ".ensime_cache" ".eunit" "node_modules"
           ".git" ".hg" ".fslckout" "_FOSSIL_"
