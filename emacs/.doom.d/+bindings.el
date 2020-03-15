@@ -112,8 +112,7 @@
 
 (map! :after java-mode
       :map java-mode-map
-      :leader
-      :prefix ("m" . "tools")
+      :localleader
 
       :desc "Run method test"
       "t" #'dap-java-run-test-method
@@ -123,8 +122,7 @@
 
 (map! :after dart-mode
       :map dart-mode-map
-      :leader
-      :prefix ("m" . "tools")
+      :localleader
 
       :desc "Flutter run or hot reload"
       "j" #'flutter-run-or-hot-reload
