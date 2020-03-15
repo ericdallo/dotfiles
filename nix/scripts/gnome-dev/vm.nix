@@ -1,7 +1,7 @@
 { pkgs, config, ... }:
 {
   environment.systemPackages = with pkgs; [
-    gnomeExtensions.hibernate-status
+    gnomeExtensions.draw-on-your-screen
 
     gnome3.gnome-tweaks
   ];
