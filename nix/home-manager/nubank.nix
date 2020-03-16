@@ -11,10 +11,11 @@ in {
 
   home = {
     packages = with pkgs; [
+      discord
       fzf
       gcc
-      xsv
       git-lfs
+      xsv
       zoom-us
     ];
 
