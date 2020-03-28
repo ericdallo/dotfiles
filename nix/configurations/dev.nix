@@ -57,12 +57,12 @@
       clojure-lsp
       dart
       docker-compose
-      (eclipses.eclipseWithPlugins {
-        eclipse = eclipses.eclipse-java;
-        jvmArgs = [ "-Xms6000m" "-Xmx8096m" ];
-        plugins = with eclipses.plugins;
-          [ gradle ];
-      })
+      # (eclipses.eclipseWithPlugins {
+      #   eclipse = eclipses.eclipse-java;
+      #   jvmArgs = [ "-Xms6000m" "-Xmx8096m" ];
+      #   plugins = with eclipses.plugins;
+      #     [ gradle ];
+      # })
       emacsGit
       #flutter
       gitAndTools.hub

@@ -3,8 +3,6 @@
 let
   gnomeExtensions-hibernate-status = (import (fetchTarball https://github.com/ericdallo/nixpkgs/archive/gnome-extensions-hibernate-status.tar.gz) {}).gnomeExtensions.hibernate-status;
   gnomeExtensions-text-translator = (import (fetchTarball https://github.com/ericdallo/nixpkgs/archive/gnome-extensions-text-translator.tar.gz) { config.allowUnfree = true; }).gnomeExtensions.text-translator;
-
-  odrive = (import (fetchTarball https://github.com/ericdallo/nixpkgs/archive/odrive-init.tar.gz) {}).odrive;
 in {
   fonts.fonts = with pkgs;
     [
@@ -28,7 +26,6 @@ in {
       flat-remix-icon-theme
       materia-theme
       ntfsprogs
-      odrive
       peek
       postman
       rambox
