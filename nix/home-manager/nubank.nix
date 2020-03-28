@@ -26,7 +26,6 @@ in {
         ln -sf ${dotfilesDir}/basic/.zshrc ~/.zshrc
         ln -sf ${dotfilesDir}/basic/.nubank_extra ~/.extra
         ln -sf ${dotfilesDir}/basic/.functions ~/.functions
-        ln -sf ${dotfilesDir}/basic/.Xmodmap ~/.Xmodmap
 
         ln -Tsf ${dotfilesDir}/emacs/.doom.d ~/.doom.d
         ln -Tsf ${dotfilesDir}/emacs/.lsp ~/.lsp

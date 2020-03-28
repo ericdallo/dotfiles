@@ -4,6 +4,8 @@
 
 { config, pkgs, ... }:
 {
+  nixpkgs.config.allowUnfree = true;
+ 
   imports =
     [
       /etc/nixos/host.nix
@@ -21,8 +23,6 @@
     172.17.0.1 mysql
     172.17.0.1 datomic
   '';
-
-  nixpkgs.config.allowUnfree = true;
 
   services.openssh.enable = true;
   services.printing.enable = true;

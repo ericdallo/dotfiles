@@ -2,7 +2,7 @@
 
 let
   gnomeExtensions-hibernate-status = (import (fetchTarball https://github.com/ericdallo/nixpkgs/archive/gnome-extensions-hibernate-status.tar.gz) {}).gnomeExtensions.hibernate-status;
-  gnomeExtensions-draw-on-your-screen = (import (fetchTarball https://github.com/ericdallo/nixpkgs/archive/gnome-extensions-drawn-on-your-screen.tar.gz) {}).gnomeExtensions.draw-on-your-screen;
+  gnomeExtensions-text-translator = (import (fetchTarball https://github.com/ericdallo/nixpkgs/archive/gnome-extensions-text-translator.tar.gz) { config.allowUnfree = true; }).gnomeExtensions.text-translator;
 
   odrive = (import (fetchTarball https://github.com/ericdallo/nixpkgs/archive/odrive-init.tar.gz) {}).odrive;
 in {
@@ -16,9 +16,9 @@ in {
     [
       franz
       gimp
+      # gnomeExtensions.draw-on-your-screen
       gnomeExtensions-hibernate-status
-      gnomeExtensions-draw-on-your-screen
-      gnomeExtensions.sound-output-device-chooser
+      gnomeExtensions-text-translator
       gnome3.dconf-editor
       gnome3.gnome-tweaks
       google-chrome

@@ -12,7 +12,6 @@ ln -sf $DOTFILES_DIR/vim/.vimrc ~/.vimrc
 ln -sf $DOTFILES_DIR/basic/.zsh_aliases ~/.zsh_aliases
 ln -sf $DOTFILES_DIR/basic/.zshrc ~/.zshrc
 ln -sf $DOTFILES_DIR/basic/.functions ~/.functions
-ln -sf $DOTFILES_DIR/basic/.Xmodmap ~/.Xmodmap
 
 ln -sf $DOTFILES_DIR/git/.gitconfig ~/.gitconfig
 ln -sf $DOTFILES_DIR/vscode/keybindings.json ~/.config/Code/User/keybindings.json

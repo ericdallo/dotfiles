@@ -37,6 +37,7 @@
     telnet
     tmux
     tmuxinator
+    translate-shell
     tree
     unrar
     unzip
