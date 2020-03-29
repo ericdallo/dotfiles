@@ -29,7 +29,6 @@ in {
       ntfsprogs
       peek
       postman
-      rambox
       skype
       slack
       teamviewer
