@@ -145,15 +145,10 @@
   :config
   (set-popup-rule! "server log\\*" :side 'right :width 0.5))
 
-(use-package! dart-mode
-  :init
-  (setq dart-sdk-path "~/flutter/bin/cache/dark-sdk/"
-        lsp-dart-analysis-sdk "~/flutter/bin/cache/dart-sdk/"
-        lsp-auto-guess-root t
-        dart-format-on-save t))
-
 (use-package! dart-server
   :hook ((dart-mode . dart-server)))
+
+(load! "./local/flutter.el")
 
 (use-package! flutter
   :after dart-mode
@@ -165,11 +160,8 @@
 (use-package! hover
   :after dart-mode
   :config
-  (setq hover-hot-reload-on-save t))
-
-;; (use-package! java-mode
-;;   :config
-;;   )
+  (setq hover-hot-reload-on-save t
+        hover-screenshot-path "$HOME/Pictures"))
 
 (use-package! lsp-java
   :after lsp
@@ -185,12 +177,13 @@
 
 (use-package! lsp-mode
   :hook ((clojure-mode . lsp)
-         (dart-mode . lsp)
+         (dart-server . lsp)
          (java-mode . lsp))
   :config
   (setq lsp-enable-indentation nil
         lsp-diagnostic-package nil
         lsp-log-io nil
+        lsp-dart-sdk-dir dart-server-sdk-path
         lsp-clojure-server-command '("bash" "-c" "clojure-lsp"))
   (dolist (m '(clojure-mode
                clojurec-mode

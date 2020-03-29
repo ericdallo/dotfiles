@@ -47,7 +47,7 @@
 
     nixpkgs.config.android_sdk.accept_license = true;
 
-    #flutter = (import (fetchTarball https://github.com/babariviere/nixpkgs/archive/flutter-init.tar.gz) {}).flutter;
+    flutter = (import (fetchTarball https://github.com/NixOS/nixpkgs/archive/master.tar.gz) {}).flutter;
     hover = (import (fetchTarball https://github.com/ericdallo/nixpkgs/archive/hover-flutter.tar.gz) {}).hover;
   in
     [
@@ -64,7 +64,7 @@
       #     [ gradle ];
       # })
       emacsGit
-      #flutter
+      flutter
       gitAndTools.hub
       go
       heroku

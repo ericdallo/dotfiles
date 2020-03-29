@@ -16,6 +16,7 @@ in {
       gimp
       # gnomeExtensions.draw-on-your-screen
       gnomeExtensions-hibernate-status
+      gnomeExtensions.drop-down-terminal
       gnomeExtensions-text-translator
       gnome3.dconf-editor
       gnome3.gnome-tweaks
