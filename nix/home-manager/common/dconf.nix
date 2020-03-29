@@ -1,5 +1,12 @@
 {
   dconf.settings = {
+    "org/gnome/desktop/input-sources" = {
+      xkb-options = [
+        "terminate:ctrl_alt_bksp"
+        "ctrl:swapcaps"
+      ];
+    };
+
     "org/gnome/shell" = {
       disable-user-extensions = false;
 
