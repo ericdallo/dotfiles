@@ -108,7 +108,7 @@
       :nvi
 
       :desc "Dart format"
-      "M-p" #'dart-server-format)
+      "M-]" #'dart-server-format)
 
 (map! :after java-mode
       :map java-mode-map
