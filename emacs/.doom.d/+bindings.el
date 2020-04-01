@@ -136,5 +136,8 @@
       :desc "Run current file test"
       "t" #'flutter-test-current-file
 
+      :desc "Run test at point"
+      "T" #'flutter-test-at-point
+
       :desc "Run all tests"
-      "T" #'flutter-test-all)
+      "M-t" #'flutter-test-all)
