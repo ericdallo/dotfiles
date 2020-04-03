@@ -148,8 +148,6 @@
 (use-package! dart-server
   :hook ((dart-mode . dart-server)))
 
-(load! "./local/flutter.el")
-
 (use-package! flutter
   :after dart-mode
   :config
