@@ -12,6 +12,7 @@ in {
 
   environment.systemPackages = with pkgs;
     [
+      discord
       franz
       gimp
       # gnomeExtensions.draw-on-your-screen

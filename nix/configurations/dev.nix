@@ -42,6 +42,12 @@
           version = "0.6.33";
           sha256 = "166ia73vrcl5c9hm4q1a73qdn56m0jc7flfsk5p5q41na9f10lb0";
         }
+        {
+          name = "dart-code";
+          publisher = "dart-code";
+          version = "3.9.0";
+          sha256 = "16ywbg8ii1r395mkxk7gccxl6mv6fs4bk6yrdskgnbzg7pmyqc25";
+        }
       ];
     };
 
