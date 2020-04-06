@@ -5,6 +5,19 @@
                common-graphql.lacinia.sweet/defobject [:declaration :elements]
                schema.core/defschema [:declaration :elements]
                schema.core/def [:declaration :elements]
+               schema.core/defn [{:element :declaration
+                                  :doc? [{:pred :keyword} {:pred :follows-constant :constant :-}]
+                                  :attr-map? [{:pred :keyword} {:pred :follows-constant :constant :-} {:pred :string}]
+                                  :signature-style :typed
+                                  :signature [{:pred :keyword} {:pred :follows-constant :constant :-} {:pred :string} {:pred :map}]}
+                                 {:element :element :pred :keyword}
+                                 {:element :element :pred :follows-constant :constant :-}
+                                 {:element :element :pred :string}
+                                 {:element :element :pred :map}
+                                 {:element :sub-elements
+                                  :match-patterns [[:any :keyword :any] [:param :element :element]
+                                                   [:any] [:param]]}
+                                 :bound-elements]
                schema.core/fn [:params :bound-elements]
                midge.sweet/fact [:element :element :_ :element]
                bonafont.logic.flow-edge/def [:declaration :elements]
@@ -13,7 +26,6 @@
                bonafont.logic.flow-config/def [:declaration :elements]
                bonafont.flows.debit-request.edges/def-edge [:declaration :elements]
                org.httpkit.server/with-channel [:element :param :bound-elements]
-               plumbing.core/fnk [:params :bound-elements]
-               }
+               plumbing.core/fnk [:params :bound-elements]}
  "use-metadata-for-privacy?" true
  "dependency-scheme" "jar"}
