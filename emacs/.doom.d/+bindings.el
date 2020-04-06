@@ -4,6 +4,7 @@
   (setq x-super-keysym 'meta))
 
 (define-key evil-normal-state-map (kbd "M-r") 'evil-multiedit-match-all)
+(define-key evil-normal-state-map (kbd "<tab>") 'evil-jump-item)
 
 (map! :n
 

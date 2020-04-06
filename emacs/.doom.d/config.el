@@ -180,6 +180,7 @@
         lsp-diagnostic-package nil
         lsp-log-io nil
         lsp-dart-sdk-dir dart-server-sdk-path
+        lsp-semantic-highlighting :immediate
         lsp-clojure-server-command '("bash" "-c" "clojure-lsp"))
   (dolist (m '(clojure-mode
                clojurec-mode
