@@ -46,10 +46,10 @@
 
 (setq
  doom-theme 'doom-molokai
- history-length 100
+ history-length 300
  indent-tabs-mode nil
- confirm-kill-emacs nil ;; disable confirmation message on exit
- mode-line-default-help-echo nil ;; disable mouse help
+ confirm-kill-emacs nil
+ mode-line-default-help-echo nil
  show-help-function nil
  evil-multiedit-smart-match-boundaries nil
 
@@ -63,15 +63,14 @@
  frame-title-format (setq icon-title-format  ;; set window title with "[project] filename"
                           '(""
                             (:eval
-                             (format "%s - " (projectile-project-name)))
+                             (format "%s " (projectile-project-name)))
                             "%b"))
 
  doom-font (font-spec :family "Hack" :size 18)
  doom-big-font-increment 2
  doom-unicode-font (font-spec :family "DejaVu Sans")
 
- evil-collection-setup-minibuffer t ;; enable minibuffer to work correctly in evil mode
-)
+ evil-collection-setup-minibuffer t)
 
 (use-package! clj-refactor
   :after clojure-mode
@@ -131,7 +130,6 @@
   :commands company-lsp
   :config
   (setq company-lsp-async t
-        company-lsp-cache-candidates t
         company-lsp-filter-candidates t))
 
 (use-package! dap-mode
@@ -146,7 +144,9 @@
   (set-popup-rule! "server log\\*" :side 'right :width 0.5))
 
 (use-package! dart-server
-  :hook ((dart-mode . dart-server)))
+  :hook dart-mode
+  :config
+  (setq lsp-dart-sdk-dir dart-server-sdk-path))
 
 (use-package! flutter
   :after dart-mode
@@ -172,16 +172,14 @@
           "build")))
 
 (use-package! lsp-mode
+  :commands lsp
   :hook ((clojure-mode . lsp)
          (dart-server . lsp)
          (java-mode . lsp))
+  :init
+  (setq lsp-log-io nil
+        lsp-semantic-highlighting :immediate)
   :config
-  (setq lsp-enable-indentation nil
-        lsp-diagnostic-package nil
-        lsp-log-io nil
-        lsp-dart-sdk-dir dart-server-sdk-path
-        lsp-semantic-highlighting :immediate
-        lsp-clojure-server-command '("bash" "-c" "clojure-lsp"))
   (dolist (m '(clojure-mode
                clojurec-mode
                clojurescript-mode
@@ -199,9 +197,9 @@
   :commands lsp-ui-mode
   :config
   (setq lsp-ui-peek-enable t
+        lsp-ui-doc-enable nil
         lsp-ui-peek-list-width 60
-        lsp-ui-peek-fontify 'always
-        lsp-ui-peek-always-show nil))
+        lsp-ui-peek-fontify 'always))
 
 (use-package! paredit
   :hook ((clojure-mode . paredit-mode)
