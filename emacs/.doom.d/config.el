@@ -53,7 +53,7 @@
  show-help-function nil
  evil-multiedit-smart-match-boundaries nil
 
- projectile-project-search-path '("~/dev/")
+ projectile-project-search-path '("~/dev/" "~/dev/nu/")
 
  evil-split-window-below t
  evil-vsplit-window-right t
