@@ -61,7 +61,7 @@
       awscli
       clojure
       clojure-lsp
-      dart
+      dart_dev
       docker-compose
       # (eclipses.eclipseWithPlugins {
       #   eclipse = eclipses.eclipse-java;
