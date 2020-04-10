@@ -9,6 +9,7 @@
 (add-to-list 'auto-mode-alist '("\\.repl\\'" . clojure-mode))
 (add-to-list 'auto-mode-alist '("\\.ect\\'" . html-mode))
 (add-hook 'html-mode-hook #'turn-off-auto-fill)
+(add-hook 'markdown-mode-hook #'turn-off-auto-fill)
 
 (defadvice find-file (before make-directory-maybe (filename &optional wildcards) activate)
   "Create parent directory if not exists while visiting file."
@@ -45,11 +46,11 @@
 (setq-default evil-kill-on-visual-paste nil)
 
 (setq
- doom-theme 'doom-molokai
  history-length 300
  indent-tabs-mode nil
  confirm-kill-emacs nil
  mode-line-default-help-echo nil
+ centaur-tabs-cycle-scope 'tabs
  show-help-function nil
  evil-multiedit-smart-match-boundaries nil
 
@@ -68,7 +69,10 @@
 
  doom-font (font-spec :family "Hack" :size 18)
  doom-big-font-increment 2
- doom-unicode-font (font-spec :family "DejaVu Sans")
+ doom-theme 'doom-molokai
+ doom-themes-treemacs-theme "Default"
+
+ +lsp-company-backend 'company-capf
 
  evil-collection-setup-minibuffer t)
 
@@ -144,9 +148,7 @@
   (set-popup-rule! "server log\\*" :side 'right :width 0.5))
 
 (use-package! dart-server
-  :hook dart-mode
-  :config
-  (setq lsp-dart-sdk-dir dart-server-sdk-path))
+  :hook dart-mode)
 
 (use-package! flutter
   :after dart-mode
@@ -196,9 +198,7 @@
   :after lsp-mode
   :commands lsp-ui-mode
   :config
-  (setq lsp-ui-peek-enable t
-        lsp-ui-doc-enable nil
-        lsp-ui-peek-list-width 60
+  (setq lsp-ui-peek-list-width 60
         lsp-ui-peek-fontify 'always))
 
 (use-package! paredit
