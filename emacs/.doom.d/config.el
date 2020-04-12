@@ -147,9 +147,6 @@
   :config
   (set-popup-rule! "server log\\*" :side 'right :width 0.5))
 
-(use-package! dart-server
-  :hook dart-mode)
-
 (use-package! flutter
   :after dart-mode
   :config
@@ -176,7 +173,7 @@
 (use-package! lsp-mode
   :commands lsp
   :hook ((clojure-mode . lsp)
-         (dart-server . lsp)
+         (dart-mode . lsp)
          (java-mode . lsp))
   :init
   (setq lsp-log-io nil

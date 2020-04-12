@@ -105,12 +105,6 @@
       :desc "LSP-treemacs find references"
       "c R" (lambda () (interactive) (lsp-treemacs-references t)))
 
-(map! :after dart-server
-      :nvi
-
-      :desc "Dart format"
-      "M-]" #'dart-server-format)
-
 (map! :after java-mode
       :map java-mode-map
       :localleader
