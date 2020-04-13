@@ -204,7 +204,8 @@
 
 (use-package! parrot
   :config
-  (setq parrot-keep-partying t)
+  (setq parrot-keep-partying t
+        parrot-persistent-animation-frame-interval 0.03)
   (parrot-mode))
 
 (after! projectile
