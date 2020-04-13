@@ -53,14 +53,14 @@
 
     nixpkgs.config.android_sdk.accept_license = true;
 
-    flutter = (import (fetchTarball https://github.com/NixOS/nixpkgs/archive/master.tar.gz) {}).flutter;
+    nixpkgs-master = (import (fetchTarball https://github.com/NixOS/nixpkgs/archive/master.tar.gz) {});
     hover = (import (fetchTarball https://github.com/ericdallo/nixpkgs/archive/hover-flutter.tar.gz) {}).hover;
   in
     [
       android-studio
       awscli
       clojure
-      clojure-lsp
+      nixpkgs-master.clojure-lsp
       dart_dev
       docker-compose
       # (eclipses.eclipseWithPlugins {
@@ -70,7 +70,7 @@
       #     [ gradle ];
       # })
       emacsGit
-      flutter
+      nixpkgs-master.flutter
       gitAndTools.hub
       go
       heroku
