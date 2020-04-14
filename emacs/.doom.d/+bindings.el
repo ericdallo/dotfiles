@@ -129,10 +129,10 @@
       "K" #'hover-run-or-hot-restart
 
       :desc "Run current file test"
-      "t" #'flutter-test-current-file
+      "t" #'lsp-dart-run-test-file
 
       :desc "Run test at point"
-      "T" #'flutter-test-at-point
+      "T" #'lsp-dart-run-test-at-point
 
       :desc "Run all tests"
       "M-t" #'flutter-test-all)
