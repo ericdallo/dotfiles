@@ -53,6 +53,7 @@
  centaur-tabs-cycle-scope 'tabs
  show-help-function nil
  evil-multiedit-smart-match-boundaries nil
+ compilation-scroll-output 'first-error
 
  projectile-project-search-path '("~/dev/" "~/dev/nu/")
 
@@ -147,11 +148,6 @@
   :config
   (set-popup-rule! "server log\\*" :side 'right :width 0.5))
 
-(use-package! flutter
-  :after dart-mode
-  :config
-  (set-popup-rule! "\\*compilation\\*" :side 'right :width 0.5))
-
 (use-package! hover
   :after dart-mode
   :config
@@ -184,6 +180,7 @@
                clojurescript-mode
                clojurex-mode))
     (add-to-list 'lsp-language-id-configuration `(,m . "clojure")))
+  (set-popup-rule! "\\*LSP Dart tests\\*" :side 'right :width 0.4)
   (advice-add #'lsp-rename :after (lambda (&rest _) (projectile-save-project-buffers))))
 
 (use-package lsp-treemacs
