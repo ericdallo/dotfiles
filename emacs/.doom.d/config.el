@@ -91,9 +91,11 @@
           ("ex" . "common-core.exceptions")
           ("dth" . "common-datomic.test-helpers")
           ("t-money" . "common-core.types.money")
+          ("t-time" . "common-core.types.time")
           ("d" . "datomic.api")
+          ("m" . "matcher-combinators.matchers")
           ("pp" . "clojure.pprint")
-          ("init" . "postmanaux.init"))))
+          ("init" . "postman-aux.init"))))
 
 (use-package! clojure-mode
   :config
