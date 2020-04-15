@@ -91,6 +91,22 @@
   (define-key clj-refactor-map "\C-cu" #'cljr-unwind)
   (define-key clj-refactor-map "\C-cU" #'cljr-unwind-all))
 
+(map! :after dap-mode
+      :map dap-mode-map
+      :n
+
+      :desc "DAP step-in"
+      "<f4>" #'dap-step-in
+
+      :desc "DAP step-out"
+      "<f5>" #'dap-step-out
+
+      :desc "DAP next"
+      "<f6>" #'dap-next
+
+      :desc "DAP continue"
+      "<f8>" #'dap-continue)
+
 (after! lsp-ui
   (map! :nvi
 

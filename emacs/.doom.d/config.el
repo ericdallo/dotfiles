@@ -70,12 +70,19 @@
 
  doom-font (font-spec :family "Hack" :size 18)
  doom-big-font-increment 2
+
  doom-theme 'doom-molokai
  doom-themes-treemacs-theme "Default"
 
  +lsp-company-backend 'company-capf
 
  evil-collection-setup-minibuffer t)
+
+(set-popup-rule! "^\\*cider-repl" :side 'right :width 0.5)
+;; (set-popup-rule! "server log\\*" :side 'right :width 0.5)
+(set-popup-rule! "\\*LSP Dart tests\\*" :side 'right :width 0.4)
+(set-popup-rule! "\\*dap-ui-locals\\*" :side 'right :width 0.3)
+(set-popup-rule! "\\*dap-ui-sessions\\*" :side 'right :width 0.3)
 
 (use-package! clj-refactor
   :after clojure-mode
@@ -112,15 +119,13 @@
   (setq cider-show-error-buffer 'only-in-repl
         clj-refactor-mode 1
         yas-minor-mode 1) ; for adding require/use/import statements
-  (cljr-add-keybindings-with-prefix "C-c C-c")
-  (set-popup-rule! "^\\*cider-repl" :side 'right :width 0.5))
+  (cljr-add-keybindings-with-prefix "C-c C-c"))
 
 (use-package! company
   :config
   (setq company-minimum-prefix-length 3
         company-tooltip-align-annotations t
-        company-show-numbers t
-        company-dabbrev-downcase t))
+        company-show-numbers t))
 
 (use-package! company-box
   :hook (company-mode . company-box-mode)
@@ -132,23 +137,6 @@
   (advice-add 'company-filter-candidates :after #'company-box--change-line)
   (advice-add 'company-search-repeat-forward :after #'company-box--change-line)
   (advice-add 'company-search-repeat-backward :after #'company-box--change-line))
-
-(use-package! company-lsp
-  :commands company-lsp
-  :config
-  (setq company-lsp-async t
-        company-lsp-filter-candidates t))
-
-(use-package! dap-mode
-  :after lsp-mode
-  :config
-  (setq dap-mode 1
-        dap-ui-mode 1))
-
-(use-package! dap-java
-  :after lsp-java
-  :config
-  (set-popup-rule! "server log\\*" :side 'right :width 0.5))
 
 (use-package! hover
   :after dart-mode
@@ -162,6 +150,7 @@
   (setq lsp-java-format-settings-url "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml"
         lsp-java-format-settings-profile "GoogleStyle"
         lsp-java-save-actions-organize-imports t
+        lsp-java-references-code-lens-enabled t
         lsp-file-watch-ignored
         '(".idea" ".ensime_cache" ".eunit" "node_modules"
           ".git" ".hg" ".fslckout" "_FOSSIL_"
@@ -182,7 +171,6 @@
                clojurescript-mode
                clojurex-mode))
     (add-to-list 'lsp-language-id-configuration `(,m . "clojure")))
-  (set-popup-rule! "\\*LSP Dart tests\\*" :side 'right :width 0.4)
   (advice-add #'lsp-rename :after (lambda (&rest _) (projectile-save-project-buffers))))
 
 (use-package lsp-treemacs
