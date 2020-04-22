@@ -55,6 +55,8 @@
     fonts = with pkgs; [
       emacs-all-the-icons-fonts
       hack-font
+      roboto
+      noto-fonts-emoji
     ];
   };
 

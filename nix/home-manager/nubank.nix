@@ -11,6 +11,7 @@ in {
 
   home = {
     packages = with pkgs; [
+      discord
       fzf
       gcc
       git-lfs

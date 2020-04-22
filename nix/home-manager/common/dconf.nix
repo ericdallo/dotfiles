@@ -12,7 +12,6 @@
 
       enabled-extensions = [
         "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
-        "hibernate-status@dromi"
       ];
     };
 
@@ -29,12 +28,6 @@
       name = "terminal";
       command = "urxvt";
       binding = "<Alt>t";
-    };
-
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
-      name = "lock";
-      command = "i3lock-fancy -f Roboto-Medium";
-      binding = "<Alt>l";
     };
 
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
