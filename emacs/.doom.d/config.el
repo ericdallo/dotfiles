@@ -43,7 +43,8 @@
                          " ")))
     (counsel-rg symbol (counsel--git-root) args)))
 
-(setq-default evil-kill-on-visual-paste nil)
+(setq-default evil-kill-on-visual-paste nil
+              left-fringe-width 12)
 
 (setq
  history-length 300
