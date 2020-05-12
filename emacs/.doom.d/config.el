@@ -8,6 +8,7 @@
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (add-to-list 'auto-mode-alist '("\\.repl\\'" . clojure-mode))
 (add-to-list 'auto-mode-alist '("\\.ect\\'" . html-mode))
+(add-to-list 'auto-mode-alist '("\\.ejs\\'" . html-mode))
 (add-hook 'html-mode-hook #'turn-off-auto-fill)
 (add-hook 'markdown-mode-hook #'turn-off-auto-fill)
 
@@ -44,14 +45,13 @@
     (counsel-rg symbol (counsel--git-root) args)))
 
 (setq-default evil-kill-on-visual-paste nil
-              left-fringe-width 12)
+              left-fringe-width 16)
 
 (setq
  history-length 300
  indent-tabs-mode nil
  confirm-kill-emacs nil
  mode-line-default-help-echo nil
- centaur-tabs-cycle-scope 'tabs
  show-help-function nil
  evil-multiedit-smart-match-boundaries nil
  compilation-scroll-output 'first-error
@@ -138,6 +138,13 @@
   (advice-add 'company-filter-candidates :after #'company-box--change-line)
   (advice-add 'company-search-repeat-forward :after #'company-box--change-line)
   (advice-add 'company-search-repeat-backward :after #'company-box--change-line))
+
+(use-package! dap-mode
+  :hook (dap-mode . dap-tooltip-mode)
+  :after lsp-mode
+  :config
+  (dap-mode t)
+  (dap-ui-mode t))
 
 (use-package! hover
   :after dart-mode

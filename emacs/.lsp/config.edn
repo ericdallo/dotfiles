@@ -16,4 +16,5 @@
                org.httpkit.server/with-channel [:element :param :bound-elements]
                plumbing.core/fnk [:params :bound-elements]}
  "use-metadata-for-privacy?" true
+ "keep-require-at-start?" true
  "dependency-scheme" "jar"}

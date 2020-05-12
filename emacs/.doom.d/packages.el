@@ -19,8 +19,10 @@
 (package! scss-mode)
 (package! paredit)
 (package! parrot :recipe (:host github :repo "jnc-nj/parrot" :branch "master"))
+(package! yaml-mode)
 
 (unpin! (:lang dart))
 (unpin! treemacs)
 (unpin! lsp-treemacs)
+(unpin! dap-mode)
 (unpin! (:lang dart) (:tools debugger))
