@@ -139,13 +139,6 @@
   (advice-add 'company-search-repeat-forward :after #'company-box--change-line)
   (advice-add 'company-search-repeat-backward :after #'company-box--change-line))
 
-(use-package! dap-mode
-  :hook (dap-mode . dap-tooltip-mode)
-  :after lsp-mode
-  :config
-  (dap-mode t)
-  (dap-ui-mode t))
-
 (use-package! hover
   :after dart-mode
   :config

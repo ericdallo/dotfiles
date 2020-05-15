@@ -19,6 +19,7 @@
 (package! scss-mode)
 (package! paredit)
 (package! parrot :recipe (:host github :repo "jnc-nj/parrot" :branch "master"))
+(package! posframe)
 (package! yaml-mode)
 
 (unpin! (:lang dart))
