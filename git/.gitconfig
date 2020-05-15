@@ -30,7 +30,6 @@
   co = checkout
   df = diff -b
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%an, %cr)%Creset' --abbrev-commit --date=relative
-  rclone = clone --reference /git/cache.git/
   ph = push origin HEAD
   pheroku = push heroku HEAD
 
@@ -41,18 +40,14 @@
 
   st = status
 
-  stc   = diff --stat --name-status --cached
   cat   = -p cat-file -p
-  up    = !git remote update ; git gc
-  pup   = pull origin production
   fu    = fetch origin
   pum   = pull origin master
   fupum = !git co master && git fu && git pum
-  fupup = !git co production && git fu && git pup
+  upstream = !git fetch upstream && git merge upstream/master master && git ph -f
   rebasemaster = !branch=\"`git branch 2>/dev/null | grep \\* | awk '{ print $2 }'`\" && echo \"Rebasing $branch from master...\" && git fupum && git co $branch && git rebase master
   cob = !git fetch origin && git co -b $1 origin/$1 && echo \"Checked out origin branch:\"
   cod = "!git br -D $1 2> /dev/null; git cob $1"
-  debug = !GIT_PAGER= gdb --args git
   cia = !git ci --amend --no-edit
 
   top = !eval cd "$(pwd)/$(git rev-parse --show-cdup)" && pwd
@@ -68,24 +63,14 @@
   vgc = repack -f -a -d --depth=250 --window=250
   nvgc = !ionice -n7 nice -n20 git vgc
 
-  svnup = !git config --get-regexp 'svn-remote.*url' | cut -d . -f 2 | xargs -n1 git svn fetch
-
-  log1 = log --pretty=oneline --abbrev-commit --decorate
-
   findnext = rev-list --reverse -n1 HEAD..master
   checkoutnext = !git checkout `git findnext`
-
-  subdo = submodule foreach git
-
-  case = !sh -c 'exec /home/oxygen/bart/work/git-case/git-case.git/git-case-$0 ${0+"$@"}'
 
   edit-last-commit = !vim `git diff-tree -r --name-only HEAD HEAD~1`
   edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
   add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
 
-  amend = commit --amend -C HEAD
   ls = !git lg
-  di = diff
 [merge]
   tool = vimdiff
 [core]
@@ -108,8 +93,8 @@
     default = simple
 
 [commit]
-	gpgsign = true
+  gpgsign = true
 [url "git@github.com:"]
-	insteadOf = https://github.com/
+  insteadOf = https://github.com/
 [github]
-	user = ericdallo
+  user = ericdallo
