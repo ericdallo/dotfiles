@@ -1,8 +1,23 @@
 { stdenv, fetchFromGitHub, pkgs, ... }:
 
-{
-  environment.systemPackages = with pkgs;
+let
+  android = pkgs.androidenv.composeAndroidPackages {
+    toolsVersion = "26.1.1";
+    platformVersions = [ "28" ];
+    abiVersions = [ "x86" "x86_64"];
+    includeEmulator = true;
+    includeSystemImages = true;
+    useGoogleAPIs = true;
+    includeSources = true;
+  };
 
+  android-sdk-path = "${android.androidsdk}/libexec/android-sdk";
+
+in {
+  nixpkgs.config.android_sdk.accept_license = true;
+ 
+  environment.systemPackages = with pkgs;
+   
   let
     jotform = python37.pkgs.buildPythonPackage {
       pname = "jotform";
@@ -45,22 +60,26 @@
         {
           name = "dart-code";
           publisher = "dart-code";
-          version = "3.9.0";
-          sha256 = "16ywbg8ii1r395mkxk7gccxl6mv6fs4bk6yrdskgnbzg7pmyqc25";
+          version = "3.9.1";
+          sha256 = "02fmbrikpf1hp98w0b8qy1940ir2pjzqxb00fpv5qmrn0qgr581r";
+        }
+        {
+          name = "flutter";
+          publisher = "dart-code";
+          version = "3.9.1";
+          sha256 = "1lqsivqf4kmgih1wv44bvjwm2h1yxhpz7ij57d1jlf63r65xy2d3";
         }
       ];
     };
 
-    nixpkgs.config.android_sdk.accept_license = true;
-
-    nixpkgs-master = (import (fetchTarball https://github.com/NixOS/nixpkgs/archive/master.tar.gz) {});
     hover = (import (fetchTarball https://github.com/ericdallo/nixpkgs/archive/hover-flutter.tar.gz) {}).hover;
   in
     [
       android-studio
+      android.androidsdk
       awscli
       clojure
-      nixpkgs-master.clojure-lsp
+      clojure-lsp
       dart_dev
       docker-compose
       # (eclipses.eclipseWithPlugins {
@@ -70,7 +89,7 @@
       #     [ gradle ];
       # })
       emacsGit
-      nixpkgs-master.flutter
+      # flutter
       gitAndTools.hub
       go
       heroku
@@ -81,16 +100,22 @@
       mysql
       nodejs
       nodePackages.node2nix
-      python-with-my-packages
+      # python-with-my-packages
+      rustup
       sass
       sassc
       vcsodeWithExtension
     ];
 
+  environment.variables = {
+    ANDROID_SDK_ROOT = android-sdk-path;
+    ANDROID_HOME = android-sdk-path;
+  };
+
   programs = {
     java = {
       enable = true;
-      package = pkgs.jdk8;
+      package = pkgs.jdk11;
     };
 
     adb.enable = true;

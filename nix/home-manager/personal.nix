@@ -38,6 +38,9 @@ in {
         ln -sf ${dotfilesDir}/vscode/settings.json ~/.config/Code/User/settings.json
 
         ln -sf ${dotfilesDir}/urxvt/.Xresources ~/.Xresources
+
+        mkdir -p ~/.android/avd/device.avd
+        ln -sf ${dotfilesDir}/nix/android/emulator-config.ini ~/.android/avd/device.avd/config.ini
     '';
   };
 }
