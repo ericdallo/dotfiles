@@ -18,3 +18,6 @@ export PATH="$PATH:$HOME/flutter/bin"
 [[ -s ~/.extra ]] && source ~/.extra
 
 [[ $TERM == *"rxvt"* ]] && wmctrl -r :ACTIVE: -b add,fullscreen
+
+# move to nix
+xset r rate 220 50
