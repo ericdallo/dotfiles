@@ -44,11 +44,11 @@
                          " ")))
     (counsel-rg symbol (counsel--git-root) args)))
 
-(setq-default evil-kill-on-visual-paste nil
-              left-fringe-width 16)
+(setq-default evil-kill-on-visual-paste nil)
 
 (setq
  history-length 300
+ left-fringe-width 16
  indent-tabs-mode nil
  confirm-kill-emacs nil
  mode-line-default-help-echo nil
@@ -76,6 +76,7 @@
  doom-themes-treemacs-theme "Default"
 
  +lsp-company-backend 'company-capf
+ +format-on-save-enabled-modes '(dart-mode)
 
  evil-collection-setup-minibuffer t)
 
