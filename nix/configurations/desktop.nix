@@ -42,7 +42,7 @@ in {
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.displayManager.gdm.wayland = false;
   services.xserver.displayManager.sessionCommands = ''
-    ${pkgs.xorg.xset}/bin/xset r rate 220 50
+    ${pkgs.xorg.xset}/bin/xset r rate 220 50 # not working for some reason
   '';
 
   services.xserver.libinput.enable = true;

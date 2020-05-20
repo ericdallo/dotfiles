@@ -69,6 +69,30 @@ in {
           version = "3.9.1";
           sha256 = "1lqsivqf4kmgih1wv44bvjwm2h1yxhpz7ij57d1jlf63r65xy2d3";
         }
+        {
+          name = "debugger-for-chrome";
+          publisher = "msjsdiag";
+          version = "4.12.6";
+          sha256 = "1dlplz72830shqbi7zkgg7pb45ijwajwhkmapx4lmlw13z41jw1g";
+        }
+        {
+          name = "js-debug-nightly";
+          publisher = "ms-vscode";
+          version = "2020.5.1217";
+          sha256 = "18ysb0f7rind40xh4qhrrjkxkibhzh6sp9xvdfycpn9j1mgmywv8";
+        }
+        {
+          name = "vscode-java-debug";
+          publisher = "vscjava";
+          version = "0.26.0";
+          sha256 = "1vymb8ivnv05jarjm2l03s9wsqmakgsrlvf3s3d43jd3ydpi2jfy";
+        }
+        {
+          name = "java";
+          publisher = "redhat";
+          version = "0.61.0";
+          sha256 = "1mnqzlzscy6wnzh6h8yjhz190z6wvhkp4g8db151haz4jvxrfhnn";
+        }
       ];
     };
 
@@ -100,7 +124,7 @@ in {
       mysql
       nodejs
       nodePackages.node2nix
-      # python-with-my-packages
+      python-with-my-packages
       rustup
       sass
       sassc
