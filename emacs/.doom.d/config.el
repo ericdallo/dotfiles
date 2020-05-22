@@ -11,6 +11,8 @@
 (add-to-list 'auto-mode-alist '("\\.ejs\\'" . html-mode))
 (add-hook 'html-mode-hook #'turn-off-auto-fill)
 (add-hook 'markdown-mode-hook #'turn-off-auto-fill)
+(add-hook 'dart-mode-hook (lambda () (setq left-fringe-width 16)))
+(add-hook 'java-mode-hook (lambda () (setq left-fringe-width 16)))
 
 (defadvice find-file (before make-directory-maybe (filename &optional wildcards) activate)
   "Create parent directory if not exists while visiting file."
@@ -48,7 +50,6 @@
 
 (setq
  history-length 300
- left-fringe-width 16
  indent-tabs-mode nil
  confirm-kill-emacs nil
  mode-line-default-help-echo nil
