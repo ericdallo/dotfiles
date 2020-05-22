@@ -112,7 +112,10 @@ in {
       #   plugins = with eclipses.plugins;
       #     [ gradle ];
       # })
-      emacsGit
+      #emacsUnstable
+      ((emacsPackagesGen emacsUnstable).emacsWithPackages (epkgs: [
+        epkgs.vterm
+      ]))
       # flutter
       gitAndTools.hub
       go
