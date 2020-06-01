@@ -109,6 +109,8 @@
 
 (use-package! clojure-mode
   :config
+  (setq clojure-indent-style 'align-arguments
+        clojure-align-forms-automatically t)
   (define-clojure-indent
     (fact 1)
     (facts 1)

@@ -46,7 +46,7 @@
        workspaces        ; tab emulation, persistence & separate workspaces
 
        :editor
-       (evil +everywhere); come to the dark side, we have cookies
+       (evil); come to the dark side, we have cookies
        file-templates    ; auto-snippets for empty files
        fold              ; (nigh) universal code folding
        (format +onsave)  ; automated prettiness

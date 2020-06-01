@@ -5,7 +5,8 @@
                common-graphql.lacinia.sweet/defobject [:declaration :elements]
                schema.core/defschema [:declaration :elements]
                schema.core/def [:declaration :elements]
-              
+               integration.aux.init/defflow [{:element :declaration :tags #{:unused}} :elements]
+               state-flow.cljtest/defflow [{:element :declaration :tags #{:unused}} :elements]
                schema.core/fn [:params :bound-elements]
                midge.sweet/fact [:element :element :_ :element]
                bonafont.logic.flow-edge/def [:declaration :elements]
