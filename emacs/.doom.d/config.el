@@ -64,11 +64,8 @@
 
  counsel-rg-base-command "rg -i -M 1000 --no-heading --line-number --color never %s ."
 
- frame-title-format (setq icon-title-format  ;; set window title with "[project] filename"
-                          '(""
-                            (:eval
-                             (format "%s " (projectile-project-name)))
-                            "%b"))
+ frame-title-format (setq icon-title-format  ;; set window title with "project"
+                          '((:eval (projectile-project-name))))
 
  doom-font (font-spec :family "Hack" :size 18)
  doom-big-font-increment 2
@@ -76,13 +73,15 @@
  doom-theme 'doom-molokai
  doom-themes-treemacs-theme "Default"
 
+ doom-modeline-buffer-encoding nil
+ doom-modeline-buffer-file-name-style 'relative-to-project
+
  +lsp-company-backend 'company-capf
  +format-on-save-enabled-modes '(dart-mode)
 
  evil-collection-setup-minibuffer t)
 
 (set-popup-rule! "^\\*cider-repl" :side 'right :width 0.5)
-;; (set-popup-rule! "server log\\*" :side 'right :width 0.5)
 (set-popup-rule! "\\*LSP Dart tests\\*" :side 'right :width 0.4)
 (set-popup-rule! "\\*dap-ui-locals\\*" :side 'right :width 0.3)
 (set-popup-rule! "\\*dap-ui-sessions\\*" :side 'right :width 0.3)
@@ -167,15 +166,13 @@
   :hook ((clojure-mode . lsp)
          (dart-mode . lsp)
          (java-mode . lsp))
-  :init
-  (setq lsp-log-io nil
-        lsp-semantic-highlighting :immediate)
   :config
-  (dolist (m '(clojure-mode
-               clojurec-mode
-               clojurescript-mode
-               clojurex-mode))
-    (add-to-list 'lsp-language-id-configuration `(,m . "clojure")))
+  (setq lsp-clojure-server-command '("bash" "-c" "~/dev/clojure-lsp/target/clojure-lsp"))
+  (dolist (clojure-all-modes '(clojure-mode
+                               clojurec-mode
+                               clojurescript-mode
+                               clojurex-mode))
+    (add-to-list 'lsp-language-id-configuration `(,clojure-all-modes . "clojure")))
   (advice-add #'lsp-rename :after (lambda (&rest _) (projectile-save-project-buffers))))
 
 (use-package lsp-treemacs
