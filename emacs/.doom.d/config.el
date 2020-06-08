@@ -82,6 +82,7 @@
  evil-collection-setup-minibuffer t)
 
 (set-popup-rule! "^\\*cider-repl" :side 'right :width 0.5)
+(set-popup-rule! "*cider-test-report*" :side 'right :width 0.5)
 (set-popup-rule! "\\*LSP Dart tests\\*" :side 'right :width 0.4)
 (set-popup-rule! "\\*dap-ui-locals\\*" :side 'right :width 0.3)
 (set-popup-rule! "\\*dap-ui-sessions\\*" :side 'right :width 0.3)
@@ -89,8 +90,11 @@
 (use-package! clj-refactor
   :after clojure-mode
   :config
+  (set-lookup-handlers! 'clj-refactor-mode nil)
   (setq cljr-warn-on-eval nil
         clojure-thread-all-but-last t
+        cljr-eagerly-build-asts-on-startup nil
+        cider-show-error-buffer 'only-in-repl
         cljr-clojure-test-declaration "[midje.sweet :refer :all]"
         cljr-magic-require-namespaces
         '(("s"   . "schema.core")
@@ -124,6 +128,8 @@
         clj-refactor-mode 1
         yas-minor-mode 1) ; for adding require/use/import statements
   (cljr-add-keybindings-with-prefix "C-c C-c"))
+
+(add-hook! cider-mode #'emidje-setup)
 
 (use-package! company
   :config
@@ -174,11 +180,6 @@
                                clojurex-mode))
     (add-to-list 'lsp-language-id-configuration `(,clojure-all-modes . "clojure")))
   (advice-add #'lsp-rename :after (lambda (&rest _) (projectile-save-project-buffers))))
-
-(use-package lsp-treemacs
-  :after lsp-mode
-  :config
-  (lsp-treemacs-sync-mode 1))
 
 (use-package! lsp-ui
   :after lsp-mode
