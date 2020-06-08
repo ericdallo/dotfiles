@@ -187,6 +187,14 @@
   (setq lsp-ui-peek-list-width 60
         lsp-ui-peek-fontify 'always))
 
+(use-package! org-tree-slide
+  :config
+  (setq +org-present-text-scale 3
+        org-tree-slide-modeline-display 'outside
+        org-tree-slide-fold-subtrees-skipped nil)
+  (add-hook! 'org-tree-slide-play-hook #'org-display-inline-images)
+  (add-hook! 'org-tree-slide-play-hook #'doom-disable-line-numbers-h))
+
 (use-package! paredit
   :hook ((clojure-mode . paredit-mode)
          (emacs-lisp-mode . paredit-mode)))
