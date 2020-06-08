@@ -57,6 +57,7 @@
       hack-font
       roboto
       noto-fonts-emoji
+      symbola
     ];
   };
 
