@@ -6,7 +6,6 @@
 (package! clojure-mode)
 (package! dap-mode)
 (package! dart-mode)
-(package! emidje)
 (package! flutter)
 (package! flycheck-clojure)
 (package! flycheck-package)

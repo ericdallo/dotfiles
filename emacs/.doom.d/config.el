@@ -114,6 +114,7 @@
   :config
   (setq clojure-indent-style 'align-arguments
         clojure-align-forms-automatically t)
+  (set-lookup-handlers! 'cider-mode nil)
   (define-clojure-indent
     (fact 1)
     (facts 1)
@@ -128,8 +129,6 @@
         clj-refactor-mode 1
         yas-minor-mode 1) ; for adding require/use/import statements
   (cljr-add-keybindings-with-prefix "C-c C-c"))
-
-(add-hook! cider-mode #'emidje-setup)
 
 (use-package! company
   :config
@@ -173,7 +172,8 @@
          (dart-mode . lsp)
          (java-mode . lsp))
   :config
-  (setq lsp-clojure-server-command '("bash" "-c" "~/dev/clojure-lsp/target/clojure-lsp"))
+  (setq lsp-clojure-server-command '("bash" "-c" "~/dev/clojure-lsp/target/clojure-lsp")
+        lsp-signature-auto-activate nil)
   (dolist (clojure-all-modes '(clojure-mode
                                clojurec-mode
                                clojurescript-mode
