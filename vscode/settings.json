@@ -1,5 +1,5 @@
 {
-  "window.zoomLevel": 1,
+  "window.zoomLevel": 2,
   "workbench.colorTheme": "Monokai",
   "files.associations": {
     "*.ect": "html",
@@ -44,5 +44,22 @@
   ],
   "calva.testOnSave": true,
   "calva.evalOnSave": true,
-  "workbench.startupEditor": "newUntitledFile"
+  "workbench.startupEditor": "newUntitledFile",
+  "debug.chrome.useV3": true,
+  "dart.previewLsp": false,
+  "[dart]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.rulers": [
+      80
+    ],
+    "editor.selectionHighlight": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": false,
+    "files.insertFinalNewline": true
+},
+"debug.onTaskErrors": "debugAnyway",
+"java.semanticHighlighting.enabled": true,
 }
