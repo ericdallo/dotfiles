@@ -73,6 +73,7 @@
  doom-theme 'doom-molokai
  doom-themes-treemacs-theme "Default"
 
+ doom-modeline-major-mode-icon t
  doom-modeline-buffer-encoding nil
  doom-modeline-buffer-file-name-style 'relative-to-project
 
@@ -115,15 +116,15 @@
   (setq clojure-indent-style 'align-arguments
         clojure-align-forms-automatically t)
   (set-lookup-handlers! 'cider-mode nil)
-  (define-clojure-indent
-    (fact 1)
-    (facts 1)
-    (flow 1)
-    (fnk 1)
-    (provided 1)
-    (clojure.test.check/quick-check 2)
-    (clojure.test.check.properties/for-all 2)
-    (common-datomic.test-helpers/let-entities 2))
+  ;; (define-clojure-indent
+  ;;   (fact 1)
+  ;;   (facts 1)
+  ;;   (flow 1)
+  ;;   (fnk 1)
+  ;;   (provided 1)
+  ;;   (clojure.test.check/quick-check 2)
+  ;;   (clojure.test.check.properties/for-all 2)
+  ;;   (common-datomic.test-helpers/let-entities 2))
 
   (setq cider-show-error-buffer 'only-in-repl
         clj-refactor-mode 1
@@ -190,7 +191,7 @@
 
 (use-package! org-tree-slide
   :config
-  (setq +org-present-text-scale 3
+  (setq +org-present-text-scale 2
         org-tree-slide-modeline-display 'outside
         org-tree-slide-fold-subtrees-skipped nil)
   (add-hook! 'org-tree-slide-play-hook #'org-display-inline-images)
