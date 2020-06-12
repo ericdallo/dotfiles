@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Emacs
+alias v="TERM=xterm-256color emacsclient -t -a \"\""
+
 # Nix
 alias rebuild="sudo nixos-rebuild switch"
 
