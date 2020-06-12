@@ -73,6 +73,7 @@
  doom-theme 'doom-molokai
  doom-themes-treemacs-theme "Default"
 
+ doom-modeline-major-mode-icon t
  doom-modeline-buffer-encoding nil
  doom-modeline-buffer-file-name-style 'relative-to-project
 
@@ -82,6 +83,7 @@
  evil-collection-setup-minibuffer t)
 
 (set-popup-rule! "^\\*cider-repl" :side 'right :width 0.5)
+(set-popup-rule! "*cider-test-report*" :side 'right :width 0.5)
 (set-popup-rule! "\\*LSP Dart tests\\*" :side 'right :width 0.4)
 (set-popup-rule! "\\*dap-ui-locals\\*" :side 'right :width 0.3)
 (set-popup-rule! "\\*dap-ui-sessions\\*" :side 'right :width 0.3)
@@ -89,8 +91,11 @@
 (use-package! clj-refactor
   :after clojure-mode
   :config
+  (set-lookup-handlers! 'clj-refactor-mode nil)
   (setq cljr-warn-on-eval nil
         clojure-thread-all-but-last t
+        cljr-eagerly-build-asts-on-startup nil
+        cider-show-error-buffer 'only-in-repl
         cljr-clojure-test-declaration "[midje.sweet :refer :all]"
         cljr-magic-require-namespaces
         '(("s"   . "schema.core")
@@ -110,15 +115,16 @@
   :config
   (setq clojure-indent-style 'align-arguments
         clojure-align-forms-automatically t)
-  (define-clojure-indent
-    (fact 1)
-    (facts 1)
-    (flow 1)
-    (fnk 1)
-    (provided 1)
-    (clojure.test.check/quick-check 2)
-    (clojure.test.check.properties/for-all 2)
-    (common-datomic.test-helpers/let-entities 2))
+  (set-lookup-handlers! 'cider-mode nil)
+  ;; (define-clojure-indent
+  ;;   (fact 1)
+  ;;   (facts 1)
+  ;;   (flow 1)
+  ;;   (fnk 1)
+  ;;   (provided 1)
+  ;;   (clojure.test.check/quick-check 2)
+  ;;   (clojure.test.check.properties/for-all 2)
+  ;;   (common-datomic.test-helpers/let-entities 2))
 
   (setq cider-show-error-buffer 'only-in-repl
         clj-refactor-mode 1
@@ -167,18 +173,14 @@
          (dart-mode . lsp)
          (java-mode . lsp))
   :config
-  (setq lsp-clojure-server-command '("bash" "-c" "~/dev/clojure-lsp/target/clojure-lsp"))
+  (setq lsp-clojure-server-command '("bash" "-c" "~/dev/clojure-lsp/target/clojure-lsp")
+        lsp-signature-auto-activate nil)
   (dolist (clojure-all-modes '(clojure-mode
                                clojurec-mode
                                clojurescript-mode
                                clojurex-mode))
     (add-to-list 'lsp-language-id-configuration `(,clojure-all-modes . "clojure")))
   (advice-add #'lsp-rename :after (lambda (&rest _) (projectile-save-project-buffers))))
-
-(use-package lsp-treemacs
-  :after lsp-mode
-  :config
-  (lsp-treemacs-sync-mode 1))
 
 (use-package! lsp-ui
   :after lsp-mode
@@ -189,7 +191,7 @@
 
 (use-package! org-tree-slide
   :config
-  (setq +org-present-text-scale 3
+  (setq +org-present-text-scale 2
         org-tree-slide-modeline-display 'outside
         org-tree-slide-fold-subtrees-skipped nil)
   (add-hook! 'org-tree-slide-play-hook #'org-display-inline-images)

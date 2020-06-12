@@ -97,13 +97,14 @@ in {
     };
 
     hover = (import (fetchTarball https://github.com/ericdallo/nixpkgs/archive/hover-flutter.tar.gz) {}).hover;
+    nixpkgs-master = (import (fetchTarball https://github.com/NixOS/nixpkgs/archive/master.tar.gz) {});
   in
     [
       android-studio
       android.androidsdk
       awscli
       clojure
-      clojure-lsp
+      nixpkgs-master.clojure-lsp
       dart_dev
       docker-compose
       # (eclipses.eclipseWithPlugins {
@@ -127,6 +128,7 @@ in {
       mysql
       nodejs
       nodePackages.node2nix
+      pandoc
       python-with-my-packages
       rustup
       sass
@@ -146,6 +148,14 @@ in {
     };
 
     adb.enable = true;
+  };
+
+  services.emacs = with pkgs; {
+    enable = true;
+    defaultEditor = true;
+    package = ((emacsPackagesGen emacsUnstable).emacsWithPackages (epkgs: [
+        epkgs.vterm
+      ]));
   };
 
   users.users.greg.extraGroups = [ "docker" "vboxusers" ];
