@@ -133,20 +133,18 @@
 
 (use-package! company
   :config
-  (setq company-minimum-prefix-length 3
-        company-tooltip-align-annotations t
-        company-show-numbers t))
+  (setq company-tooltip-align-annotations t))
 
-(use-package! company-box
-  :hook (company-mode . company-box-mode)
-  :config
-  ;; Fix <prior>/<next> on company-box
-  (advice-add 'company-next-page :after #'company-box--change-line)
-  (advice-add 'company-previous-page :after #'company-box--change-line)
-  (advice-add 'company-search-candidates :after #'company-box--change-line)
-  (advice-add 'company-filter-candidates :after #'company-box--change-line)
-  (advice-add 'company-search-repeat-forward :after #'company-box--change-line)
-  (advice-add 'company-search-repeat-backward :after #'company-box--change-line))
+;; (use-package! company-box
+;;   :hook (company-mode . company-box-mode)
+;;   :config
+;;   ;; Fix <prior>/<next> on company-box
+;;   (advice-add 'company-next-page :after #'company-box--change-line)
+;;   (advice-add 'company-previous-page :after #'company-box--change-line)
+;;   (advice-add 'company-search-candidates :after #'company-box--change-line)
+;;   (advice-add 'company-filter-candidates :after #'company-box--change-line)
+;;   (advice-add 'company-search-repeat-forward :after #'company-box--change-line)
+;;   (advice-add 'company-search-repeat-backward :after #'company-box--change-line))
 
 (use-package! hover
   :after dart-mode
