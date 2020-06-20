@@ -38,6 +38,7 @@ in {
       jupyter
       matplotlib
       virtualenvwrapper
+      python-language-server
       seaborn
       pillow
       jotform
@@ -130,7 +131,9 @@ in {
       nodePackages.node2nix
       pandoc
       python-with-my-packages
+      rust-analyzer
       rustup
+      latest.rustChannels.nightly.rust
       sass
       sassc
       vcsodeWithExtension
