@@ -70,4 +70,5 @@
  "source-paths" ["src" "test" "postman"]
  "use-metadata-for-privacy?" true
  "keep-require-at-start?" true
+ "show-docs-arity-on-same-line?" true
  "dependency-scheme" "jar"}
