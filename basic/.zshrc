@@ -1,6 +1,6 @@
 source ~/.critical-keys
 
-export EDITOR="emacs"
+export EDITOR="emacsclient -t"
 export DOTFILES_DIR="$HOME/.dotfiles"
 export GRADLE_OPTS=-Xmx1024m
 export GPG_TTY=$(tty)
