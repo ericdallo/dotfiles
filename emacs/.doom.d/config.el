@@ -70,12 +70,13 @@
  doom-font (font-spec :family "Hack" :size 18)
  doom-big-font-increment 2
 
- doom-theme 'doom-molokai
+ doom-theme 'doom-dracula
  doom-themes-treemacs-theme "Default"
 
  doom-modeline-major-mode-icon t
  doom-modeline-buffer-encoding nil
  doom-modeline-buffer-file-name-style 'relative-to-project
+ doom-modeline-vcs-max-length 6
 
  +lsp-company-backend 'company-capf
  +format-on-save-enabled-modes '(dart-mode)
@@ -93,10 +94,9 @@
   :config
   (set-lookup-handlers! 'clj-refactor-mode nil)
   (setq cljr-warn-on-eval nil
-        clojure-thread-all-but-last t
         cljr-eagerly-build-asts-on-startup nil
-        cider-show-error-buffer 'only-in-repl
         cljr-clojure-test-declaration "[midje.sweet :refer :all]"
+        clj-refactor-mode 1
         cljr-magic-require-namespaces
         '(("s"   . "schema.core")
           ("th"  . "common-core.test-helpers")
@@ -114,37 +114,18 @@
 (use-package! clojure-mode
   :config
   (setq clojure-indent-style 'align-arguments
-        clojure-align-forms-automatically t)
+        clojure-thread-all-but-last t
+        clojure-align-forms-automatically t
+        cider-show-error-buffer 'only-in-repl
+        cider-font-lock-dynamically '(macro core function var deprecated)
+        cider-show-error-buffer 'only-in-repl
+        yas-minor-mode 1)
   (set-lookup-handlers! 'cider-mode nil)
-  ;; (define-clojure-indent
-  ;;   (fact 1)
-  ;;   (facts 1)
-  ;;   (flow 1)
-  ;;   (fnk 1)
-  ;;   (provided 1)
-  ;;   (clojure.test.check/quick-check 2)
-  ;;   (clojure.test.check.properties/for-all 2)
-  ;;   (common-datomic.test-helpers/let-entities 2))
-
-  (setq cider-show-error-buffer 'only-in-repl
-        clj-refactor-mode 1
-        yas-minor-mode 1) ; for adding require/use/import statements
   (cljr-add-keybindings-with-prefix "C-c C-c"))
 
 (use-package! company
   :config
   (setq company-tooltip-align-annotations t))
-
-;; (use-package! company-box
-;;   :hook (company-mode . company-box-mode)
-;;   :config
-;;   ;; Fix <prior>/<next> on company-box
-;;   (advice-add 'company-next-page :after #'company-box--change-line)
-;;   (advice-add 'company-previous-page :after #'company-box--change-line)
-;;   (advice-add 'company-search-candidates :after #'company-box--change-line)
-;;   (advice-add 'company-filter-candidates :after #'company-box--change-line)
-;;   (advice-add 'company-search-repeat-forward :after #'company-box--change-line)
-;;   (advice-add 'company-search-repeat-backward :after #'company-box--change-line))
 
 (use-package! hover
   :after dart-mode
