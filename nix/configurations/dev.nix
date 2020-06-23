@@ -43,7 +43,7 @@ in {
       pillow
       jotform
     ];
-    python-with-my-packages = python3Full.withPackages custom-python-packages;
+    python-with-my-packages = python37Full.withPackages custom-python-packages;
     vcsodeWithExtension = vscode-with-extensions.override {
       # When the extension is already available in the default extensions set.
       vscodeExtensions = with vscode-extensions; [
@@ -130,7 +130,7 @@ in {
       nodejs
       nodePackages.node2nix
       pandoc
-      python-with-my-packages
+      #python-with-my-packages
       rust-analyzer
       rustup
       latest.rustChannels.nightly.rust

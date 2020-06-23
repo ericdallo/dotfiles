@@ -20,6 +20,7 @@ in {
       materia-theme
       ntfsprogs
       peek
+      polybar
       postman
       # skype
       # slack
