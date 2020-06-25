@@ -24,30 +24,30 @@ fi
 battery_percent=$(("$battery_level * 100 / $battery_max"))
 
 if [ "$ac" -eq 1 ]; then
-    icon=""
+    icon="󰂄"
 else
     if [ "$battery_percent" -gt 96 ]; then
-        icon=""
+        icon="󰁹"
     elif [ "$battery_percent" -gt 90 ]; then
-        icon=""
+        icon="󰂂"
     elif [ "$battery_percent" -gt 80 ]; then
-        icon=""
+        icon="󰂁"
     elif [ "$battery_percent" -gt 70 ]; then
-        icon=""
+        icon="󰂀"
     elif [ "$battery_percent" -gt 60 ]; then
-        icon=""
+        icon="󰁿"
     elif [ "$battery_percent" -gt 50 ]; then
-        icon=""
+        icon="󰁾"
     elif [ "$battery_percent" -gt 40 ]; then
-        icon=""
+        icon="󰁽"
     elif [ "$battery_percent" -gt 30 ]; then
-        icon=""
+        icon="󰁼"
     elif [ "$battery_percent" -gt 20 ]; then
         icon="󰁻"
     elif [ "$battery_percent" -gt 10 ]; then
-        icon=""
+        icon="󰁺"
     else
-        icon=""
+        icon="󰂎"
     fi
 fi
 

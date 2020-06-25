@@ -51,18 +51,6 @@
     xsel
   ];
 
-  fonts = {
-    fonts = with pkgs; [
-      emacs-all-the-icons-fonts
-      hack-font
-      roboto
-      noto-fonts-emoji
-      symbola
-      material-design-icons
-      ibm-plex
-    ];
-  };
-
   programs = {
     gnupg.agent.enable = true;
 

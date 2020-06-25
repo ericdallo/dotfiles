@@ -4,6 +4,8 @@ set -ve
 
 DOTFILES_DIR=$HOME/.dotfiles
 
+ln -sf $DOTFILES_DIR/networkmanager-dmenu/config.ini
+
 ln -sf $DOTFILES_DIR/tmux/.tmux.conf ~/.tmux.conf
 ln -Tsf $DOTFILES_DIR/tmux/.tmuxinator ~/.tmuxinator
 

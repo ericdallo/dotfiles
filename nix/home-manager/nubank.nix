@@ -27,6 +27,8 @@ in {
         ln -sf ${dotfilesDir}/basic/.nubank_extra ~/.extra
         ln -sf ${dotfilesDir}/basic/.functions ~/.functions
 
+        ln -sf ${dotfilesDir}/networkmanager-dmenu/config.ini ~/.config/networkmanager-dmenu/config.ini
+
         ln -Tsf ${dotfilesDir}/emacs/.doom.d ~/.doom.d
         ln -Tsf ${dotfilesDir}/emacs/.lsp ~/.lsp
         ln -Tsf ${dotfilesDir}/emacs/.clj-kondo ~/.clj-kondo

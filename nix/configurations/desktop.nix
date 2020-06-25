@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
-{
+let
+    material-design-icons = (import (fetchTarball https://github.com/ericdallo/nixpkgs/archive/bump-material-design-icons.tar.gz) {}).material-design-icons;
+in {
   nixpkgs.config.allowBroken = true;
 
   environment.systemPackages = with pkgs;
@@ -67,4 +69,15 @@
   };
 
   programs.ssh.startAgent = true;
+
+  fonts = {
+    fonts = with pkgs; [
+      emacs-all-the-icons-fonts
+      hack-font
+      roboto
+      material-design-icons
+      ibm-plex
+    ];
+  };
+
 }
