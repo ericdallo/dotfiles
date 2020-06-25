@@ -1,29 +1,35 @@
 { pkgs, ... }:
 
-let
-  gnomeExtensions-text-translator = (import (fetchTarball https://github.com/ericdallo/nixpkgs/archive/gnome-extensions-text-translator.tar.gz) { config.allowUnfree = true; }).gnomeExtensions.text-translator;
-in {
+{
   nixpkgs.config.allowBroken = true;
 
   environment.systemPackages = with pkgs;
     [
+      bspwm
+      dmenu
+      dunst
+      feh
       franz
+      font-manager
       gimp
-      gnomeExtensions.draw-on-your-screen
-      gnomeExtensions.system-monitor
-      gnomeExtensions-text-translator
-      gnome3.dconf-editor
       google-chrome
       gparted
       inkscape
+      flameshot
       flat-remix-icon-theme
+      libnotify
       materia-theme
+      networkmanager_dmenu
       ntfsprogs
       peek
-      polybar
+      polybarFull
       postman
+      playerctl
+      pulsemixer
+      rofi
       # skype
       # slack
+      sxhkd
       teamviewer
       transmission-gtk
       vlc
@@ -31,20 +37,34 @@ in {
       woeusb
     ];
 
-  services.xserver.enable = true;
-  services.xserver.desktopManager = {
-    gnome3.enable = true;
-    gnome3.extraGSettingsOverrides = ''
-      [org.gnome.shell.app-switcher]
-      current-workspace-only=true
-    '';
+  services = {
+    upower.enable = true;
+
+    xserver = {
+      enable = true;
+      layout = "us,br";
+      xkbVariant = "intl,abnt2";
+
+      modules = [ pkgs.xorg.xf86inputlibinput ];
+
+      displayManager.defaultSession = "none+bspwm";
+      displayManager.gdm = {
+        enable = true;
+      };
+
+      # desktopManager.xterm.enable = false;
+      # displayManager.startx.enable = true;
+
+      libinput.enable = true;
+      libinput.naturalScrolling = true;
+
+      windowManager.bspwm = {
+        enable = true;
+        configFile = "/home/greg/.dotfiles/bspwm/bspwmrc";
+        sxhkd.configFile= "/home/greg/.dotfiles/bspwm/sxhkdrc";
+      };
+    };
   };
 
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.displayManager.gdm.wayland = false;
-  services.xserver.displayManager.sessionCommands = ''
-    ${pkgs.xorg.xset}/bin/xset r rate 220 50 # not working for some reason
-  '';
-
-  services.xserver.libinput.enable = true;
+  programs.ssh.startAgent = true;
 }

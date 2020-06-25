@@ -25,6 +25,7 @@
     bluetooth.enable = true;
 
     pulseaudio = {
+      enable = true;
       package = pkgs.pulseaudioFull;
       # Enable extra bluetooth codecs.
       extraModules = [ pkgs.pulseaudio-modules-bt ];

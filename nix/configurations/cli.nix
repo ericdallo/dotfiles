@@ -58,6 +58,8 @@
       roboto
       noto-fonts-emoji
       symbola
+      material-design-icons
+      ibm-plex
     ];
   };
 

@@ -1,48 +1,48 @@
 !! Colorscheme
 
-! Generated with :
-! XRDB2Xreources.py
-!
-*.foreground:  #c4c5b5
-*.background:  #1a1a1a
-*.cursorColor: #f6f7ec
-!
-! Black
-*.color0:      #1a1a1a
-*.color8:      #625e4c
-!
-! Red
-*.color1:      #f4005f
-*.color9:      #f4005f
-!
-! Green
-*.color2:      #98e024
-*.color10:     #98e024
-!
-! Yellow
-*.color3:      #fa8419
-*.color11:     #e0d561
-!
-! Blue
-*.color4:      #9d65ff
-*.color12:     #9d65ff
-!
-! Magenta
-*.color5:      #f4005f
-*.color13:     #f4005f
-!
-! Cyan
-*.color6:      #58d1eb
-*.color14:     #58d1eb
-!
-! White
-*.color7:      #c4c5b5
-*.color15:     #f6f6ef
-!
-! Bold, Italic, Underline
-*.colorBD:     #c4c5b5
-!*.colorIT:
-!*.colorUL:
+! ! Generated with :
+! ! XRDB2Xreources.py
+! !
+! *.foreground:  #c4c5b5
+! *.background:  #1a1a1a
+! *.cursorColor: #f6f7ec
+! !
+! ! Black
+! *.color0:      #1a1a1a
+! *.color8:      #625e4c
+! !
+! ! Red
+! *.color1:      #f4005f
+! *.color9:      #f4005f
+! !
+! ! Green
+! *.color2:      #98e024
+! *.color10:     #98e024
+! !
+! ! Yellow
+! *.color3:      #fa8419
+! *.color11:     #e0d561
+! !
+! ! Blue
+! *.color4:      #9d65ff
+! *.color12:     #9d65ff
+! !
+! ! Magenta
+! *.color5:      #f4005f
+! *.color13:     #f4005f
+! !
+! ! Cyan
+! *.color6:      #58d1eb
+! *.color14:     #58d1eb
+! !
+! ! White
+! *.color7:      #c4c5b5
+! *.color15:     #f6f6ef
+! !
+! ! Bold, Italic, Underline
+! *.colorBD:     #c4c5b5
+! !*.colorIT:
+! !*.colorUL:
 
 !! URxvt Appearance
 URxvt.font:     xft:Hack:size=12:antialias=true,xft:Noto Emoji
@@ -82,3 +82,23 @@ URxvt.url-launcher: google-chrome-stable
 URxvt.matcher.button: 1
 URxvt.matcher.pattern.1: \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
 URxvt.matcher.pattern.2: \\B(/\\S+?):(\\d+)(?=:|$)
+
+! Dracula Xresources palette
+*.foreground: #F8F8F2
+*.background: #282A36
+*.color0:     #000000
+*.color8:     #4D4D4D
+*.color1:     #FF5555
+*.color9:     #FF6E67
+*.color2:     #50FA7B
+*.color10:    #5AF78E
+*.color3:     #F1FA8C
+*.color11:    #F4F99D
+*.color4:     #BD93F9
+*.color12:    #CAA9FA
+*.color5:     #FF79C6
+*.color13:    #FF92D0
+*.color6:     #8BE9FD
+*.color14:    #9AEDFE
+*.color7:     #BFBFBF
+*.color15:    #E6E6E6

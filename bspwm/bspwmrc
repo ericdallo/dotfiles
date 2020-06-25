@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+killall sxhkd &
+
+pkill -f dunst &
+
+bspc monitor -d web terminal code social 5 6
+
+bspc config split_ratio 0.5
+bspc config borderless_monocle true
+bspc config gapless_monocle true
+bspc config focused_border_color \#bf00f6
+bspc config active_border_color \#bf00f6
+bspc config normal_border_color \#145cff
+bspc config presel_feedback_color \#bf00f6
+bspc config focus_follows_pointer true
+bspc config border_width 2
+bspc config window_gap 4
+bspc config focus_follows_pointer true
+bspc config center_pseudo_tiled true
+bspc config single_monocle true
+
+bspc rule -a Urxvt desktop='^1' state=tiled follow=on
+bspc rule -a Emacs desktop='^2' state=tiled follow=on
+bspc rule -a Google-chrome-stable desktop='^3' state=tiled follow=on
+bspc rule -a Franz desktop='^4' state=tiled follow=on
+bspc rule -a gimp desktop='^5' state=tiled follow=on
+
+~/.dotfiles/basic/polybar/launch.sh &
+
+sleep 1
+
+xset r rate 220 50 &
+
+sxhkd -c ~/.dotfiles/bspwm/sxhkdrc &
+
+dunst -conf ~/.dotfiles/dunst/dunstrc &
+
+ssh-agent &
+
+feh --bg-fill ~/Pictures/background.jpg &
