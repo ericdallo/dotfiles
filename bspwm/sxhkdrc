@@ -18,9 +18,11 @@ super + shift + p
 super + p
       polybar -c ~/.dotfiles/basic/polybar/config.ini main &
 
-
 super + e
       emacs
+
+super + f
+      franz
 
 #
 # bspwm
@@ -77,7 +79,7 @@ super + {p,b,comma,period}
       bspc node -f @{parent,brother,first,second}
 
 # focus the next/previous node in the current desktop
-super + {_,shift + }c
+super + dead_grave
       bspc node -f {next,prev}.local
 
 # focus the next/previous desktop in the current monitor

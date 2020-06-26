@@ -21,6 +21,7 @@ in {
       flat-remix-icon-theme
       libnotify
       materia-theme
+      gnome3.nautilus
       networkmanager_dmenu
       ntfsprogs
       peek

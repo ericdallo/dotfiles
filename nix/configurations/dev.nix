@@ -19,29 +19,15 @@ in {
   environment.systemPackages = with pkgs;
    
   let
-    jotform = python37.pkgs.buildPythonPackage {
-      pname = "jotform";
-      version = "python_3_compatibility";
-
-      src = pkgs.fetchFromGitHub {
-        owner = "atleta";
-        repo = "jotform-api-python";
-        rev = "082cfe7906de14d1f999cf1259a863d8e4d9da81";
-        sha256 = "04kn2yp4szmzvc2viy5kyb6yj5s5l21klv2hf8d6ygfa95f7w4wx";
-      };
-
-      doCheck = false;
-    };
-
     custom-python-packages = python-packages: with python-packages; [
-      pandas
-      jupyter
-      matplotlib
-      virtualenvwrapper
-      python-language-server
-      seaborn
-      pillow
-      jotform
+      # pandas
+      # jupyter
+      # matplotlib
+      # virtualenvwrapper
+      # python-language-server
+      # seaborn
+      # pillow
+      fonttools
     ];
     python-with-my-packages = python37Full.withPackages custom-python-packages;
     vcsodeWithExtension = vscode-with-extensions.override {
@@ -130,7 +116,7 @@ in {
       nodejs
       nodePackages.node2nix
       pandoc
-      #python-with-my-packages
+      python-with-my-packages
       rust-analyzer
       rustup
       latest.rustChannels.nightly.rust

@@ -27,6 +27,7 @@ in {
         ln -sf ${dotfilesDir}/basic/.nubank_extra ~/.extra
         ln -sf ${dotfilesDir}/basic/.functions ~/.functions
 
+        ln -sf ${dotfilesDir}/rofi/config.rasi ~/.config/rofi/config.rasi
         ln -sf ${dotfilesDir}/networkmanager-dmenu/config.ini ~/.config/networkmanager-dmenu/config.ini
 
         ln -Tsf ${dotfilesDir}/emacs/.doom.d ~/.doom.d
