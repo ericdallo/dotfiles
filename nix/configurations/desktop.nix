@@ -40,6 +40,10 @@ in {
       woeusb
     ];
 
+  environment.variables = {
+    DOTFILES = "$HOME/.dotfiles";
+  };
+
   services = {
     upower.enable = true;
 

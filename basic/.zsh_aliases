@@ -52,7 +52,6 @@ alias deploy-gregflix='ssh-gregflix "./start-app.sh"'
 
 # Temp aliases
 alias restart-net="sudo service network-manager restart"
-alias startx-log="startx -- vt$(fgconsole) >&1 > ~/startx.log"
 
 source $HOME/.frigocenter_aliases 2> /dev/null
 source $HOME/.nubank_aliases 2> /dev/null

@@ -1,6 +1,7 @@
 [global]
 monitor = 0
 follow = mouse
+mouse_left_click = do_action
 geometry = "300x50-8+40"
 indicate_hidden = yes
 shrink = no
@@ -17,11 +18,13 @@ format = "<b>%s</b>\n%b"
 alignment = left
 show_age_threshold = 60
 word_wrap = yes
+show_indicators = yes
 ignore_newline = no
 stack_duplicates = false
 hide_duplicate_count = yes
 show_indicators = no
-icon_position = off
+transparency = 50
+icon_position = right
 sticky_history = yes
 history_length = 20
 browser = google-chrome-stable

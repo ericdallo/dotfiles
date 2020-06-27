@@ -10,7 +10,7 @@ super + shift + p
       pkill -f polybar
 
 super + p
-      polybar &
+      polybar main &
 
 super + e
       emacs
