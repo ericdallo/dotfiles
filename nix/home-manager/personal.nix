@@ -16,8 +16,12 @@ in {
         ln -sf ${dotfilesDir}/basic/.zshrc ~/.zshrc
         ln -sf ${dotfilesDir}/basic/.functions ~/.functions
 
+        ln -Tsf ${dotfilesDir}/bspwm ~/.config/bspwm
+        ln -Tsf ${dotfilesDir}/sxhkd ~/.config/sxhkd
         ln -Tsf ${dotfilesDir}/rofi ~/.config/rofi
+        ln -Tsf ${dotfilesDir}/polybar ~/.config/polybar
         ln -Tsf ${dotfilesDir}/.env ~/.env
+        ln -Tsf ${dotfilesDir}/dunst ~/.config/dunst
         ln -Tsf ${dotfilesDir}/networkmanager-dmenu ~/.config/networkmanager-dmenu
 
         ln -Tsf ${dotfilesDir}/emacs/.doom.d ~/.doom.d

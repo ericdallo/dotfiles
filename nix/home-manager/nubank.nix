@@ -27,9 +27,13 @@ in {
         ln -sf ${dotfilesDir}/basic/.nubank_extra ~/.extra
         ln -sf ${dotfilesDir}/basic/.functions ~/.functions
 
+        ln -Tsf ${dotfilesDir}/bspwm ~/.config/bspwm
+        ln -Tsf ${dotfilesDir}/sxhkd ~/.config/sxhkd
+        ln -Tsf ${dotfilesDir}/rofi ~/.config/rofi
+        ln -Tsf ${dotfilesDir}/polybar ~/.config/polybar
         ln -Tsf ${dotfilesDir}/.env ~/.env
-        ln -sf ${dotfilesDir}/rofi/config.rasi ~/.config/rofi/config.rasi
-        ln -sf ${dotfilesDir}/networkmanager-dmenu/config.ini ~/.config/networkmanager-dmenu/config.ini
+        ln -Tsf ${dotfilesDir}/dunst ~/.config/dunst
+        ln -Tsf ${dotfilesDir}/networkmanager-dmenu ~/.config/networkmanager-dmenu
 
         ln -Tsf ${dotfilesDir}/emacs/.doom.d ~/.doom.d
         ln -Tsf ${dotfilesDir}/emacs/.lsp ~/.lsp

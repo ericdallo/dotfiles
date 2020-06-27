@@ -4,8 +4,8 @@ source ~/.critical-keys
 source ~/.env
 
 killall sxhkd &
-
 pkill -f dunst &
+pkill -f polybar &
 
 bspc monitor -d tty code web social design filemanager 6
 
@@ -32,13 +32,13 @@ bspc rule -a Gimp desktop='^6' state=tiled follow=on
 
 sleep 1
 
-$DOTFILES/basic/polybar/launch.sh &
+polybar main &
 
 xset r rate 220 50 &
 
-sxhkd -c $DOTFILES/bspwm/sxhkdrc &
+sxhkd &
 
-dunst -conf $DOTFILES/dunst/dunstrc &
+dunst &
 
 ssh-agent &
 

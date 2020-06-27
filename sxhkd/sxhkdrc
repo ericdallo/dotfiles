@@ -10,7 +10,7 @@ super + shift + p
       pkill -f polybar
 
 super + p
-      polybar -c $DOTFILES/basic/polybar/config.ini main &
+      polybar &
 
 super + e
       emacs

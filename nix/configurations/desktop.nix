@@ -63,8 +63,6 @@ in {
 
       windowManager.bspwm = {
         enable = true;
-        configFile = "/home/greg/.dotfiles/bspwm/bspwmrc";
-        sxhkd.configFile= "/home/greg/.dotfiles/bspwm/sxhkdrc";
       };
     };
   };
