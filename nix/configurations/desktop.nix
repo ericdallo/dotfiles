@@ -7,10 +7,10 @@ in {
 
   environment.systemPackages = with pkgs;
     [
+      betterlockscreen
       bspwm
       dmenu
       dunst
-      feh
       franz
       font-manager
       gimp

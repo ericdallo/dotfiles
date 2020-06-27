@@ -42,4 +42,4 @@ dunst &
 
 ssh-agent &
 
-feh --bg-fill ~/Pictures/background.jpg &
+betterlockscreen -w &
