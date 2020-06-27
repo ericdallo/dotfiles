@@ -2,4 +2,4 @@
 
 HOVER_COMMAND="$HOME/gocode/bin/hover $@"
 
-nix-shell $DOTFILES_DIR/nix/scripts/hover.nix --run "$HOVER_COMMAND"
+nix-shell $DOTFILES/nix/scripts/hover.nix --run "$HOVER_COMMAND"

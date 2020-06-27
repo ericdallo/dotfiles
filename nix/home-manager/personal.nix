@@ -16,8 +16,9 @@ in {
         ln -sf ${dotfilesDir}/basic/.zshrc ~/.zshrc
         ln -sf ${dotfilesDir}/basic/.functions ~/.functions
 
-        ln -sf ${dotfilesDir}/rofi/config.rasi ~/.config/rofi/config.rasi
-        ln -sf ${dotfilesDir}/networkmanager-dmenu/config.ini ~/.config/networkmanager-dmenu/config.ini
+        ln -Tsf ${dotfilesDir}/rofi ~/.config/rofi
+        ln -Tsf ${dotfilesDir}/.env ~/.env
+        ln -Tsf ${dotfilesDir}/networkmanager-dmenu ~/.config/networkmanager-dmenu
 
         ln -Tsf ${dotfilesDir}/emacs/.doom.d ~/.doom.d
         ln -Tsf ${dotfilesDir}/emacs/.lsp ~/.lsp

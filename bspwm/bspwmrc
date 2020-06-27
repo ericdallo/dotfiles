@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 source ~/.critical-keys
+source ~/.env
 
 killall sxhkd &
 
@@ -29,15 +30,15 @@ bspc rule -a Franz desktop='^4' state=tiled follow=on
 bspc rule -a Nautilus desktop='^5' state=tiled follow=on
 bspc rule -a Gimp desktop='^6' state=tiled follow=on
 
-~/.dotfiles/basic/polybar/launch.sh &
-
 sleep 1
+
+$DOTFILES/basic/polybar/launch.sh &
 
 xset r rate 220 50 &
 
-sxhkd -c ~/.dotfiles/bspwm/sxhkdrc &
+sxhkd -c $DOTFILES/bspwm/sxhkdrc &
 
-dunst -conf ~/.dotfiles/dunst/dunstrc &
+dunst -conf $DOTFILES/dunst/dunstrc &
 
 ssh-agent &
 

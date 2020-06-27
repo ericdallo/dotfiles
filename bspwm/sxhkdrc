@@ -1,28 +1,28 @@
 # wm agnostic
 
-super + t
-      urxvt
-
-super + c
-      google-chrome-stable
-
 super + Escape
       pkill -USR1 -x sxhkd
 
 super + b
-      ~/.dotfiles/bspwm/bspwmrc
+      $DOTFILES/bspwm/bspwmrc
 
 super + shift + p
       pkill -f polybar
 
 super + p
-      polybar -c ~/.dotfiles/basic/polybar/config.ini main &
+      polybar -c $DOTFILES/basic/polybar/config.ini main &
 
 super + e
       emacs
 
 super + f
       franz
+
+super + t
+      urxvt
+
+super + c
+      google-chrome-stable
 
 #
 # bspwm
@@ -152,14 +152,14 @@ super + alt + shift + {Left,Down,Up,Right}
 Print
       flameshot gui
 
-super+backslash
-      ~/.scripts/rofigksudo.sh
+super + backslash
+      $DOTFILES/scripts/alternate_tty.sh
 
 XF86MonBrightnessUp
-      ~/.dotfiles/scripts/brightness_controll.sh +
+      $DOTFILES/scripts/brightness_controll.sh +
 
 XF86MonBrightnessDown
-      ~/.dotfiles/scripts/brightness_controll.sh -
+      $DOTFILES/scripts/brightness_controll.sh -
 
 XF86AudioRaiseVolume
       pulsemixer --id 0 --change-volume +10 --unmute && \
@@ -171,7 +171,7 @@ XF86AudioLowerVolume
 
 XF86AudioMute
       pulsemixer --id 0 --toggle-mute && \
-      notify-send --urgency=low --hint=string:x-dunst-stack-tag:volume "$(sh ~/.dotfiles/scripts/detectmutepulse.sh)"
+      notify-send --urgency=low --hint=string:x-dunst-stack-tag:volume "$(sh $DOTFILES/scripts/detectmutepulse.sh)"
 
 XF86AudioPlay
       playerctl play-pause
