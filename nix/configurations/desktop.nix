@@ -92,8 +92,6 @@ in {
     };
   };
 
-  programs.ssh.startAgent = true;
-
   services.logind.extraConfig = "HandleLidSwitch=hybrid-sleep";
 
   fonts = {

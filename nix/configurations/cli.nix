@@ -51,8 +51,12 @@
     xsel
   ];
 
+  services.openssh.enable = true;
+
   programs = {
+    ssh.startAgent = false;
     gnupg.agent.enable = true;
+    gnupg.agent.enableSSHSupport = true;
 
     zsh = {
       enable = true;
@@ -63,8 +67,6 @@
       };
       interactiveShellInit = ''
         export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh/
-
-        # Customize your oh-my-zsh options here
         ZSH_THEME="simple"
         plugins=(git sudo docker)
 

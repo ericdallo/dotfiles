@@ -40,6 +40,4 @@ sxhkd &
 
 dunst &
 
-ssh-agent &
-
 betterlockscreen -w &
