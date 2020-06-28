@@ -1,6 +1,8 @@
 # Dotfiles
 _**My custom dotfiles with configurations and scripts for Unix basead systems**_
 
+![](background.jpg)
+
 ### Basic
 * shell profile configurations and custom functions
 
