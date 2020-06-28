@@ -1,38 +1,22 @@
 # Dotfiles
-_**My custom dotfiles with configurations and scripts for Unix basead systems**_
+_**Configuration files for my Dracula themed Linux**_
 
-![](background.jpg)
+![](screenshots/empty-window.png)
+_For more screenshots check [here](screenshots)_
 
-### Basic
-* shell profile configurations and custom functions
+### Features
 
-### Emacs
-* [doom](https://github.com/hlissner/doom-emacs) folder with custom configurations
-* [clj-kondo](https://github.com/borkdude/clj-kondo) - syntax checker custom settings for clojure
-* [joker](https://github.com/candid82/joker) - other syntax checker custom settings for clojure
+- [Dracula theme](https://draculatheme.com) on most everything
+- [NixOS](https://nixos.org/) - NixOS configurations
+- [NixOS Dracula wallpaper](background.jpg)
+- [bspwm](https://github.com/baskerville/bspwm) - Window manager
+- [sxhkd](https://github.com/baskerville/sxhkd) - Shortcuts manager
+- [polybar](https://github.com/polybar/polybar) - Top customized bar
+- [dunst](https://github.com/dunst-project/dunst) - Notifications handler service
+- [rofi](https://github.com/davatorium/rofi) - Application launcher
+- [networkmanager-dmenu](https://github.com/firecat53/networkmanager-dmenu) - Network manager application 
+- [Doom Emacs](https://github.com/hlissner/doom-emacs) - Doom Emacs configurations 
+- [Tmux](https://github.com/tmux/tmux/wiki) - Terminal window and session manager
+- [zsh](https://ohmyz.sh/) - Z shell
+- [scripts](scripts) - Custom scripts
 
-### Git
-* Git config configuration file
-
-### Gregflix
-* [Gregflix](https://github.com/ericdallo/gregflix) functions
-
-### Nix
-* [NixOs](https://nixos.org/) configuration describing my entire OS desired state.
-
-### Scripts
-* Scripts for day usage
-
-### Tmux
-
-* ``.tmux.conf`` - tmux configuration for panes and windows on terminal
-* ``.tmuxinator`` - automated tmux panes and windows creator
-
-### Vim
-* Customization files for `vim` text editor
-
-### VSCode
-* Cusomtization files for VisualStudio Code text editor
-
-### Wifi
-* ``RevDk3-r1`` - Wifi cracker script

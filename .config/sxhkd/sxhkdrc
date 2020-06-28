@@ -24,6 +24,9 @@ super + t
 super + c
       google-chrome-stable
 
+super + n
+      io.elementary.files
+
 super + 0
       $DOTFILES/scripts/translate.sh pt-BR
 
