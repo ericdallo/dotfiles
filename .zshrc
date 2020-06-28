@@ -1,4 +1,5 @@
 source ~/.critical-keys
+source ~/.env
 
 export TERM="rxvt-unicode-256color"
 
