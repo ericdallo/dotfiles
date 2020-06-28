@@ -150,7 +150,7 @@ label = %percentage%
 
 [module/battery]
 type = custom/script
-exec = $DOTFILES/polybar/polybar_display_battery.sh
+exec = $DOTFILES/.config/polybar/polybar_display_battery.sh
 interval = 3
 format-overline = ${colors.red}
 
