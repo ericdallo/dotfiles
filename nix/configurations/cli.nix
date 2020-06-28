@@ -31,7 +31,7 @@
     oh-my-zsh
     pinentry
     ripgrep
-    stable.rxvt_unicode-with-plugins
+    rxvt_unicode-with-plugins
     s3cmd
     srt-to-vtt-cl
     telnet

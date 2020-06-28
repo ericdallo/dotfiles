@@ -1,5 +1,7 @@
 source ~/.critical-keys
 
+export TERM="rxvt-unicode-256color"
+
 ### Extra paths
 
 # TODO use flutter as a nix derivation
