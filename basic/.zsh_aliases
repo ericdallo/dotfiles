@@ -31,7 +31,7 @@ alias fu='$EDITOR ~/dev/dotfiles/alias/'
 alias killmux='tmux kill-window -a && exit'
 alias tm='tmuxinator start tab'
 alias s='espeak'
-alias hey='s -v pt-br "se liga, cabô"'
+alias hey='s -v pt-br "se liga, cabô" && notify-send "Hey"'
 
 alias dotfiles="$EDITOR $DOTFILES_DIR"
 alias restart-chrome="killall chrome; google-chrome-stable"

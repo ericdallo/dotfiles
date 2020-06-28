@@ -190,10 +190,10 @@ super+Return
 #       ~/.scripts/powermenu.sh
 
 XF86Sleep
-      betterlockscreen -s blur
+      betterlockscreen -s
 
 super + l
-      betterlockscreen -l blur
+      betterlockscreen -l
 
 super + underscore
       ~/.config/sxhkd/gap_dec.sh

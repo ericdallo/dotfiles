@@ -84,14 +84,13 @@ in {
     };
 
     hover = (import (fetchTarball https://github.com/ericdallo/nixpkgs/archive/hover-flutter.tar.gz) {}).hover;
-    nixpkgs-master = (import (fetchTarball https://github.com/NixOS/nixpkgs/archive/master.tar.gz) {});
   in
     [
       android-studio
       android.androidsdk
       awscli
       clojure
-      nixpkgs-master.clojure-lsp
+      clojure-lsp
       dart_dev
       docker-compose
       # (eclipses.eclipseWithPlugins {

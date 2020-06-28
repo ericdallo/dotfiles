@@ -50,8 +50,8 @@ ws-icon-0 = tty;󰞷
 ws-icon-1 = code;󰗀
 ws-icon-2 = web;󰊯
 ws-icon-3 = social;󰭻
-ws-icon-4 = design;󰋩
-ws-icon-5 = filemanager;󰷏
+ws-icon-4 = filemanager;󰷏
+ws-icon-5 = design;󰋩
 
 ws-icon-default = 󰋙
 
@@ -91,7 +91,7 @@ user = ericdallo
 empty-notifications = false
 interval = 20
 
-label = 󰊤 %notifications%
+label = "%{A1:bspc desktop -f web:}󰊤 %notifications%%{A}"
 format-offline = <label-offline>
 
 [module/cpu]
@@ -126,7 +126,7 @@ ramp-volume-2 = 󰕾
 [module/wireless-network]
 type = internal/network
 interface = wlp1s0
-interval = 3.0
+interval = 2.0
 
 label-connected = %signal%
 format-connected-overline = ${colors.yellow}
@@ -151,7 +151,7 @@ label = %percentage%
 [module/battery]
 type = custom/script
 exec = $DOTFILES/polybar/polybar_display_battery.sh
-interval = 5
+interval = 3
 format-overline = ${colors.red}
 
 [module/exit]
