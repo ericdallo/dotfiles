@@ -125,7 +125,7 @@ ramp-volume-2 = 󰕾
 
 [module/wireless-network]
 type = internal/network
-interface = wlp1s0
+interface = ${env:NETWORK_INTERFACE:wlp1s0}
 interval = 2.0
 
 label-connected = %signal%
