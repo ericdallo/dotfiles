@@ -93,7 +93,9 @@ in {
     };
   };
 
-  services.logind.extraConfig = "HandleLidSwitch=hybrid-sleep";
+  services.logind.extraConfig = ''
+    HandleLidSwitch="hybrid-sleep"
+  '';
 
   fonts = {
     fonts = with pkgs; [
