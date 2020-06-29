@@ -126,20 +126,35 @@ ramp-volume-2 = 󰕾
 [module/wireless-network]
 type = internal/network
 interface = ${env:NETWORK_INTERFACE:wlp1s0}
-interval = 2.0
+ping-interval = 3
 
 label-connected = %signal%
+label-disconnected = --
+
 format-connected-overline = ${colors.yellow}
 format-connected = %{A1:networkmanager_dmenu:}<ramp-signal> <label-connected>%{A}
 
 format-disconnected = 󰤮 <label-disconnected>
 format-disconnected-overline = ${colors.alert}
-label-disconnected = --
+format-packetloss-overline = ${colors.alert}
+format-packetloss = <animation-packetloss> <label-connected>
 
 ramp-signal-0 = 󰤟
 ramp-signal-1 = 󰤢
 ramp-signal-2 = 󰤥
 ramp-signal-3 = 󰤨
+
+animation-packetloss-0 = 󰤫
+animation-packetloss-0-foreground = ${colors.yellow}
+animation-packetloss-1 = 󰤠
+animation-packetloss-1-foreground = ${colors.yellow}
+animation-packetloss-2 = 󰤣
+animation-packetloss-2-foreground = ${colors.yellow}
+animation-packetloss-3 = 󰤦
+animation-packetloss-3-foreground = ${colors.yellow}
+animation-packetloss-4 = 󰤩
+animation-packetloss-4-foreground = ${colors.yellow}
+animation-packetloss-framerate = 400
 
 [module/backlight]
 type = internal/backlight
