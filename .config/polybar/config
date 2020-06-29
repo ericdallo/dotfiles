@@ -149,10 +149,29 @@ format-overline = ${colors.green}
 label = %percentage%
 
 [module/battery]
-type = custom/script
-exec = $DOTFILES/.config/polybar/polybar_display_battery.sh
-interval = 3
-format-overline = ${colors.red}
+type = internal/battery
+battery = BAT0
+adapter = ${env:BATTERY_ADAPTER:AC0}
+poll-interval = 3
+
+label-full = 󰂄 100%
+format-charging = 󰂄 <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-charging-overline = ${colors.red}
+format-discharging-overline = ${colors.red}
+format-full-overline = ${colors.red}
+
+ramp-capacity-10=󰁹
+ramp-capacity-9=󰂂
+ramp-capacity-8=󰂁
+ramp-capacity-7=󰂀
+ramp-capacity-6=󰁿
+ramp-capacity-5=󰁾
+ramp-capacity-4=󰁽
+ramp-capacity-3=󰁼
+ramp-capacity-2=󰁻
+ramp-capacity-1=󰁺
+ramp-capacity-0=󰂎
 
 [module/exit]
 type = custom/text
