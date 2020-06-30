@@ -72,7 +72,7 @@
  doom-big-font-increment 2
 
  doom-theme 'doom-dracula
- doom-themes-treemacs-theme "Default"
+ doom-themes-treemacs-theme "doom-colors"
 
  doom-modeline-major-mode-icon t
  doom-modeline-buffer-encoding nil
