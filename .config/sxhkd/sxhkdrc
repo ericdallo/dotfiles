@@ -142,6 +142,9 @@ super + alt + {Left,Down,Up,Right}
 super + alt + shift + {Left,Down,Up,Right}
       bspc node -z {right -10 0,top 0 10,bottom 0 -10,left 10 0}
 
+super + shift + {1-9}
+    id=$(bspc query -N -n); bspc node -d ^{1-9}; bspc node -f ${id}
+
 # move a floating window
 #super + {Left,Down,Up,Right}
 #      bspc node -v {-10 0,0 10,0 -10,10 0}
