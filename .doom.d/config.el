@@ -58,6 +58,7 @@
  compilation-scroll-output 'first-error
 
  projectile-project-search-path '("~/dev/" "~/dev/nu/")
+ projectile-enable-caching nil
 
  evil-split-window-below t
  evil-vsplit-window-right t
