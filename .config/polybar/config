@@ -86,7 +86,7 @@ content-padding = 1
 
 [module/github]
 type = internal/github
-token = ${env:GITHUB_ACCESS_TOKEN}
+token = ${env:GITHUB_ACCESS_TOKEN_NOTIFICATION}
 user = ericdallo
 empty-notifications = false
 interval = 20
