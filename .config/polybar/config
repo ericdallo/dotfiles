@@ -37,7 +37,7 @@ overline-size = 2
 module-margin = 1
 modules-left = workspaces
 modules-center = date
-modules-right = github space cpu memory space pulseaudio wireless-network backlight battery exit
+modules-right = github space cpu memory space pulseaudio backlight wireless-network battery exit
 background = ${colors.background}
 foreground = ${colors.foreground}
 
@@ -189,7 +189,23 @@ ramp-capacity-1=󰁺
 ramp-capacity-0=󰂎
 
 [module/exit]
-type = custom/text
-content = 󰐦
-click-left = bspc quit && bspc wm -r
+type = custom/menu
+expand-right = false
 content-padding= 2
+
+menu-0-0 = Hibernate
+menu-0-0-exec = systemctl hibernate &
+menu-0-1 = Logoff
+menu-0-1-exec = bspc quit &
+menu-0-2 = Reboot
+menu-0-2-exec = systemctl reboot &
+menu-0-3 = Shutdown
+menu-0-3-exec = systemctl poweroff &
+
+label-open = 󰐦
+label-close = 󱆮
+
+label-separator =   
+
+format = <menu><label-toggle>
+format-padding = 1
