@@ -1,6 +1,6 @@
 [global]
-font = DejaVu Sans 10
-allow_markup = yes
+font = DejaVu Sans 12
+markup = full
 format = "<b>%s</b>\n%b"
 sort = yes
 indicate_hidden = yes
@@ -11,7 +11,6 @@ word_wrap = yes
 ignore_newline = no
 geometry = "400x10-10+48"
 transparency = 25
-transparency = 0
 idle_threshold = 120
 monitor = 0
 follow = mouse
@@ -27,7 +26,7 @@ show_indicators = no
 dmenu = /usr/bin/env dmenu -p dunst
 browser = /usr/bin/env google-chrome-stable -new-tab
 icon_position = left
-icon_folders = /usr/share/icons/Notifications
+icon_path = ~/.local/share/icons/hicolor/64x64/apps
 
 [frame]
 color = "#f8f8f2"
@@ -37,7 +36,7 @@ width = 0
 close = ctrl+space
 close_all = ctrl+shift+space
 context = ctrl+shift+period
-history = ctrl+shift
+history = ctrl+shift+0
 
 [urgency_low]
 background = "#f8f8f2"
@@ -53,6 +52,11 @@ timeout = 5
 background = "#f8f8f2"
 foreground = "#595959"
 timeout = 5
+
+[Translation]
+appname = Translation
+new_icon = Translate
+timeout = 60
 
 [Transmission]
 appname = Transmission

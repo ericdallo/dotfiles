@@ -2,4 +2,6 @@
 
 language=$1
 
-notify-send -t 5000 "Translation" "$(trans :$language -b "$(rofi -dmenu -p translate &)" | tr -d '\n' | xclip -sel clip -f)"
+input_text=$(rofi -dmenu -p translate &)
+
+notify-send -a Translation "Translation" "$input_text\n<b>$(trans :$language -b "$input_text" | tr -d '\n' | xclip -sel clip -f)</b>"
