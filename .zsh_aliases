@@ -31,7 +31,7 @@ alias fu='$EDITOR ~/dev/dotfiles/alias/'
 alias killmux='tmux kill-window -a && exit'
 alias tm='tmuxinator start tab'
 alias s='espeak'
-alias hey='s -v pt-br "se liga, cabô"'
+alias hey='s -v pt-br "se liga, cabô" && notify-send "Hey"'
 
 alias dotfiles="$EDITOR $DOTFILES_DIR"
 alias restart-chrome="killall chrome; google-chrome-stable"
@@ -50,7 +50,7 @@ alias ssh-grube-api='ssh root@$GRUBE_API_IP'
 alias ssh-gregflix='ssh root@$GREGFLIX_IP'
 alias deploy-gregflix='ssh-gregflix "./start-app.sh"'
 
-# Alias temporarios
+# Temp aliases
 alias restart-net="sudo service network-manager restart"
 
 source $HOME/.frigocenter_aliases 2> /dev/null

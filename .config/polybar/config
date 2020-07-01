@@ -1,0 +1,211 @@
+[colors]
+background = ${xrdb:background:#222}
+foreground = ${xrdb:foreground:#222}
+foreground-alt = ${xrdb:color7:#222}
+primary = ${xrdb:color1:#222}
+secondary = ${xrdb:color2:#222}
+alert = ${xrdb:color9:#222}
+
+color0=${xrdb:color0:#222}
+red=${xrdb:color1:#222}
+green=${xrdb:color2:#222}
+yellow=${xrdb:color3:#222}
+purple=${xrdb:color4:#222}
+color5=${xrdb:color5:#222}
+lightblue=${xrdb:color6:#222}
+color7=${xrdb:color7:#222}
+color8=${xrdb:color8:#222}
+color9=${xrdb:color9:#222}
+color10=${xrdb:color10:#222}
+color11=${xrdb:color11:#222}
+color12=${xrdb:color12:#222}
+color13=${xrdb:color13:#222}
+color14=${xrdb:color14:#222}
+color15=${xrdb:color15:#222}
+
+[bar/main]
+wm-restack = bspwm
+
+font-0 = IBM Plex Mono:size=14:antialias=true;2
+font-1 = Material Design Icons:size=18:antialias=true;2
+
+border-size = 0
+fixed-center = true
+height = 36
+overline-size = 2
+
+module-margin = 1
+modules-left = workspaces
+modules-center = date
+modules-right = github space cpu memory space pulseaudio backlight wireless-network battery exit
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+[module/workspaces]
+type = internal/bspwm
+enable-click = true
+enable-scroll = true
+
+ws-icon-0 = tty;󰞷
+ws-icon-1 = code;󰗀
+ws-icon-2 = web;󰊯
+ws-icon-3 = social;󰭻
+ws-icon-4 = filemanager;󰷏
+ws-icon-5 = design;󰋩
+
+ws-icon-default = 󰋙
+
+label-active = %icon%
+label-active-foreground = ${colors.green}
+label-active-overline = ${colors.green}
+
+label-occupied = %icon%
+label-occupied-foreground = ${colors.foreground}
+
+label-urgent = %icon%
+label-urgent-foreground = ${colors.red}
+label-urgent-overline = ${colors.red}
+
+label-empty = %icon%
+label-empty-foreground = ${colors.foreground}
+
+label-active-padding = 1
+label-urgent-padding = 1
+label-occupied-padding = 1
+label-empty-padding = 1
+
+[module/date]
+type = internal/date
+date-alt = %c
+date = %a - %H:%M
+
+[module/space]
+type = custom/text
+content = 
+content-padding = 1
+
+[module/github]
+type = internal/github
+token = ${env:GITHUB_ACCESS_TOKEN_NOTIFICATION}
+user = ericdallo
+empty-notifications = false
+interval = 20
+
+label = "%{A1:bspc desktop -f web:}󰊤 %notifications%%{A}"
+format-offline = <label-offline>
+
+[module/cpu]
+type = internal/cpu
+interval = 3
+format-overline = ${colors.lightblue}
+format = <label>
+label = 󰻠 %percentage:2%%
+
+[module/memory]
+type = internal/memory
+interval = 3
+format = <label>
+format-overline = ${colors.lightblue}
+label = 󰘚 %percentage_used%%
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume = <ramp-volume> <label-volume>
+label-volume = %percentage%
+format-volume-overline = ${colors.purple}
+
+format-muted = 󰝟 <label-muted>
+label-muted = %percentage%
+format-muted-overline = ${colors.alert}
+
+ramp-volume-0 = 󰕿
+ramp-volume-1 = 󰖀
+ramp-volume-2 = 󰕾
+
+[module/wireless-network]
+type = internal/network
+interface = ${env:NETWORK_INTERFACE:wlp1s0}
+ping-interval = 3
+
+label-connected = %signal%
+label-disconnected = --
+
+format-connected-overline = ${colors.yellow}
+format-connected = %{A1:networkmanager_dmenu:}<ramp-signal> <label-connected>%{A}
+
+format-disconnected = 󰤮 <label-disconnected>
+format-disconnected-overline = ${colors.alert}
+format-packetloss-overline = ${colors.alert}
+format-packetloss = <animation-packetloss> <label-connected>
+
+ramp-signal-0 = 󰤟
+ramp-signal-1 = 󰤢
+ramp-signal-2 = 󰤥
+ramp-signal-3 = 󰤨
+
+animation-packetloss-0 = 󰤫
+animation-packetloss-0-foreground = ${colors.yellow}
+animation-packetloss-1 = 󰤠
+animation-packetloss-1-foreground = ${colors.yellow}
+animation-packetloss-2 = 󰤣
+animation-packetloss-2-foreground = ${colors.yellow}
+animation-packetloss-3 = 󰤦
+animation-packetloss-3-foreground = ${colors.yellow}
+animation-packetloss-4 = 󰤩
+animation-packetloss-4-foreground = ${colors.yellow}
+animation-packetloss-framerate = 400
+
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
+format = 󰛨 <label>
+format-overline = ${colors.green}
+label = %percentage%
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ${env:BATTERY_ADAPTER:AC0}
+poll-interval = 3
+
+label-full = 󰂄 100%
+format-charging = 󰂄 <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-charging-overline = ${colors.red}
+format-discharging-overline = ${colors.red}
+format-full-overline = ${colors.red}
+
+ramp-capacity-10=󰁹
+ramp-capacity-9=󰂂
+ramp-capacity-8=󰂁
+ramp-capacity-7=󰂀
+ramp-capacity-6=󰁿
+ramp-capacity-5=󰁾
+ramp-capacity-4=󰁽
+ramp-capacity-3=󰁼
+ramp-capacity-2=󰁻
+ramp-capacity-1=󰁺
+ramp-capacity-0=󰂎
+
+[module/exit]
+type = custom/menu
+expand-right = false
+content-padding= 2
+
+menu-0-0 = Hibernate
+menu-0-0-exec = systemctl hibernate &
+menu-0-1 = Logoff
+menu-0-1-exec = bspc quit &
+menu-0-2 = Reboot
+menu-0-2-exec = systemctl reboot &
+menu-0-3 = Shutdown
+menu-0-3-exec = systemctl poweroff &
+
+label-open = 󰐦
+label-close = 󱆮
+
+label-separator =   
+
+format = <menu><label-toggle>
+format-padding = 1

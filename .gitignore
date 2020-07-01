@@ -1,4 +1,4 @@
-emacs/.clj-kondo/.cache
-emacs/.doom.d/local/
-emacs/.doom.d/*.elc
+.clj-kondo/.cache
+.doom.d/local/
+.doom.d/*.elc
 *result

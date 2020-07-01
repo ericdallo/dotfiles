@@ -24,14 +24,9 @@
     172.17.0.1 datomic
   '';
 
-  services.openssh.enable = true;
   services.printing.enable = true;
 
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
-
-  # Enable touchpad support.
-  services.xserver.libinput.enable = true;
 
   users.users.greg = {
     isNormalUser = true;

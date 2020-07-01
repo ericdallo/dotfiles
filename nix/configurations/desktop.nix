@@ -1,29 +1,39 @@
 { pkgs, ... }:
 
 let
-  gnomeExtensions-text-translator = (import (fetchTarball https://github.com/ericdallo/nixpkgs/archive/gnome-extensions-text-translator.tar.gz) { config.allowUnfree = true; }).gnomeExtensions.text-translator;
+    material-design-icons = (import (fetchTarball https://github.com/NixOS/nixpkgs/archive/master.tar.gz) {}).material-design-icons;
 in {
   nixpkgs.config.allowBroken = true;
 
   environment.systemPackages = with pkgs;
     [
+      betterlockscreen
+      bspwm
+      dmenu
+      dunst
       franz
+      feh
+      font-manager
       gimp
-      gnomeExtensions.draw-on-your-screen
-      gnomeExtensions.system-monitor
-      gnomeExtensions-text-translator
-      gnome3.dconf-editor
       google-chrome
       gparted
       inkscape
+      flameshot
       flat-remix-icon-theme
+      libnotify
       materia-theme
+      networkmanager_dmenu
       ntfsprogs
+      pantheon.elementary-files
+      pavucontrol
       peek
-      polybar
+      polybarFull
       postman
-      # skype
-      # slack
+      playerctl
+      pulsemixer
+      rofi
+      skype
+      sxhkd
       teamviewer
       transmission-gtk
       vlc
@@ -31,20 +41,70 @@ in {
       woeusb
     ];
 
-  services.xserver.enable = true;
-  services.xserver.desktopManager = {
-    gnome3.enable = true;
-    gnome3.extraGSettingsOverrides = ''
-      [org.gnome.shell.app-switcher]
-      current-workspace-only=true
-    '';
+  environment.variables = {
+    DOTFILES = "$HOME/.dotfiles";
   };
 
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.displayManager.gdm.wayland = false;
-  services.xserver.displayManager.sessionCommands = ''
-    ${pkgs.xorg.xset}/bin/xset r rate 220 50 # not working for some reason
+  services = {
+    upower.enable = true;
+
+    xserver = {
+      enable = true;
+      layout = "us,br";
+      xkbVariant = "intl,abnt2";
+
+      modules = [ pkgs.xorg.xf86inputlibinput ];
+
+      displayManager.defaultSession = "none+bspwm";
+      displayManager.lightdm = {
+        enable = true;
+        greeters.mini = {
+            enable = true;
+            user = "greg";
+            extraConfig = ''
+                [greeter]
+                show-password-label = false
+                show-input-cursor = true
+                invalid-password-text = "You shall not pass!"
+                password-alignment = left
+                [greeter-theme]
+                background-image = ""
+                background-color = "#282a36"
+                window-color = "#bd93f9"
+                border-color = "#bd93f9"
+                layout-space = 16
+                font-size = 1.1em
+                password-background-color = "#44475a"
+                password-border-width = 4px
+                password-border-color = "#44475a"
+            '';
+        };
+      };
+
+      # desktopManager.xterm.enable = false;
+      # displayManager.startx.enable = true;
+
+      libinput.enable = true;
+      libinput.naturalScrolling = true;
+
+      windowManager.bspwm = {
+        enable = true;
+      };
+    };
+  };
+
+  services.logind.extraConfig = ''
+    HandleLidSwitch="hybrid-sleep"
   '';
 
-  services.xserver.libinput.enable = true;
+  fonts = {
+    fonts = with pkgs; [
+      emacs-all-the-icons-fonts
+      hack-font
+      roboto
+      material-design-icons
+      ibm-plex
+    ];
+  };
+
 }

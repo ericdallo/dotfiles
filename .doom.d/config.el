@@ -58,6 +58,7 @@
  compilation-scroll-output 'first-error
 
  projectile-project-search-path '("~/dev/" "~/dev/nu/")
+ projectile-enable-caching nil
 
  evil-split-window-below t
  evil-vsplit-window-right t
@@ -68,10 +69,11 @@
                           '((:eval (projectile-project-name))))
 
  doom-font (font-spec :family "Hack" :size 18)
+ doom-unicode-font (font-spec :family "Material Design Icons")
  doom-big-font-increment 2
 
  doom-theme 'doom-dracula
- doom-themes-treemacs-theme "Default"
+ doom-themes-treemacs-theme "doom-colors"
 
  doom-modeline-major-mode-icon t
  doom-modeline-buffer-encoding nil

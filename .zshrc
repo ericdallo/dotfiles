@@ -1,11 +1,7 @@
 source ~/.critical-keys
+source ~/.env
 
-export EDITOR="emacsclient -t"
-export DOTFILES_DIR="$HOME/.dotfiles"
-export GRADLE_OPTS=-Xmx1024m
-export GPG_TTY=$(tty)
-export GOPATH="$HOME/gocode"
-export PATH="$PATH:$HOME/.emacs.d/bin"
+export TERM="rxvt-unicode-256color"
 
 ### Extra paths
 
@@ -16,8 +12,3 @@ export PATH="$PATH:$HOME/flutter/bin"
 [[ -s ~/.bash_aliases ]] && source ~/.bash_aliases
 [[ -s ~/.functions ]] && source ~/.functions
 [[ -s ~/.extra ]] && source ~/.extra
-
-[[ $TERM == *"rxvt"* ]] && wmctrl -r :ACTIVE: -b add,fullscreen
-
-# move to nix
-xset r rate 220 50
