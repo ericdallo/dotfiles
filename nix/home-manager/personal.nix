@@ -32,9 +32,9 @@ in {
         ln -sf ${dotfilesDir}/.gitconfig ~/.gitconfig
         ln -sf ${dotfilesDir}/.gitignore_global ~/.gitignore_global
 
-        ln -sf ${dotfilesDir}/gregflix/.tmdb-functions ~/.tmdb-functions
-        ln -sf ${dotfilesDir}/gregflix/.gregflix-functions ~/.gregflix-functions
-        ln -sf ${dotfilesDir}/gregflix/.s3cfg ~/.s3cfg
+        ln -sf ${dotfilesDir}/.tmdb-functions ~/.tmdb-functions
+        ln -sf ${dotfilesDir}/.gregflix-functions ~/.gregflix-functions
+        ln -sf ${dotfilesDir}/.s3cfg ~/.s3cfg
 
         ln -sf ${dotfilesDir}/.tmux.conf ~/.tmux.conf
         ln -Tsf ${dotfilesDir}/.tmuxinator ~/.tmuxinator
