@@ -168,7 +168,8 @@
   :commands lsp-ui-mode
   :config
   (setq lsp-ui-peek-list-width 60
-        lsp-ui-peek-fontify 'always))
+        lsp-ui-peek-fontify 'always
+        lsp-ui-sideline-show-code-actions nil))
 
 (use-package! org-tree-slide
   :config
