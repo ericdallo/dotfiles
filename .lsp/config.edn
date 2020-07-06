@@ -40,6 +40,7 @@
             fact                    [[:block 1]]
             facts                   [[:block 1]]
             flow                    [[:block 1]]
+            flow-with-defaults      [[:block 1]]
             flow-as-of              [[:block 1]]
             flow-without-validation [[:block 1]]
             for-all                 [[:block 1]]
