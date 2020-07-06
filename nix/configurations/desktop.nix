@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-    material-design-icons = (import (fetchTarball https://github.com/NixOS/nixpkgs/archive/master.tar.gz) {}).material-design-icons;
+  material-design-icons = (import (fetchTarball https://github.com/NixOS/nixpkgs/archive/master.tar.gz) {}).material-design-icons;
 in {
   nixpkgs.config.allowBroken = true;
 
@@ -20,6 +20,7 @@ in {
       inkscape
       flameshot
       flat-remix-icon-theme
+      libinput-gestures
       libnotify
       materia-theme
       networkmanager_dmenu
@@ -45,6 +46,11 @@ in {
     DOTFILES = "$HOME/.dotfiles";
   };
 
+  environment.etc."libinput-gestures.conf".text = ''
+    gesture swipe right 3 bspc desktop -f next.local
+    gesture swipe left 3 bspc desktop -f prev.local
+  '';
+
   services = {
     upower.enable = true;
 
@@ -59,9 +65,9 @@ in {
       displayManager.lightdm = {
         enable = true;
         greeters.mini = {
-            enable = true;
-            user = "greg";
-            extraConfig = ''
+          enable = true;
+          user = "greg";
+          extraConfig = ''
                 [greeter]
                 show-password-label = false
                 show-input-cursor = true

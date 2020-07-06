@@ -1,65 +1,67 @@
 {
-  "window.zoomLevel": 2,
-  "workbench.colorTheme": "Monokai",
-  "files.associations": {
-    "*.ect": "html",
-    "*.clj": "clojure"
-  },
-  "files.autoSave": "afterDelay",
-  "explorer.confirmDelete": false,
-  "java.configuration.checkProjectSettingsExclusions": false,
-  "editor.suggestSelection": "first",
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "explorer.confirmDragAndDrop": false,
-  "editor.detectIndentation": true,
-  "editor.tokenColorCustomizations": {
-    "textMateRules": [
-      {
-        "scope": [
-          "constant.keyword.clojure"
-        ],
-        "settings": {
-          "foreground": "#7afcf5"
-        }
-      },
-      {
-        "scope": [
-          "punctuation.section.expression.begin.clojure",
-          "punctuation.section.expression.end.trailing.clojure"
-        ],
-        "settings": {
-          "foreground": "#999"
-        }
-      }
-    ]
-  },
-  "calva.paredit.defaultKeyMap": "none",
-  "calva.lintOnSave": false,
-  "bracket-pair-colorizer-2.colors": [
-    "LightGray",
-    "Orchid",
-    "Gold",
-    "LightSkyBlue",
-    "LightGreen"
-  ],
-  "calva.testOnSave": true,
-  "calva.evalOnSave": true,
-  "workbench.startupEditor": "newUntitledFile",
-  "debug.chrome.useV3": true,
-  "dart.previewLsp": false,
-  "[dart]": {
-    "editor.formatOnSave": true,
-    "editor.formatOnType": true,
-    "editor.rulers": [
-      80
-    ],
-    "editor.selectionHighlight": false,
-    "editor.suggest.snippetsPreventQuickSuggestions": false,
-    "editor.suggestSelection": "first",
-    "editor.tabCompletion": "onlySnippets",
-    "editor.wordBasedSuggestions": false,
-    "files.insertFinalNewline": true
-},
-"debug.onTaskErrors": "debugAnyway",
-"java.semanticHighlighting.enabled": true,
+	"window.zoomLevel": 2,
+	"workbench.colorTheme": "Monokai",
+	"files.associations": {
+		"*.ect": "html",
+		"*.clj": "clojure"
+	},
+	"files.autoSave": "afterDelay",
+	"explorer.confirmDelete": false,
+	"java.configuration.checkProjectSettingsExclusions": false,
+	"editor.suggestSelection": "first",
+	"vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+	"explorer.confirmDragAndDrop": false,
+	"editor.detectIndentation": true,
+	"editor.tokenColorCustomizations": {
+		"textMateRules": [
+			{
+				"scope": [
+					"constant.keyword.clojure"
+				],
+				"settings": {
+					"foreground": "#7afcf5"
+				}
+			},
+			{
+				"scope": [
+					"punctuation.section.expression.begin.clojure",
+					"punctuation.section.expression.end.trailing.clojure"
+				],
+				"settings": {
+					"foreground": "#999"
+				}
+			}
+		]
+	},
+	"calva.paredit.defaultKeyMap": "none",
+	"calva.lintOnSave": false,
+	"bracket-pair-colorizer-2.colors": [
+		"LightGray",
+		"Orchid",
+		"Gold",
+		"LightSkyBlue",
+		"LightGreen"
+	],
+	"calva.testOnSave": true,
+	"calva.evalOnSave": true,
+	"workbench.startupEditor": "newUntitledFile",
+	"debug.chrome.useV3": true,
+	"dart.previewLsp": true,
+	"dart.previewFlutterUiGuides": true,
+	"[dart]": {
+		"editor.formatOnSave": true,
+		"editor.formatOnType": true,
+		"editor.rulers": [
+			80
+		],
+		"editor.selectionHighlight": false,
+		"editor.suggest.snippetsPreventQuickSuggestions": false,
+		"editor.suggestSelection": "first",
+		"editor.tabCompletion": "onlySnippets",
+		"editor.wordBasedSuggestions": false,
+		"files.insertFinalNewline": true
+	},
+	"debug.onTaskErrors": "debugAnyway",
+	"java.semanticHighlighting.enabled": true,
+	"html.trace.server": "verbose",
 }

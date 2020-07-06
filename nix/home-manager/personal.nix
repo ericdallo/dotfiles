@@ -22,6 +22,7 @@ in {
         ln -Tsf ${dotfilesDir}/.config/polybar ~/.config/polybar
         ln -Tsf ${dotfilesDir}/.config/dunst ~/.config/dunst
         ln -Tsf ${dotfilesDir}/.config/networkmanager-dmenu ~/.config/networkmanager-dmenu
+        ln -Tsf ${dotfilesDir}/.config/libinput-gestures.conf ~/.config/libinput-gestures.conf
 
         ln -Tsf ${dotfilesDir}/.doom.d ~/.doom.d
         ln -Tsf ${dotfilesDir}/.lsp ~/.lsp
@@ -41,8 +42,8 @@ in {
 
         ln -sf ${dotfilesDir}/.vimrc ~/.vimrc
 
-        ln -sf ${dotfilesDir}/vscode/keybindings.json ~/.config/Code/User/keybindings.json
-        ln -sf ${dotfilesDir}/vscode/settings.json ~/.config/Code/User/settings.json
+        ln -sf ${dotfilesDir}/.config/Code/User/keybindings.json ~/.config/Code/User/keybindings.json
+        ln -sf ${dotfilesDir}/.config/Code/User/settings.json ~/.config/Code/User/settings.json
 
         ln -sf ${dotfilesDir}/.Xresources ~/.Xresources
 

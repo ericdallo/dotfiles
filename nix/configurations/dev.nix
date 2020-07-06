@@ -53,7 +53,7 @@ in {
         {
           name = "flutter";
           publisher = "dart-code";
-          version = "3.9.1";
+          version = "3.12.1";
           sha256 = "1lqsivqf4kmgih1wv44bvjwm2h1yxhpz7ij57d1jlf63r65xy2d3";
         }
         {
