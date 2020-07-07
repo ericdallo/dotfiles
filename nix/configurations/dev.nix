@@ -84,6 +84,7 @@ in {
     };
 
     hover = (import (fetchTarball https://github.com/ericdallo/nixpkgs/archive/hover-flutter.tar.gz) {}).hover;
+    clojure-lsp = (import (fetchTarball https://github.com/NixOS/nixpkgs/archive/master.tar.gz) {}).clojure-lsp;
   in
     [
       android-studio
@@ -99,7 +100,6 @@ in {
       #   plugins = with eclipses.plugins;
       #     [ gradle ];
       # })
-      #emacsUnstable
       ((emacsPackagesGen emacsUnstable).emacsWithPackages (epkgs: [
         epkgs.vterm
       ]))
@@ -109,7 +109,7 @@ in {
       heroku
       hover
       joker
-      # clj-kondo
+      clj-kondo
       leiningen
       mysql
       nodejs
