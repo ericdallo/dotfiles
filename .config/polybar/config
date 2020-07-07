@@ -77,7 +77,7 @@ label-empty-padding = 1
 [module/date]
 type = internal/date
 date-alt = %c
-date = %a - %H:%M
+date = %d/%m - %H:%M
 
 [module/space]
 type = custom/text
