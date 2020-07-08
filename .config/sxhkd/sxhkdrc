@@ -13,6 +13,9 @@ super + p
       polybar main &
 
 super + e
+      emacsclient -c
+
+super + shift + e
       emacs
 
 super + f

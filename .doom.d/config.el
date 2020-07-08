@@ -3,8 +3,8 @@
 (let ((nudev-emacs-path "~/dev/nu/nudev/ides/emacs/"))
   (when (file-directory-p nudev-emacs-path)
     (add-to-list 'load-path nudev-emacs-path)
-    (require 'nu)
-    (require 'nu-datomic-query)))
+    (require 'nu nil t)
+    (require 'nu-datomic-query nil t)))
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (add-to-list 'auto-mode-alist '("\\.repl\\'" . clojure-mode))
