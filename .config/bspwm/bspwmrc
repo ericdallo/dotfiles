@@ -29,6 +29,7 @@ bspc rule -a Google-chrome desktop='^3' state=tiled follow=on
 bspc rule -a Franz desktop='^4' state=tiled follow=on
 bspc rule -a Io.elementary.files  desktop='^5' state=tiled follow=on
 bspc rule -a Gimp desktop='^6' state=tiled follow=on
+bspc rule -a Loading.. desktop='^2' state=floating follow=on
 
 sleep 1
 
