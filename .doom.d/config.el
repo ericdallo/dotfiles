@@ -119,9 +119,9 @@
   (setq clojure-indent-style 'align-arguments
         clojure-thread-all-but-last t
         clojure-align-forms-automatically t
-        cider-show-error-buffer 'only-in-repl
+        cider-ns-refresh-show-log-buffer t
+        cider-show-error-buffer t;'only-in-repl
         cider-font-lock-dynamically '(macro core function var deprecated)
-        cider-show-error-buffer 'only-in-repl
         yas-minor-mode 1)
   (set-lookup-handlers! 'cider-mode nil)
   (cljr-add-keybindings-with-prefix "C-c C-c"))
