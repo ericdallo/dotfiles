@@ -156,6 +156,7 @@
          (java-mode . lsp))
   :config
   (setq lsp-clojure-server-command '("bash" "-c" "~/dev/clojure-lsp/target/clojure-lsp")
+        lsp-headerline-breadcrumb-enable t
         lsp-signature-auto-activate nil)
   (dolist (clojure-all-modes '(clojure-mode
                                clojurec-mode
