@@ -1,12 +1,12 @@
 ;; -*- no-byte-compile: t; -*-
 ;;; ~/dev/dotfiles/emacs/.doom.d/packages.el
 
-(package! cider)
 (package! clj-refactor)
 (package! clojure-mode)
 (package! dap-mode)
 ;; (package! dap-mode :recipe (:local-repo "~/dev/dap-mode" :files ("*.el") :no-byte-compile t))
 (package! dhall-mode)
+(package! emidje)
 (package! flutter)
 (package! flycheck-clojure)
 (package! flycheck-package)
@@ -26,6 +26,7 @@
 (package! posframe)
 (package! yaml-mode)
 
+(unpin! doom-modeline)
 (unpin! treemacs)
 (unpin! lsp-treemacs)
 (unpin! lsp-mode)

@@ -91,6 +91,7 @@
 (set-popup-rule! "\\*LSP Dart tests\\*" :side 'right :width 0.4)
 (set-popup-rule! "\\*dap-ui-locals\\*" :side 'right :width 0.3)
 (set-popup-rule! "\\*dap-ui-sessions\\*" :side 'right :width 0.3)
+(set-popup-rule! "\\*midje-test-report\\*" :side 'right :width 0.5)
 
 (use-package! clj-refactor
   :after clojure-mode
