@@ -53,6 +53,7 @@ in {
 
   services = {
     upower.enable = true;
+    acpid.enable = true;
 
     xserver = {
       enable = true;
@@ -87,6 +88,14 @@ in {
         };
       };
 
+      xautolock = {
+        enable = true;
+        enableNotifier = true;
+        locker = "${pkgs.betterlockscreen}/bin/betterlockscreen -s";
+        notifier =
+          ''${pkgs.libnotify}/bin/notify-send "Locking in 10 seconds"'';
+      };
+
       # desktopManager.xterm.enable = false;
       # displayManager.startx.enable = true;
 
@@ -100,7 +109,7 @@ in {
   };
 
   services.logind.extraConfig = ''
-    HandleLidSwitch="hybrid-sleep"
+    HandleLidSwitch="hibernate"
   '';
 
   fonts = {
