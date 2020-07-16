@@ -21,12 +21,13 @@
     jq
     killall
     kubectl
+    libvterm-neovim
     lshw
     manpages
     nssTools
     mediainfo
     neofetch
-    # nixfmt
+    nixfmt
     openssl
     oh-my-zsh
     pinentry

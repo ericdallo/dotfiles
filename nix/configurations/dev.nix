@@ -92,6 +92,7 @@ in {
       awscli
       clojure
       clojure-lsp
+      cmake
       dart_dev
       docker-compose
       # (eclipses.eclipseWithPlugins {
@@ -121,6 +122,7 @@ in {
       latest.rustChannels.nightly.rust
       sass
       sassc
+      shellcheck
       vcsodeWithExtension
     ];
 
