@@ -109,7 +109,7 @@ in {
       heroku
       hover
       joker
-      clj-kondo
+      # clj-kondo
       leiningen
       mysql
       nodejs
