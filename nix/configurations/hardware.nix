@@ -13,7 +13,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    blueman
     iw
   ];
 
@@ -51,6 +50,10 @@
     fstrim = {
       enable = true;
       interval = "weekly";
+    };
+
+    blueman = {
+      enable = true;
     };
 
     # Lock screen when lid is closed.

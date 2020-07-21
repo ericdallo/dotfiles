@@ -35,6 +35,8 @@ in {
       rofi
       skype
       sxhkd
+      udiskie
+      udisks
       teamviewer
       transmission-gtk
       vlc

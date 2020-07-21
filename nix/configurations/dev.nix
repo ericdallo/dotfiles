@@ -24,7 +24,7 @@ in {
       # jupyter
       # matplotlib
       # virtualenvwrapper
-      # python-language-server
+      python-language-server
       # seaborn
       # pillow
       fonttools
