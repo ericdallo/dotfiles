@@ -94,8 +94,7 @@ in {
         enable = true;
         enableNotifier = true;
         locker = "${pkgs.betterlockscreen}/bin/betterlockscreen -s";
-        notifier =
-          ''${pkgs.libnotify}/bin/notify-send "Locking in 10 seconds"'';
+        notifier = ''${pkgs.libnotify}/bin/notify-send -c "lockscreen"  "Locking in 10 seconds"'';
       };
 
       # desktopManager.xterm.enable = false;

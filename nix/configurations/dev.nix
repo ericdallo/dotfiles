@@ -47,14 +47,14 @@ in {
         {
           name = "dart-code";
           publisher = "dart-code";
-          version = "3.9.1";
-          sha256 = "02fmbrikpf1hp98w0b8qy1940ir2pjzqxb00fpv5qmrn0qgr581r";
+          version = "3.12.2";
+          sha256 = "1k9mw4ngrr7cyv0ykpyipi9hvv1qp3r84alqvbrdjvmlrh504i32";
         }
         {
           name = "flutter";
           publisher = "dart-code";
-          version = "3.12.1";
-          sha256 = "1lqsivqf4kmgih1wv44bvjwm2h1yxhpz7ij57d1jlf63r65xy2d3";
+          version = "3.12.2";
+          sha256 = "0a7s9nadr10dia8j247aha98snqfq7vpafpsgmn4ls4nshr3ayjv";
         }
         {
           name = "debugger-for-chrome";
@@ -119,7 +119,7 @@ in {
       python-with-my-packages
       rust-analyzer
       rustup
-      latest.rustChannels.nightly.rust
+      latest.rustChannels.stable.rust
       sass
       sassc
       shellcheck

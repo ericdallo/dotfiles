@@ -4,7 +4,8 @@
   environment.systemPackages = with pkgs;
   [
     ag
-    appimage-run
+    stable.appimage-run
+    aspell
     curl
     espeak
     fd
