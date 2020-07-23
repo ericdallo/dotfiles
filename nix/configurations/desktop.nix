@@ -23,9 +23,9 @@ in {
       libinput-gestures
       libnotify
       materia-theme
+      gnome3.nautilus
       networkmanager_dmenu
       ntfsprogs
-      pantheon.elementary-files
       pavucontrol
       peek
       polybarFull
