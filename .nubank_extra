@@ -7,3 +7,4 @@ export PATH="$NU_HOME/nucli.py/bin:$PATH"
 
 export ANDROID_HOME="$HOME/Android/Sdk"
 export CUSTOMER_TOKEN=$(cat $NU_HOME/.nu/tokens/br/prod/customer_access)
+export FLUTTER_PLATFORM_CLIENT_ENV=staging
