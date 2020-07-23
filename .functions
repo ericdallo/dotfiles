@@ -1,19 +1,19 @@
 #!/usr/bin/env bash
 
-ANDROID_EMULATOR_NIX_FOLDER="$DOTFILES_DIR/nix/android"
+ANDROID_EMULATOR_NIX_FOLDER="$DOTFILES/nix/android"
 ANDROID_EMULATOR_CONFIG_FILE="$HOME/.android/avd/device.avd/config.ini"
 
 function android-emulator() {
     cd $ANDROID_EMULATOR_NIX_FOLDER
     if [ ! -f "$ANDROID_EMULATOR_CONFIG_FILE" ]; then
         nix-build "$ANDROID_EMULATOR_NIX_FOLDER/emulator.nix"
-        $DOTFILES_DIR/nix/android/result/bin/run-test-emulator & pidsave=$!
+        $DOTFILES/nix/android/result/bin/run-test-emulator & pidsave=$!
         sleep 10
         kill $pidsave
-        ln -sf "$DOTFILES_DIR/nix/android/emulator-config.ini" "$ANDROID_EMULATOR_CONFIG_FILE"
+        ln -sf "$DOTFILES/nix/android/emulator-config.ini" "$ANDROID_EMULATOR_CONFIG_FILE"
     fi
     nix-build "$ANDROID_EMULATOR_NIX_FOLDER/emulator.nix"
-    $DOTFILES_DIR/nix/android/result/bin/run-test-emulator
+    $DOTFILES/nix/android/result/bin/run-test-emulator
 }
 
 function unity-apk-install() {
