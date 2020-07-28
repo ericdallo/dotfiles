@@ -6,6 +6,8 @@
     ag
     stable.appimage-run
     aspell
+    aspellDicts.en
+    aspellDicts.en-computers
     curl
     espeak
     fd

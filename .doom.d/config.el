@@ -22,15 +22,11 @@
       (unless (file-exists-p dir)
         (make-directory dir t)))))
 
-(defun open-dotfiles ()
-  "Browse the files in $DOTFILES_DIR"
+(defun emidje-jack-in ()
+  "Jack in with CIDER on a emdije project"
   (interactive)
-  (doom-project-browse (expand-file-name "~/.dotfiles")))
-
-(defun find-in-dotfiles ()
-  "Open a file somewhere in $DOTFILES_DIR via a fuzzy filename search."
-  (interactive)
-  (doom-project-find-file (expand-file-name "~/.dotfiles")))
+  (emidje-mode 1)
+  (emidje-enable-nrepl-middleware))
 
 (defun reverse-transpose-sexps (arg)
     (interactive "*p")
@@ -158,6 +154,7 @@
   :config
   (setq lsp-clojure-server-command '("bash" "-c" "~/dev/clojure-lsp/target/clojure-lsp")
         lsp-headerline-breadcrumb-enable t
+        lsp-lens-enable t
         lsp-signature-auto-activate nil)
   (dolist (clojure-all-modes '(clojure-mode
                                clojurec-mode

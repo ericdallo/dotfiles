@@ -14,6 +14,7 @@
 
        :checkers
        syntax            ; tasing you for every semicolon you forget
+       (spell +aspell)
        
        :completion
        (company)           ; the ultimate code completion backend

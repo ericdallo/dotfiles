@@ -12,6 +12,7 @@ with import <nixpkgs> {}; {
       xorg.libXinerama
       xorg.libXxf86vm
       xorg.libXi
+      xorg.libXext
     ];
   };
 }
