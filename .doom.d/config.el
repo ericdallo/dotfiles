@@ -26,7 +26,8 @@
   "Jack in with CIDER on a emdije project"
   (interactive)
   (emidje-mode 1)
-  (emidje-enable-nrepl-middleware))
+  (emidje-enable-nrepl-middleware)
+  (cider-jack-in nil))
 
 (defun reverse-transpose-sexps (arg)
     (interactive "*p")
