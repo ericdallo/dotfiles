@@ -71,7 +71,7 @@
  doom-big-font-increment 2
 
  doom-theme 'doom-dracula
- doom-themes-treemacs-theme "doom-colors"
+ doom-themes-treemacs-theme "all-the-icons"
 
  doom-modeline-major-mode-icon t
  doom-modeline-buffer-encoding nil
@@ -141,6 +141,7 @@
         lsp-java-format-settings-profile "GoogleStyle"
         lsp-java-save-actions-organize-imports t
         lsp-java-references-code-lens-enabled t
+        lsp-java-implementations-code-lens-enabled t
         lsp-file-watch-ignored
         '(".idea" ".ensime_cache" ".eunit" "node_modules"
           ".git" ".hg" ".fslckout" "_FOSSIL_"
@@ -183,6 +184,9 @@
 (use-package! paredit
   :hook ((clojure-mode . paredit-mode)
          (emacs-lisp-mode . paredit-mode)))
+
+(use-package! treemacs-all-the-icons
+  :after treemacs)
 
 (use-package! parrot
   :config

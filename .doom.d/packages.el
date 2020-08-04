@@ -20,7 +20,14 @@
 ;; (package! lsp-ui :recipe (:local-repo "~/dev/lsp-ui" :files ("*.el") :no-byte-compile t))
 (package! lsp-treemacs)
 (package! scss-mode)
-(package! treemacs)
+;; (package! treemacs :recipe (:local-repo "~/dev/treemacs" :files (:defaults
+;;                                                                  "Changelog.org"
+;;                                                                  "icons"
+;;                                                                  "src/elisp/treemacs*.el"
+;;                                                                  "src/scripts/treemacs*.py"
+;;                                                                  "src/extra/treemacs-all-the-icons.el"
+;;                                                                  ) :no-byte-compile t))
+(package! treemacs-all-the-icons)
 (package! paredit)
 (package! parrot :recipe (:host github :repo "jnc-nj/parrot" :branch "master"))
 (package! posframe)
