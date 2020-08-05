@@ -24,6 +24,8 @@ function unity-apk-install() {
     adb -s $DEVICE_IP shell am start -n com.gregcodes.$1/com.unity3d.player.UnityPlayerActivity
 }
 
+# Miband
+
 function miband-build() {
     TZ=Europe/Berlin wine ~/Documents/MiBand/MiBandWFTool_1.4.1/PaletteImageMode/WatchFace.exe $1
 }
@@ -35,6 +37,18 @@ function miband-watch() {
             miband-build *.json
         fi
     done
+}
+
+# Raspberry
+PI_IP="192.168.1.29"
+
+function midi-to-pi() {
+    scp "$1" pi@$PI_IP:/home/pi/Piano-LED-Visualizer/Songs/"$2"
+}
+
+
+function midi-from-pi() {
+    scp pi@$PI_IP:/home/pi/Piano-LED-Visualizer/Songs/"$1" "$2"
 }
 
 source $HOME/.gregflix-functions 2> /dev/null
