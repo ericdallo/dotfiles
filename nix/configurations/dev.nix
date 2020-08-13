@@ -25,6 +25,8 @@ in {
       # matplotlib
       # virtualenvwrapper
       python-language-server
+      pybluez
+      bluepy
       # seaborn
       # pillow
       fonttools
@@ -67,18 +69,6 @@ in {
           publisher = "ms-vscode";
           version = "2020.5.1217";
           sha256 = "18ysb0f7rind40xh4qhrrjkxkibhzh6sp9xvdfycpn9j1mgmywv8";
-        }
-        {
-          name = "vscode-java-debug";
-          publisher = "vscjava";
-          version = "0.26.0";
-          sha256 = "1vymb8ivnv05jarjm2l03s9wsqmakgsrlvf3s3d43jd3ydpi2jfy";
-        }
-        {
-          name = "java";
-          publisher = "redhat";
-          version = "0.61.0";
-          sha256 = "1mnqzlzscy6wnzh6h8yjhz190z6wvhkp4g8db151haz4jvxrfhnn";
         }
       ];
     };

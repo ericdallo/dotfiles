@@ -13,7 +13,7 @@ yellow=${xrdb:color3:#222}
 purple=${xrdb:color4:#222}
 color5=${xrdb:color5:#222}
 lightblue=${xrdb:color6:#222}
-color7=${xrdb:color7:#222}
+gray=${xrdb:color7:#222}
 color8=${xrdb:color8:#222}
 color9=${xrdb:color9:#222}
 color10=${xrdb:color10:#222}
@@ -36,8 +36,8 @@ overline-size = 2
 
 module-margin = 1
 modules-left = workspaces
-modules-center = date
-modules-right = github space cpu memory space pulseaudio backlight wireless-network battery exit
+modules-center = github space date
+modules-right = space cpu memory space bluetooth pulseaudio backlight wireless-network battery exit
 background = ${colors.background}
 foreground = ${colors.foreground}
 
@@ -97,16 +97,25 @@ format-offline = <label-offline>
 [module/cpu]
 type = internal/cpu
 interval = 3
-format-overline = ${colors.lightblue}
+format-overline = ${colors.gray}
 format = <label>
-label = 󰻠 %percentage:2%%
+label = 󰻠 %percentage:2%
 
 [module/memory]
 type = internal/memory
 interval = 3
 format = <label>
+format-overline = ${colors.gray}
+label = 󰘚 %percentage_used%
+
+[module/bluetooth]
+type = custom/script
+exec = ~/.config/polybar/bluetooth.sh
+interval = 3
+click-left = exec blueman-manager
+click-right = exec ~/.config/polybar/toggle-bluetooth.sh
+label = %output%
 format-overline = ${colors.lightblue}
-label = 󰘚 %percentage_used%%
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -166,7 +175,7 @@ battery = BAT0
 adapter = ${env:BATTERY_ADAPTER:AC0}
 poll-interval = 3
 
-label-full = 󰂄 100%
+label-full = 󰂄 100
 format-charging = 󰂄 <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
 format-charging-overline = ${colors.red}

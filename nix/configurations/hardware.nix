@@ -14,6 +14,7 @@
 
   environment.systemPackages = with pkgs; [
     iw
+    noisetorch
   ];
 
   # Configure special hardware in laptops.
@@ -26,6 +27,8 @@
     pulseaudio = {
       enable = true;
       package = pkgs.pulseaudioFull;
+      support32Bit = true;
+
       # Enable extra bluetooth codecs.
       extraModules = [ pkgs.pulseaudio-modules-bt ];
     };
