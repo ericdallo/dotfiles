@@ -49,14 +49,14 @@ in {
         {
           name = "dart-code";
           publisher = "dart-code";
-          version = "3.12.2";
-          sha256 = "1k9mw4ngrr7cyv0ykpyipi9hvv1qp3r84alqvbrdjvmlrh504i32";
+          version = "3.13.2";
+          sha256 = "05pyqijwkqby4q9izkddkrhlfd0jhdc1xqdf6342l1r7p8bwyqyr";
         }
         {
           name = "flutter";
           publisher = "dart-code";
-          version = "3.12.2";
-          sha256 = "0a7s9nadr10dia8j247aha98snqfq7vpafpsgmn4ls4nshr3ayjv";
+          version = "3.13.2";
+          sha256 = "1jpb01a3fazwi89b2f59sm8sbzbfaawdxaais53dsay1wbg5hncz";
         }
         {
           name = "debugger-for-chrome";

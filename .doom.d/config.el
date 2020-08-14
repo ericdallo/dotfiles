@@ -55,6 +55,8 @@
  evil-multiedit-smart-match-boundaries nil
  compilation-scroll-output 'first-error
 
+ read-process-output-max (* 1024 1024)
+
  projectile-project-search-path '("~/dev/" "~/dev/nu/")
  projectile-enable-caching nil
 
@@ -78,7 +80,6 @@
  doom-modeline-buffer-file-name-style 'relative-to-project
  doom-modeline-vcs-max-length 6
 
- +lsp-company-backend 'company-capf
  +format-on-save-enabled-modes '(dart-mode)
 
  evil-collection-setup-minibuffer t)

@@ -1,1 +1,2 @@
 .lsp/sqlite*
+.clj-kondo/cache
