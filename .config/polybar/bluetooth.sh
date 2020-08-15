@@ -15,4 +15,4 @@ fi
 
 mac_address="$(echo info | bluetoothctl | grep 'Device' | head -n 1|  awk '{print $2}')"
 
-echo "%{F#8BE9FD}󰂰 $connected"
+echo "%{F#8BE9FD}󰂰"
