@@ -12,9 +12,16 @@
                         bonafont.logic.flow-config/defflow          clojure.core/def
                         bonafont.logic.flow-config/def              clojure.core/def
                         bonafont.flows.debit-request.edges/def-edge clojure.core/def
+                        common-test.postman.helpers.core/defstep    clojure.core/defn
+                        common-graphql.lacinia.sweet/defresolver    clojure.core/def
+                        common-graphql.lacinia.sweet/defmutation    clojure.core/def
+                        common-graphql.lacinia.sweet/definterface   clojure.core/def
+                        common-graphql.lacinia.sweet/defobject      clojure.core/def
+                        common-graphql.lacinia.sweet/definput       clojure.core/def
+                        common-graphql.lacinia.sweet/defenum        clojure.core/def
+                        integration.aux.init/defflow                clojure.core/def
                         postman.aux.helpers/defaction               clojure.core/defn
-                        schema.core/def                             clojure.core/def
-                        common-test.postman.helpers.core/defstep    cloure.core/defn}}
+                        state-flow.cljtest/defflow                  clojure.core/def}}
  "macro-defs" {common-graphql.lacinia.sweet/defenum        [:declaration :elements]
                common-graphql.lacinia.sweet/definterface   [:declaration :elements]
                common-graphql.lacinia.sweet/definput       [:declaration :elements]
