@@ -1,5 +1,5 @@
-{"clj-kondo" {:linters {:refer-all         {:level   :info
-                                            :exclude [midje.sweet]}
+{"clj-kondo" {:skip-comments true
+              :linters {:refer-all         {:exclude [clojure.test midje.sweet]}
                         :unresolved-symbol {:level   :error
                                             :exclude [fact
                                                       facts

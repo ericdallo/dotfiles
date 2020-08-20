@@ -74,9 +74,10 @@ in {
     };
 
     hover = (import (fetchTarball https://github.com/ericdallo/nixpkgs/archive/hover-flutter.tar.gz) {}).hover;
-    clojure-lsp = (import (fetchTarball https://github.com/NixOS/nixpkgs/archive/master.tar.gz) {}).clojure-lsp;
+    master = (import (fetchTarball https://github.com/NixOS/nixpkgs/archive/master.tar.gz) {});
   in
     [
+      master.alda
       android-studio
       android.androidsdk
       awscli
