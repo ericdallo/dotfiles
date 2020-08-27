@@ -30,7 +30,7 @@
 
   users.users.greg = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "video" "audio" "adbusers" "input"];
+    extraGroups = [ "wheel" "networkmanager" "video" "audio" "sound" "adbusers" "input"];
     shell = pkgs.zsh;
   };
   nix.allowedUsers = [ "greg" ];

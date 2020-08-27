@@ -57,10 +57,14 @@ in {
     upower.enable = true;
     acpid.enable = true;
 
+    autorandr.enable = true;
+
     xserver = {
       enable = true;
       layout = "us,br";
       xkbVariant = "intl,abnt2";
+
+      videoDrivers = [ "intel" ];
 
       modules = [ pkgs.xorg.xf86inputlibinput ];
 
