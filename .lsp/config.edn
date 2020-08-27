@@ -21,7 +21,9 @@
                         common-graphql.lacinia.sweet/defenum        clojure.core/def
                         integration.aux.init/defflow                clojure.core/def
                         postman.aux.helpers/defaction               clojure.core/defn
-                        state-flow.cljtest/defflow                  clojure.core/def}}
+                        state-flow.cljtest/defflow                  clojure.core/def
+                        rewrite-clj.zip/edit->                      clojure.core/->
+                        rewrite-clj.zip.subedit/edit->              clojure.core/->}}
  "macro-defs" {common-graphql.lacinia.sweet/defenum        [:declaration :elements]
                common-graphql.lacinia.sweet/definterface   [:declaration :elements]
                common-graphql.lacinia.sweet/definput       [:declaration :elements]
@@ -96,4 +98,5 @@
  "use-metadata-for-privacy?" true
  "keep-require-at-start?" true
  "show-docs-arity-on-same-line?" true
+ "auto-add-ns-to-new-files?" true
  "dependency-scheme" "jar"}
