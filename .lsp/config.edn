@@ -1,4 +1,4 @@
-{"clj-kondo" {:skip-comments true
+{:clj-kondo {:skip-comments true
               :linters {:refer-all         {:exclude [clojure.test midje.sweet]}
                         :unresolved-symbol {:level   :error
                                             :exclude [fact
@@ -24,7 +24,7 @@
                         state-flow.cljtest/defflow                  clojure.core/def
                         rewrite-clj.zip/edit->                      clojure.core/->
                         rewrite-clj.zip.subedit/edit->              clojure.core/->}}
- "macro-defs" {common-graphql.lacinia.sweet/defenum        [:declaration :elements]
+ :macro-defs {common-graphql.lacinia.sweet/defenum        [:declaration :elements]
                common-graphql.lacinia.sweet/definterface   [:declaration :elements]
                common-graphql.lacinia.sweet/definput       [:declaration :elements]
                common-graphql.lacinia.sweet/mutation       [:declaration :elements]
@@ -42,7 +42,7 @@
                bonafont.flows.debit-request.edges/def-edge [:declaration :elements]
                org.httpkit.server/with-channel             [:element :param :bound-elements]
                plumbing.core/fnk                           [:params :bound-elements]}
- "cljfmt" {:indents
+ :cljfmt {:indents
            {against-background      [[:inner 0]]
             as-admin                [[:block 1]]
             as-customer             [[:block 1]]
@@ -94,9 +94,9 @@
             with-fn-validation      [[:block 0]]
             with-responses          [[:block 0]]
             with-scopes             [[:block 1]]}}
- "source-paths" ["src" "test" "postman"]
- "use-metadata-for-privacy?" true
- "keep-require-at-start?" true
- "show-docs-arity-on-same-line?" true
- "auto-add-ns-to-new-files?" true
- "dependency-scheme" "jar"}
+ :source-paths ["src" "test" "postman"]
+ :use-metadata-for-privacy? true
+ :keep-require-at-start? true
+ :show-docs-arity-on-same-line? true
+ :auto-add-ns-to-new-files? true
+ :dependency-scheme "jar"}
