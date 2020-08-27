@@ -82,6 +82,8 @@
 
  +format-on-save-enabled-modes '(dart-mode)
 
+ dap-enable-mouse-support nil
+
  evil-collection-setup-minibuffer t)
 
 (set-popup-rule! "^\\*cider-repl" :side 'right :width 0.5)
@@ -91,14 +93,22 @@
 (set-popup-rule! "\\*dap-ui-sessions\\*" :side 'right :width 0.3)
 (set-popup-rule! "\\*midje-test-report\\*" :side 'right :width 0.5)
 
+(use-package! cider
+  :after clojure-mode
+  :config
+  (setq cider-ns-refresh-show-log-buffer t
+        cider-show-error-buffer t;'only-in-repl
+        cider-font-lock-dynamically '(macro core function var deprecated)
+        cider-prompt-for-symbol nil)
+  (set-lookup-handlers! 'cider-mode nil))
+
 (use-package! clj-refactor
   :after clojure-mode
   :config
   (set-lookup-handlers! 'clj-refactor-mode nil)
   (setq cljr-warn-on-eval nil
         cljr-eagerly-build-asts-on-startup nil
-        cljr-clojure-test-declaration "[midje.sweet :refer :all]"
-        clj-refactor-mode 1
+        cljr-add-ns-to-blank-clj-files nil
         cljr-magic-require-namespaces
         '(("s"   . "schema.core")
           ("th"  . "common-core.test-helpers")
@@ -110,19 +120,14 @@
           ("t-time" . "common-core.types.time")
           ("d" . "datomic.api")
           ("m" . "matcher-combinators.matchers")
-          ("pp" . "clojure.pprint")
-          ("init" . "postman-aux.init"))))
+          ("pp" . "clojure.pprint"))))
 
 (use-package! clojure-mode
   :config
   (setq clojure-indent-style 'align-arguments
         clojure-thread-all-but-last t
         clojure-align-forms-automatically t
-        cider-ns-refresh-show-log-buffer t
-        cider-show-error-buffer t;'only-in-repl
-        cider-font-lock-dynamically '(macro core function var deprecated)
         yas-minor-mode 1)
-  (set-lookup-handlers! 'cider-mode nil)
   (cljr-add-keybindings-with-prefix "C-c C-c"))
 
 (use-package! company
