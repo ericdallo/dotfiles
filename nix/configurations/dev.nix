@@ -96,10 +96,11 @@ in {
         epkgs.vterm
       ]))
       # flutter
+      nubank.flutter
       gitAndTools.hub
       go
       heroku
-      hover
+      nubank.hover
       joker
       # clj-kondo
       leiningen
