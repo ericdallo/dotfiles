@@ -84,7 +84,7 @@ in {
       clojure
       clojure-lsp
       cmake
-      dart_dev
+      # dart_dev
       docker-compose
       # (eclipses.eclipseWithPlugins {
       #   eclipse = eclipses.eclipse-java;
@@ -96,11 +96,12 @@ in {
         epkgs.vterm
       ]))
       # flutter
+      nubank.dart
       nubank.flutter
+      nubank.hover
       gitAndTools.hub
       go
       heroku
-      nubank.hover
       joker
       # clj-kondo
       leiningen

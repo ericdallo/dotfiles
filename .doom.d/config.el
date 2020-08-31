@@ -57,7 +57,7 @@
 
  read-process-output-max (* 1024 1024)
 
- projectile-project-search-path '("~/dev/" "~/dev/nu/")
+ projectile-project-search-path '("~/dev/" "~/dev/nu/" "~/dev/nu/mini-meta-repo/packages")
  projectile-enable-caching nil
 
  evil-split-window-below t
@@ -89,6 +89,7 @@
 (set-popup-rule! "^\\*cider-repl" :side 'right :width 0.5)
 (set-popup-rule! "*cider-test-report*" :side 'right :width 0.5)
 (set-popup-rule! "\\*LSP Dart tests\\*" :side 'right :width 0.4)
+(set-popup-rule! "\\*Hover\\*" :quit nil)
 (set-popup-rule! "\\*dap-ui-locals\\*" :side 'right :width 0.3)
 (set-popup-rule! "\\*dap-ui-sessions\\*" :side 'right :width 0.3)
 (set-popup-rule! "\\*midje-test-report\\*" :side 'right :width 0.5)
@@ -139,6 +140,16 @@
   :config
   (setq hover-hot-reload-on-save t
         hover-screenshot-path "$HOME/Pictures"))
+
+(use-package! lsp-dart
+  :config
+  (when-let (dart-exec (executable-find "dart"))
+    (let ((dart-sdk-path (-> dart-exec
+                             file-chase-links
+                             file-name-directory
+                             directory-file-name
+                             file-name-directory)))
+      (setq lsp-dart-sdk-dir dart-sdk-path))))
 
 (use-package! lsp-java
   :after lsp

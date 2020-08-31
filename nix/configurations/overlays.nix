@@ -5,5 +5,5 @@
 
   (import (builtins.fetchTarball https://github.com/nix-community/emacs-overlay/archive/master.tar.gz))
   (import (builtins.fetchTarball https://github.com/mozilla/nixpkgs-mozilla/archive/master.tar.gz))
-  (import (builtins.fetchTarball https://github.com/nubank/nixpkgs/archive/add-hover.tar.gz))
+  (import (builtins.fetchTarball https://github.com/nubank/nixpkgs/archive/master.tar.gz))
 ]
