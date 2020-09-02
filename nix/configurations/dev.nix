@@ -73,8 +73,8 @@ in {
       ];
     };
 
-    hover = (import (fetchTarball https://github.com/ericdallo/nixpkgs/archive/hover-flutter.tar.gz) {}).hover;
-    master = (import (fetchTarball https://github.com/NixOS/nixpkgs/archive/master.tar.gz) {});
+    mob = (import (fetchTarball https://github.com/ericdallo/nixpkgs/archive/mob-init.tar.gz) {}).mob;
+
   in
     [
       master.alda
@@ -84,7 +84,6 @@ in {
       clojure
       clojure-lsp
       cmake
-      # dart_dev
       docker-compose
       # (eclipses.eclipseWithPlugins {
       #   eclipse = eclipses.eclipse-java;
@@ -95,10 +94,10 @@ in {
       ((emacsPackagesGen emacsUnstable).emacsWithPackages (epkgs: [
         epkgs.vterm
       ]))
-      # flutter
       nubank.dart
       nubank.flutter
-      nubank.hover
+      (nubank.hover.override { go = go_1_14; })
+      mob
       gitAndTools.hub
       go
       heroku

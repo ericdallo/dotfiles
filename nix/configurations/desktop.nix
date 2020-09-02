@@ -1,8 +1,6 @@
 { pkgs, ... }:
 
-let
-  material-design-icons = (import (fetchTarball https://github.com/NixOS/nixpkgs/archive/master.tar.gz) {}).material-design-icons;
-in {
+{
   nixpkgs.config.allowBroken = true;
 
   environment.systemPackages = with pkgs;
@@ -122,7 +120,7 @@ in {
       emacs-all-the-icons-fonts
       hack-font
       roboto
-      material-design-icons
+      master.material-design-icons
       ibm-plex
     ];
   };

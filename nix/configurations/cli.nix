@@ -65,7 +65,6 @@
     zsh = {
       enable = true;
       syntaxHighlighting.enable = true;
-      autosuggestions.enable = true;
       enableCompletion = true;
       ohMyZsh = {
         enable = true;
