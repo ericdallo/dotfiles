@@ -1,99 +1,106 @@
 {:clj-kondo {:skip-comments true
-              :linters {:refer-all         {:exclude [clojure.test midje.sweet]}
-                        :unresolved-symbol {:level   :error
-                                            :exclude [fact
-                                                      facts
-                                                      =>
-                                                      (midje.sweet/fact)
-                                                      (midje.sweet/facts)
-                                                      (midje.parsing.arrow-symbols/=>)]}}
-              :lint-as {bonafont.logic.flow-edge/def                clojure.core/def
-                        bonafont.logic.flow-edge/defedge            clojure.core/def
-                        bonafont.logic.flow-config/defflow          clojure.core/def
-                        bonafont.logic.flow-config/def              clojure.core/def
-                        bonafont.flows.debit-request.edges/def-edge clojure.core/def
-                        common-test.postman.helpers.core/defstep    clojure.core/defn
-                        common-graphql.lacinia.sweet/defresolver    clojure.core/def
-                        common-graphql.lacinia.sweet/defmutation    clojure.core/def
-                        common-graphql.lacinia.sweet/definterface   clojure.core/def
-                        common-graphql.lacinia.sweet/defobject      clojure.core/def
-                        common-graphql.lacinia.sweet/definput       clojure.core/def
-                        common-graphql.lacinia.sweet/defenum        clojure.core/def
-                        integration.aux.init/defflow                clojure.core/def
-                        postman.aux.helpers/defaction               clojure.core/defn
-                        state-flow.cljtest/defflow                  clojure.core/def
-                        rewrite-clj.zip/edit->                      clojure.core/->
-                        rewrite-clj.zip.subedit/edit->              clojure.core/->}}
- :macro-defs {common-graphql.lacinia.sweet/defenum        [:declaration :elements]
-               common-graphql.lacinia.sweet/definterface   [:declaration :elements]
-               common-graphql.lacinia.sweet/definput       [:declaration :elements]
-               common-graphql.lacinia.sweet/mutation       [:declaration :elements]
-               common-graphql.lacinia.sweet/defobject      [:declaration :elements]
-               schema.core/defschema                       [:declaration :elements]
-               schema.core/def                             [:declaration :elements]
-               schema.core/fn                              [:params :bound-elements]
-               schema.test/deftest                         [{:element :declaration :tags #{:unused}} :elements]
-               integration.aux.init/defflow                [{:element :declaration :tags #{:unused}} :elements]
-               state-flow.cljtest/defflow                  [{:element :declaration :tags #{:unused}} :elements]
-               bonafont.logic.flow-edge/def                [:declaration :elements]
-               bonafont.logic.flow-edge/defedge            [:declaration :elements]
-               bonafont.logic.flow-config/defflow          [:declaration :elements]
-               bonafont.logic.flow-config/def              [:declaration :elements]
-               bonafont.flows.debit-request.edges/def-edge [:declaration :elements]
-               org.httpkit.server/with-channel             [:element :param :bound-elements]
-               plumbing.core/fnk                           [:params :bound-elements]}
+             :linters {:refer-all         {:exclude [clojure.test midje.sweet]}
+                       :unresolved-symbol {:level   :error
+                                           :exclude [fact
+                                                     facts
+                                                     =>
+                                                     (midje.sweet/fact)
+                                                     (midje.sweet/facts)
+                                                     (midje.parsing.arrow-symbols/=>)]}}
+             :lint-as {bonafont.logic.flow-edge/def                clojure.core/def
+                       bonafont.logic.flow-edge/defedge            clojure.core/def
+                       bonafont.logic.flow-config/defflow          clojure.core/def
+                       bonafont.logic.flow-config/def              clojure.core/def
+                       bonafont.flows.debit-request.edges/def-edge clojure.core/def
+                       common-test.postman.helpers.core/defstep    clojure.core/defn
+                       common-graphql.lacinia.sweet/defresolver    clojure.core/def
+                       common-graphql.lacinia.sweet/defmutation    clojure.core/def
+                       common-graphql.lacinia.sweet/definterface   clojure.core/def
+                       common-graphql.lacinia.sweet/defobject      clojure.core/def
+                       common-graphql.lacinia.sweet/defscalar      clojure.core/def
+                       common-graphql.lacinia.sweet/defunion       clojure.core/def
+                       common-graphql.lacinia.sweet/definput       clojure.core/def
+                       common-graphql.lacinia.sweet/defenum        clojure.core/def
+                       integration.aux.init/defflow                clojure.core/def
+                       postman.aux.helpers/defaction               clojure.core/defn
+                       state-flow.cljtest/defflow                  clojure.core/def
+                       rewrite-clj.zip/edit->                      clojure.core/->
+                       rewrite-clj.zip.subedit/edit->              clojure.core/->}}
+ :macro-defs {common-graphql.lacinia.sweet/defenum                [:declaration :elements]
+              common-graphql.lacinia.sweet/definterface           [:declaration :elements]
+              common-graphql.lacinia.sweet/definput               [:declaration :elements]
+              common-graphql.lacinia.sweet/defscalar              [:declaration :elements]
+              common-graphql.lacinia.sweet/defunion               [:declaration :elements]
+              common-graphql.lacinia.sweet/mutation               [:declaration :elements]
+              common-graphql.lacinia.sweet/defobject              [:declaration :elements]
+              schema.core/defschema                               [:declaration :elements]
+              schema.core/def                                     [:declaration :elements]
+              schema.core/fn                                      [:params :bound-elements]
+              schema.test/deftest                                 [{:element :declaration :tags #{:unused}} :elements]
+              integration.aux.init/defflow                        [{:element :declaration :tags #{:unused}} :elements]
+              state-flow.cljtest/defflow                          [{:element :declaration :tags #{:unused}} :elements]
+              bonafont.logic.flow-edge/def                        [:declaration :elements]
+              bonafont.logic.flow-edge/defedge                    [:declaration :elements]
+              bonafont.logic.flow-config/defflow                  [:declaration :elements]
+              bonafont.logic.flow-config/def                      [:declaration :elements]
+              bonafont.flows.debit-request.edges/def-edge         [:declaration :elements]
+              org.httpkit.server/with-channel                     [:element :param :bound-elements]
+              nubank.shuffle.common.fulcro.db-helpers/defmutation [:declaration :params :bound-elements]
+              nubank.shuffle.common.ui.helpers/defc               [:declaration :params :bound-elements]
+              postman.aux.init/defflow                            [{:element :declaration :tags #{:unused}} :elements]
+              plumbing.core/fnk                                   [:params :bound-elements]}
  :cljfmt {:indents
-           {against-background      [[:inner 0]]
-            as-admin                [[:block 1]]
-            as-customer             [[:block 1]]
-            as-customer-with-lift   [[:block 1]]
-            as-delegate             [[:block 2]]
-            as-delegate-with-lift   [[:block 2]]
-            as-of                   [[:block 1]]
-            assoc                   [[:block 1]]
-            assoc-if                [[:block 1]]
-            assoc-in-if             [[:block 1]]
-            assoc-some              [[:block 1]]
-            assoc-in-some           [[:block 1]]
-            constraint-fn           [[:block 2]]
-            consume!                [[:block 0]]
-            data-fn                 [[:block 1]]
-            defhandler              [[:block 2]]
-            defint                  [[:block 0]]
-            defuf                   [[:block 1]]
-            embeds                  [[:block 0]]
-            expand-routes           [[:inner 1]]
-            fact                    [[:block 1]]
-            facts                   [[:block 1]]
-            flow                    [[:block 1]]
-            flow-with-defaults      [[:block 1]]
-            flow-as-of              [[:block 1]]
-            flow-without-validation [[:block 1]]
-            for-all                 [[:block 1]]
-            future-fact             [[:block 1]]
-            future-facts            [[:block 1]]
-            idempotent-start        [[:block 1]]
-            idempotent-stop         [[:block 1]]
-            ignore-conflict         [[:inner 0]]
-            let-entities            [[:block 2]]
-            let-flow                [[:block 1]]
-            log-messages            [[:block 0]]
-            logged-call             [[:block 1]]
-            non-test-action         [[:inner 0]]
-            profile                 [[:block 2]]
-            profiled                [[:block 1]]
-            provided                [[:inner 0]]
-            quick-check             [[:block 1]]
-            rethrow                 [[:block 1]]
-            run-recipe              [[:inner 0]]
-            some-with-open          [[:block 1]]
-            system-map              [[:block 0]]
-            tabular                 [[:inner 0]]
-            try-type                [[:block 0]]
-            with-cid                [[:block 1]]
-            with-fn-validation      [[:block 0]]
-            with-responses          [[:block 0]]
-            with-scopes             [[:block 1]]}}
+          {against-background      [[:inner 0]]
+           as-admin                [[:block 1]]
+           as-customer             [[:block 1]]
+           as-customer-with-lift   [[:block 1]]
+           as-delegate             [[:block 2]]
+           as-delegate-with-lift   [[:block 2]]
+           as-of                   [[:block 1]]
+           assoc                   [[:block 1]]
+           assoc-if                [[:block 1]]
+           assoc-in-if             [[:block 1]]
+           assoc-some              [[:block 1]]
+           assoc-in-some           [[:block 1]]
+           constraint-fn           [[:block 2]]
+           consume!                [[:block 0]]
+           data-fn                 [[:block 1]]
+           defhandler              [[:block 2]]
+           defint                  [[:block 0]]
+           defuf                   [[:block 1]]
+           embeds                  [[:block 0]]
+           expand-routes           [[:inner 1]]
+           fact                    [[:block 1]]
+           facts                   [[:block 1]]
+           flow                    [[:block 1]]
+           flow-with-defaults      [[:block 1]]
+           flow-as-of              [[:block 1]]
+           flow-without-validation [[:block 1]]
+           for-all                 [[:block 1]]
+           future-fact             [[:block 1]]
+           future-facts            [[:block 1]]
+           idempotent-start        [[:block 1]]
+           idempotent-stop         [[:block 1]]
+           ignore-conflict         [[:inner 0]]
+           let-entities            [[:block 2]]
+           let-flow                [[:block 1]]
+           log-messages            [[:block 0]]
+           logged-call             [[:block 1]]
+           non-test-action         [[:inner 0]]
+           profile                 [[:block 2]]
+           profiled                [[:block 1]]
+           provided                [[:inner 0]]
+           quick-check             [[:block 1]]
+           rethrow                 [[:block 1]]
+           run-recipe              [[:inner 0]]
+           some-with-open          [[:block 1]]
+           system-map              [[:block 0]]
+           tabular                 [[:inner 0]]
+           try-type                [[:block 0]]
+           with-cid                [[:block 1]]
+           with-fn-validation      [[:block 0]]
+           with-responses          [[:block 0]]
+           with-scopes             [[:block 1]]}}
  :source-paths ["src" "test" "postman"]
  :use-metadata-for-privacy? true
  :keep-require-at-start? true
