@@ -29,7 +29,6 @@
 ;;                                                                  ) :no-byte-compile t))
 (package! treemacs-all-the-icons)
 (package! paredit)
-(package! parrot :recipe (:host github :repo "jnc-nj/parrot" :branch "master"))
 (package! posframe)
 (package! yaml-mode)
 

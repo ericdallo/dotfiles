@@ -151,4 +151,4 @@
       "T" #'lsp-dart-run-test-at-point
 
       :desc "Run all tests"
-      "M-t" #'flutter-test-all)
+      "M-t" #'lsp-dart-run-all-tests)

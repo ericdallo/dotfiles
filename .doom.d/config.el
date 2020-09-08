@@ -10,6 +10,7 @@
 (add-to-list 'auto-mode-alist '("\\.repl\\'" . clojure-mode))
 (add-to-list 'auto-mode-alist '("\\.ect\\'" . html-mode))
 (add-to-list 'auto-mode-alist '("\\.ejs\\'" . html-mode))
+(add-to-list 'auto-mode-alist '("\\.xtend\\'" . java-mode))
 (add-hook 'html-mode-hook #'turn-off-auto-fill)
 (add-hook 'markdown-mode-hook #'turn-off-auto-fill)
 (add-hook 'dart-mode-hook (lambda () (setq left-fringe-width 16)))
@@ -78,7 +79,7 @@
  doom-modeline-major-mode-icon t
  doom-modeline-buffer-encoding nil
  doom-modeline-buffer-file-name-style 'relative-to-project
- doom-modeline-vcs-max-length 6
+ doom-modeline-vcs-max-length 0
 
  +format-on-save-enabled-modes '(dart-mode)
 
@@ -88,7 +89,7 @@
 
 (set-popup-rule! "^\\*cider-repl" :side 'right :width 0.5)
 (set-popup-rule! "*cider-test-report*" :side 'right :width 0.5)
-(set-popup-rule! "\\*LSP Dart tests\\*" :side 'right :width 0.4)
+(set-popup-rule! "\\*LSP Dart tests\\*" :side 'right :width 0.5)
 (set-popup-rule! "\\*Hover\\*" :quit nil)
 (set-popup-rule! "\\*dap-ui-locals\\*" :side 'right :width 0.3)
 (set-popup-rule! "\\*dap-ui-sessions\\*" :side 'right :width 0.3)
@@ -139,6 +140,7 @@
   :after dart-mode
   :config
   (setq hover-hot-reload-on-save t
+        hover-clear-buffer-on-hot-restart t
         hover-screenshot-path "$HOME/Pictures"))
 
 (use-package! lsp-dart
@@ -149,7 +151,8 @@
                              file-name-directory
                              directory-file-name
                              file-name-directory)))
-      (setq lsp-dart-sdk-dir dart-sdk-path))))
+      (setq lsp-dart-sdk-dir dart-sdk-path
+            lsp-dart-dap-flutter-hot-reload-on-save t))))
 
 (use-package! lsp-java
   :after lsp
@@ -187,6 +190,10 @@
   :commands lsp-ui-mode
   :config
   (setq lsp-ui-peek-list-width 60
+        ;; lsp-ui-doc-enable nil
+        ;; lsp-ui-doc-max-width 200
+        ;; lsp-ui-doc-max-height 30
+        ;; lsp-signature-auto-activate nil
         lsp-ui-peek-fontify 'always
         lsp-ui-sideline-show-code-actions nil))
 
@@ -205,14 +212,10 @@
 (use-package! treemacs-all-the-icons
   :after treemacs)
 
-(use-package! parrot
-  :config
-  (setq parrot-keep-partying t
-        parrot-persistent-animation-frame-interval 0.03)
-  (parrot-mode))
-
 (after! projectile
   (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")
   (add-to-list 'projectile-project-root-files-bottom-up "BUILD"))
+
+(put 'narrow-to-region 'disabled nil)
 
 (load! "+bindings")
