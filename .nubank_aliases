@@ -3,7 +3,7 @@
 alias nubank='tmuxinator start nubank'
 alias grt="nu auth get-refresh-token"
 alias rt="nu auth refresh-token"
-alias vpn="$HOME/dev/nu/nudev/docker/forticlientvpn/nubank-vpn br"
+alias vpn="sudo openfortivpn -c $NU_HOME/.nu-vpn"
 
 function npmci() {
     cd $HOME/dev/nu/mini-meta-repo/native/cross-platform/react-native/ && npm ci

@@ -31,6 +31,7 @@
     mediainfo
     neofetch
     nixfmt
+    openfortivpn
     openssl
     oh-my-zsh
     pinentry
