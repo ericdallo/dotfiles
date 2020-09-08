@@ -11,7 +11,7 @@ red=${xrdb:color1:#222}
 green=${xrdb:color2:#222}
 yellow=${xrdb:color3:#222}
 purple=${xrdb:color4:#222}
-color5=${xrdb:color5:#222}
+pink=${xrdb:color5:#222}
 lightblue=${xrdb:color6:#222}
 gray=${xrdb:color7:#222}
 color8=${xrdb:color8:#222}
@@ -37,7 +37,7 @@ overline-size = 2
 module-margin = 1
 modules-left = workspaces
 modules-center = github space date
-modules-right = space cpu memory space bluetooth pulseaudio backlight wireless-network battery exit
+modules-right = space cpu memory space vpn bluetooth pulseaudio backlight wireless-network battery exit
 background = ${colors.background}
 foreground = ${colors.foreground}
 
@@ -116,6 +116,14 @@ click-left = exec blueman-manager
 click-right = exec ~/.config/polybar/toggle-bluetooth.sh
 label = %output%
 format-overline = ${colors.lightblue}
+
+[module/vpn]
+type = custom/script
+exec = ~/.config/polybar/vpn.sh
+interval = 3
+click-left = "exec ~/.config/polybar/vpn.sh toggle"
+label = %output%
+format-overline = ${colors.pink}
 
 [module/pulseaudio]
 type = internal/pulseaudio
