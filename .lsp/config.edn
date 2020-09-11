@@ -1,4 +1,5 @@
-{:clj-kondo {:skip-comments true
+{:linters {:unused-namespace-declarations #{"postman"}}
+ :clj-kondo {:skip-comments true
              :linters {:refer-all         {:exclude [clojure.test midje.sweet]}
                        :unresolved-symbol {:level   :error
                                            :exclude [fact
