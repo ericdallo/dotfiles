@@ -85,6 +85,7 @@
                 border-color = "#bd93f9"
                 layout-space = 16
                 font-size = 1.1em
+                cursor-theme-name = "Adwaita"
                 password-background-color = "#44475a"
                 password-border-width = 4px
                 password-border-color = "#44475a"

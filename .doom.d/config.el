@@ -75,6 +75,7 @@
 
  doom-theme 'doom-dracula
  doom-themes-treemacs-theme "all-the-icons"
+ doom-localleader-key ","
 
  doom-modeline-major-mode-icon t
  doom-modeline-buffer-encoding nil
@@ -89,7 +90,7 @@
 
 (set-popup-rule! "^\\*cider-repl" :side 'right :width 0.5)
 (set-popup-rule! "*cider-test-report*" :side 'right :width 0.5)
-(set-popup-rule! "\\*LSP Dart tests\\*" :side 'right :width 0.5)
+(set-popup-rule! "\\*LSP Dart tests\\*" :height 0.3)
 (set-popup-rule! "\\*Hover\\*" :quit nil)
 (set-popup-rule! "\\*dap-ui-locals\\*" :side 'right :width 0.3)
 (set-popup-rule! "\\*dap-ui-sessions\\*" :side 'right :width 0.3)
