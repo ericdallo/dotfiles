@@ -16,6 +16,7 @@
       google-chrome
       gparted
       inkscape
+      insomnia
       flameshot
       flat-remix-icon-theme
       libinput-gestures
