@@ -8,6 +8,9 @@ in {
   ];
 
   home = {
+    packages = with pkgs; [
+      unityhub
+    ];
     activation.linkFiles = config.lib.dag.entryAfter ["writeBoundary"] ''
         cp -n ${dotfilesDir}/.critical-keys.sample ~/.critical-keys
         ln -Tsf ${dotfilesDir}/.env ~/.env

@@ -18,9 +18,4 @@
   services.xserver = {
     xkbOptions = "ctrl:nocaps";
   };
-
-  system.autoUpgrade = {
-    enable = true;
-    dates = "daily";
-  };
 }

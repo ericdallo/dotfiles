@@ -26,12 +26,12 @@ in {
       # virtualenvwrapper
       python-language-server
       pybluez
-      bluepy
+      # bluepy
       # seaborn
       # pillow
       fonttools
     ];
-    python-with-my-packages = python37Full.withPackages custom-python-packages;
+    python-with-my-packages = stable.python37Full.withPackages custom-python-packages;
     vcsodeWithExtension = vscode-with-extensions.override {
       # When the extension is already available in the default extensions set.
       vscodeExtensions = with vscode-extensions; [
@@ -70,6 +70,12 @@ in {
           version = "2020.5.1217";
           sha256 = "18ysb0f7rind40xh4qhrrjkxkibhzh6sp9xvdfycpn9j1mgmywv8";
         }
+        {
+          name = "csharp";
+          publisher = "ms-dotnettools";
+          version = "1.23.2";
+          sha256 = "0ydaiy8jfd1bj50bqiaz5wbl7r6qwmbz9b29bydimq0rdjgapaar";
+        }
       ];
     };
 
@@ -91,7 +97,7 @@ in {
       #   plugins = with eclipses.plugins;
       #     [ gradle ];
       # })
-      ((emacsPackagesGen emacsUnstable).emacsWithPackages (epkgs: [
+      ((emacsPackagesGen emacsGcc).emacsWithPackages (epkgs: [
         epkgs.vterm
       ]))
       nubank.dart
@@ -107,6 +113,7 @@ in {
       mysql
       nodejs
       nodePackages.node2nix
+      omnisharp.omnisharp-roslyn
       pandoc
       python-with-my-packages
       rust-analyzer
