@@ -32,8 +32,10 @@
 (package! posframe)
 (package! yaml-mode)
 
+(unpin! hover)
 (unpin! doom-modeline)
 (unpin! treemacs)
 (unpin! lsp-treemacs)
 (unpin! lsp-mode)
+(unpin! lsp-ui)
 (unpin! (:lang dart))

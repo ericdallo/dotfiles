@@ -36,6 +36,7 @@
               common-graphql.lacinia.sweet/defobject              [:declaration :elements]
               schema.core/defschema                               [:declaration :elements]
               schema.core/def                                     [:declaration :elements]
+              schema.core/defmulti                                [:declaration :elements]
               schema.core/fn                                      [:params :bound-elements]
               schema.test/deftest                                 [{:element :declaration :tags #{:unused}} :elements]
               integration.aux.init/defflow                        [{:element :declaration :tags #{:unused}} :elements]
