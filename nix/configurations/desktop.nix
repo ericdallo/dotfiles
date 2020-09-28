@@ -6,6 +6,7 @@
   environment.systemPackages = with pkgs;
     [
       betterlockscreen
+      blender
       bspwm
       dmenu
       dunst
@@ -26,7 +27,7 @@
       networkmanager_dmenu
       ntfsprogs
       pavucontrol
-      peek
+      master.peek
       polybarFull
       postman
       playerctl

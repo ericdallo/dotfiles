@@ -83,6 +83,7 @@
  doom-modeline-vcs-max-length 0
 
  +format-on-save-enabled-modes '(dart-mode)
+ +lsp-auto-install-servers t
 
  dap-enable-mouse-support nil
 
@@ -175,15 +176,19 @@
          (dart-mode . lsp)
          (java-mode . lsp))
   :config
-  (setq lsp-clojure-server-command '("bash" "-c" "~/dev/clojure-lsp/target/clojure-lsp")
-        lsp-headerline-breadcrumb-enable t
-        lsp-lens-enable t
-        lsp-signature-auto-activate nil)
-  (dolist (clojure-all-modes '(clojure-mode
-                               clojurec-mode
-                               clojurescript-mode
-                               clojurex-mode))
-    (add-to-list 'lsp-language-id-configuration `(,clojure-all-modes . "clojure")))
+  (let ((omnisharp-path (-> (executable-find "omnisharp")
+                            file-chase-links
+                            file-name-directory
+                            directory-file-name
+                            file-name-directory)))
+    (setq lsp-clojure-custom-server-command '("bash" "-c" "~/dev/clojure-lsp/target/clojure-lsp")
+          lsp-headerline-breadcrumb-enable t
+          lsp-lens-enable t
+          lsp-enable-file-watchers t
+          lsp-signature-auto-activate nil
+          lsp-completion-use-last-result nil
+          lsp-csharp-server-install-dir omnisharp-path
+          lsp-csharp-server-path (f-join omnisharp-path "bin/omnisharp")))
   (advice-add #'lsp-rename :after (lambda (&rest _) (projectile-save-project-buffers))))
 
 (use-package! lsp-ui

@@ -152,12 +152,11 @@ super + shift + {1-9}
 #super + {Left,Down,Up,Right}
 #      bspc node -v {-10 0,0 10,0 -10,10 0}
 
-#programs and stuff
-# grave
-#       flameshot gui
-
 Print
       flameshot gui
+
+shift + Print
+      flameshot gui -d 2000
 
 super + backslash
       $DOTFILES/scripts/alternate_tty.sh
