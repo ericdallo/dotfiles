@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 alias nubank='tmuxinator start nubank'
-alias grt="nu auth get-refresh-token"
-alias rt="nu auth refresh-token"
+alias grt="nu auth get-refresh-token --env prod && nu auth refresh-token --env prod"
+alias grt-staging="nu auth get-refresh-token --env staging && nu auth refresh-token --env staging"
 alias vpn="sudo openfortivpn -c $NU_HOME/.nu-vpn"
 
 function npmci() {

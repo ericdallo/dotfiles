@@ -36,6 +36,7 @@
       vlc
       (wine.override { wineBuild = "wineWow"; })
       woeusb
+      zoom-us
     ];
 
   environment.variables = {

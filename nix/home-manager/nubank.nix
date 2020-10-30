@@ -14,8 +14,10 @@ in {
       fzf
       gcc
       git-lfs
+      yubikey-manager
+      yubikey-personalization-gui
       xsv
-      zoom-us
+      # zoom-us
       insomnia
     ];
 

@@ -30,8 +30,9 @@ in {
       # seaborn
       # pillow
       fonttools
+      pip
     ];
-    python-with-my-packages = stable.python37Full.withPackages custom-python-packages;
+    python-with-my-packages = stable.python37Full; #.withPackages custom-python-packages;
     vcsodeWithExtension = vscode-with-extensions.override {
       # When the extension is already available in the default extensions set.
       vscodeExtensions = with vscode-extensions; [
