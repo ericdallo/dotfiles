@@ -4,6 +4,7 @@
   text-color: #f8f8f2;
   spacing: 0;
   width: 800px;
+  lines: 18;
 }
 
 window {
