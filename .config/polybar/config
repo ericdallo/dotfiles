@@ -128,7 +128,8 @@ format-overline = ${colors.pink}
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = <ramp-volume> <label-volume>
+format-volume = %{A3:pavucontrol &:}<ramp-volume> <label-volume>%{A}
+
 label-volume = %percentage%
 format-volume-overline = ${colors.purple}
 
