@@ -16,6 +16,7 @@ in {
       git-lfs
       xsv
       zoom-us
+      insomnia
     ];
 
     activation.linkFiles = config.lib.dag.entryAfter ["writeBoundary"] ''

@@ -6,7 +6,6 @@
   environment.systemPackages = with pkgs;
     [
       betterlockscreen
-      blender
       bspwm
       dmenu
       dunst
@@ -17,9 +16,7 @@
       google-chrome
       gparted
       inkscape
-      insomnia
       flameshot
-      flat-remix-icon-theme
       libinput-gestures
       libnotify
       materia-theme
@@ -29,15 +26,12 @@
       pavucontrol
       master.peek
       polybarFull
-      postman
       playerctl
       pulsemixer
       rofi
-      skype
       sxhkd
       udiskie
       udisks
-      teamviewer
       transmission-gtk
       vlc
       (wine.override { wineBuild = "wineWow"; })

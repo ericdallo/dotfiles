@@ -53,6 +53,7 @@
     wirelesstools
     wmctrl
     websocat
+    xclip
     xsel
   ];
 

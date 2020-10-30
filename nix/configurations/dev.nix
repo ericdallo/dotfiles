@@ -91,12 +91,6 @@ in {
       clojure-lsp
       cmake
       docker-compose
-      # (eclipses.eclipseWithPlugins {
-      #   eclipse = eclipses.eclipse-java;
-      #   jvmArgs = [ "-Xms6000m" "-Xmx8096m" ];
-      #   plugins = with eclipses.plugins;
-      #     [ gradle ];
-      # })
       ((emacsPackagesGen emacsGcc).emacsWithPackages (epkgs: [
         epkgs.vterm
       ]))
@@ -104,21 +98,17 @@ in {
       nubank.flutter
       (nubank.hover.override { go = go_1_14; })
       mob
+      omnisharp.omnisharp-roslyn
+      latest.rustChannels.stable.rust
       gitAndTools.hub
       go
-      heroku
       joker
       # clj-kondo
       leiningen
-      mysql
       nodejs
       nodePackages.node2nix
-      omnisharp.omnisharp-roslyn
       pandoc
       python-with-my-packages
-      rust-analyzer
-      rustup
-      latest.rustChannels.stable.rust
       sass
       sassc
       shellcheck

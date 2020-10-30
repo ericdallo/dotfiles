@@ -9,6 +9,20 @@ in {
 
   home = {
     packages = with pkgs; [
+      blender
+      # (eclipses.eclipseWithPlugins {
+      #   eclipse = eclipses.eclipse-java;
+      #   jvmArgs = [ "-Xms6000m" "-Xmx8096m" ];
+      #   plugins = with eclipses.plugins;
+      #     [ gradle ];
+      # })
+      heroku
+      mysql
+      postman
+      rust-analyzer
+      rustup
+      skype
+      teamviewer
       unityhub
     ];
     activation.linkFiles = config.lib.dag.entryAfter ["writeBoundary"] ''
