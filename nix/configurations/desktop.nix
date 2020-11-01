@@ -35,6 +35,7 @@
       transmission-gtk
       vlc
       (wine.override { wineBuild = "wineWow"; })
+      unityhub
       woeusb
       zoom-us
     ];

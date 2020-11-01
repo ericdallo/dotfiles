@@ -17,6 +17,10 @@
     noisetorch
   ];
 
+  nixpkgs.config.packageOverrides = pkgs: {
+    vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+  };
+
   # Configure special hardware in laptops.
   hardware = {
     enableRedistributableFirmware = true;
@@ -45,7 +49,9 @@
 
     # Extra OpenGL options.
     opengl = {
+      enable = true;
       extraPackages = with pkgs; [
+        intel-media-driver
         libvdpau-va-gl
         vaapiIntel
         vaapiVdpau

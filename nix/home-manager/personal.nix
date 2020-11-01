@@ -23,7 +23,7 @@ in {
       rustup
       skype
       teamviewer
-      unityhub
+      # unityhub
     ];
     activation.linkFiles = config.lib.dag.entryAfter ["writeBoundary"] ''
         cp -n ${dotfilesDir}/.critical-keys.sample ~/.critical-keys
