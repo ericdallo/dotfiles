@@ -38,4 +38,4 @@
 (unpin! lsp-treemacs)
 (unpin! lsp-mode)
 (unpin! lsp-ui)
-(unpin! (:lang dart))
+(unpin! lsp-dart)
