@@ -37,7 +37,7 @@ overline-size = 2
 module-margin = 1
 modules-left = workspaces
 modules-center = github space date
-modules-right = space cpu memory space vpn bluetooth pulseaudio backlight wireless-network battery exit
+modules-right = space cpu memory space vpn bluetooth pulseaudio backlight wired-network wireless-network battery exit
 background = ${colors.background}
 foreground = ${colors.foreground}
 
@@ -141,23 +141,42 @@ ramp-volume-0 = 󰕿
 ramp-volume-1 = 󰖀
 ramp-volume-2 = 󰕾
 
+[module/wired-network]
+type = internal/network
+interface = ${env:NETWORK_WIRED_INTERFACE:enp62s0u1u2}
+ping-interval = 5
+
+label-connected = %downspeed%
+
+format-connected = %{A1:networkmanager_dmenu &:}󰙅 <label-connected>%{A}
+format-packetloss = %{A1:networkmanager_dmenu &:}󰙅 <label-connected>%{A}
+format-disconnected = %{A1:networkmanager_dmenu &:}󰙅%{A}
+
+format-packetloss-foreground = ${colors.yellow}
+format-disconnected-foreground = ${colors.alert}
+
+format-connected-overline = ${colors.yellow}
+format-packetloss-overline = ${colors.yellow}
+format-disconnected-overline = ${colors.alert}
+
 [module/wireless-network]
 type = internal/network
-interface = ${env:NETWORK_INTERFACE:wlp1s0}
+interface = ${env:NETWORK_WIRELESS_INTERFACE:wlp1s0}
 ping-interval = 3
 
 label-connected = %signal%
 label-disconnected = --
+label-packageloss-foreground = ${colors.yellow}
+
+format-connected = %{A1:networkmanager_dmenu &:}<ramp-signal> <label-connected>%{A}
+format-packetloss = %{A1:networkmanager_dmenu &:}<animation-packetloss> <label-connected>%{A}
+format-disconnected = %{A1:networkmanager_dmenu &:}󰤮 <label-disconnected>%{A}
 
 format-connected-overline = ${colors.yellow}
-format-connected = %{A1:networkmanager_dmenu &:}<ramp-signal> <label-connected>%{A}
-
-format-disconnected = %{A1:networkmanager_dmenu &:}󰤮 <label-disconnected>%{A}
-format-disconnected-overline = ${colors.alert}
 format-packetloss-overline = ${colors.yellow}
+format-disconnected-overline = ${colors.alert}
+
 format-packetloss-foreground = ${colors.yellow}
-label-packageloss-foreground = ${colors.yellow}
-format-packetloss = %{A1:networkmanager_dmenu &:}<animation-packetloss> <label-connected>%{A}
 
 ramp-signal-0 = 󰤟
 ramp-signal-1 = 󰤢
