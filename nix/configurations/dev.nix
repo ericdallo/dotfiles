@@ -87,7 +87,7 @@ in {
       master.alda
       android-studio
       android.androidsdk
-      awscli
+      stable.awscli
       clojure
       clojure-lsp
       cmake
