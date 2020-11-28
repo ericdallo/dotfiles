@@ -17,16 +17,16 @@
       "<f10>" #'doom/window-maximize-buffer
 
       :desc "increase window width"
-      "C-S-<right>" (lambda () (interactive) (enlarge-window 10 t))
+      "C-S-<right>" (lambda () (interactive) (enlarge-window 5 t))
 
       :desc "decrease window width"
-      "C-S-<left>" (lambda () (interactive) (enlarge-window -10 t))
+      "C-S-<left>" (lambda () (interactive) (enlarge-window -5 t))
 
       :desc "increase window height"
-      "C-S-<up>" (lambda () (interactive) (enlarge-window 10))
+      "C-S-<up>" (lambda () (interactive) (enlarge-window 5))
 
       :desc "decrease window height"
-      "C-S-<down>" (lambda () (interactive) (enlarge-window -10))
+      "C-S-<down>" (lambda () (interactive) (enlarge-window -5))
 
       :desc "Expand region"
       "M-=" #'er/expand-region
