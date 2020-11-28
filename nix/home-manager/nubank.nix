@@ -14,6 +14,7 @@ in {
       fzf
       gcc
       git-lfs
+      hashdeep
       yubikey-manager
       yubikey-personalization-gui
       xsv
