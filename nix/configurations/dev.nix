@@ -107,8 +107,8 @@ in {
       go
       joker
       # clj-kondo
-      leiningen
-      nodejs
+      (leiningen.override { jdk = jdk8; })
+      nodejs-10_x
       nodePackages.node2nix
       pandoc
       python-with-my-packages
@@ -126,7 +126,7 @@ in {
   programs = {
     java = {
       enable = true;
-      package = pkgs.jdk11;
+      package = pkgs.jdk8;
     };
 
     adb.enable = true;
