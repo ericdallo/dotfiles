@@ -144,6 +144,12 @@
       :desc "Hover run or hot restart"
       "K" #'hover-run-or-hot-restart
 
+      :desc "Hover clear buffer"
+      "c" #'hover-clear-buffer
+
+      :desc "Hover kill buffer"
+      "x" #'hover-kill
+
       :desc "Run current file test"
       "t" #'lsp-dart-run-test-file
 
