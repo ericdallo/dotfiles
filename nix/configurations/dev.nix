@@ -13,6 +13,10 @@ let
 
   android-sdk-path = "${android.androidsdk}/libexec/android-sdk";
 
+  emacsPackage = ((pkgs.emacsPackagesGen pkgs.emacsGcc).emacsWithPackages (epkgs: [
+        epkgs.vterm
+      ]));
+
 in {
   nixpkgs.config.android_sdk.accept_license = true;
  
@@ -92,9 +96,7 @@ in {
       clojure-lsp
       cmake
       docker-compose
-      ((emacsPackagesGen emacsGcc).emacsWithPackages (epkgs: [
-        epkgs.vterm
-      ]))
+      emacsPackage
       nubank.dart
       nubank.flutter
       (nubank.hover.override { go = go_1_14; })
@@ -133,9 +135,7 @@ in {
   services.emacs = with pkgs; {
     enable = true;
     defaultEditor = true;
-    package = ((emacsPackagesGen emacsUnstable).emacsWithPackages (epkgs: [
-        epkgs.vterm
-      ]));
+    package = emacsPackage;
   };
 
   users.users.greg.extraGroups = [ "docker" "vboxusers" ];
