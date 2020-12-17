@@ -84,8 +84,6 @@ in {
       ];
     };
 
-    mob = (import (fetchTarball https://github.com/ericdallo/nixpkgs/archive/mob-init.tar.gz) {}).mob;
-
   in
     [
       master.alda
@@ -100,7 +98,7 @@ in {
       nubank.dart
       nubank.flutter
       (nubank.hover.override { go = go_1_14; })
-      mob
+      master.mob
       omnisharp.omnisharp-roslyn
       latest.rustChannels.stable.rust
       gitAndTools.hub
