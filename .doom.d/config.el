@@ -77,11 +77,6 @@
  doom-themes-treemacs-theme "all-the-icons"
  doom-localleader-key ","
 
- doom-modeline-major-mode-icon t
- doom-modeline-buffer-encoding nil
- doom-modeline-buffer-file-name-style 'relative-to-project
- doom-modeline-vcs-max-length 0
-
  +format-on-save-enabled-modes '(dart-mode)
  +lsp-auto-install-servers t
 
@@ -149,6 +144,14 @@
   (setq hover-hot-reload-on-save t
         hover-clear-buffer-on-hot-restart t
         hover-screenshot-path "$HOME/Pictures"))
+
+(use-package! doom-modeline
+  :init
+  (setq doom-modeline-major-mode-icon t
+        doom-modeline-buffer-encoding nil
+        doom-modeline-buffer-file-name-style 'relative-to-project
+        doom-modeline-vcs-max-length 0)
+  (advice-add #'doom-modeline-update-vcs-text :override (lambda () (setq doom-modeline--vcs-text ""))))
 
 (use-package! lsp-dart
   :config
