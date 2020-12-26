@@ -138,6 +138,11 @@
   :config
   (setq company-tooltip-align-annotations t))
 
+(use-package! evil-cleverparens
+  :config
+  (setq evil-cleverparens-use-regular-insert t)
+  (add-hook 'lisp-mode-hook #'evil-cleverparens-mode))
+
 (use-package! hover
   :after dart-mode
   :config
@@ -164,7 +169,7 @@
         lsp-java-save-actions-organize-imports t
         lsp-java-references-code-lens-enabled t
         lsp-java-implementations-code-lens-enabled t
-        lsp-file-watch-ignored
+        lsp-file-watch-ignored-directories
         '(".idea" ".ensime_cache" ".eunit" "node_modules"
           ".git" ".hg" ".fslckout" "_FOSSIL_"
           ".bzr" "_darcs" ".tox" ".svn" ".stack-work"
@@ -210,10 +215,6 @@
         org-tree-slide-fold-subtrees-skipped nil)
   (add-hook! 'org-tree-slide-play-hook #'org-display-inline-images)
   (add-hook! 'org-tree-slide-play-hook #'doom-disable-line-numbers-h))
-
-(use-package! paredit
-  :hook ((clojure-mode . paredit-mode)
-         (emacs-lisp-mode . paredit-mode)))
 
 (use-package! treemacs-all-the-icons
   :after treemacs)

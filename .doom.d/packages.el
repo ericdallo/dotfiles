@@ -7,6 +7,7 @@
 ;; (package! dap-mode :recipe (:local-repo "~/dev/dap-mode" :files ("*.el") :no-byte-compile t))
 (package! dhall-mode)
 (package! emidje)
+(package! evil-cleverparens)
 (package! flutter)
 (package! flycheck-clojure)
 (package! flycheck-package)
@@ -28,7 +29,6 @@
 ;;                                                                  "src/extra/treemacs-all-the-icons.el"
 ;;                                                                  ) :no-byte-compile t))
 (package! treemacs-all-the-icons)
-(package! paredit)
 (package! posframe)
 (package! yaml-mode)
 
