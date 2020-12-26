@@ -6,8 +6,7 @@
                                          =>
                                          (midje.sweet/fact)
                                          (midje.sweet/facts)
-                                         (midje.parsing.arrow-symbols/=>)]}
-           }
+                                         (midje.parsing.arrow-symbols/=>)]}}
  :lint-as {bonafont.logic.flow-edge/def                clojure.core/def
            bonafont.logic.flow-edge/defedge            clojure.core/def
            bonafont.logic.flow-config/defflow          clojure.core/def

@@ -65,4 +65,6 @@
 	"java.semanticHighlighting.enabled": true,
 	"html.trace.server": "verbose",
 	"dart.flutterSdkPath": "/home/greg/flutter",
+	"calva.referencesCodeLens.enabled": true,
+	"clojure.trace.server": "verbose",
 }
