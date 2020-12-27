@@ -150,8 +150,8 @@
   (setq doom-modeline-major-mode-icon t
         doom-modeline-buffer-encoding nil
         doom-modeline-buffer-file-name-style 'relative-to-project
-        doom-modeline-vcs-max-length 0)
-  (advice-add #'doom-modeline-update-vcs-text :override (lambda () (setq doom-modeline--vcs-text ""))))
+        doom-modeline-vcs-max-length 0
+        vc-display-status nil))
 
 (use-package! lsp-dart
   :config
