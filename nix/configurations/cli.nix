@@ -39,6 +39,7 @@
     rxvt_unicode-with-plugins
     s3cmd
     srt-to-vtt-cl
+    stable.sbt
     telnet
     tmux
     tmuxinator
