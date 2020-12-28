@@ -23,13 +23,6 @@
       (unless (file-exists-p dir)
         (make-directory dir t)))))
 
-(defun emidje-jack-in ()
-  "Jack in with CIDER on a emdije project"
-  (interactive)
-  (emidje-mode 1)
-  (emidje-enable-nrepl-middleware)
-  (cider-jack-in nil))
-
 (defun reverse-transpose-sexps (arg)
     (interactive "*p")
     (transpose-sexps (- arg))
@@ -167,7 +160,7 @@
         lsp-java-save-actions-organize-imports t
         lsp-java-references-code-lens-enabled t
         lsp-java-implementations-code-lens-enabled t
-        lsp-file-watch-ignored
+        lsp-file-watch-ignored-directories
         '(".idea" ".ensime_cache" ".eunit" "node_modules"
           ".git" ".hg" ".fslckout" "_FOSSIL_"
           ".bzr" "_darcs" ".tox" ".svn" ".stack-work"
@@ -189,6 +182,7 @@
           lsp-lens-enable t
           lsp-enable-file-watchers t
           lsp-signature-auto-activate nil
+          lsp-semantic-tokens-enable t
           lsp-completion-use-last-result nil
           lsp-csharp-server-install-dir omnisharp-path
           lsp-csharp-server-path (f-join omnisharp-path "bin/omnisharp")))
