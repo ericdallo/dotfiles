@@ -26,7 +26,8 @@
                        postman.aux.helpers/defaction               clojure.core/defn
                        state-flow.cljtest/defflow                  clojure.core/def
                        rewrite-clj.zip/edit->                      clojure.core/->
-                       rewrite-clj.zip.subedit/edit->              clojure.core/->}}
+                       rewrite-clj.zip.subedit/edit->              clojure.core/->
+                       rewrite-clj.zip.subedit/subedit->           clojure.core/->}}
  :macro-defs {common-graphql.lacinia.sweet/defenum                [:declaration :elements]
               common-graphql.lacinia.sweet/definterface           [:declaration :elements]
               common-graphql.lacinia.sweet/definput               [:declaration :elements]
