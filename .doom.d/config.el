@@ -16,13 +16,6 @@
 (add-hook 'dart-mode-hook (lambda () (setq left-fringe-width 16)))
 (add-hook 'java-mode-hook (lambda () (setq left-fringe-width 16)))
 
-(defadvice find-file (before make-directory-maybe (filename &optional wildcards) activate)
-  "Create parent directory if not exists while visiting file."
-  (unless (file-exists-p filename)
-    (let ((dir (file-name-directory filename)))
-      (unless (file-exists-p dir)
-        (make-directory dir t)))))
-
 (defun reverse-transpose-sexps (arg)
     (interactive "*p")
     (transpose-sexps (- arg))
@@ -77,8 +70,7 @@
 
  evil-collection-setup-minibuffer t)
 
-(set-popup-rule! "^\\*cider-repl" :side 'right :width 0.5)
-(set-popup-rule! "*cider-test-report*" :side 'right :width 0.5)
+
 (set-popup-rule! "\\*LSP Dart tests\\*" :height 0.3)
 (set-popup-rule! "\\*Hover\\*" :quit nil)
 (set-popup-rule! "\\*dap-ui-locals\\*" :side 'right :width 0.3)
@@ -92,6 +84,8 @@
         cider-show-error-buffer t;'only-in-repl
         cider-font-lock-dynamically '(macro core function var deprecated)
         cider-prompt-for-symbol nil)
+  (set-popup-rule! "*cider-test-report*" :side 'right :width 0.5)
+  (set-popup-rule! "^\\*cider-repl" :side 'bottom :quit nil)
   (set-lookup-handlers! 'cider-mode nil))
 
 (use-package! clj-refactor
