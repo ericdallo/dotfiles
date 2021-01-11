@@ -81,7 +81,19 @@ in {
           version = "1.23.2";
           sha256 = "0ydaiy8jfd1bj50bqiaz5wbl7r6qwmbz9b29bydimq0rdjgapaar";
         }
-      ];
+      ]
+      # ++ [
+      #   (pkgs.vscode-utils.buildVscodeExtension {
+      #     name = "calva-test";
+      #     vscodeExtUniqueId = "pez.calva";
+      #     src = pkgs.fetchurl {
+      #       name = "calva-2.0.135-feat-lsp-client-3166a539.zip";
+      #       url = "https://9023-125431277-gh.circle-artifacts.com/0/tmp/artifacts/calva-2.0.135-feat-lsp-client-3166a539.vsix";
+      #       sha256 = "0vby8i05qqf3rbbsnzmqyx2hb53x3gv4a5k66v0jcadw2l5s4i1v";
+      #     };
+      #   })
+      # ]
+      ;
     };
 
   in
@@ -124,7 +136,7 @@ in {
   programs = {
     java = {
       enable = true;
-      package = pkgs.jdk8;
+      package = pkgs.jdk11;
     };
 
     adb.enable = true;
