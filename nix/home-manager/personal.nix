@@ -16,6 +16,7 @@ in {
       #   plugins = with eclipses.plugins;
       #     [ gradle ];
       # })
+      graalvm11-ce
       heroku
       mysql
       postman

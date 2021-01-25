@@ -112,12 +112,12 @@ in {
       (nubank.hover.override { go = go_1_14; })
       master.mob
       omnisharp.omnisharp-roslyn
-      latest.rustChannels.stable.rust
+      # latest.rustChannels.stable.rust
       gitAndTools.hub
       go
       joker
       # clj-kondo
-      (leiningen.override { jdk = jdk8; })
+      (leiningen.override { jdk = jdk11; })
       nodejs-10_x
       nodePackages.node2nix
       pandoc
