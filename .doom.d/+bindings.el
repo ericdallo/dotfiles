@@ -83,7 +83,10 @@
       "&" (lambda () (interactive) (rg-ignoring-folders (list "test" "postman")))
 
       :desc "Search for symbol in project excluding src folder"
-      "(" (lambda () (interactive) (rg-ignoring-folders (list "src"))))
+      "(" (lambda () (interactive) (rg-ignoring-folders (list "src")))
+
+      :desc "lsp-clojure cursor info"
+      "-" #'lsp-clojure-cursor-info)
 
 (after! clj-refactor
   (define-key clj-refactor-map "\C-ctf" #'cljr-thread-first-all)
