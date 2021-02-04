@@ -28,30 +28,6 @@
                        rewrite-clj.zip/edit->                      clojure.core/->
                        rewrite-clj.zip.subedit/edit->              clojure.core/->
                        rewrite-clj.zip.subedit/subedit->           clojure.core/->}}
- ;; :macro-defs {common-graphql.lacinia.sweet/defenum                [:declaration :elements]
- ;;              common-graphql.lacinia.sweet/definterface           [:declaration :elements]
- ;;              common-graphql.lacinia.sweet/definput               [:declaration :elements]
- ;;              common-graphql.lacinia.sweet/defscalar              [:declaration :elements]
- ;;              common-graphql.lacinia.sweet/defunion               [:declaration :elements]
- ;;              common-graphql.lacinia.sweet/mutation               [:declaration :elements]
- ;;              common-graphql.lacinia.sweet/defobject              [:declaration :elements]
- ;;              schema.core/defschema                               [:declaration :elements]
- ;;              schema.core/def                                     [:declaration :elements]
- ;;              schema.core/defmulti                                [:declaration :elements]
- ;;              schema.core/fn                                      [:params :bound-elements]
- ;;              schema.test/deftest                                 [{:element :declaration :tags #{:unused}} :elements]
- ;;              integration.aux.init/defflow                        [{:element :declaration :tags #{:unused}} :elements]
- ;;              state-flow.cljtest/defflow                          [{:element :declaration :tags #{:unused}} :elements]
- ;;              bonafont.logic.flow-edge/def                        [:declaration :elements]
- ;;              bonafont.logic.flow-edge/defedge                    [:declaration :elements]
- ;;              bonafont.logic.flow-config/defflow                  [:declaration :elements]
- ;;              bonafont.logic.flow-config/def                      [:declaration :elements]
- ;;              bonafont.flows.debit-request.edges/def-edge         [:declaration :elements]
- ;;              org.httpkit.server/with-channel                     [:element :param :bound-elements]
- ;;              nubank.shuffle.common.fulcro.db-helpers/defmutation [:declaration :params :bound-elements]
- ;;              nubank.shuffle.common.ui.helpers/defc               [:declaration :params :bound-elements]
- ;;              postman.aux.init/defflow                            [{:element :declaration :tags #{:unused}} :elements]
- ;;              plumbing.core/fnk                                   [:params :bound-elements]}
  :cljfmt {:indents
           {against-background      [[:inner 0]]
            as-admin                [[:block 1]]
