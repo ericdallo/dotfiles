@@ -6,6 +6,26 @@
 (define-key evil-normal-state-map (kbd "M-r") 'evil-multiedit-match-all)
 (define-key evil-normal-state-map (kbd "<tab>") 'evil-jump-item)
 
+(defun scroll-up-bottom-window ()
+  "Scroll up bottom window"
+  (interactive)
+  (save-selected-window
+    (when-let ((bottom-window (-first (lambda (w)
+                                        (and (window-full-width-p w)
+                                             (not (eq w (get-buffer-window))))) (window-list))))
+      (select-window bottom-window)
+      (scroll-up-line))))
+
+(defun scroll-down-bottom-window ()
+  "Scroll down bottom window"
+  (interactive)
+  (save-selected-window
+    (when-let ((bottom-window (-first (lambda (w)
+                                        (and (window-full-width-p w)
+                                             (not (eq w (get-buffer-window))))) (window-list))))
+      (select-window bottom-window)
+      (scroll-down-line))))
+
 (map! :n
 
       :desc "Multi edit lines"
@@ -17,16 +37,22 @@
       "<f10>" #'doom/window-maximize-buffer
 
       :desc "increase window width"
-      "C-S-<right>" (lambda () (interactive) (enlarge-window 5 t))
+      "C-S-<left>" (lambda () (interactive) (enlarge-window 5 t))
 
       :desc "decrease window width"
-      "C-S-<left>" (lambda () (interactive) (enlarge-window -5 t))
+      "C-S-<right>" (lambda () (interactive) (enlarge-window -5 t))
 
       :desc "increase window height"
-      "C-S-<up>" (lambda () (interactive) (enlarge-window 5))
+      "C-S-<down>" (lambda () (interactive) (enlarge-window 5))
 
       :desc "decrease window height"
-      "C-S-<down>" (lambda () (interactive) (enlarge-window -5))
+      "C-S-<up>" (lambda () (interactive) (enlarge-window -5))
+
+      :desc "scroll up bottom window"
+      "C-S-M-<down>" #'scroll-up-bottom-window
+
+      :desc "scroll down bottom window"
+      "C-S-M-<up>" #'scroll-down-bottom-window
 
       :desc "Expand region"
       "M-=" #'er/expand-region

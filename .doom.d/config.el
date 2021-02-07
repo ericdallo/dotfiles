@@ -187,10 +187,6 @@
   :commands lsp-ui-mode
   :config
   (setq lsp-ui-peek-list-width 60
-        ;; lsp-ui-doc-enable nil
-        ;; lsp-ui-doc-max-width 200
-        ;; lsp-ui-doc-max-height 30
-        ;; lsp-signature-auto-activate nil
         lsp-ui-peek-fontify 'always
         lsp-ui-sideline-show-code-actions nil))
 
@@ -205,6 +201,10 @@
 (use-package! paredit
   :hook ((clojure-mode . paredit-mode)
          (emacs-lisp-mode . paredit-mode)))
+
+(use-package! dap-mode
+  :init
+  (require 'dap-chrome))
 
 (use-package! treemacs-all-the-icons
   :after treemacs)
