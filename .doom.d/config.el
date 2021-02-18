@@ -176,7 +176,7 @@
           lsp-lens-enable t
           lsp-enable-file-watchers t
           lsp-signature-auto-activate nil
-          lsp-semantic-tokens-enable t
+          lsp-semantic-tokens-enable nil
           lsp-completion-use-last-result nil
           lsp-csharp-server-install-dir omnisharp-path
           lsp-csharp-server-path (f-join omnisharp-path "bin/omnisharp")))
