@@ -114,12 +114,6 @@
       :desc "lsp-clojure cursor info"
       "-" #'lsp-clojure-cursor-info)
 
-(after! clj-refactor
-  (define-key clj-refactor-map "\C-ctf" #'cljr-thread-first-all)
-  (define-key clj-refactor-map "\C-ctl" #'cljr-thread-last-all)
-  (define-key clj-refactor-map "\C-cu" #'cljr-unwind)
-  (define-key clj-refactor-map "\C-cU" #'cljr-unwind-all))
-
 (map! :after dap-mode
       :map dap-mode-map
       :n

@@ -133,7 +133,12 @@
         doom-modeline-buffer-encoding nil
         doom-modeline-buffer-file-name-style 'relative-to-project
         doom-modeline-vcs-max-length 0
-        vc-display-status nil))
+        vc-display-status nil)
+  ;; (doom-modeline-def-modeline 'reduced-main
+  ;;   '(bar workspace-name buffer-info remote-host buffer-position word-count selection-info)
+  ;;   '(misc-info debug repl lsp process checker))
+  ;; (doom-modeline-set-modeline 'reduced-main)
+)
 
 (use-package! lsp-dart
   :config
@@ -175,8 +180,10 @@
           lsp-headerline-breadcrumb-enable t
           lsp-lens-enable t
           lsp-enable-file-watchers t
-          lsp-signature-auto-activate nil
+          lsp-signature-render-documentation nil
+          lsp-signature-function 'lsp-signature-posframe
           lsp-semantic-tokens-enable nil
+          lsp-completion-sort-initial-results nil
           lsp-completion-use-last-result nil
           lsp-csharp-server-install-dir omnisharp-path
           lsp-csharp-server-path (f-join omnisharp-path "bin/omnisharp")))

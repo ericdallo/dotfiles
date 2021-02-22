@@ -1,33 +1,4 @@
 {:linters {:unused-namespace-declarations #{"postman"}}
- :clj-kondo {:skip-comments true
-             :linters {:refer-all         {:exclude [clojure.test midje.sweet]}
-                       :unresolved-symbol {:level   :error
-                                           :exclude [fact
-                                                     facts
-                                                     =>
-                                                     (midje.sweet/fact)
-                                                     (midje.sweet/facts)
-                                                     (midje.parsing.arrow-symbols/=>)]}}
-             :lint-as {bonafont.logic.flow-edge/def                clojure.core/def
-                       bonafont.logic.flow-edge/defedge            clojure.core/def
-                       bonafont.logic.flow-config/defflow          clojure.core/def
-                       bonafont.logic.flow-config/def              clojure.core/def
-                       bonafont.flows.debit-request.edges/def-edge clojure.core/def
-                       common-test.postman.helpers.core/defstep    clojure.core/defn
-                       common-graphql.lacinia.sweet/defresolver    clojure.core/def
-                       common-graphql.lacinia.sweet/defmutation    clojure.core/def
-                       common-graphql.lacinia.sweet/definterface   clojure.core/def
-                       common-graphql.lacinia.sweet/defobject      clojure.core/def
-                       common-graphql.lacinia.sweet/defscalar      clojure.core/def
-                       common-graphql.lacinia.sweet/defunion       clojure.core/def
-                       common-graphql.lacinia.sweet/definput       clojure.core/def
-                       common-graphql.lacinia.sweet/defenum        clojure.core/def
-                       integration.aux.init/defflow                clojure.core/def
-                       postman.aux.helpers/defaction               clojure.core/defn
-                       state-flow.cljtest/defflow                  clojure.core/def
-                       rewrite-clj.zip/edit->                      clojure.core/->
-                       rewrite-clj.zip.subedit/edit->              clojure.core/->
-                       rewrite-clj.zip.subedit/subedit->           clojure.core/->}}
  :cljfmt {:indents
           {against-background      [[:inner 0]]
            as-admin                [[:block 1]]
@@ -82,7 +53,7 @@
            with-scopes             [[:block 1]]}}
  :source-paths ["src" "test" "postman"]
  :use-metadata-for-privacy? true
- :keep-require-at-start? true
+ :keep-require-at-start? false
  :show-docs-arity-on-same-line? true
  :semantic-tokens? true
  :auto-add-ns-to-new-files? true
