@@ -5,11 +5,11 @@
   boot.loader.grub.device = "/dev/nvme0n1";
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/0838c16b-eedc-4dbf-8c57-be2f848e8b7d";
+    { device = "/dev/disk/by-uuid/a6c734cf-c985-4322-9e1c-e88beb863027";
       fsType = "ext4";
     };
 
   swapDevices = [{
-    device = "/dev/disk/by-uuid/5c2797cc-2924-4ff5-9716-90f7f71ebd85";
+    device = "/dev/disk/by-uuid/b1d04602-9d7b-4b73-91f0-3fbb58b7e47e";
   }];
 }
