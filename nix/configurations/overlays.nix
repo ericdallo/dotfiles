@@ -8,7 +8,7 @@
   (import (fetchGit {
     url = "https://github.com/nix-community/emacs-overlay";
     ref = "master";
-    rev = "e3da699893c4be3b946d3586143b03450f9680ee";
+    rev = "bb9fb65a68e18b4e136a0355155a0d03ce651729";
   }))
   # (import (builtins.fetchTarball https://github.com/mozilla/nixpkgs-mozilla/archive/master.tar.gz))
   (import (builtins.fetchTarball https://github.com/nubank/nixpkgs/archive/master.tar.gz))
