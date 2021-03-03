@@ -109,7 +109,7 @@ in {
       emacsPackage
       nubank.dart
       nubank.flutter
-      (nubank.hover.override { go = go_1_14; })
+      (nubank.hover.override { go = go; })
       master.mob
       omnisharp.omnisharp-roslyn
       # latest.rustChannels.stable.rust

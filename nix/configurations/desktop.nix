@@ -103,7 +103,7 @@
       # displayManager.startx.enable = true;
 
       libinput.enable = true;
-      libinput.naturalScrolling = true;
+      libinput.touchpad.naturalScrolling = true;
 
       windowManager.bspwm = {
         enable = true;

@@ -35,6 +35,8 @@ bspc rule -a Transmission desktop='^5' state=floating follow=on
 
 sleep 1
 
+feh --bg-scale ~/.dotfiles/background.jpg &
+
 polybar main &
 
 xset r rate 220 50 &
