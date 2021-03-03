@@ -40,7 +40,7 @@
        ;;pretty-code       ; replace bits of code with pretty symbols
        ;; tabs
        treemacs          ; a project drawer, like neotree but cooler
-       ;;unicode           ; extended unicode support for various languages
+       unicode           ; extended unicode support for various languages
        vc-gutter         ; vcs diff in the fringe
        vi-tilde-fringe   ; fringe tildes to mark beyond EOB
        window-select     ; visually switch windows
@@ -82,7 +82,7 @@
        lookup        ; ...or in Dash docsets locally
        (lsp +peek)
        ;;macos             ; MacOS-specific commands
-       ;;magit             ; a git porcelain for Emacs
+       (magit +forge)             ; a git porcelain for Emacs
        ;;make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
        ;;pdf               ; pdf enhancements
@@ -117,7 +117,7 @@
        (java +lsp) ; the poster child for carpal tunnel syndrome
        (javascript +lsp)        ; all(hope(abandon(ye(who(enter(here))))))
        ;;julia             ; a better, faster MATLAB
-       ;;kotlin            ; a better, slicker Java(Script)
+       kotlin            ; a better, slicker Java(Script)
        ;;latex             ; writing papers in Emacs has never been so fun
        ;;ledger            ; an accounting system in Emacs
        ;;lua               ; one-based indices? one-based indices
