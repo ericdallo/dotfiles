@@ -10,12 +10,6 @@ in {
   home = {
     packages = with pkgs; [
       blender
-      # (eclipses.eclipseWithPlugins {
-      #   eclipse = eclipses.eclipse-java;
-      #   jvmArgs = [ "-Xms6000m" "-Xmx8096m" ];
-      #   plugins = with eclipses.plugins;
-      #     [ gradle ];
-      # })
       graalvm11-ce
       heroku
       mysql
@@ -55,7 +49,7 @@ in {
         ln -sf ${dotfilesDir}/.gregflix-functions ~/.gregflix-functions
         ln -sf ${dotfilesDir}/.s3cfg ~/.s3cfg
 
-        ln -sf ${dotfilesDir}/.tmux.conf ~/.tmux.conf
+        # ln -sf ${dotfilesDir}/.tmux.conf ~/.tmux.conf
         ln -Tsf ${dotfilesDir}/.tmuxinator ~/.tmuxinator
 
         ln -sf ${dotfilesDir}/.vimrc ~/.vimrc

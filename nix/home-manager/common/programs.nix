@@ -1,11 +1,9 @@
 { pkgs, ... }:
 
 {
+  # home.stateVersion = "20.09";
   programs = {
-    home-manager = {
-      enable = true;
-      path = https://github.com/rycee/home-manager/archive/master.tar.gz;
-    };
+    home-manager.enable = true;
 
     git = {
       enable = true;
