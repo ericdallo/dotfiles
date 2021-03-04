@@ -1,6 +1,7 @@
 { pkgs, config, ... }:
 let
   dotfilesDir = "$HOME/.dotfiles";
+  master = import (fetchTarball https://github.com/NixOS/nixpkgs/archive/master.tar.gz) {};
 
 in {
   imports = [
@@ -10,7 +11,7 @@ in {
   home = {
     packages = with pkgs; [
       blender
-      graalvm11-ce
+      master.graalvm11-ce
       heroku
       mysql
       postman
