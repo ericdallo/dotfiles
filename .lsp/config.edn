@@ -1,4 +1,5 @@
-{:linters {:unused-namespace-declarations #{"postman"}}
+{:log-path "/tmp/clojure-lsp.out"
+ :linters {:unused-namespace-declarations #{"postman"}}
  :cljfmt {:indents
           {against-background      [[:inner 0]]
            as-admin                [[:block 1]]
@@ -51,7 +52,7 @@
            with-fn-validation      [[:block 0]]
            with-responses          [[:block 0]]
            with-scopes             [[:block 1]]}}
- :source-paths ["src" "test" "postman"]
+ :source-paths #{"src" "test" "postman"}
  :use-metadata-for-privacy? true
  :keep-require-at-start? false
  :show-docs-arity-on-same-line? true
