@@ -86,7 +86,8 @@
         cider-prompt-for-symbol nil)
   (set-popup-rule! "*cider-test-report*" :side 'right :width 0.5)
   (set-popup-rule! "^\\*cider-repl" :side 'bottom :quit nil)
-  (set-lookup-handlers! 'cider-mode nil))
+  (set-lookup-handlers! 'cider-mode nil)
+  (add-hook 'cider-mode-hook (lambda () (remove-hook 'completion-at-point-functions #'cider-complete-at-point))))
 
 (use-package! clj-refactor
   :after clojure-mode
@@ -179,6 +180,7 @@
     (setq lsp-clojure-custom-server-command '("bash" "-c" "~/dev/clojure-lsp/target/clojure-lsp")
           lsp-headerline-breadcrumb-enable t
           lsp-lens-enable t
+          lsp-headerline-breadcrumb-enable-diagnostics nil
           lsp-enable-file-watchers t
           lsp-signature-render-documentation nil
           lsp-signature-function 'lsp-signature-posframe

@@ -1,4 +1,7 @@
 {:skip-comments true
+ :config-paths  ["nubank/state-flow"]
+ :hooks         {:analyze-call {postman.aux.init/defflow     nubank.state-flow/defflow
+                                integration.aux.init/defflow nubank.state-flow/defflow}}
  :lint-as       {bonafont.logic.flow-edge/def                clojure.core/def
                  bonafont.logic.flow-edge/defedge            clojure.core/def
                  bonafont.logic.flow-config/defflow          clojure.core/def
@@ -13,18 +16,16 @@
                  common-graphql.lacinia.sweet/defunion       clojure.core/def
                  common-graphql.lacinia.sweet/definput       clojure.core/def
                  common-graphql.lacinia.sweet/defenum        clojure.core/def
-                 integration.aux.init/defflow                clojure.core/def
                  postman.aux.helpers/defaction               clojure.core/defn
-                 state-flow.cljtest/defflow                  clojure.core/def
                  rewrite-clj.zip/edit->                      clojure.core/->
                  rewrite-clj.zip.subedit/edit->              clojure.core/->
                  rewrite-clj.zip.subedit/subedit->           clojure.core/->}
- :linters {:refer-all         {:level   :info
-                               :exclude [midje.sweet]}
-           :unresolved-symbol {:level   :warning
-                               :exclude [fact
-                                         facts
-                                         =>
-                                         (midje.sweet/fact)
-                                         (midje.sweet/facts)
-                                         (midje.parsing.arrow-symbols/=>)]}}}
+ :linters       {:refer-all         {:level   :info
+                                     :exclude [midje.sweet]}
+                 :unresolved-symbol {:level   :warning
+                                     :exclude [fact
+                                               facts
+                                               =>
+                                               (midje.sweet/fact)
+                                               (midje.sweet/facts)
+                                               (midje.parsing.arrow-symbols/=>)]}}}
