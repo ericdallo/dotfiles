@@ -35,9 +35,7 @@
       transmission-gtk
       vlc
       (wine.override { wineBuild = "wineWow"; })
-      unityhub
       woeusb
-      zoom-us
     ];
 
   environment.variables = {
@@ -109,11 +107,11 @@
         enable = true;
       };
     };
-  };
 
-  services.logind.extraConfig = ''
-    HandleLidSwitch="hibernate"
-  '';
+    logind.extraConfig = ''
+      HandlePowerKey=suspend-then-hibernate
+    '';
+  };
 
   fonts = {
     fonts = with pkgs; [

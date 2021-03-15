@@ -19,11 +19,9 @@
     gotop
     grub
     home-manager
-    imagemagick
     inotify-tools
     jq
     killall
-    kubectl
     libvterm-neovim
     lshw
     manpages
@@ -38,8 +36,6 @@
     pinentry
     ripgrep
     rxvt_unicode-with-plugins
-    s3cmd
-    srt-to-vtt-cl
     stable.sbt
     telnet
     tmux
@@ -54,7 +50,6 @@
     wget
     wirelesstools
     wmctrl
-    websocat
     xclip
     xsel
   ];

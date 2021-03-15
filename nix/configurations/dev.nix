@@ -98,32 +98,22 @@ in {
 
   in
     [
-      master.alda
       android-studio
       android.androidsdk
       stable.awscli
       clojure
       clojure-lsp
-      cmake
       docker-compose
       emacsPackage
       nubank.dart
       nubank.flutter
-      (nubank.hover.override { go = go; })
-      master.mob
-      omnisharp.omnisharp-roslyn
-      # latest.rustChannels.stable.rust
+      nubank.hover
       gitAndTools.hub
       go
-      joker
       # clj-kondo
       (leiningen.override { jdk = jdk11; })
       nodejs-10_x
-      nodePackages.node2nix
-      pandoc
       python-with-my-packages
-      sass
-      sassc
       shellcheck
       vcsodeWithExtension
     ];

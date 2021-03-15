@@ -16,10 +16,12 @@ in {
       gcc
       git-lfs
       hashdeep
+      kubectl
+      master.mob
       yubikey-manager
       yubikey-personalization-gui
       xsv
-      # zoom-us
+      zoom-us
       insomnia
     ];
 

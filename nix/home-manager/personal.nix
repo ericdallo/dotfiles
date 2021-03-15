@@ -6,20 +6,31 @@ let
 in {
   imports = [
     ./common/programs.nix
+    ./common/tmux.nix
   ];
 
   home = {
     packages = with pkgs; [
+      master.alda
       blender
       master.graalvm11-ce
       heroku
+      imagemagick
       mysql
+      nodePackages.node2nix
+      omnisharp-roslyn
+      pandoc
       postman
       rust-analyzer
+      s3cmd
+      sass
+      sassc
+      srt-to-vtt-cl
       rustup
       skype
       teamviewer
-      # unityhub
+      unityhub
+      websocat
     ];
     activation.linkFiles = config.lib.dag.entryAfter ["writeBoundary"] ''
         cp -n ${dotfilesDir}/.critical-keys.sample ~/.critical-keys
