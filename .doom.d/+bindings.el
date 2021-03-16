@@ -153,31 +153,3 @@
 
       :desc "Run class tests"
       "T" #'dap-java-run-test-class)
-
-(map! :after dart-mode
-      :map dart-mode-map
-      :localleader
-
-      :desc "Flutter run or hot reload"
-      "j" #'flutter-run-or-hot-reload
-
-      :desc "Hover run or hot reload"
-      "k" #'hover-run-or-hot-reload
-
-      :desc "Hover run or hot restart"
-      "K" #'hover-run-or-hot-restart
-
-      :desc "Hover clear buffer"
-      "c" #'hover-clear-buffer
-
-      :desc "Hover kill buffer"
-      "x" #'hover-kill
-
-      :desc "Run current file test"
-      "t" #'lsp-dart-run-test-file
-
-      :desc "Run test at point"
-      "T" #'lsp-dart-run-test-at-point
-
-      :desc "Run all tests"
-      "M-t" #'lsp-dart-run-all-tests)
