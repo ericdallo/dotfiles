@@ -130,6 +130,16 @@
       :desc "DAP continue"
       "<f8>" #'dap-continue)
 
+(map! :after lsp-mode
+      :map lsp-mode-map
+      :leader
+
+      :desc "LSP Call hierarchy - Incoming"
+      "c y" #'lsp-treemacs-call-hierarchy
+
+      :desc "LSP Call hierarchy - Outcoming"
+      "c Y" (lambda () (interactive) (lsp-treemacs-call-hierarchy t)))
+
 (after! lsp-ui
   (map! :nvi
 

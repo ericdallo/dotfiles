@@ -176,8 +176,8 @@
                             file-name-directory
                             directory-file-name
                             file-name-directory)))
-    (setq lsp-clojure-custom-server-command '("bash" "-c" "~/dev/clojure-lsp/target/clojure-lsp")
-          lsp-headerline-breadcrumb-enable t
+    (setq lsp-clojure-custom-server-command '("bash" "-c" "~/dev/clojure-lsp/clojure-lsp")
+          lsp-headerline-breadcrumb-enable nil
           lsp-lens-enable t
           lsp-headerline-breadcrumb-enable-diagnostics nil
           lsp-enable-file-watchers t
