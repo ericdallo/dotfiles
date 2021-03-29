@@ -118,7 +118,8 @@
 
 (use-package! company
   :config
-  (setq company-tooltip-align-annotations t))
+  (setq company-tooltip-align-annotations t
+        company-icon-size 20))
 
 (use-package! hover
   :after dart-mode
@@ -187,8 +188,11 @@
           lsp-completion-sort-initial-results nil
           lsp-completion-use-last-result nil
           lsp-csharp-server-install-dir omnisharp-path
-          lsp-csharp-server-path (f-join omnisharp-path "bin/omnisharp")))
-  (advice-add #'lsp-rename :after (lambda (&rest _) (projectile-save-project-buffers))))
+          lsp-csharp-server-path (f-join omnisharp-path "bin/omnisharp")
+          lsp-csharp-server-install-dir "/home/greg/dev/nixpkgs/result"
+          lsp-csharp-server-path "/home/greg/dev/nixpkgs/result/bin/omnisharp"))
+  (advice-add #'lsp-rename :after (lambda (&rest _) (projectile-save-project-buffers)))
+  (add-hook 'lsp-mode-hook (lambda () (setq-local company-format-margin-function #'company-vscode-dark-icons-margin-function))))
 
 (use-package! lsp-ui
   :after lsp-mode
