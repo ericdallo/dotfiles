@@ -52,7 +52,6 @@ in {
         ln -sf ${dotfilesDir}/.gitconfig ~/.gitconfig
         ln -sf ${dotfilesDir}/.gitignore_global ~/.gitignore_global
 
-        # ln -sf ${dotfilesDir}/.tmux.conf ~/.tmux.conf
         ln -Tsf ${dotfilesDir}/.tmuxinator ~/.tmuxinator
 
         ln -sf ${dotfilesDir}/.vimrc ~/.vimrc

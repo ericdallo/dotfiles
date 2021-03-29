@@ -61,7 +61,6 @@ in {
         ln -sf ${dotfilesDir}/.gregflix-functions ~/.gregflix-functions
         ln -sf ${dotfilesDir}/.s3cfg ~/.s3cfg
 
-        # ln -sf ${dotfilesDir}/.tmux.conf ~/.tmux.conf
         ln -Tsf ${dotfilesDir}/.tmuxinator ~/.tmuxinator
 
         ln -sf ${dotfilesDir}/.vimrc ~/.vimrc

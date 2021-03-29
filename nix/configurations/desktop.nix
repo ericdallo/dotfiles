@@ -118,6 +118,7 @@
       emacs-all-the-icons-fonts
       hack-font
       roboto
+      roboto-mono
       master.material-design-icons
       ibm-plex
     ];
