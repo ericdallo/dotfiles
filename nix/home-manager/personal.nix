@@ -47,6 +47,7 @@ in {
         ln -Tsf ${dotfilesDir}/.config/dunst ~/.config/dunst
         ln -Tsf ${dotfilesDir}/.config/networkmanager-dmenu ~/.config/networkmanager-dmenu
         ln -Tsf ${dotfilesDir}/.config/libinput-gestures.conf ~/.config/libinput-gestures.conf
+        ln -Tsf ${dotfilesDir}/.config/clojure ~/.config/clojure
 
         ln -Tsf ${dotfilesDir}/.doom.d ~/.doom.d
         ln -Tsf ${dotfilesDir}/.lsp ~/.lsp
