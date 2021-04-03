@@ -112,7 +112,6 @@
   :config
   (setq clojure-indent-style 'align-arguments
         clojure-thread-all-but-last t
-        clojure-align-forms-automatically t
         yas-minor-mode 1)
   (cljr-add-keybindings-with-prefix "C-c C-c"))
 

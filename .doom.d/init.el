@@ -59,7 +59,7 @@
        snippets          ; my elves. They type so I don't have to
 
        :emacs
-       (dired +ranger +icons)
+       (dired  +icons)
        electric          ; smarter, keyword-based electric-indent
        ;;vc                ; version-control and Emacs, sitting in a tree
 
