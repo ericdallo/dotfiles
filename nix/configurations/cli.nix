@@ -29,7 +29,6 @@
     mediainfo
     neofetch
     nixfmt
-    # haskellPackages.nixpkgs-update
     openfortivpn
     openssl
     oh-my-zsh

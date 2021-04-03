@@ -37,8 +37,7 @@ in {
       pip
     ];
     python-with-my-packages = stable.python37Full; #.withPackages custom-python-packages;
-    vcsodeWithExtension = vscode-with-extensions.override {
-      # When the extension is already available in the default extensions set.
+    vcsodeWithExtension = master.vscode-with-extensions.override {
       vscodeExtensions = with vscode-extensions; [
         bbenoist.Nix
         python
@@ -111,6 +110,7 @@ in {
       gitAndTools.hub
       go
       # clj-kondo
+      master.babashka
       (leiningen.override { jdk = jdk11; })
       nodejs-10_x
       python-with-my-packages
