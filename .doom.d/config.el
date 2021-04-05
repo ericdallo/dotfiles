@@ -131,14 +131,15 @@
   :init
   (setq doom-modeline-major-mode-icon t
         doom-modeline-buffer-encoding nil
-        doom-modeline-buffer-file-name-style 'relative-to-project
-        doom-modeline-vcs-max-length 0
-        vc-display-status nil)
-  ;; (doom-modeline-def-modeline 'reduced-main
-  ;;   '(bar workspace-name buffer-info remote-host buffer-position word-count selection-info)
-  ;;   '(misc-info debug repl lsp process checker))
-  ;; (doom-modeline-set-modeline 'reduced-main)
-)
+        doom-modeline-buffer-file-name-style 'relative-to-project))
+
+(after! doom-modeline
+  (remove-hook 'doom-modeline-mode-hook #'size-indication-mode)
+  (remove-hook 'doom-modeline-mode-hook #'column-number-mode)
+  (line-number-mode -1)
+  (doom-modeline-def-modeline 'main
+    '(bar workspace-name window-number matches buffer-info remote-host buffer-position word-count selection-info)
+    '(objed-state misc-info persp-name grip debug repl lsp process checker "   ")))
 
 (use-package! lsp-dart
   :config
@@ -187,9 +188,7 @@
           lsp-completion-sort-initial-results nil
           lsp-completion-use-last-result nil
           lsp-csharp-server-install-dir omnisharp-path
-          lsp-csharp-server-path (f-join omnisharp-path "bin/omnisharp")
-          lsp-csharp-server-install-dir "/home/greg/dev/nixpkgs/result"
-          lsp-csharp-server-path "/home/greg/dev/nixpkgs/result/bin/omnisharp"))
+          lsp-csharp-server-path (f-join omnisharp-path "bin/omnisharp")))
   (advice-add #'lsp-rename :after (lambda (&rest _) (projectile-save-project-buffers)))
   (add-hook 'lsp-mode-hook (lambda () (setq-local company-format-margin-function #'company-vscode-dark-icons-margin-function))))
 
