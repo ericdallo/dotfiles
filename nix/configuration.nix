@@ -5,7 +5,7 @@
 { config, pkgs, ... }:
 {
   nixpkgs.config.allowUnfree = true;
- 
+
   imports =
     [
       /etc/nixos/host.nix
