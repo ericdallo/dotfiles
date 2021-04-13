@@ -172,11 +172,11 @@
          (dart-mode . lsp)
          (java-mode . lsp))
   :config
-  (let ((omnisharp-path (-> (executable-find "omnisharp")
-                            file-chase-links
-                            file-name-directory
-                            directory-file-name
-                            file-name-directory)))
+  (let ((omnisharp-path (-some-> (executable-find "omnisharp")
+                          file-chase-links
+                          file-name-directory
+                          directory-file-name
+                          file-name-directory)))
     (setq lsp-clojure-custom-server-command '("bash" "-c" "~/dev/clojure-lsp/clojure-lsp")
           lsp-headerline-breadcrumb-enable nil
           lsp-lens-enable t
@@ -188,7 +188,7 @@
           lsp-completion-sort-initial-results nil
           lsp-completion-use-last-result nil
           lsp-csharp-server-install-dir omnisharp-path
-          lsp-csharp-server-path (f-join omnisharp-path "bin/omnisharp")))
+          lsp-csharp-server-path (-some-> omnisharp-path (f-join "bin/omnisharp"))))
   (advice-add #'lsp-rename :after (lambda (&rest _) (projectile-save-project-buffers)))
   (add-hook 'lsp-mode-hook (lambda () (setq-local company-format-margin-function #'company-vscode-dark-icons-margin-function))))
 
