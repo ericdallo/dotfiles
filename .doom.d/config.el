@@ -192,6 +192,10 @@
   (advice-add #'lsp-rename :after (lambda (&rest _) (projectile-save-project-buffers)))
   (add-hook 'lsp-mode-hook (lambda () (setq-local company-format-margin-function #'company-vscode-dark-icons-margin-function))))
 
+(use-package! lsp-treemacs
+  :config
+  (setq lsp-treemacs-error-list-current-project-only t))
+
 (use-package! lsp-ui
   :after lsp-mode
   :commands lsp-ui-mode
