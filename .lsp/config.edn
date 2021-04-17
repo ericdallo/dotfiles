@@ -58,4 +58,7 @@
  :text-document-sync-kind :full
  :semantic-tokens? true
  :auto-add-ns-to-new-files? true
+ :additional-snippets [{:name "wrap-let-sexpr$"
+                        :detail "Wrap in let sexpr"
+                        :snippet "(let [$1] $0$current-form)"}]
  :dependency-scheme "jar"}
