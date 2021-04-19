@@ -130,29 +130,11 @@
       :desc "DAP continue"
       "<f8>" #'dap-continue)
 
-(map! :after lsp-mode
-      :map lsp-mode-map
-      :leader
-
-      :desc "LSP Call hierarchy - Incoming"
-      "c y" #'lsp-treemacs-call-hierarchy
-
-      :desc "LSP Call hierarchy - Outcoming"
-      "c Y" (lambda () (interactive) (lsp-treemacs-call-hierarchy t)))
-
 (after! lsp-ui
   (map! :nvi
 
         :desc "LSP-ui apply code action"
         "M-[" #'lsp-ui-sideline-apply-code-actions))
-
-(map! :leader
-
-      :desc "LSP-treemacs list errors"
-      "c X" #'lsp-treemacs-errors-list
-
-      :desc "LSP-treemacs find references"
-      "c R" (lambda () (interactive) (lsp-treemacs-references t)))
 
 (map! :after java-mode
       :map java-mode-map
