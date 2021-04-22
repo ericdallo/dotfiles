@@ -2,6 +2,11 @@
 
 {
   # home.stateVersion = "20.09";
+
+  home.packages = with pkgs; [
+    google-drive-ocamlfuse
+  ];
+
   programs = {
     home-manager.enable = true;
 
