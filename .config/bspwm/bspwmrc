@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-source ~/.critical-keys
-source ~/.env
+source $HOME/.critical-keys
+source $HOME/.env
 
 killall sxhkd &
 pkill -f dunst &
@@ -47,3 +47,5 @@ sxhkd &
 dunst &
 
 betterlockscreen -w &
+
+mount | grep "${HOME}/google-drive" >/dev/null || google-drive-ocamlfuse "${HOME}/google-drive" -xdgbd &
