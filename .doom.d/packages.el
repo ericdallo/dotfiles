@@ -4,8 +4,6 @@
 ;; (package! dap-mode :recipe (:local-repo "~/dev/dap-mode" :files ("*.el") :no-byte-compile t))
 (package! dhall-mode)
 (package! emidje)
-;; (package! flutter)
-;; (package! flycheck-clojure)
 (package! flycheck-package)
 ;; (package! lsp-dart :recipe (:local-repo "~/dev/lsp-dart" :files ("*.el") :no-byte-compile t))
 ;; (package! lsp-mode :recipe (:local-repo "~/dev/lsp-mode" :files ("*.el") :no-byte-compile t))
