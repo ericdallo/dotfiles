@@ -66,10 +66,9 @@
  +format-on-save-enabled-modes '(dart-mode)
  +lsp-auto-install-servers t
 
- dap-enable-mouse-support nil
-
- evil-collection-setup-minibuffer t)
-
+ evil-collection-setup-minibuffer t
+ org-directory "google-drive/Notes"
+ org-roam-directory "roam")
 
 (set-popup-rule! "\\*LSP Dart tests\\*" :height 0.3)
 (set-popup-rule! "\\*dap-ui-locals\\*" :side 'right :width 0.3)
@@ -120,12 +119,11 @@
   (setq company-tooltip-align-annotations t
         company-icon-size 20))
 
-(use-package! hover
-  :after dart-mode
+(use-package! dap-mode
+  :init
+  (require 'dap-chrome)
   :config
-  (setq hover-hot-reload-on-save t
-        hover-clear-buffer-on-hot-restart t
-        hover-screenshot-path "$HOME/Pictures"))
+  (setq dap-enable-mouse-support nil))
 
 (use-package! doom-modeline
   :init
@@ -140,6 +138,13 @@
   (doom-modeline-def-modeline 'main
     '(bar workspace-name window-number matches buffer-info remote-host buffer-position word-count selection-info)
     '(objed-state misc-info persp-name grip debug repl lsp process checker "   ")))
+
+(use-package! hover
+  :after dart-mode
+  :config
+  (setq hover-hot-reload-on-save t
+        hover-clear-buffer-on-hot-restart t
+        hover-screenshot-path "$HOME/Pictures"))
 
 (use-package! lsp-dart
   :config
@@ -215,10 +220,6 @@
 (use-package! paredit
   :hook ((clojure-mode . paredit-mode)
          (emacs-lisp-mode . paredit-mode)))
-
-(use-package! dap-mode
-  :init
-  (require 'dap-chrome))
 
 (use-package! treemacs-all-the-icons
   :after treemacs)
