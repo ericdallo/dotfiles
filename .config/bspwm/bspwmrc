@@ -48,4 +48,4 @@ dunst &
 
 betterlockscreen -w &
 
-mount | grep "${HOME}/google-drive" >/dev/null || google-drive-ocamlfuse "${HOME}/google-drive" -xdgbd &
+mount | grep "$HOME/google-drive" >/dev/null || google-drive-ocamlfuse "$HOME/google-drive" -xdgbd &
