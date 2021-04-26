@@ -5,6 +5,7 @@
 
   home.packages = with pkgs; [
     google-drive-ocamlfuse
+    sqlite
   ];
 
   programs = {
