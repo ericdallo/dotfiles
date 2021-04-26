@@ -189,7 +189,8 @@
           lsp-enable-file-watchers t
           lsp-signature-render-documentation nil
           lsp-signature-function 'lsp-signature-posframe
-          lsp-semantic-tokens-enable t
+          lsp-semantic-tokens-enable nil
+          lsp-idle-delay 0.3
           lsp-completion-sort-initial-results nil
           lsp-completion-use-last-result nil
           lsp-csharp-server-install-dir omnisharp-path
