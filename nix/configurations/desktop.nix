@@ -9,7 +9,7 @@
       bspwm
       dmenu
       dunst
-      franz
+      stable.franz
       feh
       font-manager
       gimp
