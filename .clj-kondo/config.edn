@@ -1,8 +1,11 @@
 {:skip-comments true
- :config-paths  ["nubank/state-flow"]
+ :config-paths  ["nubank/state-flow"
+                 "nubank/common-datomic"
+                 "nubank/common-metrics"]
  :hooks         {:analyze-call {postman.aux.init/defflow     nubank.state-flow/defflow
                                 integration.aux.init/defflow nubank.state-flow/defflow}}
- :lint-as       {bonafont.logic.flow-edge/def                clojure.core/def
+ :lint-as       {midje.checking.checkers.defining/defchecker clojure.core/defn
+                 bonafont.logic.flow-edge/def                clojure.core/def
                  bonafont.logic.flow-edge/defedge            clojure.core/def
                  bonafont.logic.flow-config/defflow          clojure.core/def
                  bonafont.logic.flow-config/def              clojure.core/def
