@@ -37,8 +37,6 @@
     rxvt_unicode-with-plugins
     stable.sbt
     telnet
-    tmux
-    tmuxinator
     translate-shell
     tree
     unrar
@@ -78,11 +76,6 @@
       promptInit = "";
     };
     bash.enableCompletion = true;
-
-    tmux = {
-      enable = true;
-      clock24 = true;
-    };
   };
 
   systemd.user.services."urxvtd" = {

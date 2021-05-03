@@ -38,6 +38,7 @@
         bind-key -n C-Down select-pane -D
         bind-key -n C-S-Left resize-pane -L
         bind-key -n C-S-Right resize-pane -R
+        bind-key -n M-y copy-mode
         bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "xclip -selection c"
         bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "xclip -in -selection clipboard"
         bind-key -T copy-mode-vi 'v' send -X begin-selection
@@ -46,7 +47,7 @@
         set -s escape-time 0
         set-option -g allow-rename off
         set-option -g mouse on
-        set -g history-limit 10000
+        set -g history-limit 20000
         setw -g mode-keys vi
     '';
   };
