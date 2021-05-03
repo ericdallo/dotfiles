@@ -26,11 +26,6 @@
       (select-window bottom-window)
       (scroll-down-line))))
 
-(map! :n
-
-      :desc "Multi edit lines"
-      "M-r" #'evil-multiedit-match-all)
-
 (map! :nvi
 
       :desc "Toggle buffer full screen"
