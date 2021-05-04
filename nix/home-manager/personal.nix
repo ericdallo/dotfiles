@@ -5,8 +5,8 @@ let
 
 in {
   imports = [
-    ./common/programs.nix
-    ./common/tmux.nix
+    ./programs/common.nix
+    ./programs/tmux.nix
   ];
 
   home = {

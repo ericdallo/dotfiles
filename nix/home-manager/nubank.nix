@@ -3,8 +3,8 @@ let
   dotfilesDir = "$HOME/.dotfiles";
 in {
   imports = [
-    ./common/programs.nix
-    ./common/tmux.nix
+    ./programs/common.nix
+    ./programs/tmux.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
