@@ -53,8 +53,6 @@ in {
         ln -Tsf ${dotfilesDir}/.doom.d ~/.doom.d
         ln -Tsf ${dotfilesDir}/.lsp ~/.lsp
         ln -Tsf ${dotfilesDir}/.clj-kondo ~/.clj-kondo
-        ln -sf ${dotfilesDir}/.joker ~/.joker
-        ln -Tsf ${dotfilesDir}/.jokerd ~/.jokerd
 
         ln -sf ${dotfilesDir}/.gitconfig ~/.gitconfig
         ln -sf ${dotfilesDir}/.gitignore_global ~/.gitignore_global
