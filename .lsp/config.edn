@@ -51,6 +51,7 @@
            with-fn-validation      [[:block 0]]
            with-responses          [[:block 0]]
            with-scopes             [[:block 1]]}}
+ :linters {:unused-public-var {:exclude-when-defined-by #{state-flow.cljtest/defflow}}}
  :source-paths #{"src" "test" "postman"}
  :use-metadata-for-privacy? true
  :keep-require-at-start? false

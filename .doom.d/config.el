@@ -182,6 +182,9 @@
                           file-name-directory
                           directory-file-name
                           file-name-directory)))
+    (when omnisharp-path
+      lsp-csharp-server-install-dir omnisharp-path
+      lsp-csharp-server-path (f-join omnisharp-path "bin/omnisharp"))
     (setq lsp-clojure-custom-server-command '("bash" "-c" "~/dev/clojure-lsp/clojure-lsp")
           lsp-headerline-breadcrumb-enable nil
           lsp-lens-enable t
@@ -193,9 +196,7 @@
           lsp-idle-delay 0.3
           lsp-use-plists nil
           lsp-completion-sort-initial-results nil
-          lsp-completion-use-last-result nil
-          lsp-csharp-server-install-dir omnisharp-path
-          lsp-csharp-server-path (-some-> omnisharp-path (f-join "bin/omnisharp"))))
+          lsp-completion-use-last-result nil))
   (advice-add #'lsp-rename :after (lambda (&rest _) (projectile-save-project-buffers)))
   (add-hook 'lsp-mode-hook (lambda () (setq-local company-format-margin-function #'company-vscode-dark-icons-margin-function))))
 
