@@ -24,7 +24,8 @@
                  rewrite-clj.zip.subedit/edit->              clojure.core/->
                  rewrite-clj.zip.subedit/subedit->           clojure.core/->}
  :linters       {:refer-all         {:level   :info
-                                     :exclude [midje.sweet]}
+                                     :exclude [midje.sweet
+                                               clojure.test]}
                  :unresolved-symbol {:level   :warning
                                      :exclude [fact
                                                facts
