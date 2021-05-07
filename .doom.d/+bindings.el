@@ -5,6 +5,8 @@
 
 (define-key evil-normal-state-map (kbd "M-r") 'evil-multiedit-match-all)
 (define-key evil-normal-state-map (kbd "<tab>") 'evil-jump-item)
+(define-key evil-motion-state-map (kbd "] e") #'flycheck-next-error)
+(define-key evil-motion-state-map (kbd "[ e") #'flycheck-previous-error)
 
 (defun scroll-up-bottom-window ()
   "Scroll up bottom window"
