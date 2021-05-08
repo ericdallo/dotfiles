@@ -183,8 +183,8 @@
                           directory-file-name
                           file-name-directory)))
     (when omnisharp-path
-      lsp-csharp-server-install-dir omnisharp-path
-      lsp-csharp-server-path (f-join omnisharp-path "bin/omnisharp"))
+      (setq lsp-csharp-server-install-dir omnisharp-path
+            lsp-csharp-server-path (f-join omnisharp-path "bin/omnisharp")))
     (setq lsp-clojure-custom-server-command '("bash" "-c" "~/dev/clojure-lsp/clojure-lsp")
           lsp-headerline-breadcrumb-enable nil
           lsp-lens-enable t

@@ -60,7 +60,7 @@
 
        :emacs
        (dired  +icons)
-       electric          ; smarter, keyword-based electric-indent
+       ;; electric          ; smarter, keyword-based electric-indent
        ;;vc                ; version-control and Emacs, sitting in a tree
 
        :term
@@ -82,7 +82,9 @@
        lookup        ; ...or in Dash docsets locally
        (lsp +peek)
        ;;macos             ; MacOS-specific commands
-       (magit +forge)             ; a git porcelain for Emacs
+       (magit
+        ;; +forge
+        )             ; a git porcelain for Emacs
        ;;make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
        ;;pdf               ; pdf enhancements
@@ -110,24 +112,26 @@
        emacs-lisp        ; drown in parentheses
        ;;ess               ; emacs speaks statistics
        ;;fsharp           ; ML stands for Microsoft's Language
-       (go +lsp)                ; the hipster dialect
+       ;; (go +lsp)                ; the hipster dialect
        ;;(haskell +intero) ; a language that's lazier than I am
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ;
        (java +lsp) ; the poster child for carpal tunnel syndrome
        (javascript +lsp)        ; all(hope(abandon(ye(who(enter(here))))))
        ;;julia             ; a better, faster MATLAB
-       kotlin            ; a better, slicker Java(Script)
+       ;; kotlin            ; a better, slicker Java(Script)
        ;;latex             ; writing papers in Emacs has never been so fun
        ;;ledger            ; an accounting system in Emacs
        ;;lua               ; one-based indices? one-based indices
-       (markdown +grip)          ; writing docs for people to ignore
+       (markdown
+        ;; +grip
+        )          ; writing docs for people to ignore
        ;;nim               ; python + lisp at the speed of c
        nix               ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
        (org              ; organize your plain life in plain text
-        +roam
-        +dragndrop       ; file drag & drop support
+        ;; +roam
+        ;; +dragndrop       ; file drag & drop support
         +pandoc          ; pandoc integration into org's exporter
         +present)        ; using Emacs for presentations
        ;;perl              ; write code no one else can comprehend
@@ -138,10 +142,12 @@
        ;;qt                ; the 'cutest' gui framework ever
        ;;racket            ; a DSL for DSLs
        ;;rest              ; Emacs as a REST client
-       (ruby +lsp)              ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
+       ;; (ruby +lsp)              ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
        ;;rust              ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
        ;;scala             ; java, but good
-       (sh +lsp)                ; she sells {ba,z,fi}sh shells on the C xor
+       (sh
+        ;; +lsp
+        )                ; she sells {ba,z,fi}sh shells on the C xor
        ;;solidity          ; do you need a blockchain? No.
        ;;swift             ; who asked for emoji variables?
        ;;terra             ; Earth and Moon in alignment for performance.
