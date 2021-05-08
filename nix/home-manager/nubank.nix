@@ -26,12 +26,8 @@ in {
 
     activation.linkFiles = config.lib.dag.entryAfter ["writeBoundary"] ''
         cp -n ${dotfilesDir}/.critical-keys.sample ~/.critical-keys
-        ln -Tsf ${dotfilesDir}/.env ~/.env
-        ln -sf ${dotfilesDir}/.zsh_aliases ~/.zsh_aliases
         ln -sf ${dotfilesDir}/.nubank_aliases ~/.nubank_aliases
-        ln -sf ${dotfilesDir}/.zshrc ~/.zshrc
         ln -sf ${dotfilesDir}/.nubank_extra ~/.extra
-        ln -sf ${dotfilesDir}/.functions ~/.functions
 
         ln -Tsf ${dotfilesDir}/.config/bspwm ~/.config/bspwm
         ln -Tsf ${dotfilesDir}/.config/sxhkd ~/.config/sxhkd

@@ -4,6 +4,7 @@
   # home.stateVersion = "20.09";
 
   imports = [
+    ./shell.nix
     ./git.nix
     ./network-manager.nix
     ./tmux.nix

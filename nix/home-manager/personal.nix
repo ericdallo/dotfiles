@@ -6,6 +6,7 @@ let
 in {
   imports = [
     ./programs/common.nix
+    ./programs/gregflix.nix
   ];
 
   home = {
@@ -33,10 +34,6 @@ in {
     ];
     activation.linkFiles = config.lib.dag.entryAfter ["writeBoundary"] ''
         cp -n ${dotfilesDir}/.critical-keys.sample ~/.critical-keys
-        ln -Tsf ${dotfilesDir}/.env ~/.env
-        ln -sf ${dotfilesDir}/.zsh_aliases ~/.zsh_aliases
-        ln -sf ${dotfilesDir}/.zshrc ~/.zshrc
-        ln -sf ${dotfilesDir}/.functions ~/.functions
 
         ln -Tsf ${dotfilesDir}/.config/bspwm ~/.config/bspwm
         ln -Tsf ${dotfilesDir}/.config/sxhkd ~/.config/sxhkd
@@ -50,9 +47,6 @@ in {
         ln -Tsf ${dotfilesDir}/.doom.d ~/.doom.d
         ln -Tsf ${dotfilesDir}/.lsp ~/.lsp
         ln -Tsf ${dotfilesDir}/.clj-kondo ~/.clj-kondo
-
-        ln -sf ${dotfilesDir}/.tmdb-functions ~/.tmdb-functions
-        ln -sf ${dotfilesDir}/.gregflix-functions ~/.gregflix-functions
 
         ln -sf ${dotfilesDir}/.vimrc ~/.vimrc
 
