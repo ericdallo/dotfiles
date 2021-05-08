@@ -100,8 +100,6 @@ in {
       android-studio
       android.androidsdk
       stable.awscli
-      clojure
-      clojure-lsp
       docker-compose
       emacsPackage
       nubank.dart

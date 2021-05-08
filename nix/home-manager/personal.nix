@@ -6,6 +6,7 @@ let
 in {
   imports = [
     ./programs/common.nix
+    ./programs/clojure.nix
     ./programs/gregflix.nix
   ];
 
@@ -47,8 +48,6 @@ in {
         ln -Tsf ${dotfilesDir}/.doom.d ~/.doom.d
         ln -Tsf ${dotfilesDir}/.lsp ~/.lsp
         ln -Tsf ${dotfilesDir}/.clj-kondo ~/.clj-kondo
-
-        ln -sf ${dotfilesDir}/.vimrc ~/.vimrc
 
         ln -sf ${dotfilesDir}/.config/Code/User/keybindings.json ~/.config/Code/User/keybindings.json
         ln -sf ${dotfilesDir}/.config/Code/User/settings.json ~/.config/Code/User/settings.json

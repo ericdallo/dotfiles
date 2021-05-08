@@ -4,6 +4,7 @@ let
 in {
   imports = [
     ./programs/common.nix
+    ./programs/clojure.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -41,8 +42,6 @@ in {
         ln -Tsf ${dotfilesDir}/.lsp ~/.lsp
         ln -Tsf ${dotfilesDir}/.clj-kondo ~/.clj-kondo
         ln -sf ${dotfilesDir}/.midje.clj ~/.midje.clj
-
-        ln -sf ${dotfilesDir}/.vimrc ~/.vimrc
     '';
   };
 }
