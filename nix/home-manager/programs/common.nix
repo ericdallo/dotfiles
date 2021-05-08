@@ -7,7 +7,7 @@
     ./network-manager.nix
     ./tmux.nix
     ./tmuxinator.nix
-    ./xresources.nix
+    ./urxvt.nix
   ];
 
   home.packages = with pkgs; [
