@@ -45,7 +45,6 @@ in {
         ln -Tsf ${dotfilesDir}/.config/rofi ~/.config/rofi
         ln -Tsf ${dotfilesDir}/.config/polybar ~/.config/polybar
         ln -Tsf ${dotfilesDir}/.config/dunst ~/.config/dunst
-        ln -Tsf ${dotfilesDir}/.config/networkmanager-dmenu ~/.config/networkmanager-dmenu
         ln -Tsf ${dotfilesDir}/.config/libinput-gestures.conf ~/.config/libinput-gestures.conf
         ln -Tsf ${dotfilesDir}/.config/clojure ~/.config/clojure
         ln -Tsf ${dotfilesDir}/.config/gdfuse ~/.config/gdfuse

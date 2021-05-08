@@ -3,6 +3,10 @@
 {
   # home.stateVersion = "20.09";
 
+  imports = [
+    ./network-manager.nix
+  ];
+
   home.packages = with pkgs; [
     google-drive-ocamlfuse
     sqlite

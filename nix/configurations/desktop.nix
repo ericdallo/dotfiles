@@ -21,7 +21,6 @@
       libnotify
       materia-theme
       gnome3.nautilus
-      networkmanager_dmenu
       ntfsprogs
       pavucontrol
       master.peek
