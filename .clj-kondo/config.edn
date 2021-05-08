@@ -1,10 +1,11 @@
 {:skip-comments true
  :config-paths  ["nubank/state-flow"
                  "nubank/common-datomic"
-                 "nubank/common-metrics"]
+                 "marick/midje"]
  :hooks         {:analyze-call {postman.aux.init/defflow                    nubank.state-flow/defflow
                                 integration.aux.init/defflow                nubank.state-flow/defflow
-                                integration.aux.init/defflow-loopback-false nubank.state-flow/defflow}}
+                                integration.aux.init/defflow-loopback-false nubank.state-flow/defflow
+                                midje.sweet/tabular                         marick.midje/tabular}}
  :lint-as       {midje.checking.checkers.defining/defchecker clojure.core/defn
                  bonafont.logic.flow-edge/def                clojure.core/def
                  bonafont.logic.flow-edge/defedge            clojure.core/def
@@ -25,15 +26,6 @@
                  rewrite-clj.zip/edit->                      clojure.core/->
                  rewrite-clj.zip.subedit/edit->              clojure.core/->
                  rewrite-clj.zip.subedit/subedit->           clojure.core/->}
- :linters       {:refer-all         {:exclude [midje.sweet
-                                               matcher-combinators.test
-                                               clojure.test]}
-                 :unresolved-symbol {:exclude [fact
-                                               facts
-                                               =>
-                                               provided
-                                               tabular
-                                               against-background
-                                               (midje.sweet/fact)
-                                               (midje.sweet/facts)
-                                               (midje.parsing.arrow-symbols/=>)]}}}
+ :linters {:refer-all {:exclude [midje.sweet
+                                 matcher-combinators.test
+                                 clojure.test]}}}
