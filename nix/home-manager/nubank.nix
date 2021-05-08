@@ -4,7 +4,6 @@ let
 in {
   imports = [
     ./programs/common.nix
-    ./programs/tmux.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -49,8 +48,6 @@ in {
 
         ln -sf ${dotfilesDir}/.gitconfig ~/.gitconfig
         ln -sf ${dotfilesDir}/.gitignore_global ~/.gitignore_global
-
-        ln -Tsf ${dotfilesDir}/.tmuxinator ~/.tmuxinator
 
         ln -sf ${dotfilesDir}/.vimrc ~/.vimrc
 

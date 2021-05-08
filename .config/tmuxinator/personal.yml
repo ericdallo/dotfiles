@@ -1,0 +1,9 @@
+name: personal
+root: ~/
+
+name: Personal
+windows:
+  - Main: 
+  - Second:
+  - Third:
+  - Fourth:

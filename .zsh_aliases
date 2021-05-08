@@ -8,7 +8,6 @@ alias rebuild="sudo nixos-rebuild switch"
 
 # Flutter
 alias flutter-fix="sudo mkdir /lib64;sudo ln -sf $(file -L /usr/bin/env | cut -d"," -f5 | cut -d" " -f3) /lib64/ld-linux-x86-64.so.2"
-alias flutter-hover="$DOTFILES_DIR/nix/scripts/hover.sh"
 alias flutter-watch="flutter pub run build_runner watch --verbose --delete-conflicting-outputs"
 
 # urxvt
@@ -29,7 +28,7 @@ alias al='$EDITOR ~/.zsh_aliases'
 alias fu='$EDITOR ~/dev/dotfiles/alias/'
 
 alias killmux='tmux kill-window -a && exit'
-alias tm='tmuxinator start tab'
+alias tm='tmuxinator start personal'
 alias s='espeak'
 alias hey='s -v pt-br "se liga, cabô" && notify-send "Hey"'
 
@@ -40,7 +39,6 @@ alias m="mysql -uroot -p -h 172.17.0.1"
 alias k="kill -9"
 
 alias c='xclip -selection clipboard'
-alias ge='gradle clean cleanEclipse eclipse'
 
 # Cloud at Cost
 GREGFLIX_IP="gregflix.site"
@@ -53,5 +51,4 @@ alias deploy-gregflix='ssh-gregflix "./start-app.sh"'
 # Temp aliases
 alias restart-net="sudo service network-manager restart"
 
-source $HOME/.frigocenter_aliases 2> /dev/null
 source $HOME/.nubank_aliases 2> /dev/null

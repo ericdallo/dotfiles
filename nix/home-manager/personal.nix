@@ -6,7 +6,6 @@ let
 in {
   imports = [
     ./programs/common.nix
-    ./programs/tmux.nix
   ];
 
   home = {
@@ -59,8 +58,6 @@ in {
         ln -sf ${dotfilesDir}/.tmdb-functions ~/.tmdb-functions
         ln -sf ${dotfilesDir}/.gregflix-functions ~/.gregflix-functions
         ln -sf ${dotfilesDir}/.s3cfg ~/.s3cfg
-
-        ln -Tsf ${dotfilesDir}/.tmuxinator ~/.tmuxinator
 
         ln -sf ${dotfilesDir}/.vimrc ~/.vimrc
 

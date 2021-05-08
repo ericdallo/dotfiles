@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-alias frigocenter='tmuxinator start frigocenter'
-alias adminLogin="curl -i -X POST -d username=admin -d password=123mudar -c /tmp/cookie localhost:7777/login"
-alias clientLogin="curl -i -X POST -d username=client -d password=123mudar -c /tmp/cookie localhost:7777/login"
-alias engineeringLogin="curl -i -X POST -d username=enginering -d password=123mudar -c /tmp/cookie localhost:7777/login"
-alias maintenanceLogin="curl -i -X POST -d username=maintenance -d password=123mudar -c /tmp/cookie localhost:7777/login"
-
-alias mysql-frigo="mysql -u $FRIGOCENTER_DB_USER -p'$FRIGOCENTER_DB_PASS' -h $FRIGOCENTER_DB_HOST --ssl-ca=/home/greg/Documents/FGCOM/RDS/amazon-rds-ca-cert.pem frigocenter"

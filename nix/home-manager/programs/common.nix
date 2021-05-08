@@ -5,12 +5,13 @@
 
   imports = [
     ./network-manager.nix
+    ./tmux.nix
+    ./tmuxinator.nix
   ];
 
   home.packages = with pkgs; [
     google-drive-ocamlfuse
     sqlite
-    tmuxinator
   ];
 
   programs = {
