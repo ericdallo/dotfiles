@@ -50,8 +50,6 @@ in {
         ln -sf ${dotfilesDir}/.gitignore_global ~/.gitignore_global
 
         ln -sf ${dotfilesDir}/.vimrc ~/.vimrc
-
-        ln -sf ${dotfilesDir}/.Xresources ~/.Xresources
     '';
   };
 }

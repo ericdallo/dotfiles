@@ -57,14 +57,11 @@ in {
 
         ln -sf ${dotfilesDir}/.tmdb-functions ~/.tmdb-functions
         ln -sf ${dotfilesDir}/.gregflix-functions ~/.gregflix-functions
-        ln -sf ${dotfilesDir}/.s3cfg ~/.s3cfg
 
         ln -sf ${dotfilesDir}/.vimrc ~/.vimrc
 
         ln -sf ${dotfilesDir}/.config/Code/User/keybindings.json ~/.config/Code/User/keybindings.json
         ln -sf ${dotfilesDir}/.config/Code/User/settings.json ~/.config/Code/User/settings.json
-
-        ln -sf ${dotfilesDir}/.Xresources ~/.Xresources
 
         mkdir -p ~/.android/avd/device.avd
         ln -sf ${dotfilesDir}/nix/android/emulator-config.ini ~/.android/avd/device.avd/config.ini
