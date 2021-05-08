@@ -4,6 +4,7 @@
   # home.stateVersion = "20.09";
 
   imports = [
+    ./git.nix
     ./network-manager.nix
     ./tmux.nix
     ./tmuxinator.nix
@@ -17,12 +18,6 @@
 
   programs = {
     home-manager.enable = true;
-
-    git = {
-      enable = true;
-
-      package = pkgs.gitAndTools.hub;
-    };
 
     vim = {
       enable = true;

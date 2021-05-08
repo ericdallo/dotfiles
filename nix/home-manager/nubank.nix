@@ -46,9 +46,6 @@ in {
         ln -Tsf ${dotfilesDir}/.clj-kondo ~/.clj-kondo
         ln -sf ${dotfilesDir}/.midje.clj ~/.midje.clj
 
-        ln -sf ${dotfilesDir}/.gitconfig ~/.gitconfig
-        ln -sf ${dotfilesDir}/.gitignore_global ~/.gitignore_global
-
         ln -sf ${dotfilesDir}/.vimrc ~/.vimrc
     '';
   };
