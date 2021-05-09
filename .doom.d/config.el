@@ -67,7 +67,7 @@
  +lsp-auto-install-servers t
 
  evil-collection-setup-minibuffer t
- org-directory "google-drive/Notes"
+ org-directory "/opt/google-drive/Notes"
  org-roam-directory "roam")
 
 (set-popup-rule! "\\*LSP Dart tests\\*" :height 0.3)
