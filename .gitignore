@@ -1,4 +1,5 @@
-.clj-kondo/.cache
+.config/clj-kondo/
+!.config/clj-kondo/config.edn
 .doom.d/local/
 .doom.d/*.elc
 *result
