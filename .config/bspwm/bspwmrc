@@ -28,7 +28,7 @@ bspc rule -a Emacs desktop='^2' state=tiled follow=on
 bspc rule -a Google-chrome desktop='^3' state=tiled follow=on
 bspc rule -a Ferdi desktop='^4' state=tiled follow=on
 bspc rule -a Nautilus desktop='^5' state=tiled follow=on
-bspc rule -a Zoom desktop='^5' state=tiled follow=on
+bspc rule -a zoom desktop='^5' state=tiled follow=on
 bspc rule -a Gimp desktop='^6' state=tiled follow=on
 bspc rule -a Loading.. desktop='^2' state=floating follow=on
 bspc rule -a Peek state=floating follow=on
