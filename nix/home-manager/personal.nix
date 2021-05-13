@@ -22,6 +22,7 @@ in {
       omnisharp-roslyn
       pandoc
       postman
+      ferdi
       rust-analyzer
       s3cmd
       sass

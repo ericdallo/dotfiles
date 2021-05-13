@@ -19,7 +19,7 @@ super + shift + e
       emacs
 
 super + f
-      franz
+      ferdi
 
 super + t
       urxvt

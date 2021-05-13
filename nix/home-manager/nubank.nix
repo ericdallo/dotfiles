@@ -17,6 +17,7 @@ in {
       git-lfs
       hashdeep
       kubectl
+      ferdi
       mob
       yubikey-manager
       yubikey-personalization-gui
