@@ -4,6 +4,7 @@ let
 in {
   imports = [
     ./programs/common.nix
+    ./programs/vscode.nix
     ./programs/clojure.nix
   ];
 

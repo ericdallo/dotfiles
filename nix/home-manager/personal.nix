@@ -7,6 +7,7 @@ in {
   imports = [
     ./programs/common.nix
     ./programs/clojure.nix
+    ./programs/vscode.nix
     ./programs/gregflix.nix
   ];
 
