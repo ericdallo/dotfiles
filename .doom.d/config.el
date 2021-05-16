@@ -70,6 +70,18 @@
  org-directory "/opt/google-drive/Notes"
  org-roam-directory "roam")
 
+(def-modeline! :main
+  '(""
+    +modeline-matches
+    " "
+    +modeline-buffer-identification
+    +modeline-position)
+  `(""
+    mode-line-misc-info
+    "  "
+    (+modeline-checker ("" +modeline-checker "    "))))
+(set-modeline! :main 'default)
+
 (set-popup-rule! "\\*LSP Dart tests\\*" :height 0.3)
 (set-popup-rule! "\\*dap-ui-locals\\*" :side 'right :width 0.3)
 (set-popup-rule! "\\*dap-ui-sessions\\*" :side 'right :width 0.3)
@@ -124,20 +136,6 @@
   (require 'dap-chrome)
   :config
   (setq dap-enable-mouse-support nil))
-
-(use-package! doom-modeline
-  :init
-  (setq doom-modeline-major-mode-icon t
-        doom-modeline-buffer-encoding nil
-        doom-modeline-buffer-file-name-style 'relative-to-project))
-
-(after! doom-modeline
-  (remove-hook 'doom-modeline-mode-hook #'size-indication-mode)
-  (remove-hook 'doom-modeline-mode-hook #'column-number-mode)
-  (line-number-mode -1)
-  (doom-modeline-def-modeline 'main
-    '(bar workspace-name window-number matches buffer-info remote-host buffer-position word-count selection-info)
-    '(objed-state misc-info persp-name grip debug repl lsp process checker "   ")))
 
 (use-package! hover
   :after dart-mode
