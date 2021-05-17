@@ -70,18 +70,6 @@
  org-directory "/opt/google-drive/Notes"
  org-roam-directory "roam")
 
-(def-modeline! :main
-  '(""
-    +modeline-matches
-    " "
-    +modeline-buffer-identification
-    +modeline-position)
-  `(""
-    mode-line-misc-info
-    "  "
-    (+modeline-checker ("" +modeline-checker "    "))))
-(set-modeline! :main 'default)
-
 (set-popup-rule! "\\*LSP Dart tests\\*" :height 0.3)
 (set-popup-rule! "\\*dap-ui-locals\\*" :side 'right :width 0.3)
 (set-popup-rule! "\\*dap-ui-sessions\\*" :side 'right :width 0.3)
@@ -192,6 +180,7 @@
           lsp-signature-function 'lsp-signature-posframe
           lsp-semantic-tokens-enable t
           lsp-idle-delay 0.3
+          lsp-lens-place-position 'end-of-line
           lsp-use-plists nil
           lsp-completion-sort-initial-results nil
           lsp-completion-use-last-result nil))
@@ -207,6 +196,7 @@
   :commands lsp-ui-mode
   :config
   (setq lsp-ui-peek-list-width 60
+        lsp-ui-doc-max-width 60
         lsp-ui-peek-fontify 'always
         lsp-ui-sideline-show-code-actions nil))
 
@@ -230,5 +220,24 @@
   (add-to-list 'projectile-project-root-files-bottom-up "BUILD"))
 
 (put 'narrow-to-region 'disabled nil)
+
+(def-modeline-var! +modeline-modes ; remove minor modes
+  '(""
+    mode-line-process
+    "%n"))
+
+(def-modeline! :main
+  '(""
+    +modeline-matches
+    " "
+    +modeline-buffer-identification
+    +modeline-position)
+  `(""
+    mode-line-misc-info
+    +modeline-modes
+    "  "
+    (+modeline-checker ("" +modeline-checker "    "))))
+
+(set-modeline! :main 'default)
 
 (load! "+bindings")
