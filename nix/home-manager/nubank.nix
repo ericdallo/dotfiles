@@ -12,6 +12,7 @@ in {
 
   home = {
     packages = with pkgs; [
+      aws-iam-authenticator
       discord
       fzf
       gcc
@@ -22,6 +23,8 @@ in {
       mob
       yubikey-manager
       yubikey-personalization-gui
+      visualvm
+      tektoncd-cli
       xsv
       zoom-us
       insomnia
