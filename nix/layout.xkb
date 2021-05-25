@@ -1,0 +1,11 @@
+xkb_keymap {
+	xkb_keycodes  { include "evdev+aliases(qwerty)"	};
+	xkb_types     { include "complete"	};
+	xkb_compat    { include "complete"	};
+	xkb_geometry  { include "pc(pc104)"	};
+
+	xkb_symbols {
+		include "pc+us(intl)+br(abnt2):2+inet(evdev)+ctrl(nocaps)"
+		replace key <RCTL> { [ space ] };
+	};
+};

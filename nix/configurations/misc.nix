@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
-{
+let
+  layout = ../layout.xkb;
+in {
   boot = {
     tmpOnTmpfs = true;
   };
@@ -17,5 +19,6 @@
 
   services.xserver = {
     xkbOptions = "ctrl:nocaps";
+    displayManager.sessionCommands = "${pkgs.xorg.xkbcomp}/bin/xkbcomp ${layout} $DISPLAY";
   };
 }

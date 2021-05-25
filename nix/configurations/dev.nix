@@ -52,7 +52,7 @@ in {
       # clj-kondo
       master.babashka
       (leiningen.override { jdk = jdk11; })
-      nodejs-10_x
+      nodejs-12_x
       python-with-my-packages
       shellcheck
     ];
