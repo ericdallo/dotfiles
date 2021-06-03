@@ -63,6 +63,7 @@
  :text-document-sync-kind :full
  :semantic-tokens? true
  :auto-add-ns-to-new-files? true
+ :lint-project-files-after-startup? true
  :additional-snippets [{:name "wrap-let-sexpr$"
                         :detail "Wrap in let sexpr"
                         :snippet "(let [$1] $0$current-form)"}]
