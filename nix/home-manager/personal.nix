@@ -21,6 +21,7 @@ in {
       mysql
       nodePackages.node2nix
       omnisharp-roslyn
+      hugo
       pandoc
       postman
       ferdi
