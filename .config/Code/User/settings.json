@@ -67,4 +67,5 @@
 	"dart.flutterSdkPath": "/home/greg/flutter",
 	"calva.referencesCodeLens.enabled": true,
 	"clojure.trace.server": "verbose",
+	"calva.clojureLspPath": "/home/greg/dev/clojure-lsp/clojure-lsp",
 }
