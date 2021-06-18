@@ -27,8 +27,8 @@ super + t
 super + c
       google-chrome-stable
 
-super + n
-      io.elementary.files
+super + q
+      nautilus
 
 super + 0
       $DOTFILES/scripts/translate.sh pt-BR
@@ -205,6 +205,9 @@ super+Return
 
 XF86Sleep
       betterlockscreen -s
+
+super + n
+      networkmanager_dmenu
 
 super + l
       betterlockscreen -l
