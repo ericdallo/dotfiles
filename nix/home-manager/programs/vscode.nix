@@ -13,8 +13,8 @@
       {
         name = "dart-code";
         publisher = "dart-code";
-        version = "3.21.1";
-        sha256 = "1b8k30hjss91ch45qp2hljy1idwvs2j0q40kpiwm8s1ik9v82wd0";
+        version = "3.23.0";
+        sha256 = "0kf7h19h4ll6sg14dylx272swhsi8zgh04v64p5yfm0ymh3sc5wz";
       }
       {
         name = "calva";

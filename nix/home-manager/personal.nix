@@ -15,13 +15,14 @@ in {
     packages = with pkgs; [
       master.alda
       blender
-      master.graalvm11-ce
+      # master.graalvm11-ce
       heroku
       imagemagick
       mysql
       nodePackages.node2nix
       omnisharp-roslyn
       hugo
+      master.polylith
       pandoc
       postman
       ferdi

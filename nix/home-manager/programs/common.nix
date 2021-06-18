@@ -1,8 +1,6 @@
 { pkgs, ... }:
 
 {
-  # home.stateVersion = "20.09";
-
   imports = [
     ./shell.nix
     ./git.nix

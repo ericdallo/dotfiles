@@ -17,8 +17,8 @@ in {
 
   time.timeZone = "America/Sao_Paulo";
 
-  services.xserver = {
-    xkbOptions = "ctrl:nocaps";
-    displayManager.sessionCommands = "${pkgs.xorg.xkbcomp}/bin/xkbcomp ${layout} $DISPLAY";
-  };
+  # services.xserver = {
+    # xkbOptions = "ctrl:nocaps";
+    # displayManager.sessionCommands = "${pkgs.xorg.xkbcomp}/bin/xkbcomp ${layout} $DISPLAY";
+  # };
 }
