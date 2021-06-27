@@ -18,6 +18,9 @@ super + e
 super + shift + e
       emacs
 
+super + ctrl + e
+      systemctl --user restart emacs.service
+
 super + f
       ferdi
 
