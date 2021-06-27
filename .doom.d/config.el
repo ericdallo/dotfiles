@@ -79,8 +79,9 @@
   :after clojure-mode
   :config
   (setq cider-ns-refresh-show-log-buffer t
-        cider-show-error-buffer t;'only-in-repl
+        cider-show-error-buffer t ;'only-in-repl
         cider-font-lock-dynamically '(macro core function var deprecated)
+        cider-eldoc-display-for-symbol-at-point nil
         cider-prompt-for-symbol nil)
   (set-popup-rule! "*cider-test-report*" :side 'right :width 0.5)
   (set-popup-rule! "^\\*cider-repl" :side 'bottom :quit nil)

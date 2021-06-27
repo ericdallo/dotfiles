@@ -56,7 +56,6 @@
                                           servlet-init
                                           servlet-destroy
                                           servlet-service}}}
- ;; :source-paths #{"src" "test" "postman"}
  :use-metadata-for-privacy? true
  :keep-require-at-start? false
  :show-docs-arity-on-same-line? true
