@@ -6,5 +6,5 @@
     clojure-lsp
   ];
 
-  xdg.configFile."clojure/deps.edn".source = ../../../.config/clojure/deps.edn;
+  # xdg.configFile."clojure/deps.edn".source = ../../../.config/clojure/deps.edn;
 }
