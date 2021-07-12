@@ -87,12 +87,6 @@
         :desc "Backward barf"
         "M-S-<right>" #'paredit-backward-barf-sexp
 
-        :desc "Reverse transpose sexps"
-        "M-<up>" #'reverse-transpose-sexps
-
-        :desc "Transpose sexps"
-        "M-<down>" #'transpose-sexps
-
         :desc "Backward"
         "C-c <left>" #'paredit-backward
 
@@ -126,12 +120,6 @@
 
       :desc "DAP continue"
       "<f8>" #'dap-continue)
-
-(after! lsp-ui
-  (map! :nvi
-
-        :desc "LSP-ui apply code action"
-        "M-[" #'lsp-ui-sideline-apply-code-actions))
 
 (map! :after java-mode
       :map java-mode-map

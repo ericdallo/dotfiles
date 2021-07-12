@@ -16,12 +16,6 @@
 (add-hook 'dart-mode-hook (lambda () (setq left-fringe-width 16)))
 (add-hook 'java-mode-hook (lambda () (setq left-fringe-width 16)))
 
-(defun reverse-transpose-sexps (arg)
-    (interactive "*p")
-    (transpose-sexps (- arg))
-    (backward-sexp (1+ arg))
-    (forward-sexp 1))
-
 (defun rg-ignoring-folders (folders)
   "ripgrep selected word in project excluding folder"
   (let ((symbol (thing-at-point 'symbol t))
@@ -64,7 +58,6 @@
  doom-localleader-key ","
 
  +format-on-save-enabled-modes '(dart-mode)
- +lsp-auto-install-servers t
 
  evil-collection-setup-minibuffer t
  org-directory "/opt/google-drive/Notes"
@@ -80,13 +73,14 @@
   :config
   (setq cider-ns-refresh-show-log-buffer t
         cider-show-error-buffer t ;'only-in-repl
-        cider-font-lock-dynamically '(macro core function var deprecated)
-        cider-eldoc-display-for-symbol-at-point nil
+        cider-font-lock-dynamically nil ; use lsp semantic tokens
+        cider-eldoc-display-for-symbol-at-point nil ; use lsp
         cider-prompt-for-symbol nil)
-  (set-popup-rule! "*cider-test-report*" :side 'right :width 0.5)
+  (set-popup-rule! "*cider-test-report*" :side 'right :width 0.4)
   (set-popup-rule! "^\\*cider-repl" :side 'bottom :quit nil)
-  (set-lookup-handlers! 'cider-mode nil)
-  (add-hook 'cider-mode-hook (lambda () (remove-hook 'completion-at-point-functions #'cider-complete-at-point))))
+  (set-lookup-handlers! 'cider-mode nil) ; use lsp
+  (add-hook 'cider-mode-hook (lambda () (remove-hook 'completion-at-point-functions #'cider-complete-at-point))) ; use lsp
+  )
 
 (use-package! clj-refactor
   :after clojure-mode
@@ -94,10 +88,9 @@
   (set-lookup-handlers! 'clj-refactor-mode nil)
   (setq cljr-warn-on-eval nil
         cljr-eagerly-build-asts-on-startup nil
-        cljr-add-ns-to-blank-clj-files nil
+        cljr-add-ns-to-blank-clj-files nil ; use lsp
         cljr-magic-require-namespaces
         '(("s"   . "schema.core")
-          ("th"  . "common-core.test-helpers")
           ("gen" . "common-test.generators")
           ("d-pro" . "common-datomic.protocols.datomic")
           ("ex" . "common-core.exceptions")
@@ -111,8 +104,7 @@
 (use-package! clojure-mode
   :config
   (setq clojure-indent-style 'align-arguments
-        clojure-thread-all-but-last t
-        yas-minor-mode 1)
+        clojure-thread-all-but-last t)
   (cljr-add-keybindings-with-prefix "C-c C-c"))
 
 (use-package! company
@@ -141,16 +133,15 @@
                              file-name-directory
                              directory-file-name
                              file-name-directory)))
-      (setq lsp-dart-sdk-dir dart-sdk-path
+      (setq ;; lsp-dart-sdk-dir "/home/greg/flutter/bin/cache/dart-sdk"
+            ;; lsp-dart-flutter-sdk-dir "/home/greg/flutter"
+            lsp-dart-sdk-dir dart-sdk-path
             lsp-dart-dap-flutter-hot-reload-on-save t))))
 
 (use-package! lsp-java
   :after lsp
   :init
-  (setq lsp-java-format-settings-url "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml"
-        lsp-java-format-settings-profile "GoogleStyle"
-        lsp-java-save-actions-organize-imports t
-        lsp-java-references-code-lens-enabled t
+  (setq lsp-java-references-code-lens-enabled t
         lsp-java-implementations-code-lens-enabled t
         lsp-file-watch-ignored-directories
         '(".idea" ".ensime_cache" ".eunit" "node_modules"
@@ -175,15 +166,14 @@
     (setq lsp-clojure-custom-server-command '("bash" "-c" "~/dev/clojure-lsp/clojure-lsp")
           lsp-headerline-breadcrumb-enable nil
           lsp-lens-enable t
-          lsp-headerline-breadcrumb-enable-diagnostics nil
           lsp-enable-file-watchers t
           lsp-signature-render-documentation nil
           lsp-signature-function 'lsp-signature-posframe
           lsp-semantic-tokens-enable t
           lsp-idle-delay 0.3
-          lsp-lens-place-position 'end-of-line
           lsp-use-plists nil
-          lsp-completion-sort-initial-results nil
+          lsp-completion-sort-initial-results t ; check if should keep as t
+          lsp-completion-no-cache t
           lsp-completion-use-last-result nil))
   (advice-add #'lsp-rename :after (lambda (&rest _) (projectile-save-project-buffers)))
   (add-hook 'lsp-mode-hook (lambda () (setq-local company-format-margin-function #'company-vscode-dark-icons-margin))))
