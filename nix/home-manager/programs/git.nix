@@ -65,7 +65,9 @@
       cat = "-p cat-file -p";
       fu = "fetch origin";
       pum = "pull origin master";
+      pom = "pull origin main";
       fupum = "!git co master && git fu && git pum";
+      fopom = "!git co main && git fu && git pum";
       upstream =
         "!git fetch upstream && git merge upstream/master master && git ph -f";
       rebasemaster = ''
