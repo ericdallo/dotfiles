@@ -1,6 +1,6 @@
 {
 	"window.zoomLevel": 2,
-	"workbench.colorTheme": "Monokai",
+	// "workbench.colorTheme": "Monokai",
 	"files.associations": {
 		"*.ect": "html",
 		"*.clj": "clojure"
@@ -68,4 +68,5 @@
 	"calva.referencesCodeLens.enabled": true,
 	"clojure.trace.server": "verbose",
 	"calva.clojureLspPath": "/home/greg/dev/clojure-lsp/clojure-lsp",
+	"editor.semanticHighlighting.enabled": true,
 }
