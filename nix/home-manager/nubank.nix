@@ -21,6 +21,7 @@ in {
       kubectl
       ferdi
       mob
+      sassc
       yubikey-manager
       yubikey-personalization-gui
       visualvm
