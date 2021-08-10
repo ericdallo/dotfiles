@@ -2,6 +2,10 @@
 let
   dotfilesDir = "$HOME/.dotfiles";
 in {
+  nixpkgs.overlays = [
+    (import (builtins.fetchTarball https://github.com/nubank/nixpkgs/archive/master.tar.gz))
+  ];
+
   imports = [
     ./programs/common.nix
     ./programs/vscode.nix
@@ -29,6 +33,9 @@ in {
       xsv
       zoom-us
       insomnia
+      nubank.dart
+      nubank.flutter
+      nubank.hover
     ];
 
     activation.linkFiles = config.lib.dag.entryAfter ["writeBoundary"] ''
