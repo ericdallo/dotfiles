@@ -49,8 +49,6 @@ in {
       nubank.hover
       gitAndTools.hub
       go
-      # clj-kondo
-      master.babashka
       (leiningen.override { jdk = jdk11; })
       nodejs-12_x
       python-with-my-packages

@@ -1,9 +1,13 @@
 { pkgs, ... }:
 
-{
+let
+  nixpkgsUnstable = import <nixpkgs-unstable> {};
+in {
   home.packages = with pkgs; [
     clojure
-    clojure-lsp
+    nixpkgsUnstable.clojure-lsp
+    nixpkgsUnstable.babashka
+    nixpkgsUnstable.clj-kondo
   ];
 
   # xdg.configFile."clojure/deps.edn".source = ../../../.config/clojure/deps.edn;

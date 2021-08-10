@@ -1,7 +1,7 @@
 { pkgs, config, ... }:
 let
   dotfilesDir = "$HOME/.dotfiles";
-  master = import (fetchTarball https://github.com/NixOS/nixpkgs/archive/master.tar.gz) {};
+  nixpkgsUnstable = import <nixpkgs-unstable> {};
 
 in {
   imports = [
@@ -13,16 +13,16 @@ in {
 
   home = {
     packages = with pkgs; [
-      master.alda
+      alda
       blender
-      # master.graalvm11-ce
+      nixpkgsUnstable.graalvm11-ce
       heroku
       imagemagick
       mysql
       nodePackages.node2nix
       omnisharp-roslyn
       hugo
-      master.polylith
+      polylith
       pandoc
       postman
       ferdi
