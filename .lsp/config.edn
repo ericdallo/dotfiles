@@ -3,11 +3,6 @@
           fact [[:block 1]]
           facts [[:block 1]]
           tabular [[:inner 0]]}
- :linters {:unused-public-var {:exclude-when-defined-by #{state-flow.cljtest/defflow}
-                               :exclude #{run-dev
-                                          servlet-init
-                                          servlet-destroy
-                                          servlet-service}}}
  :use-metadata-for-privacy? true
  :keep-require-at-start? false
  :show-docs-arity-on-same-line? true
