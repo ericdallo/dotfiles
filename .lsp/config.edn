@@ -8,8 +8,8 @@
  :show-docs-arity-on-same-line? true
  :text-document-sync-kind :full
  :auto-add-ns-to-new-files? true
- :lint-project-files-after-startup? true
  :additional-snippets [{:name "wrap-let-sexpr$"
                         :detail "Wrap in let sexpr"
                         :snippet "(let [$1] $0$current-form)"}]
- :dependency-scheme "jar"}
+ :dependency-scheme "jar"
+ :notify-references-on-file-change true}
