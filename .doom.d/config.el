@@ -125,6 +125,8 @@
         hover-clear-buffer-on-hot-restart t
         hover-screenshot-path "$HOME/Pictures"))
 
+(defvar use-local-dart nil)
+
 (use-package! lsp-dart
   :config
   (when-let (dart-exec (executable-find "dart"))
@@ -133,10 +135,11 @@
                              file-name-directory
                              directory-file-name
                              file-name-directory)))
-      (setq ;; lsp-dart-sdk-dir "/home/greg/flutter/bin/cache/dart-sdk"
-            ;; lsp-dart-flutter-sdk-dir "/home/greg/flutter"
-            lsp-dart-sdk-dir dart-sdk-path
-            lsp-dart-dap-flutter-hot-reload-on-save t))))
+      (setq lsp-dart-dap-flutter-hot-reload-on-save t)
+      (if use-local-dart
+          (setq lsp-dart-sdk-dir "/home/greg/flutter/bin/cache/dart-sdk"
+                lsp-dart-flutter-sdk-dir "/home/greg/flutter")
+        (setq lsp-dart-sdk-dir dart-sdk-path)))))
 
 (use-package! lsp-java
   :after lsp
