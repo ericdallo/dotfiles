@@ -4,7 +4,7 @@
   programs.vscode = {
     enable = true;
     extensions = with pkgs.vscode-extensions; [
-        bbenoist.Nix
+        # bbenoist.Nix
         ms-python.python
         formulahendry.code-runner
         ms-dotnettools.csharp
