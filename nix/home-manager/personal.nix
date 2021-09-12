@@ -39,6 +39,7 @@ in {
       dart
       flutter
       hover
+      zoom-us
     ];
     activation.linkFiles = config.lib.dag.entryAfter [ "writeBoundary" ] ''
       cp -n ${dotfilesDir}/.critical-keys.sample ~/.critical-keys
