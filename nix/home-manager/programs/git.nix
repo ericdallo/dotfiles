@@ -97,8 +97,8 @@
     };
 
     ignores = [
-      ".lsp/sqlite*"
-      ".clj-kondo"
+      ".lsp/.cache"
+      ".clj-kondo/.cache"
     ];
   };
 }
