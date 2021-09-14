@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 alias nubank='tmuxinator start nubank'
-alias grt="nu auth get-refresh-token --env prod && nu auth get-access-token --env prod"
+alias grt="nu auth get-refresh-token --env prod && nu-br auth get-access-token --env prod --country br"
 alias grt-staging="nu auth get-refresh-token --env staging && nu auth r --env staging"
 alias vpn="sudo openfortivpn -c $NU_HOME/.nu-vpn"
 
