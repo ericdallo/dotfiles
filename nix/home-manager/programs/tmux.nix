@@ -14,8 +14,7 @@
                 set -g @dracula-show-weather false
                 set -g @dracula-show-battery false
                 set -g @dracula-show-powerline true
-                set -g @dracula-show-left-icon .
-                set -g @dracula-show-left-icon 󱄅
+                set -g @dracula-show-left-icon smiley
             '';
         }
      ];

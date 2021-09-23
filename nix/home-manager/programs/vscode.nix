@@ -1,11 +1,13 @@
 { config, lib, pkgs, ... }:
 
-{
+let
+  unstable = import <nixpkgs-unstable> {};
+in {
   programs.vscode = {
     enable = true;
-    extensions = with pkgs.vscode-extensions; [
+    extensions = with unstable.pkgs.vscode-extensions; [
         # bbenoist.Nix
-        ms-python.python
+        # ms-python.python
         formulahendry.code-runner
         ms-dotnettools.csharp
         msjsdiag.debugger-for-chrome
