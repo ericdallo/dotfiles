@@ -143,7 +143,7 @@
 
 (use-package! lsp-java
   :after lsp
-  :init
+  :config
   (setq lsp-java-references-code-lens-enabled t
         lsp-java-implementations-code-lens-enabled t
         lsp-file-watch-ignored-directories
