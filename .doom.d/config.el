@@ -25,6 +25,16 @@
                          " ")))
     (counsel-rg symbol (counsel--git-root) args)))
 
+(defun lsp-clojure-nrepl-connect ()
+  "Connect to the running nrepl debug server of clojure-lsp."
+  (interactive)
+  (let ((info (lsp-clojure-server-info-raw)))
+    (save-match-data
+      (when-let (port (and (string-match "\"port\":\\([0-9]+\\)" info)
+                           (match-string 1 info)))
+        (cider-connect-clj `(:host "localhost"
+                             :port ,port))))))
+
 (setq-default evil-kill-on-visual-paste nil)
 
 (setq
