@@ -55,7 +55,6 @@ in {
         ln -Tsf ${dotfilesDir}/.config/dunst ~/.config/dunst
         ln -Tsf ${dotfilesDir}/.config/libinput-gestures.conf ~/.config/libinput-gestures.conf
         ln -Tsf ${dotfilesDir}/.config/gdfuse ~/.config/gdfuse
-        ln -Tsf ${dotfilesDir}/.config/clj-kondo ~/.config/clj-kondo
 
         ln -Tsf ${dotfilesDir}/.doom.d ~/.doom.d
         ln -Tsf ${dotfilesDir}/.lsp ~/.lsp

@@ -29,6 +29,7 @@
     neofetch
     nixfmt
     openfortivpn
+    curlftpfs
     openssl
     pinentry
     ripgrep

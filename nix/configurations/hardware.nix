@@ -10,6 +10,7 @@
     };
 
     firewall.allowedTCPPorts = [8080];
+    firewall.allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
   };
 
   environment.systemPackages = with pkgs; [
