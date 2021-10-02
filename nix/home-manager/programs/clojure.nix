@@ -8,6 +8,7 @@ in {
     nixpkgsUnstable.clojure-lsp
     nixpkgsUnstable.babashka
     nixpkgsUnstable.clj-kondo
+    nixpkgsUnstable.polylith
     (leiningen.override { jdk = jdk11; })
   ];
 
