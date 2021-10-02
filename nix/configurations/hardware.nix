@@ -65,12 +65,17 @@
     nm-applet.enable = true;
   };
 
+  security.pam.services.login.fprintAuth = true;
+  security.pam.services.xscreensaver.fprintAuth = true;
+
   services = {
     # Trim SSD weekly.
     fstrim = {
       enable = true;
       interval = "weekly";
     };
+
+    fprintd.enable = true;
 
     pipewire = {
       enable = true;
