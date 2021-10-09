@@ -10,6 +10,7 @@
 (package! paredit)
 (package! posframe)
 (package! yaml-mode)
+(package! map :pin "bb50dba")
 
 (unpin! hover)
 (unpin! treemacs)

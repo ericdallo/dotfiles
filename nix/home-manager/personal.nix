@@ -29,7 +29,6 @@ in {
       nodePackages.node2nix
       omnisharp-roslyn
       hugo
-      polylith
       pandoc
       postman
       ferdi
