@@ -6,7 +6,10 @@ in {
     ./programs/common.nix
     ./programs/clojure.nix
     ./programs/vscode.nix
+    ./programs/android.nix
     ./programs/gregflix.nix
+    ./programs/python.nix
+    ./programs/java.nix
   ];
 
   home = {

@@ -1,8 +1,9 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   imports = [
     ./cli.nix
+    ./vim.nix
     ./shell.nix
     ./git.nix
     ./network-manager.nix
@@ -11,11 +12,4 @@
     ./urxvt.nix
     ./emacs.nix
   ];
-
-  programs = {
-    vim = {
-      enable = true;
-      plugins = [ ];
-    };
-  };
 }

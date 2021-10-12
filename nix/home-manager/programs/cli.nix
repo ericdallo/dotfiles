@@ -3,11 +3,13 @@
 {
   home.packages = with pkgs; [
     ag
+    stable.awscli
     stable.appimage-run
     aspell
     aspellDicts.en
     aspellDicts.en-computers
     curl
+    docker-compose
     espeak
     fd
     file
@@ -16,6 +18,7 @@
     gnumake
     gnupg
     google-drive-ocamlfuse
+    go
     gotop
     grub
     inotify-tools
@@ -27,6 +30,7 @@
     nssTools
     mediainfo
     neofetch
+    nodejs-10_x
     openfortivpn
     curlftpfs
     openssl
@@ -35,6 +39,7 @@
     rnix-lsp
     rxvt_unicode-with-plugins
     stable.sbt
+    shellcheck
     sqlite
     telnet
     translate-shell

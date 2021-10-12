@@ -14,7 +14,6 @@
       ./configurations/hardware.nix
       ./configurations/desktop.nix
       ./configurations/cli.nix
-      ./configurations/dev.nix
       ./configurations/misc.nix
     ];
 
@@ -31,7 +30,16 @@
 
   users.users.greg = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "video" "audio" "sound" "adbusers" "input"];
+    extraGroups = [ "wheel"
+                    "docker"
+                    "networkmanager"
+                    "vboxusers"
+                    "video"
+                    "audio"
+                    "sound"
+                    "adbusers"
+                    "input"];
+
     shell = pkgs.zsh;
   };
   nix.allowedUsers = [ "greg" ];
