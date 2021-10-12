@@ -2,22 +2,23 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, self, ... }:
+let
+  inherit (self) inputs;
+in
 {
   nixpkgs.config.allowUnfree = true;
 
   imports =
     [
-      <home-manager/nixos>
-      /etc/nixos/host.nix
+      self.inputs.home.nixosModules.home-manager
+      ./configurations/overlays.nix
       ./configurations/boot.nix
       ./configurations/hardware.nix
       ./configurations/desktop.nix
       ./configurations/cli.nix
       ./configurations/misc.nix
     ];
-
-  nixpkgs.overlays = import ./configurations/overlays.nix;
 
   networking.extraHosts = ''
     172.17.0.1 mysql
@@ -30,15 +31,17 @@
 
   users.users.greg = {
     isNormalUser = true;
-    extraGroups = [ "wheel"
-                    "docker"
-                    "networkmanager"
-                    "vboxusers"
-                    "video"
-                    "audio"
-                    "sound"
-                    "adbusers"
-                    "input"];
+    extraGroups = [
+      "wheel"
+      "docker"
+      "networkmanager"
+      "vboxusers"
+      "video"
+      "audio"
+      "sound"
+      "adbusers"
+      "input"
+    ];
 
     shell = pkgs.zsh;
   };
@@ -46,6 +49,13 @@
   nix.trustedUsers = [ "greg" ];
 
   home-manager.useGlobalPkgs = true;
+
+  nix = {
+    package = pkgs.nixUnstable;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+  };
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
