@@ -4,6 +4,7 @@
   networking.hostName = "gregnix-nubank";
   boot.loader.grub.device = "/dev/nvme0n1";
   boot.kernelPackages = pkgs.linuxPackages_5_4;
+  home-manager.users.greg = (import ../home-manager/nubank.nix);
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/a6c734cf-c985-4322-9e1c-e88beb863027";

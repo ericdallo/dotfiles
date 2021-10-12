@@ -17,7 +17,6 @@
     gnupg
     gotop
     grub
-    home-manager
     inotify-tools
     jq
     killall
@@ -27,7 +26,6 @@
     nssTools
     mediainfo
     neofetch
-    nixfmt
     openfortivpn
     curlftpfs
     openssl

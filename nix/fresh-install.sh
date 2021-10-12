@@ -15,6 +15,5 @@ set -ve
 sudo ln -sf $1 /etc/nixos/host.nix
 sudo ln -sf ~/.dotfiles/nix/configurations /etc/nixos/configurations
 sudo ln -sf ~/.dotfiles/nix/configuration.nix /etc/nixos/configuration.nix
-sudo ln -sf ~/.dotfiles/nix/home-manager/$2.nix ~/.config/nixpkgs/home.nix
 
 echo "Links created successfully"

@@ -4,7 +4,7 @@
   networking.hostName = "gregnix-note";
   boot.loader.grub.device = "/dev/nvme0n1";
   boot.loader.grub.efiSupport = true;
-
+  home-manager.users.greg = (import ../home-manager/personal.nix);
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/fa09abc3-cb9e-4a15-a5cf-e756fbb8e960";
     fsType = "ext4";

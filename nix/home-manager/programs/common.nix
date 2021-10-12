@@ -11,11 +11,13 @@
     ./emacs.nix
   ];
 
-  home.packages = with pkgs; [ google-drive-ocamlfuse sqlite ];
+  home.packages = with pkgs; [
+    google-drive-ocamlfuse
+    rnix-lsp
+    sqlite
+  ];
 
   programs = {
-    home-manager.enable = true;
-
     vim = {
       enable = true;
       plugins = [ ];

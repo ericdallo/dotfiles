@@ -1,14 +1,12 @@
 { pkgs, ... }:
 
-let
-  nixpkgsUnstable = import <nixpkgs-unstable> {};
-in {
+{
   home.packages = with pkgs; [
     clojure
-    nixpkgsUnstable.clojure-lsp
-    nixpkgsUnstable.babashka
-    nixpkgsUnstable.clj-kondo
-    nixpkgsUnstable.polylith
+    clojure-lsp
+    babashka
+    clj-kondo
+    polylith
     (leiningen.override { jdk = jdk11; })
   ];
 

@@ -1,16 +1,7 @@
 { pkgs, config, ... }:
 let
   dotfilesDir = "$HOME/.dotfiles";
-  nixpkgsUnstable = import <nixpkgs-unstable> { };
-
 in {
-  nixpkgs.overlays = [
-    (import (fetchGit {
-      url = "https://github.com/nix-community/emacs-overlay";
-      ref = "master";
-      rev = "ca18017fa61a4bb8069d1bba74c4198c3c21c6fc";
-    }))
-  ];
   imports = [
     ./programs/common.nix
     ./programs/clojure.nix
@@ -22,7 +13,7 @@ in {
     packages = with pkgs; [
       alda
       blender
-      nixpkgsUnstable.graalvm11-ce
+      graalvm11-ce
       heroku
       imagemagick
       mysql

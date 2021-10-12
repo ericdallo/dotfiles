@@ -8,6 +8,7 @@
 
   imports =
     [
+      <home-manager/nixos>
       /etc/nixos/host.nix
       ./configurations/boot.nix
       ./configurations/hardware.nix
@@ -35,6 +36,8 @@
   };
   nix.allowedUsers = [ "greg" ];
   nix.trustedUsers = [ "greg" ];
+
+  home-manager.useGlobalPkgs = true;
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database

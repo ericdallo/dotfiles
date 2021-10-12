@@ -1,11 +1,9 @@
 { config, lib, pkgs, ... }:
 
-let
-  unstable = import <nixpkgs-unstable> {};
-in {
+{
   programs.vscode = {
     enable = true;
-    extensions = with unstable.pkgs.vscode-extensions; [
+    extensions = with pkgs.vscode-extensions; [
         # bbenoist.Nix
         # ms-python.python
         formulahendry.code-runner
