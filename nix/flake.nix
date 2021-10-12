@@ -33,7 +33,7 @@
           };
       in
       {
-        gregnix-note = mkSystem { modules = [ ./hosts/asus-zenbook ]; };
+        gregnix-personal = mkSystem { modules = [ ./hosts/asus-zenbook ]; };
 
         gregnix-nubank = mkSystem { modules = [ ./hosts/dell-nubank ]; };
 

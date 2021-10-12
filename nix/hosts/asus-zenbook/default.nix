@@ -8,7 +8,7 @@
   home-manager.users.greg.imports = [ ../../home-manager/personal.nix ];
 
   # TODO change to gregnix-asus
-  networking.hostName = "gregnix-note";
+  networking.hostName = "gregnix-personal";
   boot.loader.grub.device = "/dev/nvme0n1";
   boot.loader.grub.efiSupport = true;
   fileSystems."/" = {
