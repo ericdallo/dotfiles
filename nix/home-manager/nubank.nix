@@ -1,7 +1,8 @@
 { pkgs, config, ... }:
 let
   dotfilesDir = "$HOME/.dotfiles";
-in {
+in
+{
   imports = [
     ./programs/common.nix
     ./programs/vscode.nix
@@ -11,8 +12,8 @@ in {
     ./programs/java.nix
   ];
 
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.android_sdk.accept_license = true;
+  # nixpkgs.config.allowUnfree = true;
+  # nixpkgs.config.android_sdk.accept_license = true;
 
   home = {
     packages = with pkgs; [
@@ -38,22 +39,23 @@ in {
       nubank.hover
     ];
 
-    activation.linkFiles = config.lib.dag.entryAfter ["writeBoundary"] ''
-        cp -n ${dotfilesDir}/.critical-keys.sample ~/.critical-keys
-        ln -sf ${dotfilesDir}/.nubank_aliases ~/.nubank_aliases
-        ln -sf ${dotfilesDir}/.nubank_extra ~/.extra
+    activation.linkFiles = config.lib.dag.entryAfter [ "writeBoundary" ] ''
+      cp -n ${dotfilesDir}/.critical-keys.sample ~/.critical-keys
 
-        ln -Tsf ${dotfilesDir}/.config/bspwm ~/.config/bspwm
-        ln -Tsf ${dotfilesDir}/.config/sxhkd ~/.config/sxhkd
-        ln -Tsf ${dotfilesDir}/.config/rofi ~/.config/rofi
-        ln -Tsf ${dotfilesDir}/.config/polybar ~/.config/polybar
-        ln -Tsf ${dotfilesDir}/.config/dunst ~/.config/dunst
-        ln -Tsf ${dotfilesDir}/.config/libinput-gestures.conf ~/.config/libinput-gestures.conf
-        ln -Tsf ${dotfilesDir}/.config/gdfuse ~/.config/gdfuse
+      ln -sf ${dotfilesDir}/.nubank_aliases ~/.nubank_aliases
+      ln -sf ${dotfilesDir}/.nubank_extra ~/.extra
 
-        ln -Tsf ${dotfilesDir}/.doom.d ~/.doom.d
-        ln -Tsf ${dotfilesDir}/.lsp ~/.lsp
-        ln -sf ${dotfilesDir}/.midje.clj ~/.midje.clj
+      ln -Tsf ${dotfilesDir}/.config/bspwm ~/.config/bspwm
+      ln -Tsf ${dotfilesDir}/.config/sxhkd ~/.config/sxhkd
+      ln -Tsf ${dotfilesDir}/.config/rofi ~/.config/rofi
+      ln -Tsf ${dotfilesDir}/.config/polybar ~/.config/polybar
+      ln -Tsf ${dotfilesDir}/.config/dunst ~/.config/dunst
+      ln -Tsf ${dotfilesDir}/.config/libinput-gestures.conf ~/.config/libinput-gestures.conf
+      ln -Tsf ${dotfilesDir}/.config/gdfuse ~/.config/gdfuse
+
+      ln -Tsf ${dotfilesDir}/.doom.d ~/.doom.d
+      ln -Tsf ${dotfilesDir}/.lsp ~/.lsp
+      ln -sf ${dotfilesDir}/.midje.clj ~/.midje.clj
     '';
   };
 }

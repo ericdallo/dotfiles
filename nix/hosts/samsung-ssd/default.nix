@@ -1,6 +1,12 @@
 { config, ... }:
 
 {
+  imports = [
+    ../../configuration.nix
+  ];
+
+  home-manager.users.greg.imports = [ ../../home-manager/personal.nix ];
+
   networking.hostName = "gregnix-ssd";
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.efiSupport = true;

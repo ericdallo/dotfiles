@@ -31,31 +31,13 @@
             inherit system modules;
             specialArgs = { inherit self system; };
           };
-        system = "x86_64-linux";
       in
       {
         gregnix-note = mkSystem { modules = [ ./hosts/asus-zenbook ]; };
 
-        # gregnix-nubank = mkSystem { modules = [ ./hosts/dell-nubank ]; };
+        gregnix-nubank = mkSystem { modules = [ ./hosts/dell-nubank ]; };
 
-        # gregnix-ssd = mkSystem { modules = [ ./hosts/samsung-ssd ]; };
+        gregnix-ssd = mkSystem { modules = [ ./hosts/samsung-ssd ]; };
       };
   };
-  # // flake-utils.lib.eachDefaultSystem (system:
-  #   let
-  #     pkgs = import nixpkgs { inherit system; };
-  #   in
-  #   {
-  #     devShell = with pkgs; mkShell {
-  #       buildInputs = [
-  #         coreutils
-  #         findutils
-  #         git
-  #         gnumake
-  #         nixFlakes
-  #         nixpkgs-fmt
-  #       ];
-  #     };
-  #   }
-  # );
 }
