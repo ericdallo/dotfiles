@@ -4,6 +4,8 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     stable.url = "github:NixOS/nixpkgs/nixos-21.05";
+    master.url = "github:NixOS/nixpkgs/master";
+    hardware.url = "github:NixOS/nixos-hardware/master";
     home = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -29,29 +31,31 @@
             inherit system modules;
             specialArgs = { inherit self system; };
           };
+        system = "x86_64-linux";
       in
       {
-        asus-zenbook = mkSystem { modules = [ ./hosts/asus-zenbook ]; };
+        gregnix-note = mkSystem { modules = [ ./hosts/asus-zenbook ]; };
 
-        # dell-nubank = mkSystem { modules = [ ./hosts/dell-nubank ]; };
+        # gregnix-nubank = mkSystem { modules = [ ./hosts/dell-nubank ]; };
 
-        # samsung-ssd = mkSystem { modules = [ ./hosts/samsung-ssd ]; };
+        # gregnix-ssd = mkSystem { modules = [ ./hosts/samsung-ssd ]; };
       };
-  } // flake-utils.lib.eachDefaultSystem (system:
-    let
-      pkgs = import nixpkgs { inherit system; };
-    in
-    {
-      devShell = with pkgs; mkShell {
-        buildInputs = [
-          coreutils
-          findutils
-          git
-          gnumake
-          nixFlakes
-          nixpkgs-fmt
-        ];
-      };
-    }
-  );
+  };
+  # // flake-utils.lib.eachDefaultSystem (system:
+  #   let
+  #     pkgs = import nixpkgs { inherit system; };
+  #   in
+  #   {
+  #     devShell = with pkgs; mkShell {
+  #       buildInputs = [
+  #         coreutils
+  #         findutils
+  #         git
+  #         gnumake
+  #         nixFlakes
+  #         nixpkgs-fmt
+  #       ];
+  #     };
+  #   }
+  # );
 }
