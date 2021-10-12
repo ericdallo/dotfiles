@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./cli.nix
     ./shell.nix
     ./git.nix
     ./network-manager.nix
@@ -9,12 +10,6 @@
     ./tmuxinator.nix
     ./urxvt.nix
     ./emacs.nix
-  ];
-
-  home.packages = with pkgs; [
-    google-drive-ocamlfuse
-    rnix-lsp
-    sqlite
   ];
 
   programs = {

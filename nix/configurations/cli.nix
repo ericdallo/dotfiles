@@ -1,52 +1,6 @@
 { pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
-    ag
-    stable.appimage-run
-    aspell
-    aspellDicts.en
-    aspellDicts.en-computers
-    curl
-    espeak
-    fd
-    file
-    ffmpeg
-    gitFull
-    gnumake
-    gnupg
-    gotop
-    grub
-    inotify-tools
-    jq
-    killall
-    libvterm-neovim
-    lshw
-    manpages
-    nssTools
-    mediainfo
-    neofetch
-    openfortivpn
-    curlftpfs
-    openssl
-    pinentry
-    ripgrep
-    rxvt_unicode-with-plugins
-    stable.sbt
-    telnet
-    translate-shell
-    tree
-    unrar
-    unzip
-    usbutils
-    vim
-    wget
-    wirelesstools
-    wmctrl
-    xclip
-    xsel
-  ];
-
   services.openssh.enable = true;
 
   environment.pathsToLink = [ "/share/zsh" ];

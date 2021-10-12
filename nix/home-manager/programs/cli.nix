@@ -1,0 +1,50 @@
+{ config, lib, pkgs, ... }:
+
+{
+  home.packages = with pkgs; [
+    ag
+    stable.appimage-run
+    aspell
+    aspellDicts.en
+    aspellDicts.en-computers
+    curl
+    espeak
+    fd
+    file
+    ffmpeg
+    gitFull
+    gnumake
+    gnupg
+    google-drive-ocamlfuse
+    gotop
+    grub
+    inotify-tools
+    jq
+    killall
+    libvterm-neovim
+    lshw
+    manpages
+    nssTools
+    mediainfo
+    neofetch
+    openfortivpn
+    curlftpfs
+    openssl
+    pinentry
+    ripgrep
+    rnix-lsp
+    rxvt_unicode-with-plugins
+    stable.sbt
+    sqlite
+    telnet
+    translate-shell
+    tree
+    unrar
+    unzip
+    usbutils
+    wget
+    wirelesstools
+    wmctrl
+    xsel
+  ];
+}
