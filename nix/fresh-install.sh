@@ -12,7 +12,8 @@ fi
 
 set -ve
 
-sudo ln -sf $1 /etc/nixos/host.nix
+sudo ln -sf "$1" /etc/nixos/host.nix
+sudo ln -sf ~/.dotfiles/nix/flake.nix /etc/nixos/flake.nix
 sudo ln -sf ~/.dotfiles/nix/configurations /etc/nixos/configurations
 sudo ln -sf ~/.dotfiles/nix/configuration.nix /etc/nixos/configuration.nix
 

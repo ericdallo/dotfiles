@@ -38,7 +38,8 @@
                     "audio"
                     "sound"
                     "adbusers"
-                    "input"];
+                    "input"
+                  ];
 
     shell = pkgs.zsh;
   };
@@ -46,6 +47,13 @@
   nix.trustedUsers = [ "greg" ];
 
   home-manager.useGlobalPkgs = true;
+
+  nix = {
+    package = pkgs.nixUnstable;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+  };
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database

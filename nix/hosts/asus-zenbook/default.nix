@@ -1,6 +1,8 @@
-{ config, ... }:
+{ config, self, ... }:
 
-{
+let
+  inherit (self) inputs;
+in {
   networking.hostName = "gregnix-note";
   boot.loader.grub.device = "/dev/nvme0n1";
   boot.loader.grub.efiSupport = true;
