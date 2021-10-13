@@ -2,9 +2,9 @@
 
 {
   programs = {
-    # java = {
-    #   enable = true;
-    #   package = pkgs.jdk11;
-    # };
+    java = {
+      enable = true;
+      package = pkgs.jdk11;
+    };
   };
 }
