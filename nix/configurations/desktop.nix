@@ -48,6 +48,7 @@
   services = {
     upower.enable = true;
     acpid.enable = true;
+    gnome.gnome-keyring.enable = true;
 
     autorandr.enable = true;
 
