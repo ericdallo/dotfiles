@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, self, ... }:
 let
   dotfilesDir = "$HOME/.dotfiles";
 in
@@ -7,10 +7,12 @@ in
     ./programs/common.nix
     ./programs/vscode.nix
     ./programs/clojure.nix
-    ./programs/python.nix
+    # ./programs/python.nix
     ./programs/android.nix
     ./programs/java.nix
   ];
+
+  nixpkgs.overlays = [ (import self.inputs.nubank) ];
 
   # nixpkgs.config.allowUnfree = true;
   # nixpkgs.config.android_sdk.accept_license = true;

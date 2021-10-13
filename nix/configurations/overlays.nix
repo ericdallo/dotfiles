@@ -16,11 +16,6 @@ in {
         inherit system;
         config = prev.config;
       };
-
-      nubank = import inputs.nubank {
-        inherit system;
-        config = prev.config;
-      };
     })
   ];
 }

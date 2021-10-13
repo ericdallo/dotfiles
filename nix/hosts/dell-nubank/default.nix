@@ -1,11 +1,17 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, self, system, pkgs, ... }:
 
 {
   imports = [
     ../../configuration.nix
   ];
 
-  home-manager.users.greg.imports = [ ../../home-manager/nubank.nix ];
+  home-manager = {
+    useUserPackages = true;
+    users.greg = ../../home-manager/nubank.nix;
+    extraSpecialArgs = {
+      inherit self;
+    };
+  };
 
   networking.hostName = "gregnix-nubank";
   boot.loader.grub.device = "/dev/nvme0n1";
