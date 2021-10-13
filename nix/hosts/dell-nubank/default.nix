@@ -9,7 +9,7 @@
     useUserPackages = true;
     users.greg = ../../home-manager/nubank.nix;
     extraSpecialArgs = {
-      inherit self;
+      inherit self system;
     };
   };
 

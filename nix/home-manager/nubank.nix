@@ -4,6 +4,7 @@ let
 in
 {
   imports = [
+    ../configurations/overlays.nix
     ./programs/common.nix
     ./programs/vscode.nix
     ./programs/clojure.nix
@@ -12,12 +13,15 @@ in
     ./programs/java.nix
   ];
 
-  nixpkgs.overlays = [ (import self.inputs.nubank) ];
+  nixpkgs.overlays = [
+    (import self.inputs.nubank)
+  ];
 
-  # nixpkgs.config.allowUnfree = true;
-  # nixpkgs.config.android_sdk.accept_license = true;
+  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.android_sdk.accept_license = true;
 
   home = {
+    stateVersion = "21.05";
     packages = with pkgs; [
       aws-iam-authenticator
       awslogs

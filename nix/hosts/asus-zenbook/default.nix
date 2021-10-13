@@ -1,11 +1,17 @@
-{ config, ... }:
+{ config, self, system, ... }:
 
 {
   imports = [
     ../../configuration.nix
   ];
 
-  home-manager.users.greg.imports = [ ../../home-manager/personal.nix ];
+  home-manager = {
+    useUserPackages = true;
+    users.greg = ../../home-manager/personal.nix;
+    extraSpecialArgs = {
+      inherit self system;
+    };
+  };
 
   # TODO change to gregnix-asus
   networking.hostName = "gregnix-personal";

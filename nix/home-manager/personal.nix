@@ -3,6 +3,7 @@ let
   dotfilesDir = "$HOME/.dotfiles";
 in {
   imports = [
+    ../configurations/overlays.nix
     ./programs/common.nix
     ./programs/clojure.nix
     ./programs/vscode.nix
@@ -12,7 +13,10 @@ in {
     ./programs/java.nix
   ];
 
+  nixpkgs.config.allowUnfree = true;
+
   home = {
+    stateVersion = "21.05";
     packages = with pkgs; [
       alda
       blender
