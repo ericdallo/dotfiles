@@ -103,7 +103,7 @@
         '(("s"   . "schema.core")
           ("gen" . "common-test.generators")
           ("d-pro" . "common-datomic.protocols.datomic")
-          ("ex" . "common-core.exceptions")
+          ("ex" . "common-core.exceptions.core")
           ("dth" . "common-datomic.test-helpers")
           ("t-money" . "common-core.types.money")
           ("t-time" . "common-core.types.time")
