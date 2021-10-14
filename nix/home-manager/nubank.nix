@@ -8,7 +8,7 @@ in
     ./programs/common.nix
     ./programs/vscode.nix
     ./programs/clojure.nix
-    # ./programs/python.nix
+    ./programs/python.nix
     ./programs/android.nix
     ./programs/java.nix
   ];
