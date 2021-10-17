@@ -11,6 +11,7 @@ in {
     ./programs/gregflix.nix
     ./programs/python.nix
     ./programs/java.nix
+    ./programs/games.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
