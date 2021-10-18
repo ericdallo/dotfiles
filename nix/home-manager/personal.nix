@@ -10,7 +10,6 @@ in {
     ./programs/android.nix
     ./programs/gregflix.nix
     ./programs/python.nix
-    ./programs/java.nix
     ./programs/games.nix
   ];
 
