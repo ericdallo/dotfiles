@@ -171,15 +171,15 @@ XF86MonBrightnessDown
       $DOTFILES/scripts/brightness_controll.sh -
 
 XF86AudioRaiseVolume
-      pulsemixer --id 0 --change-volume +10 --unmute && \
-      notify-send --urgency=low --hint=string:x-dunst-stack-tag:volume "Volume Up"
+      pulsemixer --change-volume +10 --unmute && \
+      notify-send --urgency=low --hint=string:x-dunst-stack-tag:volume "Volume $(pulsemixer --get-volume)"
 
 XF86AudioLowerVolume
-      pulsemixer --id 0 --change-volume -10 --unmute && \
-      notify-send --urgency=low --hint=string:x-dunst-stack-tag:volume "Volume Down"
+      pulsemixer --change-volume -10 --unmute && \
+      notify-send --urgency=low --hint=string:x-dunst-stack-tag:volume "Volume $(pulsemixer --get-volume)"
 
 XF86AudioMute
-      pulsemixer --id 0 --toggle-mute && \
+      pulsemixer --toggle-mute && \
       notify-send --urgency=low --hint=string:x-dunst-stack-tag:volume "$(sh $DOTFILES/scripts/detectmutepulse.sh)"
 
 XF86AudioPlay
@@ -195,16 +195,20 @@ XF86AudioStop
       playerctl stop
 
 super+Tab
-      rofi -show window
+      rofi -show window -show-icons
 
 super+Return
-      rofi -show run
+      rofi -show run -show-icons
 
 # super+Insert
 #       ~/.scripts/greenclip.sh
 
 # XF86PowerOff
 #       ~/.scripts/powermenu.sh
+
+super + h
+      betterlockscreen -l && \
+      systemctl hibernate
 
 XF86Sleep
       betterlockscreen -s
