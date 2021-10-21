@@ -105,6 +105,12 @@
       :desc "lsp-clojure cursor info"
       "-" #'lsp-clojure-cursor-info)
 
+(map! :after lsp-mode
+      :n
+
+      :desc "Start lsp on buffer"
+      "M-l" #'lsp)
+
 (map! :after dap-mode
       :map dap-mode-map
       :n

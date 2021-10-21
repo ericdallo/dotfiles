@@ -201,6 +201,7 @@
   :config
   (setq lsp-ui-peek-list-width 60
         lsp-ui-doc-max-width 60
+        lsp-ui-doc-enable nil
         lsp-ui-peek-fontify 'always
         lsp-ui-sideline-show-code-actions nil))
 
