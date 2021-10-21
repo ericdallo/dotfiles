@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    clojure
+    (clojure.override { jdk = jdk11; })
     clojure-lsp
     babashka
     clj-kondo
