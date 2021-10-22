@@ -20,7 +20,7 @@ in {
     packages = with pkgs; [
       alda
       blender
-      graalvm11-ce
+      master.graalvm11-ce
       heroku
       imagemagick
       mysql
