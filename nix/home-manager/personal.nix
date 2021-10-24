@@ -43,6 +43,7 @@ in {
       dart
       flutter
       hover
+      upx
       zoom-us
     ];
     activation.linkFiles = config.lib.dag.entryAfter [ "writeBoundary" ] ''
