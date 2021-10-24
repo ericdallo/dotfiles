@@ -18,3 +18,6 @@
 (unpin! lsp-mode)
 (unpin! lsp-ui)
 (unpin! lsp-dart)
+(unpin! iedit)
+(unpin! evil-multiedit)
+(unpin! evil)

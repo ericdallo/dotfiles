@@ -43,7 +43,7 @@
   cat   = -p cat-file -p
   fu    = fetch origin
   pum   = pull origin HEAD
-  fupum = !git co $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@') && git fu && git pum
+  fupum = !git co $(git branch | cut -c 3- | grep -E '^master$|^main$') && git fu && git pum
   upstream = !git fetch upstream && git merge upstream/master master && git ph -f
   rebasemaster = !branch=\"`git branch 2>/dev/null | grep \\* | awk '{ print $2 }'`\" && echo \"Rebasing $branch from master...\" && git fupum && git co $branch && git rebase master
   cob = !git fetch origin && git co -b $1 origin/$1 && echo \"Checked out origin branch:\"
