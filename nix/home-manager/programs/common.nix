@@ -12,4 +12,12 @@
     ./urxvt.nix
     ./emacs.nix
   ];
+
+  xdg.mimeApps = {
+      enable =  true;
+      defaultApplications = {
+          "inode/directory" = [ "nautilus.desktop" ];
+          "application/pdf" = [ "google-chrome.desktop" ];
+      };
+  };
 }
