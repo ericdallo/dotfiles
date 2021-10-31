@@ -50,8 +50,6 @@
     acpid.enable = true;
     gnome.gnome-keyring.enable = true;
 
-    autorandr.enable = true;
-
     xserver = {
       enable = true;
       layout = "us,br";

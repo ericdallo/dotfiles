@@ -26,6 +26,9 @@ ifeq (,$(wildcard ./result/activate))
 endif
 	./result/activate
 
+switch:
+	./result/bin/switch-to-configuration switch
+
 build-%:
 	nix $(NIX_FLAGS) build '.#nixosConfigurations.$*.config.system.build.toplevel'
 

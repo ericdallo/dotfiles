@@ -11,6 +11,7 @@
     ./tmuxinator.nix
     ./urxvt.nix
     ./emacs.nix
+    ./autorandr.nix
   ];
 
   xdg.mimeApps = {
