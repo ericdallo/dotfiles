@@ -19,7 +19,8 @@ super + shift + e
       emacs
 
 super + ctrl + e
-      systemctl --user restart emacs.service
+      systemctl --user restart emacs.service && \
+      emacsclient -c
 
 super + f
       ferdi
@@ -205,6 +206,11 @@ super+Return
 
 # XF86PowerOff
 #       ~/.scripts/powermenu.sh
+
+super + a
+      profile=$(echo "personal-home-tv\npersonal-mickey-tv" | rofi -dmenu -p "Select profile" -no-custom)
+      autorandr -c $profile
+      bspc {quit,wm -r}
 
 super + h
       betterlockscreen -l && \
