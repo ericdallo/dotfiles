@@ -10,7 +10,6 @@
 (package! paredit)
 (package! posframe)
 (package! yaml-mode)
-(package! map :pin "bb50dba")
 
 (unpin! hover)
 (unpin! treemacs)
@@ -18,6 +17,10 @@
 (unpin! lsp-mode)
 (unpin! lsp-ui)
 (unpin! lsp-dart)
+
+;; Temporary
+(package! map :pin "bb50dba")
 (unpin! iedit)
 (unpin! evil-multiedit)
 (unpin! evil)
+(unpin! cider)
