@@ -22,7 +22,7 @@
       gnome3.nautilus
       ntfsprogs
       pavucontrol
-      master.peek
+      peek
       polybarFull
       playerctl
       pulsemixer
