@@ -1,4 +1,4 @@
-{ config, self, system, ... }:
+{ config, lib, self, system, ... }:
 
 {
   imports = [
@@ -30,4 +30,6 @@
   swapDevices = [{
     device = "/dev/disk/by-uuid/d8325f60-ea5a-4da2-8124-1144775be653";
   }];
+
+  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 }
