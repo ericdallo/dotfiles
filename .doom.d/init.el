@@ -130,7 +130,7 @@
        nix               ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
        (org              ; organize your plain life in plain text
-        ;; +roam
+        +roam
         ;; +dragndrop       ; file drag & drop support
         +pandoc          ; pandoc integration into org's exporter
         +present)        ; using Emacs for presentations

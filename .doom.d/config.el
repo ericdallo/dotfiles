@@ -70,7 +70,7 @@
  +format-on-save-enabled-modes '(dart-mode)
 
  evil-collection-setup-minibuffer t
- org-directory "/opt/google-drive/Notes"
+ org-directory "~/google-drive/Notes"
  org-roam-directory "roam")
 
 (set-popup-rule! "\\*LSP Dart tests\\*" :height 0.3)
