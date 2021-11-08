@@ -90,7 +90,8 @@
         enable = true;
         enableNotifier = true;
         locker = "${pkgs.betterlockscreen}/bin/betterlockscreen -s";
-        notifier = ''${pkgs.libnotify}/bin/notify-send -c "lockscreen"  "Locking in 5 seconds"'';
+        notify = 40;
+        notifier = ''${pkgs.libnotify}/bin/notify-send -c "lockscreen"  "Locking in 40 seconds"'';
         extraOptions = [ "-corners +00-" ];
       };
 
