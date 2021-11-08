@@ -60,6 +60,7 @@ in
       ln -Tsf ${dotfilesDir}/.config/libinput-gestures.conf ~/.config/libinput-gestures.conf
       ln -Tsf ${dotfilesDir}/.config/gdfuse ~/.config/gdfuse
       ln -Tsf ${dotfilesDir}/.config/networkmanager-dmenu ~/.config/networkmanager-dmenu
+      ln -sf ${dotfilesDir}/.config/zoomus.conf ~/.config/zoomus.conf
 
       ln -Tsf ${dotfilesDir}/.doom.d ~/.doom.d
       ln -Tsf ${dotfilesDir}/.lsp ~/.lsp
