@@ -10,6 +10,9 @@ clean:
 	rm -rf result
 
 update:
+	nix $(NIX_FLAGS) flake update
+
+update-and-commit:
 	nix $(NIX_FLAGS) flake update --commit-lock-file
 
 install:
