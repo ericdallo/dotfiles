@@ -23,6 +23,7 @@ in {
       master.graalvm11-ce
       heroku
       imagemagick
+      maven
       mysql
       nodePackages.node2nix
       omnisharp-roslyn

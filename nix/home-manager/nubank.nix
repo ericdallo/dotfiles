@@ -33,6 +33,7 @@ in
       kubectl
       ferdi
       mob
+      maven
       sassc
       yubikey-manager
       yubikey-personalization-gui
