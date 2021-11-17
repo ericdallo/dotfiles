@@ -45,7 +45,7 @@ in
       nubank.dart
       nubank.flutter
       nubank.hover
-    ];
+    ] ++ nubank.jupyter-tools;
 
     activation.linkFiles = config.lib.dag.entryAfter [ "writeBoundary" ] ''
       cp -n ${dotfilesDir}/.critical-keys.sample ~/.critical-keys
