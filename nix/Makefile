@@ -1,7 +1,7 @@
 #! /usr/bin/env nix-shell
 #! nix-shell -I "nixpkgs=channel:nixpkgs-unstable" -i "make -f" -p gnumake nixUnstable findutils nixpkgs-fmt
 
-.PHONY: build-% install activate clean
+.PHONY: build-% install activate clean update update-and-commit
 NIX_FLAGS := --experimental-features 'nix-command flakes'
 
 all: build-gregnix-personal build-gregnix-nubank build-gregnix-ssd
