@@ -103,7 +103,15 @@
 (use-package! company
   :config
   (setq company-tooltip-align-annotations t
-        company-icon-size 20))
+        company-frontends '(company-pseudo-tooltip-frontend)))
+
+(use-package! company-quickhelp
+  :init
+  (company-quickhelp-mode)
+  :config
+  (setq company-quickhelp-delay nil
+        company-quickhelp-use-propertized-text t
+        company-quickhelp-max-lines 10))
 
 (use-package! dap-mode
   :init

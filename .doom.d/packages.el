@@ -10,6 +10,7 @@
 (package! paredit)
 (package! posframe)
 (package! yaml-mode)
+(package! company-quickhelp)
 
 (unpin! hover)
 (unpin! treemacs)
