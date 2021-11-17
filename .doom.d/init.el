@@ -82,9 +82,7 @@
        lookup        ; ...or in Dash docsets locally
        (lsp +peek)
        ;;macos             ; MacOS-specific commands
-       (magit
-        ;; +forge
-        )             ; a git porcelain for Emacs
+       (magit +forge)      ; a git porcelain for Emacs
        ;;make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
        ;;pdf               ; pdf enhancements
@@ -130,7 +128,7 @@
        nix               ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
        (org              ; organize your plain life in plain text
-        +roam
+        ;; +roam
         ;; +dragndrop       ; file drag & drop support
         +pandoc          ; pandoc integration into org's exporter
         +present)        ; using Emacs for presentations

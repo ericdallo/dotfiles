@@ -196,15 +196,6 @@
         lsp-ui-peek-fontify 'always
         lsp-ui-sideline-show-code-actions nil))
 
-(defun org-mode-hide-all-stars ()
-  (font-lock-add-keywords
-   'org-mode
-   '(("^\\*+ "
-      (0
-       (prog1 nil
-         (put-text-property (match-beginning 0) (match-end 0)
-                            'face 'org-hide)))))))
-
 (use-package! org-tree-slide
   :config
   (setq +org-present-text-scale 2

@@ -39,3 +39,12 @@
                          (cider-eval-clipboard-handler)
                          (cider-last-sexp 'bounds)
                          (cider--nrepl-pr-request-map)))
+
+(defun org-mode-hide-all-stars ()
+  (font-lock-add-keywords
+   'org-mode
+   '(("^\\*+ "
+      (0
+       (prog1 nil
+         (put-text-property (match-beginning 0) (match-end 0)
+                            'face 'org-hide)))))))
