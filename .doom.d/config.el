@@ -16,24 +16,7 @@
 (add-hook 'dart-mode-hook (lambda () (setq left-fringe-width 16)))
 (add-hook 'java-mode-hook (lambda () (setq left-fringe-width 16)))
 
-(defun rg-ignoring-folders (folders)
-  "ripgrep selected word in project excluding folder"
-  (let ((symbol (thing-at-point 'symbol t))
-        (args (mapconcat 'identity
-                         (mapcar #'(lambda(folder) (concat "-g '!" folder "/*'"))
-                                 folders)
-                         " ")))
-    (counsel-rg symbol (counsel--git-root) args)))
-
-(defun lsp-clojure-nrepl-connect ()
-  "Connect to the running nrepl debug server of clojure-lsp."
-  (interactive)
-  (let ((info (lsp-clojure-server-info-raw)))
-    (save-match-data
-      (when-let (port (and (string-match "\"port\":\\([0-9]+\\)" info)
-                           (match-string 1 info)))
-        (cider-connect-clj `(:host "localhost"
-                             :port ,port))))))
+(load! "+functions")
 
 (setq-default evil-kill-on-visual-paste nil)
 
