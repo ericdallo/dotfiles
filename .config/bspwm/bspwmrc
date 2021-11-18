@@ -40,7 +40,7 @@ feh --bg-scale ~/.dotfiles/background.jpg &
 
 polybar main &
 
-xset r rate 220 50 &
+xset r rate 220 60 &
 
 sxhkd &
 
