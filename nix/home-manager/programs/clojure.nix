@@ -9,6 +9,7 @@
     polylith
     (leiningen.override { jdk = jdk11; })
     neil
+    master.jet
   ];
 
   # xdg.configFile."clojure/deps.edn".source = ../../../.config/clojure/deps.edn;

@@ -48,3 +48,14 @@
        (prog1 nil
          (put-text-property (match-beginning 0) (match-end 0)
                             'face 'org-hide)))))))
+
+(defun jet-pretty ()
+  (interactive)
+  (shell-command-on-region
+   (region-beginning)
+   (region-end)
+   "jet --pretty --edn-reader-opts '{:default tagged-literal}'"
+   (current-buffer)
+   t
+   "*jet error buffer*"
+   t))
