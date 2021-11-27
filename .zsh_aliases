@@ -4,7 +4,7 @@
 alias v="TERM=xterm-256color emacsclient -t -a \"\""
 
 # Nix
-alias rebuild="sudo nixos-rebuild switch"
+alias rebuild-gregnix-personal="sudo nixos-rebuild switch --flake ~/.dotfiles/nix#gregnix-personal"
 
 # Flutter
 alias flutter-fix="sudo mkdir /lib64;sudo ln -sf $(file -L /usr/bin/env | cut -d"," -f5 | cut -d" " -f3) /lib64/ld-linux-x86-64.so.2"
