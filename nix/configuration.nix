@@ -45,10 +45,16 @@ in
 
     shell = pkgs.zsh;
   };
-  nix.allowedUsers = [ "greg" ];
-  nix.trustedUsers = [ "greg" ];
 
   nix = {
+    allowedUsers = [ "greg" ];
+    # Set the $NIX_PATH entry for nixpkgs. This is necessary in
+    # this setup with flakes, otherwise commands like `nix-shell
+    # -p pkgs.htop` will keep using an old version of nixpkgs
+    nixPath = [
+      "nixpkgs=${self.inputs.nixpkgs}"
+    ];
+
     package = pkgs.nixFlakes;
     extraOptions = ''
       experimental-features = nix-command flakes

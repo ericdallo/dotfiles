@@ -1,5 +1,9 @@
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
 
+;; Emacs 29 bug
+(general-auto-unbind-keys :off)
+(remove-hook 'doom-after-init-modules-hook #'general-auto-unbind-keys)
+
 (let ((nudev-emacs-path "~/dev/nu/nudev/ides/emacs/"))
   (when (file-directory-p nudev-emacs-path)
     (add-to-list 'load-path nudev-emacs-path)

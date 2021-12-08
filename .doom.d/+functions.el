@@ -59,3 +59,16 @@
    t
    "*jet error buffer*"
    t))
+
+(defun magit-open-pr-page (target-branch)
+  (interactive
+   (list (magit-read-branch "Target branch")))
+  (let* ((repo (forge-get-repository (forge-current-topic)))
+         (branch (magit-get-current-branch))
+         (url (format "https://%s/%s/%s/compare/%s...%s"
+                      (oref repo githost)
+                      (oref repo owner)
+                      (oref repo name)
+                      target-branch
+                      branch)))
+    (browse-url url)))
