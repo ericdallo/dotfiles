@@ -9,6 +9,7 @@
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = [ ];
     supportedFilesystems = [ "ntfs" ];
+    extraModprobeConfig = '' options bluetooth disable_ertm=1 '';
   };
 
   nix.gc = {
