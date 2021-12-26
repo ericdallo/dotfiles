@@ -34,6 +34,7 @@
       vlc
       (wine.override { wineBuild = "wineWow"; })
       woeusb
+      gnome3.adwaita-icon-theme
     ];
 
   environment.variables = {
@@ -60,6 +61,13 @@
       modules = [ pkgs.xorg.xf86inputlibinput ];
 
       displayManager.defaultSession = "none+bspwm";
+      displayManager.sessionCommands = ''
+        ${pkgs.xlibs.xsetroot}/bin/xsetroot -cursor_name left_ptr &
+        ${pkgs.xorg.xrdb}/bin/xrdb -merge <<EOF
+          Xcursor.theme: Adwaita
+          Xcursor.size: 24
+        EOF
+      '';
       displayManager.lightdm = {
         enable = true;
         greeters.mini = {
@@ -71,6 +79,7 @@
                 show-input-cursor = true
                 invalid-password-text = "You shall not pass!"
                 password-alignment = left
+                cursor-theme-name = "Adwaita"
                 [greeter-theme]
                 background-image = ""
                 background-color = "#282a36"
@@ -78,7 +87,6 @@
                 border-color = "#bd93f9"
                 layout-space = 16
                 font-size = 1.1em
-                cursor-theme-name = "Adwaita"
                 password-background-color = "#44475a"
                 password-border-width = 4px
                 password-border-color = "#44475a"
