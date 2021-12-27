@@ -14,11 +14,11 @@
     ./autorandr.nix
   ];
 
-  xdg.mimeApps = {
-      enable =  true;
-      defaultApplications = {
-          "inode/directory" = [ "nautilus.desktop" ];
-          "application/pdf" = [ "google-chrome.desktop" ];
-      };
-  };
+  # xdg.mimeApps = {
+  #     enable =  true;
+  #     defaultApplications = {
+  #         "inode/directory" = [ "nautilus.desktop" ];
+  #         "application/pdf" = [ "google-chrome.desktop" ];
+  #     };
+  # };
 }
