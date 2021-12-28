@@ -32,7 +32,6 @@
       udisks
       transmission-gtk
       vlc
-      (wine.override { wineBuild = "wineWow"; })
       woeusb
       gnome3.adwaita-icon-theme
     ];
