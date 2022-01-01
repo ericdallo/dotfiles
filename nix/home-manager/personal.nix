@@ -6,6 +6,7 @@ in {
     ../configurations/overlays.nix
     ./programs/common.nix
     ./programs/clojure.nix
+    ./programs/rust.nix
     ./programs/vscode.nix
     ./programs/android.nix
     ./programs/gregflix.nix
@@ -31,12 +32,10 @@ in {
       pandoc
       postman
       ferdi
-      rust-analyzer
       s3cmd
       sass
       sassc
       srt-to-vtt-cl
-      rustup
       skype
       teamviewer
       unityhub
