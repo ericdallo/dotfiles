@@ -24,4 +24,4 @@
 (unpin! iedit)
 (unpin! evil-multiedit)
 (unpin! evil)
-(unpin! cider)
+;; (unpin! cider)
