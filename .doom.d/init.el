@@ -152,6 +152,9 @@
        web               ; the tubes
        ;;vala              ; GObjective-C
 
+       :os
+       tty
+
        :email
        ;;(mu4e +gmail)       ; WIP
        ;;notmuch             ; WIP
