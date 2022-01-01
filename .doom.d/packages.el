@@ -15,7 +15,7 @@
 (unpin! hover)
 (unpin! treemacs)
 (unpin! lsp-treemacs)
-(unpin! lsp-mode)
+;; (unpin! lsp-mode)
 (unpin! lsp-ui)
 (unpin! lsp-dart)
 
