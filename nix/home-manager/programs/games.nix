@@ -4,7 +4,6 @@
   home.packages = with pkgs; [
     dolphin-emu-beta
     lutris
-    gnome3.adwaita-icon-theme # for lutris
     wineWowPackages.staging
     winetricks
   ];
