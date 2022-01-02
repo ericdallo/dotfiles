@@ -41,13 +41,10 @@
  evil-split-window-below t
  evil-vsplit-window-right t
 
- counsel-rg-base-command "rg -i -M 1000 --no-heading --line-number --color never %s ."
+ counsel-rg-base-command ("rg" "-i" "-M" "1000" "--no-heading" "--line-number" "--color" "never" "%s")
 
- frame-title-format (setq icon-title-format  ;; set window title with "project"
-                          '((:eval (projectile-project-name))))
-
- doom-font (font-spec :family "Hack" :size 18)
- doom-unicode-font (font-spec :family "Material Design Icons")
+ doom-font (font-spec :family "Hack" :size 18) ;; Remove it if you don't have this font installed
+ doom-unicode-font (font-spec :family "Material Design Icons") ;; Remove it if you don't have this font installed
  doom-big-font-increment 2
 
  doom-theme 'doom-dracula
@@ -120,6 +117,7 @@
 (use-package! dap-mode
   :init
   (require 'dap-chrome)
+  (require 'dap-cpptools)
   :config
   (setq dap-enable-mouse-support nil))
 
