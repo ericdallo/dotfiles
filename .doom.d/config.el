@@ -159,9 +159,6 @@
 
 (use-package! lsp-mode
   :commands lsp
-  :hook ((clojure-mode . lsp)
-         (dart-mode . lsp)
-         (java-mode . lsp))
   :config
   (let ((omnisharp-path (-some-> (executable-find "omnisharp")
                           file-chase-links
@@ -184,7 +181,12 @@
           lsp-completion-no-cache t
           lsp-completion-use-last-result nil))
   (advice-add #'lsp-rename :after (lambda (&rest _) (projectile-save-project-buffers)))
-  (add-hook 'lsp-mode-hook (lambda () (setq-local company-format-margin-function #'company-vscode-dark-icons-margin))))
+  (add-hook 'lsp-mode-hook (lambda () (setq-local company-format-margin-function #'company-vscode-dark-icons-margin)))
+
+  ;; rust
+  (setq lsp-rust-analyzer-server-display-inlay-hints t
+        lsp-rust-analyzer-display-parameter-hints t
+        lsp-rust-analyzer-display-chaining-hints t))
 
 (use-package! lsp-treemacs
   :config
