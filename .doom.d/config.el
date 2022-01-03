@@ -41,7 +41,7 @@
  evil-split-window-below t
  evil-vsplit-window-right t
 
- counsel-rg-base-command ("rg" "-i" "-M" "1000" "--no-heading" "--line-number" "--color" "never" "%s")
+ counsel-rg-base-command '("rg" "-i" "-M" "1000" "--no-heading" "--line-number" "--color" "never" "%s")
 
  doom-font (font-spec :family "Hack" :size 18) ;; Remove it if you don't have this font installed
  doom-unicode-font (font-spec :family "Material Design Icons") ;; Remove it if you don't have this font installed
