@@ -178,7 +178,7 @@
           lsp-completion-sort-initial-results t ; check if should keep as t
           lsp-completion-no-cache t
           lsp-completion-use-last-result nil))
-  (advice-add #'lsp-rename :after (lambda (&rest _) (projectile-save-project-buffers)))
+  (add-hook 'lsp-after-apply-edits-hook (lambda (&rest _) (save-buffer)))
   (add-hook 'lsp-mode-hook (lambda () (setq-local company-format-margin-function #'company-vscode-dark-icons-margin)))
 
   ;; rust
