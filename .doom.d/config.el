@@ -61,17 +61,16 @@
 (set-popup-rule! "\\*dap-ui-locals\\*" :side 'right :width 0.3)
 (set-popup-rule! "\\*dap-ui-sessions\\*" :side 'right :width 0.3)
 (set-popup-rule! "\\*midje-test-report\\*" :side 'right :width 0.5)
+(set-popup-rule! "*cider-test-report*" :side 'right :width 0.4)
+(set-popup-rule! "^\\*cider-repl" :side 'bottom :quit nil)
 
 (use-package! cider
   :after clojure-mode
   :config
-  (setq cider-ns-refresh-show-log-buffer t
-        cider-show-error-buffer t ;'only-in-repl
+  (setq cider-show-error-buffer t ;'only-in-repl
         cider-font-lock-dynamically nil ; use lsp semantic tokens
         cider-eldoc-display-for-symbol-at-point nil ; use lsp
         cider-prompt-for-symbol nil)
-  (set-popup-rule! "*cider-test-report*" :side 'right :width 0.4)
-  (set-popup-rule! "^\\*cider-repl" :side 'bottom :quit nil)
   (set-lookup-handlers! 'cider-mode nil) ; use lsp
   (add-hook 'cider-mode-hook (lambda () (remove-hook 'completion-at-point-functions #'cider-complete-at-point))) ; use lsp
   )
@@ -97,9 +96,7 @@
 
 (use-package! clojure-mode
   :config
-  (setq clojure-indent-style 'align-arguments
-        clojure-thread-all-but-last t)
-  (cljr-add-keybindings-with-prefix "C-c C-c"))
+  (setq clojure-indent-style 'align-arguments))
 
 (use-package! company
   :config
