@@ -129,17 +129,10 @@
 
 (use-package! lsp-dart
   :config
-  (when-let (dart-exec (executable-find "dart"))
-    (let ((dart-sdk-path (-> dart-exec
-                             file-chase-links
-                             file-name-directory
-                             directory-file-name
-                             file-name-directory)))
-      (setq lsp-dart-dap-flutter-hot-reload-on-save t)
-      (if use-local-dart
-          (setq lsp-dart-sdk-dir "/home/greg/flutter/bin/cache/dart-sdk"
-                lsp-dart-flutter-sdk-dir "/home/greg/flutter")
-        (setq lsp-dart-sdk-dir dart-sdk-path)))))
+  (setq lsp-dart-dap-flutter-hot-reload-on-save t)
+  (when use-local-dart
+    (setq lsp-dart-sdk-dir (expand-file-name "~/flutter/bin/cache/dart-sdk")
+          lsp-dart-flutter-sdk-dir (expand-file-name "~/flutter"))))
 
 (use-package! lsp-java
   :after lsp
