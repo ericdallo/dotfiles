@@ -30,7 +30,7 @@
     nssTools
     mediainfo
     neofetch
-    nodejs-10_x
+    nodejs-12_x
     openfortivpn
     curlftpfs
     openssl

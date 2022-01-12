@@ -21,7 +21,7 @@ in
   nixpkgs.config.android_sdk.accept_license = true;
 
   home = {
-    stateVersion = "21.05";
+    stateVersion = "21.11";
     packages = with pkgs; [
       aws-iam-authenticator
       awslogs
@@ -35,15 +35,15 @@ in
       mob
       maven
       sassc
-      yubikey-manager
-      yubikey-personalization-gui
+      stable.yubikey-manager
+      stable.yubikey-personalization-gui
       visualvm
       tektoncd-cli
       xsv
       zoom-us
       insomnia
       nubank.dart
-      nubank.flutter
+      (nubank.flutter.override { flutterPackages = master.flutterPackages; })
       nubank.hover
     ] ++ nubank.jupyter-tools;
 
