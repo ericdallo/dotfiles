@@ -3,6 +3,10 @@
 {
   home.packages = with pkgs; [
       rust-analyzer
-      rustup
+      cargo
+      gcc
+      rustc
+      rustfmt
+      # rustup
   ];
 }
