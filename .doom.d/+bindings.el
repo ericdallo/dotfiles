@@ -93,17 +93,20 @@
         :desc "Forward"
         "C-c <right>" #'paredit-forward))
 
-(map! :after clojure-mode
-      :leader
+(after! clojure-mode
+  (define-key lsp-mode-map (kbd "C-M-<up>") #'lsp-clojure-move-coll-entry-up)
+  (define-key lsp-mode-map (kbd "C-M-<down>") #'lsp-clojure-move-coll-entry-down)
 
-      :desc "Search for symbol in project excluding test folders"
-      "&" (lambda () (interactive) (rg-ignoring-folders (list "test" "postman")))
+  (map! :leader
 
-      :desc "Search for symbol in project excluding src folder"
-      "(" (lambda () (interactive) (rg-ignoring-folders (list "src")))
+        :desc "Search for symbol in project excluding test folders"
+        "&" (lambda () (interactive) (rg-ignoring-folders (list "test" "postman")))
 
-      :desc "lsp-clojure cursor info"
-      "-" #'lsp-clojure-cursor-info)
+        :desc "Search for symbol in project excluding src folder"
+        "(" (lambda () (interactive) (rg-ignoring-folders (list "src")))
+
+        :desc "lsp-clojure cursor info"
+        "-" #'lsp-clojure-cursor-info))
 
 (map! :after cider-mode
       :map cider-mode-map
