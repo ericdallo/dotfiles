@@ -1,10 +1,16 @@
 {
 	"window.zoomLevel": 2,
-	// "workbench.colorTheme": "Monokai",
+	"workbench.colorTheme": "Monokai",
 	"files.associations": {
 		"*.ect": "html",
 		"*.clj": "clojure"
 	},
+    "workbench.editor.enablePreview": false,
+    "breadcrumbs.enabled": false,
+    "editor.minimap.enabled": false,
+    "scm.autoReveal": false,
+    "explorer.autoReveal": false,
+    "editor.semanticHighlighting.enabled": true,
 	"files.autoSave": "afterDelay",
 	"explorer.confirmDelete": false,
 	"java.configuration.checkProjectSettingsExclusions": false,
@@ -68,5 +74,5 @@
 	"calva.referencesCodeLens.enabled": true,
 	"clojure.trace.server": "verbose",
 	"calva.clojureLspPath": "/home/greg/dev/clojure-lsp/clojure-lsp",
-	"editor.semanticHighlighting.enabled": true,
+	"editor.semanticHighlighting.enabled": true
 }
