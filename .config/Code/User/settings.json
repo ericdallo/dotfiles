@@ -1,6 +1,6 @@
 {
 	"window.zoomLevel": 2,
-	"workbench.colorTheme": "Monokai",
+	"workbench.colorTheme": "Dracula",
 	"files.associations": {
 		"*.ect": "html",
 		"*.clj": "clojure"
