@@ -7,8 +7,10 @@
 (define-key evil-normal-state-map (kbd "<tab>") 'evil-jump-item)
 (define-key evil-motion-state-map (kbd "] e") #'flycheck-next-error)
 (define-key evil-motion-state-map (kbd "[ e") #'flycheck-previous-error)
-(define-key vertico-map (kbd "<next>") #'vertico-scroll-up)
-(define-key vertico-map (kbd "<prior>") #'vertico-scroll-down)
+
+(with-eval-after-load 'vertico
+  (define-key vertico-map (kbd "<next>") #'vertico-scroll-up)
+  (define-key vertico-map (kbd "<prior>") #'vertico-scroll-down))
 
 (defun scroll-up-bottom-window ()
   "Scroll up bottom window"
