@@ -39,6 +39,8 @@ in
       stable.yubikey-personalization-gui
       visualvm
       tektoncd-cli
+      protobuf
+      buf
       xsv
       zoom-us
       insomnia
