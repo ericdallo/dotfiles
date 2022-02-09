@@ -30,8 +30,8 @@
  evil-split-window-below t
  evil-vsplit-window-right t
 
- doom-font (when (x-list-fonts "Hack") (font-spec :family "Hack" :size 18))
- doom-unicode-font (when (x-list-fonts "Material Design Icons") (font-spec :family "Material Design Icons"))
+ doom-font (font-spec :size 18)
+ doom-unicode-font (font-spec :size 18)
  doom-big-font-increment 2
 
  doom-theme 'doom-dracula
@@ -148,7 +148,7 @@
   (let ((clojure-lsp-dev (expand-file-name "~/dev/clojure-lsp/clojure-lsp")))
     (when (file-exists-p clojure-lsp-dev)
       ;; clojure-lsp local development
-      (setq lsp-clojure-custom-server-command '("bash" "-c" "~/dev/clojure-lsp/clojure-lsp")
+      (setq lsp-clojure-custom-server-command `("bash" "-c" ,clojure-lsp-dev)
             lsp-completion-no-cache t
             lsp-completion-use-last-result nil)))
 
