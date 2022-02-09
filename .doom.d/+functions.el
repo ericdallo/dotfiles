@@ -1,5 +1,8 @@
 ;;; ../.dotfiles/.doom.d/+functions.el -*- lexical-binding: t; -*-
 
+(defun font-exists-p (font)
+  (if (null (x-list-fonts font)) nil t))
+
 (defun rg-ignoring-folders (folders)
   "ripgrep selected word in project excluding folder"
   (let ((symbol (thing-at-point 'symbol t))
