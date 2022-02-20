@@ -3,7 +3,6 @@
 	"workbench.colorTheme": "Dracula",
 	"files.associations": {
 		"*.ect": "html",
-		"*.clj": "clojure"
 	},
     "workbench.editor.enablePreview": false,
     "breadcrumbs.enabled": false,
@@ -13,9 +12,7 @@
     "editor.semanticHighlighting.enabled": true,
 	"files.autoSave": "afterDelay",
 	"explorer.confirmDelete": false,
-	"java.configuration.checkProjectSettingsExclusions": false,
 	"editor.suggestSelection": "first",
-	"vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
 	"explorer.confirmDragAndDrop": false,
 	"editor.detectIndentation": true,
 	"editor.tokenColorCustomizations": {
@@ -40,19 +37,9 @@
 		]
 	},
 	"calva.paredit.defaultKeyMap": "none",
-	"calva.lintOnSave": false,
-	"bracket-pair-colorizer-2.colors": [
-		"LightGray",
-		"Orchid",
-		"Gold",
-		"LightSkyBlue",
-		"LightGreen"
-	],
 	"calva.testOnSave": true,
 	"calva.evalOnSave": true,
 	"workbench.startupEditor": "newUntitledFile",
-	"debug.chrome.useV3": true,
-	"dart.previewLsp": true,
 	"dart.previewFlutterUiGuides": true,
 	"[dart]": {
 		"editor.formatOnSave": true,
@@ -68,11 +55,10 @@
 		"files.insertFinalNewline": true
 	},
 	"debug.onTaskErrors": "debugAnyway",
-	"java.semanticHighlighting.enabled": true,
 	"html.trace.server": "verbose",
 	"dart.flutterSdkPath": "/home/greg/flutter",
 	"calva.referencesCodeLens.enabled": true,
 	"clojure.trace.server": "verbose",
 	"calva.clojureLspPath": "/home/greg/dev/clojure-lsp/clojure-lsp",
-	"editor.semanticHighlighting.enabled": true
+	"editor.hover.enabled": false
 }
