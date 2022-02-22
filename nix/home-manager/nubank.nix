@@ -25,7 +25,7 @@ in
     packages = with pkgs; [
       aws-iam-authenticator
       awslogs
-      discord
+      master.discord
       fzf
       gcc
       git-lfs
