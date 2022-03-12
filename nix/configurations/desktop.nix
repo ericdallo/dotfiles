@@ -61,7 +61,7 @@
 
       displayManager.defaultSession = "none+bspwm";
       displayManager.sessionCommands = ''
-        ${pkgs.xlibs.xsetroot}/bin/xsetroot -cursor_name left_ptr &
+        ${pkgs.xorg.xsetroot}/bin/xsetroot -cursor_name left_ptr &
         ${pkgs.xorg.xrdb}/bin/xrdb -merge <<EOF
           Xcursor.theme: Adwaita
           Xcursor.size: 24

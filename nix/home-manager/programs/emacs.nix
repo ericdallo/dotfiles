@@ -1,11 +1,10 @@
 { config, lib, pkgs, ... }:
 
 let
-  emacsPackage = (pkgs.emacsPackagesGen pkgs.emacsGcc).emacsWithPackages
+  emacsPackage = (pkgs.emacsPackagesFor pkgs.emacsGcc).emacsWithPackages
     (epkgs: [ epkgs.vterm ]);
 in {
 
-  home.sessionVariables = { EDITOR = "emacs"; };
   programs.emacs = {
     enable = true;
     package = emacsPackage;

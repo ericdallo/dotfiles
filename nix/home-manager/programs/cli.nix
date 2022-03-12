@@ -2,7 +2,6 @@
 
 {
   home.packages = with pkgs; [
-    ag
     stable.awscli
     stable.appimage-run
     aspell
@@ -26,7 +25,7 @@
     killall
     libvterm-neovim
     lshw
-    manpages
+    man-pages
     nssTools
     mediainfo
     neofetch
@@ -41,7 +40,7 @@
     stable.sbt
     shellcheck
     sqlite
-    telnet
+    inetutils
     translate-shell
     tree
     unrar

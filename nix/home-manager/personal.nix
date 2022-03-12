@@ -36,7 +36,6 @@ in {
       sass
       sassc
       srt-to-vtt-cl
-      skype
       teamviewer
       unityhub
       websocat
