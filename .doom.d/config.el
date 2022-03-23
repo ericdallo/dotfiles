@@ -49,8 +49,9 @@
   (setq cider-show-error-buffer t ;'only-in-repl
         cider-font-lock-dynamically nil ; use lsp semantic tokens
         cider-eldoc-display-for-symbol-at-point nil ; use lsp
-        cider-prompt-for-symbol nil)
-  (set-lookup-handlers! 'cider-mode nil) ; use lsp
+        cider-prompt-for-symbol nil
+        cider-use-xref nil) ; use lsp
+  (set-lookup-handlers! '(cider-mode cider-repl-mode) nil) ; use lsp
   (set-popup-rule! "*cider-test-report*" :side 'right :width 0.4)
   (set-popup-rule! "^\\*cider-repl" :side 'bottom :quit nil)
   ;; use lsp completion
