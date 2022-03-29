@@ -1,3 +1,2 @@
 {:log-path "/tmp/clojure-lsp.out"
- :use-metadata-for-privacy? true
- :dependency-scheme "jar"}
+ :use-metadata-for-privacy? true}
