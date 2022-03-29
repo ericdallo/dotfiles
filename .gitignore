@@ -1,5 +1,7 @@
 .config/clj-kondo/
 !.config/clj-kondo/config.edn
+.config/clojure-lsp/
+!.config/clj-kondo/config.edn
 .doom.d/local/
 .doom.d/*.elc
 *result
