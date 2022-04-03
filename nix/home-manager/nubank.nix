@@ -64,7 +64,8 @@ in
       ln -Tsf ${dotfilesDir}/.config/gdfuse ~/.config/gdfuse
       ln -Tsf ${dotfilesDir}/.config/networkmanager-dmenu ~/.config/networkmanager-dmenu
       ln -sf ${dotfilesDir}/.config/zoomus.conf ~/.config/zoomus.conf
-      ln -Tsf ${dotfilesDir}/.config/clojure-lsp ~/.config/clojure-lsp
+      mkdir -p ~/.config/clojure-lsp
+      ln -sf ${dotfilesDir}/.config/clojure-lsp/config.edn ~/.config/clojure-lsp/config.edn
 
       ln -Tsf ${dotfilesDir}/.doom.d ~/.doom.d
       ln -sf ${dotfilesDir}/.midje.clj ~/.midje.clj
