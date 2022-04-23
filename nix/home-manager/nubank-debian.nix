@@ -21,6 +21,9 @@ in
   nixpkgs.config.android_sdk.accept_license = true;
 
   home = {
+    sessionVariables = {
+      EDITOR = "emacsclient -c";
+    };
     stateVersion = "21.11";
     packages = with pkgs; [
       # from desktop.nix
