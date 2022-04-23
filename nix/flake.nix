@@ -29,14 +29,12 @@
       username = "greg";
     in {
       homeConfigurations.greg = home.lib.homeManagerConfiguration {
-        configuration = import ./home-manager/nubank.nix;
+        configuration = import ./home-manager/nubank-debian.nix;
 
         inherit system username;
         homeDirectory = "/home/${username}";
         stateVersion = "21.11";
         extraSpecialArgs = { inherit self system; };
-
-        # Optionally use extraSpecialArgs
       };
 
       nixosConfigurations =
