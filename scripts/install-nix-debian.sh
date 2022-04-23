@@ -13,3 +13,14 @@ nix-env -iA nixpkgs.home-manager
 
 mkdir -p ~/.config/nix
 echo "experimental-features = nix-command flakes" > ~/.config/nix/nix.conf
+
+cd ~/.dotfiles
+home-manager switch --flake .
+
+echo "export XDG_DATA_DIRS=$HOME/.nix-profile/share:$HOME/.share:\"${XDG_DATA_DIRS:-/usr/local/share/:/usr/share/}\"" >> ~/.profile
+echo "export XDG_DATA_DIRS=$HOME/.nix-profile/share:$HOME/.share:\"${XDG_DATA_DIRS:-/usr/local/share/:/usr/share/}\"" >> ~/.zprofile
+
+echo "if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi" >> ~/.zprofile
+
+sudo echo "/home/greg/.nix-profile/bin/zsh" >> /etc/shells
+sudo chsh -s /home/greg/.nix-profile/bin/zsh

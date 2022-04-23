@@ -11,19 +11,19 @@ in
     ./programs/python.nix
     ./programs/android.nix
     ./programs/java.nix
+    ./programs/zsh.nix
   ];
 
   nixpkgs.overlays = [
     (import self.inputs.nubank)
   ];
 
+  fonts.fontconfig.enable = true;
+
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.android_sdk.accept_license = true;
 
   home = {
-    sessionVariables = {
-      EDITOR = "emacsclient -c";
-    };
     stateVersion = "21.11";
     packages = with pkgs; [
       # from desktop.nix

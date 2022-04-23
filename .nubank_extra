@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-source $HOME/.nurc
-source $HOME/.nubank_aliases
+[[ -s ~/.nurc ]] && source $HOME/.nurc
+[[ -s ~/.nubank_aliases ]] && source $HOME/.nubank_aliases
 
 export PATH="$NU_HOME/nucli.py/bin:$PATH"
 
