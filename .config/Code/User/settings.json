@@ -60,5 +60,6 @@
 	"calva.referencesCodeLens.enabled": true,
 	"clojure.trace.server": "verbose",
 	"calva.clojureLspPath": "/home/greg/dev/clojure-lsp/clojure-lsp",
-	"editor.hover.enabled": false
+	"editor.hover.enabled": false,
+	"calva.fmt.configPath": "CLOJURE-LSP"
 }
