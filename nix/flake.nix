@@ -23,8 +23,23 @@
     nubank.url = "github:nubank/nixpkgs/master";
   };
 
-  outputs = { self, nixpkgs, home, flake-utils, ... }: {
-    nixosConfigurations =
+  outputs = { self, nixpkgs, home, flake-utils, ... }:
+    let
+      system = "x86_64-linux";
+      username = "greg";
+    in {
+      homeConfigurations.greg = home.lib.homeManagerConfiguration {
+        configuration = import ./home-manager/nubank.nix;
+
+        inherit system username;
+        homeDirectory = "/home/${username}";
+        stateVersion = "21.11";
+        extraSpecialArgs = { inherit self system; };
+
+        # Optionally use extraSpecialArgs
+      };
+
+      nixosConfigurations =
       let
         mkSystem = { modules, system ? "x86_64-linux" }:
           nixpkgs.lib.nixosSystem {
