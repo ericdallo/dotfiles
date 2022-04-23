@@ -28,7 +28,7 @@
       system = "x86_64-linux";
       username = "greg";
     in {
-      homeConfigurations."greg@gregnix-personal" = home.lib.homeManagerConfiguration {
+      homeConfigurations.greg = home.lib.homeManagerConfiguration {
         configuration = import ./home-manager/nubank-debian.nix;
 
         inherit system username;
