@@ -1,7 +1,12 @@
+plugins=(git sudo docker)
+
+ZSH_THEME="simple"
+source $ZSH/oh-my-zsh.sh
+
 source ~/.critical-keys
 source ~/.env
 
-export TERM="rxvt-unicode-256color"
+#export TERM="rxvt-unicode-256color"
 
 ### Extra paths
 
