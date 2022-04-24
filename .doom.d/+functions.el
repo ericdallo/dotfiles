@@ -75,3 +75,21 @@
                       target-branch
                       branch)))
     (browse-url url)))
+
+(defun magit-open-file-at-remote ()
+  (interactive)
+  (browse-url
+   (let
+       ((rev (magit-rev-abbrev "HEAD"))
+        (repo (forge-get-repository 'stub))
+        (file (magit-file-relative-name buffer-file-name))
+        (highlight
+         (if
+             (use-region-p)
+             (let ((l1 (line-number-at-pos (region-beginning)))
+                   (l2 (line-number-at-pos (- (region-end) 1))))
+               (format "#L%d-L%d" l1 l2))
+           (format "#L%s" (line-number-at-pos (point)))
+           )))
+     (forge--format repo "https://%h/%o/%n/blob/%r/%f%L"
+                    `((?r . ,rev) (?f . ,file) (?L . ,highlight))))))
