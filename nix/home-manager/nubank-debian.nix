@@ -27,7 +27,7 @@ in
     stateVersion = "21.11";
     packages = with pkgs; [
       # from desktop.nix
-      betterlockscreen
+      # betterlockscreen
       bspwm
       dmenu
       dunst

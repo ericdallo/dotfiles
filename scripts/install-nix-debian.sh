@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-sudo apt install vim git build-essential dkms linux-headers-$(uname -r)
+sudo apt install vim git build-essential dkms linux-headers-$(uname -r) bspwm
 git clone https://github.com/ericdallo/dotfiles.git ~/.dotfiles
 
 sudo mkdir /nix
