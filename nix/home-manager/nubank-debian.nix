@@ -87,7 +87,7 @@ in
       insomnia
       nubank.dart
       (nubank.flutter.override { flutterPackages = master.flutterPackages; })
-      nubank.hover
+      # nubank.hover
     ] ++ nubank.jupyter-tools;
 
     activation.linkFiles = config.lib.dag.entryAfter [ "writeBoundary" ] ''

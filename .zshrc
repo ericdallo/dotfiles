@@ -14,3 +14,5 @@ source ~/.env
 [[ -s ~/.bash_aliases ]] && source ~/.bash_aliases
 [[ -s ~/.functions ]] && source ~/.functions
 [[ -s ~/.extra ]] && source ~/.extra
+
+ssh-add ~/.ssh/github

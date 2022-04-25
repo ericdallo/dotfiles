@@ -30,7 +30,7 @@
  evil-split-window-below t
  evil-vsplit-window-right t
 
- doom-font (font-spec :size 18)
+ doom-font (font-spec :family "Hack" :size 18)
  doom-unicode-font (font-spec :size 18)
  doom-big-font-increment 2
 
