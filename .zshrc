@@ -15,4 +15,4 @@ source ~/.env
 [[ -s ~/.functions ]] && source ~/.functions
 [[ -s ~/.extra ]] && source ~/.extra
 
-ssh-add ~/.ssh/github
+ssh-add ~/.ssh/github > /dev/null

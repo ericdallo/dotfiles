@@ -28,7 +28,7 @@ in
     packages = with pkgs; [
       # from desktop.nix
       # betterlockscreen
-      bspwm
+      # bspwm
       dmenu
       dunst
       feh
@@ -41,7 +41,7 @@ in
       libinput-gestures
       libnotify
       materia-theme
-      gnome3.nautilus
+      # gnome3.nautilus
       ntfsprogs
       pavucontrol
       peek
@@ -55,7 +55,7 @@ in
       transmission-gtk
       vlc
       woeusb
-      gnome3.adwaita-icon-theme
+      # gnome3.adwaita-icon-theme
       emacs-all-the-icons-fonts
       hack-font
       roboto
@@ -68,7 +68,7 @@ in
       awslogs
       master.discord
       fzf
-      gcc
+      # gcc
       git-lfs
       hashdeep
       kubectl
