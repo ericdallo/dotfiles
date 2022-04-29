@@ -3,7 +3,9 @@ root: ~/
 
 name: Personal
 windows:
-  - Main: 
+  - Main:
+      - " tmux set-window-option -t0 automatic-rename on"
+      - "clear"
   - Second:
-  - Third:
-  - Fourth:
+      - " tmux set-window-option -t1 automatic-rename on"
+      - " clear"

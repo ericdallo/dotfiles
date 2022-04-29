@@ -20,6 +20,19 @@
      ];
 
     extraConfig = ''
+        # Dracula Color Pallette
+        white='#f8f8f2'
+        gray='#44475a'
+        dark_gray='#282a36'
+        light_purple='#bd93f9'
+        dark_purple='#6272a4'
+        cyan='#8be9fd'
+        green='#50fa7b'
+        orange='#ffb86c'
+        red='#ff5555'
+        pink='#ff79c6'
+        yellow='#f1fa8c'
+
         bind-key -n M-x kill-pane
         bind-key -n M-c new-window
         bind -n M-Right next-window
@@ -48,6 +61,12 @@
         set-option -g mouse on
         set -g history-limit 20000
         setw -g mode-keys vi
+        set-option -g status-interval 3
+        set-option -g automatic-rename on
+        set-option -g automatic-rename-format '#{b:pane_current_path}'
+
+        set-window-option -g window-status-current-format "#[fg=$gray,bg=$dark_purple]$left_sep#[fg=$white,bg=$dark_purple] #W$current_flags #[fg=$dark_purple,bg=$gray]$left_sep"
+        set-window-option -g window-status-format "#[fg=$white]#[bg=$gray] #W$flags"
     '';
   };
 }
