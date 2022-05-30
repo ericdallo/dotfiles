@@ -18,7 +18,7 @@
 
     emacs = {
       url = "github:nix-community/emacs-overlay/master";
-      inputs.nixpkgs.follows = "unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nubank.url = "github:nubank/nixpkgs/master";
   };

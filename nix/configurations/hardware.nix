@@ -15,7 +15,6 @@
 
   environment.systemPackages = with pkgs; [
     iw
-    noisetorch
   ];
 
   nixpkgs.config.packageOverrides = pkgs: {
