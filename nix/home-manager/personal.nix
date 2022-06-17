@@ -31,7 +31,7 @@ in {
       hugo
       pandoc
       postman
-      ferdi
+      master.ferdium
       s3cmd
       sass
       sassc

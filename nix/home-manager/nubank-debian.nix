@@ -72,7 +72,7 @@ in
       git-lfs
       hashdeep
       kubectl
-      ferdi
+      master.ferdium
       mob
       maven
       sassc

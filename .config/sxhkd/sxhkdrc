@@ -23,7 +23,7 @@ super + ctrl + e
       emacsclient -c
 
 super + f
-      ferdi
+      ferdium
 
 super + t
       urxvt
