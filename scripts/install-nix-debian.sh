@@ -14,6 +14,8 @@ sh <(curl -L https://nixos.org/nix/install) --no-daemon
 source "/home/$USERNAME/.nix-profiles/etc/profile.d/nix.sh"
 
 echo "export NIX_PATH=$HOME/.nix-defexpr/channels:/nix/var/nix/profiles/per-user/root/channels${NIX_PATH:+:$NIX_PATH}" >> ~/.bashrc
+echo "export NIXPKGS_ALLOW_UNFREE=1" >> ~/.bashrc
+
 nix-env -iA nixpkgs.home-manager
 
 mkdir -p ~/.config/nix

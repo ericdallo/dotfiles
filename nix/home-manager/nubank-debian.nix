@@ -70,7 +70,7 @@ in
       fzf
       # gcc
       git-lfs
-      hashdeep
+      # hashdeep
       kubectl
       master.ferdium
       mob
@@ -83,10 +83,10 @@ in
       protobuf
       buf
       xsv
-      zoom-us
+      # zoom-us
       insomnia
-      nubank.dart
-      (nubank.flutter.override { flutterPackages = master.flutterPackages; })
+      # nubank.dart
+      # (nubank.flutter.override { flutterPackages = master.flutterPackages; })
       # nubank.hover
     ] ++ nubank.jupyter-tools;
 
