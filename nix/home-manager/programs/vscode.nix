@@ -13,14 +13,14 @@
       {
         name = "dart-code";
         publisher = "dart-code";
-        version = "3.36.0";
-        sha256 = "sha256-7GIcR6UaW1QqpgyK/J0Gz2yXlKWIVg9LnZDa9DJfYgE=";
+        version = "3.42.1";
+        sha256 = "sha256-a3p+2ZRpDQKp7v/1y6wDm1o+j1JjuGaWn/whh7pBcUg";
       }
       {
         name = "calva";
         publisher = "betterthantomorrow";
-        version = "2.0.259";
-        sha256 = "sha256-o1/FAiImeyNlkVSCPKHqW+1XkrYTktj1Upp1yTloeic=";
+        version = "2.0.287";
+        sha256 = "sha256-AweIsNm0tTGAtDx23qAeQb6j/G74MCG5PyXlMLVG+58=";
       }
     ];
   };
