@@ -208,7 +208,7 @@ super+Return
 #       ~/.scripts/powermenu.sh
 
 super + a
-      profile=$(echo "personal-home-tv\npersonal-mickey-tv" | rofi -dmenu -p "Select profile" -no-custom)
+      profile=$(echo "personal-home-tv\nnubank-monitor" | rofi -dmenu -p "Select profile" -no-custom)
       autorandr -c $profile
       bspc {quit,wm -r}
 
@@ -217,13 +217,13 @@ super + h
       systemctl hibernate
 
 XF86Sleep
-      betterlockscreen -s
+      ~/.dotfiles/scripts/lock.sh
 
 super + n
       networkmanager_dmenu
 
 super + l
-      betterlockscreen -l
+      ~/.dotfiles/scripts/lock.sh
 
 super + underscore
       ~/.config/sxhkd/gap_dec.sh

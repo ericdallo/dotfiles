@@ -25,16 +25,19 @@ in
 
   home = {
     stateVersion = "21.11";
+    sessionVariables = {
+      DOTFILES = "$HOME/.dotfiles";
+    };
     packages = with pkgs; [
       # from desktop.nix
-      # betterlockscreen
       # bspwm
+      # xsecurelock
       dmenu
       dunst
       feh
       font-manager
       gimp
-      google-chrome
+      stable.google-chrome
       gparted
       inkscape
       flameshot
@@ -78,6 +81,8 @@ in
       sassc
       stable.yubikey-manager
       stable.yubikey-personalization-gui
+      scrot
+      imagemagick
       visualvm
       tektoncd-cli
       protobuf

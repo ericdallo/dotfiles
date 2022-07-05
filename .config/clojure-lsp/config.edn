@@ -1,2 +1,4 @@
 {:log-path "/tmp/clojure-lsp.out"
- :use-metadata-for-privacy? true}
+ :use-metadata-for-privacy? true
+ :experimental {:dep-graph-queries true}
+ }
