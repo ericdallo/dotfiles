@@ -156,6 +156,11 @@ super + shift + {1-9}
 #super + {Left,Down,Up,Right}
 #      bspc node -v {-10 0,0 10,0 -10,10 0}
 
+# send win to next or prev desktop & focus it
+alt + shift + {Left,Right,Up,Down}
+    dir={west,east,north,south}; \
+    bspc node -s "$dir" --follow || bspc node -m "$dir" --follow
+
 Print
       flameshot gui
 
@@ -210,7 +215,7 @@ super+Return
 super + a
       profile=$(echo "personal-home-tv\nnubank-monitor" | rofi -dmenu -p "Select profile" -no-custom)
       autorandr -c $profile
-      bspc {quit,wm -r}
+      bspc wm -r
 
 super + h
       betterlockscreen -l && \

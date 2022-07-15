@@ -182,6 +182,7 @@
              #'spell-fu-mode-disable
              #'hl-line-unload-function
              #'org-mode-hide-all-stars)
+  (remove-hook! 'org-tree-slide-play-hook #'+org-present-hide-blocks-h)
   (add-hook! 'org-tree-slide-stop-hook
              #'spell-fu-mode-enable
              #'hl-line-mode)
