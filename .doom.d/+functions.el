@@ -5,12 +5,19 @@
 
 (defun rg-ignoring-folders (folders)
   "ripgrep selected word in project excluding folder"
-  (let ((symbol (thing-at-point 'symbol t))
-        (args (mapconcat 'identity
-                         (mapcar #'(lambda(folder) (concat "-g '!" folder "/*'"))
-                                 folders)
-                         " ")))
-    (counsel-rg symbol (counsel--git-root) args)))
+  (let ((symbol (rxt-quote-pcre (or (doom-thing-at-point-or-region) "")))
+        (dir (let ((projectile-project-root nil))
+               (if current-prefix-arg
+                   (if-let (projects (projectile-relevant-known-projects))
+                       (completing-read "Search project: " projects nil t)
+                     (user-error "There are no known projects"))
+                 (doom-project-root default-directory))))
+        (args (mapcar (lambda (folder) (concat "-g !" folder ""))
+                      folders)))
+    (+vertico-file-search
+      :query symbol
+      :in dir
+      :args '("-g" "!postman"))))
 
 (defun lsp-clojure-nrepl-connect ()
   "Connect to the running nrepl debug server of clojure-lsp."

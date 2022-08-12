@@ -135,7 +135,7 @@
         lsp-signature-render-documentation nil
         lsp-signature-function 'lsp-signature-posframe
         lsp-semantic-tokens-enable t
-        lsp-idle-delay 0.3
+        lsp-idle-delay 0.2 ;; Smoother LSP features response in cost of performance (Most servers I use have good performance)
         lsp-use-plists nil)
   (add-hook 'lsp-after-apply-edits-hook (lambda (&rest _) (save-buffer)))
   (add-hook 'lsp-mode-hook (lambda () (setq-local company-format-margin-function #'company-vscode-dark-icons-margin)))

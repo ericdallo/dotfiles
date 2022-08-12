@@ -158,7 +158,7 @@
        ;;rest              ; Emacs as a REST client
        ;; (ruby +lsp)      ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
        (rust +lsp)         ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
-       ;;scala             ; java, but good
+       (scala +lsp)        ; java, but good
        (sh
         ;; +lsp
         )                ; she sells {ba,z,fi}sh shells on the C xor
