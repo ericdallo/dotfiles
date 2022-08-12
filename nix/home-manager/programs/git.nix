@@ -1,6 +1,10 @@
 { config, lib, pkgs, ... }:
 
 {
+  home.packages = with pkgs;
+    [
+      difftastic
+    ];
   programs.git = {
     enable = true;
     package = pkgs.gitAndTools.hub;

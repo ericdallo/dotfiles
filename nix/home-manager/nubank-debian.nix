@@ -58,6 +58,8 @@ in
       transmission-gtk
       vlc
       woeusb
+      scala
+      scalafmt
       # gnome3.adwaita-icon-theme
       emacs-all-the-icons-fonts
       hack-font
