@@ -1,6 +1,7 @@
 { pkgs, config, self, ... }:
 let
   dotfilesDir = "$HOME/.dotfiles";
+  username = "greg";
 in
 {
   imports = [
@@ -23,7 +24,10 @@ in
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.android_sdk.accept_license = true;
 
+
   home = {
+    inherit username;
+    homeDirectory = "/home/${username}";
     stateVersion = "21.11";
     sessionVariables = {
       DOTFILES = "$HOME/.dotfiles";
@@ -88,7 +92,7 @@ in
       visualvm
       tektoncd-cli
       protobuf
-      buf
+      stable.buf
       xsv
       # zoom-us
       insomnia
