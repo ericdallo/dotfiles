@@ -19,7 +19,6 @@
  confirm-kill-emacs nil
  mode-line-default-help-echo nil
  show-help-function nil
- evil-multiedit-smart-match-boundaries nil
  compilation-scroll-output 'first-error
 
  read-process-output-max (* 1024 1024)
