@@ -11,7 +11,7 @@ in
 
   imports =
     [
-      self.inputs.home.nixosModules.home-manager
+      self.inputs.home-manager.nixosModules.home-manager
       ./configurations/overlays.nix
       ./configurations/boot.nix
       ./configurations/hardware.nix
