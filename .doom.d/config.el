@@ -39,6 +39,7 @@
 
  +format-on-save-enabled-modes '(dart-mode)
 
+ treemacs-width-is-initially-locked nil
  evil-collection-setup-minibuffer t
  org-directory "~/google-drive/Notes")
 

@@ -15,7 +15,7 @@
     ffmpeg
     gitFull
     gnumake
-    gnupg
+    stable.gnupg
     google-drive-ocamlfuse
     go
     gotop
