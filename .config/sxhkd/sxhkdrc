@@ -241,3 +241,6 @@ super + ctrl + underscore
 
 super + ctrl + plus
       ~/.config/sxhkd/border_inc.sh
+
+super + v
+      ~/.dotfiles/scripts/clipure.sh &
