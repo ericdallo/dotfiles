@@ -1,10 +1,12 @@
 { config, lib, pkgs, ... }:
 
 {
-  programs = {
-    vim = {
-      enable = true;
-      plugins = [ ];
-    };
+  programs.neovim = {
+    enable = true;
+    vimAlias = true;
+    plugins = with pkgs.vimPlugins; [
+      packer-nvim
+      vim-nix
+    ];
   };
 }
