@@ -41,10 +41,10 @@ in
       feh
       font-manager
       gimp
-      stable.google-chrome
+      master.google-chrome
       gparted
       inkscape
-      flameshot
+      master.flameshot
       libinput-gestures
       libnotify
       materia-theme
@@ -75,7 +75,7 @@ in
       aws-iam-authenticator
       bspwm
       awslogs
-      master.discord
+      stable.discord
       fzf
       # gcc
       git-lfs
@@ -99,7 +99,7 @@ in
       insomnia
       # nubank.dart
       (nubank.flutter.override { flutterPackages = master.flutterPackages; })
-      nubank.hover
+      # nubank.hover
     ] ++ nubank.jupyter-tools;
 
     activation.linkFiles = config.lib.dag.entryAfter [ "writeBoundary" ] ''
