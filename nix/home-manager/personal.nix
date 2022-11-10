@@ -17,10 +17,11 @@ in {
   nixpkgs.config.allowUnfree = true;
 
   home = {
-    stateVersion = "21.11";
+    stateVersion = "22.05";
     packages = with pkgs; [
       alda
       blender
+      nodePackages.eask
       master.graalvm11-ce
       heroku
       imagemagick

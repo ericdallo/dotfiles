@@ -21,7 +21,7 @@ in
   nixpkgs.config.android_sdk.accept_license = true;
 
   home = {
-    stateVersion = "21.11";
+    stateVersion = "22.05";
     packages = with pkgs; [
       aws-iam-authenticator
       awslogs
