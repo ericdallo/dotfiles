@@ -104,10 +104,10 @@
   (map! :leader
 
         :desc "Search for symbol in project excluding test folders"
-        "&" (lambda () (interactive) (rg-ignoring-folders (list "test" "postman")))
+        "&" (lambda () (interactive) (+custom/search-ignoring-folders (list "test" "postman")))
 
         :desc "Search for symbol in project excluding src folder"
-        "(" (lambda () (interactive) (rg-ignoring-folders (list "src")))
+        "(" (lambda () (interactive) (+custom/search-ignoring-folders (list "src")))
 
         :desc "lsp-clojure cursor info"
         "-" #'lsp-clojure-cursor-info))

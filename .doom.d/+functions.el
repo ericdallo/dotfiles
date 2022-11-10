@@ -3,8 +3,8 @@
 (defun font-exists-p (font)
   (if (null (x-list-fonts font)) nil t))
 
-(defun rg-ignoring-folders (folders)
-  "ripgrep selected word in project excluding folder"
+(defun +custom/search-ignoring-folders (folders)
+  "Search across project excluding FOLDERS."
   (let ((symbol (rxt-quote-pcre (or (doom-thing-at-point-or-region) "")))
         (dir (let ((projectile-project-root nil))
                (if current-prefix-arg
@@ -12,12 +12,11 @@
                        (completing-read "Search project: " projects nil t)
                      (user-error "There are no known projects"))
                  (doom-project-root default-directory))))
-        (args (mapcar (lambda (folder) (concat "-g !" folder ""))
+        (args (mapcar (lambda (folder) (concat "-g !/" folder ""))
                       folders)))
     (+vertico-file-search
-      :query symbol
-      :in dir
-      :args '("-g" "!postman"))))
+      :query (concat symbol " -- " (string-join args " "))
+      :in dir)))
 
 (defun lsp-clojure-nrepl-connect ()
   "Connect to the running nrepl debug server of clojure-lsp."
