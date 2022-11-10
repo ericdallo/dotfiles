@@ -48,4 +48,4 @@ dunst &
 
 mount | grep "$HOME/google-drive" >/dev/null || google-drive-ocamlfuse "$HOME/google-drive" -xdgbd &
 
-"$HOME/dev/clipure/clipure" listen &
+# "$HOME/dev/clipure/clipure" listen &
