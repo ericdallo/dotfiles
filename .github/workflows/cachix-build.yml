@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - master
-  paths:
+    paths:
       - 'nix/**'
       - '.github/workflows/cachix-build.yml'
 jobs:
