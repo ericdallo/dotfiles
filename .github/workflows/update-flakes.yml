@@ -1,0 +1,56 @@
+on:
+  workflow_dispatch: null
+  schedule:
+    - cron: 40 4 * * 0,4
+  push:
+    branches:
+      - master
+    paths:
+      - '.github/workflows/update-flakes.yml'
+jobs:
+  update-flakes:
+    name: ${{ matrix.profile }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - profile: gregnix-personal
+            token-name: CACHIX_AUTH_TOKEN_GREGNIX_PERSONAL
+          - profile: gregnix-nubank
+            token-name: CACHIX_AUTH_TOKEN_GREGNIX_NUBANK
+    steps:
+      - uses: easimon/maximize-build-space@v6
+        with:
+          overprovision-lvm: true
+          remove-android: true
+          remove-dotnet: true
+          remove-haskell: true
+      - uses: actions/checkout@v3
+      - uses: cachix/install-nix-action@v18
+      - uses: cachix/cachix-action@v12
+        with:
+          name: ericdallo-${{ matrix.profile }}
+          authToken: "${{ secrets[matrix.token-name] }}"
+
+      # Needed because cachix is also installed by Home Manager
+      - name: "Set priority flag for Cachix 🚩"
+        run: nix-env --set-flag priority 0 cachix
+
+      - name: "Update flake.lock ❄"
+        run: |
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+          make update-and-commit -C nix
+      - name: "Build ❄"
+        run: |
+          make build-${{ matrix.profile }} -C nix
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          body: |
+            ## Run report
+            https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          branch: flake-updates
+          delete-branch: true
+          title: Update flake.lock

@@ -5,7 +5,7 @@ on:
       - master
     paths:
       - 'nix/**'
-      - '.github/workflows/cachix-build.yml'
+      - '.github/workflows/**'
 jobs:
   build:
     name: ${{ matrix.profile }}
@@ -19,7 +19,6 @@ jobs:
           - profile: gregnix-nubank
             token-name: CACHIX_AUTH_TOKEN_GREGNIX_NUBANK
     steps:
-      - run: sudo rm -rf /opt&
       - uses: easimon/maximize-build-space@v6
         with:
           overprovision-lvm: true
@@ -39,5 +38,4 @@ jobs:
 
       - name: "Build ❄"
         run: |
-          cachix use ericdallo-${{ matrix.profile }}
           make build-${{ matrix.profile }} -C nix
