@@ -1,4 +1,4 @@
-name: Build nix cache
+name: Build and push nix derivations to cachix
 on:
   push:
     branches:
@@ -9,18 +9,27 @@ on:
 jobs:
   gregnix-personal:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - profile: gregnix-personal
+            token-name: CACHIX_AUTH_TOKEN_GREGNIX_PERSONAL
+          - profile: gregnix-nubank
+            token-name: CACHIX_AUTH_TOKEN_GREGNIX_NUBANK
     steps:
       - run: sudo rm -rf /opt&
       - uses: actions/checkout@v3
       - uses: cachix/install-nix-action@v18
       - uses: cachix/cachix-action@v12
         with:
-          name: ericdallo-gregnix-personal
-          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+          name: ericdallo-${{ matrix.profile }}
+          authToken: "${{ secrets[matrix.token-name] }}"
       - name: Build
         run: |
-          make build-gregnix-personal -C nix
+          cachix use ericdallo-${{ matrix.profile }}
+          make build-${{ matrix.profile }} -C nix
       - name: Deploy
         if: github.ref == 'refs/heads/main'
         run: |
-          cachix push ericdallo-gregnix-personal ./result
+          cachix push ericdallo-${{ matrix.profile }} ./result
