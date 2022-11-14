@@ -22,4 +22,4 @@ _bb_tasks() {
 }
 compdef _bb_tasks bb
 
-ssh-add ~/.ssh/github > /dev/null
+[ -f ~/.ssh/github ] && ssh-add ~/.ssh/github > /dev/null
