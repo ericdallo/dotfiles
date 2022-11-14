@@ -8,6 +8,7 @@ on:
       - master
 jobs:
   nix-build:
+    name: nix-build ${{ matrix.profile }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
