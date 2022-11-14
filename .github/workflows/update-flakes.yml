@@ -1,3 +1,4 @@
+name: Update flake.lock and push to Cachix
 on:
   workflow_dispatch: null
   schedule:

@@ -1,4 +1,4 @@
-name: Nix build and push to cachix
+name: Nix build and push to Cachix
 on:
   push:
     branches:
