@@ -1,14 +1,14 @@
-name: Build and push nix derivations to cachix
+name: Nix build and push to cachix
 on:
   push:
     branches:
       - master
-  pull_request:
-    branches:
-      - master
+  paths:
+      - 'nix/**'
+      - '.github/workflows/cachix-build.yml'
 jobs:
-  nix-build:
-    name: nix-build ${{ matrix.profile }}
+  build:
+    name: ${{ matrix.profile }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -20,17 +20,24 @@ jobs:
             token-name: CACHIX_AUTH_TOKEN_GREGNIX_NUBANK
     steps:
       - run: sudo rm -rf /opt&
+      - uses: easimon/maximize-build-space@v6
+        with:
+          overprovision-lvm: true
+          remove-android: true
+          remove-dotnet: true
+          remove-haskell: true
       - uses: actions/checkout@v3
       - uses: cachix/install-nix-action@v18
       - uses: cachix/cachix-action@v12
         with:
           name: ericdallo-${{ matrix.profile }}
           authToken: "${{ secrets[matrix.token-name] }}"
-      - name: Build
+
+      # Needed because cachix is also installed by Home Manager
+      - name: "Set priority flag for Cachix 🚩"
+        run: nix-env --set-flag priority 0 cachix
+
+      - name: "Build ❄"
         run: |
           cachix use ericdallo-${{ matrix.profile }}
           make build-${{ matrix.profile }} -C nix
-      - name: Deploy
-        if: github.ref == 'refs/heads/main'
-        run: |
-          cachix push ericdallo-${{ matrix.profile }} ./result
