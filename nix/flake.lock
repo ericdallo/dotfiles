@@ -8,16 +8,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1668044298,
-        "narHash": "sha256-qykiMSmofCkG7sy1Ao8Oe8iyN5g8IU1BvvBAd7/FZ5A=",
+        "lastModified": 1668386546,
+        "narHash": "sha256-KkPO+7UTnK/GB8+hFQR3datuHdAWZ5XGdviZgZZ+u3s=",
         "owner": "ericdallo",
         "repo": "emacs-overlay",
-        "rev": "a22d79104426b9442ec3540da7e27864beae564a",
+        "rev": "bc1041f640f5fbb74a31c84c6704f191e2b31a0c",
         "type": "github"
       },
       "original": {
         "owner": "ericdallo",
-        "ref": "add-emacs-lsp",
+        "ref": "bump-emacs-lsp",
         "repo": "emacs-overlay",
         "type": "github"
       }
