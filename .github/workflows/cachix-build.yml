@@ -7,7 +7,7 @@ on:
     branches:
       - master
 jobs:
-  gregnix-personal:
+  nix-build:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
