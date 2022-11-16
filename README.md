@@ -3,7 +3,7 @@ _**Configuration files for my Dracula themed Linux**_
 
 ![](screenshots/empty-window.png)
 
-<img width=500 src="screenshots/emacs.png"/> <img width=500 src="screenshots/terminal.png"/>
+<img width="49.5%" src="screenshots/emacs.png"/> <img width="49.5%" src="screenshots/terminal.png"/>
 
 _For more screenshots check [here](screenshots)_
 
