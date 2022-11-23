@@ -8,6 +8,7 @@ in {
     ./programs/clojure.nix
     ./programs/rust.nix
     ./programs/vscode.nix
+    ./programs/idea.nix
     ./programs/android.nix
     ./programs/gregflix.nix
     ./programs/python.nix
