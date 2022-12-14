@@ -13,6 +13,7 @@ in {
     ./programs/gregflix.nix
     ./programs/python.nix
     ./programs/games.nix
+    ./programs/unity.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -29,7 +30,6 @@ in {
       maven
       mysql
       nodePackages.node2nix
-      omnisharp-roslyn
       hugo
       pandoc
       postman
@@ -39,7 +39,7 @@ in {
       sassc
       srt-to-vtt-cl
       teamviewer
-      unityhub
+      # unityhub
       websocat
       dart
       flutter
