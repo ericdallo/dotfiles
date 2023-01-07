@@ -25,7 +25,7 @@ in {
       alda
       blender
       nodePackages.eask
-      master.graalvm11-ce
+      # master.graalvm11-ce
       heroku
       imagemagick
       maven
