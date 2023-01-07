@@ -14,12 +14,13 @@ in {
     ./programs/python.nix
     ./programs/games.nix
     ./programs/unity.nix
+    ./programs/java.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
 
   home = {
-    stateVersion = "22.05";
+    stateVersion = "22.11";
     packages = with pkgs; [
       alda
       blender

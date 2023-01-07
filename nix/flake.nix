@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    stable.url = "github:NixOS/nixpkgs/nixos-22.05";
+    stable.url = "github:NixOS/nixpkgs/nixos-22.11";
     master.url = "github:NixOS/nixpkgs/master";
     hardware.url = "github:NixOS/nixos-hardware/master";
     home-manager = {
@@ -11,7 +11,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-stable = {
-      url = "github:nix-community/home-manager/release-22.05";
+      url = "github:nix-community/home-manager/release-22.11";
       inputs.nixpkgs.follows = "stable";
     };
     flake-utils.url = "github:numtide/flake-utils";
@@ -32,8 +32,6 @@
         modules = [ ./home-manager/nubank-debian.nix ];
 
         inherit  pkgs;
-        # homeDirectory = "/home/${username}";
-        # stateVersion = "22.05";
         extraSpecialArgs = { inherit self system; };
       };
 
