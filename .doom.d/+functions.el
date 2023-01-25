@@ -18,16 +18,6 @@
       :query (concat symbol " -- " (string-join args " "))
       :in dir)))
 
-(defun lsp-clojure-nrepl-connect ()
-  "Connect to the running nrepl debug server of clojure-lsp."
-  (interactive)
-  (let ((info (lsp-clojure-server-info-raw)))
-    (save-match-data
-      (when-let (port (and (string-match "\"port\":\\([0-9]+\\)" info)
-                           (match-string 1 info)))
-        (cider-connect-clj `(:host "localhost"
-                             :port ,port))))))
-
 (defun cider-eval-clipboard-handler ()
   (nrepl-make-response-handler
    (current-buffer)
@@ -57,17 +47,6 @@
        (prog1 nil
          (put-text-property (match-beginning 0) (match-end 0)
                             'face 'org-hide)))))))
-
-(defun jet-pretty ()
-  (interactive)
-  (shell-command-on-region
-   (region-beginning)
-   (region-end)
-   "jet --pretty --edn-reader-opts '{:default tagged-literal}'"
-   (current-buffer)
-   t
-   "*jet error buffer*"
-   t))
 
 (defun magit-open-pr-page (target-branch)
   (interactive
