@@ -44,7 +44,7 @@ in
       master.google-chrome
       gparted
       inkscape
-      master.flameshot
+      # master.flameshot # use it from apt, issues with ctrl+c when used with debian
       libinput-gestures
       libnotify
       materia-theme
@@ -80,7 +80,7 @@ in
       # gcc
       git-lfs
       # hashdeep
-      kubectl
+      stable.kubectl
       master.ferdium
       mob
       maven
