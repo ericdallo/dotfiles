@@ -17,7 +17,7 @@
     flake-utils.url = "github:numtide/flake-utils";
 
     emacs = {
-      url = "github:ericdallo/emacs-overlay/bump-emacs-lsp";
+      url = "github:nix-community/emacs-overlay/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nubank.url = "github:nubank/nixpkgs/master";
