@@ -1,10 +1,9 @@
 ;; -*- no-byte-compile: t; -*-
 ;;; ~/dev/dotfiles/emacs/.doom.d/packages.el
 
-;; (package! dap-mode :recipe (:local-repo "~/dev/dap-mode" :files ("*.el") :no-byte-compile t))
 ;; (package! lsp-dart :recipe (:local-repo "~/dev/lsp-dart" :files ("*.el") :build (:not compile)))
 ;; (package! lsp-mode :recipe (:local-repo "~/dev/lsp-mode" :files ("*.el" "clients/*.el") :build (:not compile)))
-;; (package! lsp-ui :recipe (:local-repo "~/dev/lsp-ui" :files ("*.el") :no-byte-compile t))
+;; (package! jet :recipe (:local-repo "~/dev/jet.el" :files ("*.el") :build (:not compile)))
 (package! scss-mode)
 (package! treemacs-all-the-icons)
 (package! paredit)
