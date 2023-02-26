@@ -14,7 +14,7 @@ in {
     ./programs/python.nix
     ./programs/games.nix
     ./programs/unity.nix
-    ./programs/java.nix
+    # ./programs/java.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -25,7 +25,7 @@ in {
       alda
       blender
       nodePackages.eask
-      # master.graalvm11-ce
+      master.graalvm11-ce
       heroku
       imagemagick
       maven
