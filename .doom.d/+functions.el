@@ -3,6 +3,30 @@
 (defun font-exists-p (font)
   (if (null (x-list-fonts font)) nil t))
 
+(defun +present/org-present-start ()
+  (setq header-line-format " ")
+  (org-display-inline-images)
+  (visual-fill-column-mode 1)
+  (visual-line-mode 1)
+  (doom-disable-line-numbers-h)
+  (org-present-big)
+  (hl-line-mode 0))
+
+(defun +present/org-present-prepare-slide (&rest _args)
+  (org-overview)
+  (org-show-entry)
+  (org-show-children))
+
+(defun +present/org-present-end ()
+  (setq header-line-format nil)
+  (org-remove-inline-images)
+  (org-present-small)
+  (visual-fill-column-mode 0)
+  (visual-line-mode 0)
+  (hl-line-mode 1)
+  (doom-enable-line-numbers-h)
+  (doom/reset-font-size))
+
 (defun +custom/search-ignoring-folders (folders)
   "Search across project excluding FOLDERS."
   (let ((symbol (rxt-quote-pcre (or (doom-thing-at-point-or-region) "")))
@@ -39,15 +63,6 @@
                          (cider-last-sexp 'bounds)
                          (cider--nrepl-pr-request-map)))
 
-(defun org-mode-hide-all-stars ()
-  (font-lock-add-keywords
-   'org-mode
-   '(("^\\*+ "
-      (0
-       (prog1 nil
-         (put-text-property (match-beginning 0) (match-end 0)
-                            'face 'org-hide)))))))
-
 (defun magit-open-pr-page (target-branch)
   (interactive
    (list (magit-read-branch "Target branch")))
@@ -60,21 +75,3 @@
                       target-branch
                       branch)))
     (browse-url url)))
-
-(defun magit-open-file-at-remote ()
-  (interactive)
-  (browse-url
-   (let
-       ((rev (magit-rev-abbrev "HEAD"))
-        (repo (forge-get-repository 'stub))
-        (file (magit-file-relative-name buffer-file-name))
-        (highlight
-         (if
-             (use-region-p)
-             (let ((l1 (line-number-at-pos (region-beginning)))
-                   (l2 (line-number-at-pos (- (region-end) 1))))
-               (format "#L%d-L%d" l1 l2))
-           (format "#L%s" (line-number-at-pos (point)))
-           )))
-     (forge--format repo "https://%h/%o/%n/blob/%r/%f%L"
-                    `((?r . ,rev) (?f . ,file) (?L . ,highlight))))))

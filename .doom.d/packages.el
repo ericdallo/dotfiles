@@ -10,6 +10,8 @@
 (package! posframe)
 (package! yaml-mode)
 (package! company-quickhelp)
+(package! org-present)
+(package! visual-fill-column)
 
 (unpin! hover)
 (unpin! treemacs)

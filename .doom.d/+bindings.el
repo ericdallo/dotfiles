@@ -71,7 +71,10 @@
       "f T" #'open-dotfiles
 
       :desc "Find file in dotfiles"
-      "f t" #'find-in-dotfiles)
+      "f t" #'find-in-dotfiles
+
+      :desc "Present slide"
+      "t p" #'org-present)
 
 (after! paredit
   (define-key paredit-mode-map (kbd "C-<left>") nil)
@@ -153,3 +156,11 @@
 
       :desc "Run class tests"
       "T" #'dap-java-run-test-class)
+
+(map! :map org-present-mode-keymap
+
+      :desc "Next slide"
+      "C-<right>" #'org-present-next
+
+      :desc "Prev slide"
+      "C-<left>" #'org-present-prev)

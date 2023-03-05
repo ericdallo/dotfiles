@@ -169,26 +169,14 @@
   (setq lsp-ui-doc-enable nil
         lsp-ui-peek-enable nil))
 
-(use-package! org-tree-slide
-  :after org-mode
+(use-package! org-present
+  :init
+  (add-hook 'org-present-mode-hook '+present/org-present-start)
+  (add-hook 'org-present-mode-quit-hook '+present/org-present-end)
+  (add-hook 'org-present-after-navigate-functions '+present/org-present-prepare-slide)
   :config
-  (setq +org-present-text-scale 2
-        org-tree-slide-skip-outline-level 2
-        org-tree-slide-modeline-display 'outside
-        org-tree-slide-fold-subtrees-skipped nil)
-  (add-hook! 'org-tree-slide-play-hook
-             #'org-display-inline-images
-             #'doom-disable-line-numbers-h
-             #'spell-fu-mode-disable
-             #'hl-line-unload-function
-             #'org-mode-hide-all-stars)
-  (remove-hook! 'org-tree-slide-play-hook #'+org-present-hide-blocks-h)
-  (add-hook! 'org-tree-slide-stop-hook
-             #'spell-fu-mode-enable
-             #'hl-line-mode)
-  ;; (add-hook! 'org-tree-slide-after-narrow-hook
-  ;;            #'outline-show-all)
-  )
+  (setq visual-fill-column-width 110
+        visual-fill-column-center-text t))
 
 (use-package! paredit
   :hook ((clojure-mode . paredit-mode)

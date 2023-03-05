@@ -147,7 +147,8 @@
         ;; +roam
         ;; +dragndrop       ; file drag & drop support
         ;; +pandoc          ; pandoc integration into org's exporter
-        +present)        ; using Emacs for presentations
+        ;; +present
+        )        ; using Emacs for presentations
        ;;perl              ; write code no one else can comprehend
        ;;php               ; perl's insecure younger brother
        plantuml          ; diagrams for confusing people more
