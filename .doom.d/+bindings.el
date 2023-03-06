@@ -159,8 +159,8 @@
 
 (map! :map org-present-mode-keymap
 
-      :desc "Next slide"
-      "C-<right>" #'org-present-next
+      :desc "Show cursor"
+      "C-<up>" #'org-present-show-cursor
 
-      :desc "Prev slide"
-      "C-<left>" #'org-present-prev)
+      :desc "Hide cursor"
+      "C-<down>" #'org-present-hide-cursor)

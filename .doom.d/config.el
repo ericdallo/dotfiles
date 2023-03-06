@@ -175,8 +175,10 @@
   (add-hook 'org-present-mode-quit-hook '+present/org-present-end)
   (add-hook 'org-present-after-navigate-functions '+present/org-present-prepare-slide)
   :config
-  (setq visual-fill-column-width 110
-        visual-fill-column-center-text t))
+  (setq visual-fill-column-width 150
+        visual-fill-column-center-text t)
+  (define-key org-present-mode-keymap (kbd "<right>") nil)
+  (define-key org-present-mode-keymap (kbd "<left>") nil))
 
 (use-package! paredit
   :hook ((clojure-mode . paredit-mode)
