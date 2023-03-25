@@ -43,6 +43,8 @@
  evil-collection-setup-minibuffer t
  org-directory "~/google-drive/Notes")
 
+(set-popup-rule! "\\*Treemacs-Scoped.*\\*" :side 'left :width 0.2) ;; Fix treemacs opening on bottom
+
 (use-package! cider
   :after clojure-mode
   :config
@@ -135,7 +137,7 @@
         lsp-signature-render-documentation nil
         lsp-signature-function 'lsp-signature-posframe
         lsp-semantic-tokens-enable t
-        lsp-idle-delay 0.2 ;; Smoother LSP features response in cost of performance (Most servers I use have good performance)
+        lsp-idle-delay 0.05 ;; Smoother LSP features response in cost of performance (Most servers I use have good performance)
         lsp-use-plists nil)
   (add-hook 'lsp-after-apply-edits-hook (lambda (&rest _) (save-buffer)))
   (add-hook 'lsp-mode-hook (lambda () (setq-local company-format-margin-function #'company-vscode-dark-icons-margin)))
