@@ -1,5 +1,5 @@
 # Dotfiles
-_**Configuration files for my Dracula themed Linux**_
+_**My whole Dracula themed Linux Configuration files**_
 
 ![](screenshots/empty-window.png)
 
