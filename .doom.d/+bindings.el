@@ -157,10 +157,23 @@
       :desc "Run class tests"
       "T" #'dap-java-run-test-class)
 
-(map! :map org-present-mode-keymap
+(defun org-present-bindings-start ()
+  (map! :map org-present-mode-keymap
 
-      :desc "Show cursor"
-      "C-<up>" #'org-present-show-cursor
+        :desc "Show cursor"
+        "C-<up>" #'org-present-show-cursor
 
-      :desc "Hide cursor"
-      "C-<down>" #'org-present-hide-cursor)
+        :desc "Hide cursor"
+        "C-<down>" #'org-present-hide-cursor
+
+        :desc "Next slide"
+        "C-<right>" #'org-present-next
+
+        :desc "Previous slide"
+        "C-<left>" #'org-present-prev))
+
+(defun org-present-bindings-end ()
+  (define-key org-present-mode-keymap (kbd "C-<up>") nil)
+  (define-key org-present-mode-keymap (kbd "C-<down>") nil)
+  (define-key org-present-mode-keymap (kbd "C-<right>") nil)
+  (define-key org-present-mode-keymap (kbd "C-<left>") nil))

@@ -13,12 +13,14 @@
   (doom-disable-line-numbers-h)
   (org-present-big)
   (hl-line-mode 0)
-  (+modeline-mode 0))
+  (+modeline-mode 0)
+  (org-present-bindings-start))
 
 (defun +present/org-present-prepare-slide (&rest _args)
   (org-overview)
   (org-fold-show-entry)
-  (org-fold-show-children))
+  (org-fold-show-children)
+  (org-fold-show-all))
 
 (defun +present/org-present-end ()
   (setq header-line-format nil)
@@ -29,9 +31,10 @@
   (visual-fill-column-mode 0)
   (visual-line-mode 0)
   (hl-line-mode 1)
+  (+modeline-mode 1)
+  (org-present-bindings-end)
   (doom-enable-line-numbers-h)
-  (doom/reset-font-size)
-  (+modeline-mode 1))
+  (doom/reset-font-size))
 
 (defun +custom/search-ignoring-folders (folders)
   "Search across project excluding FOLDERS."
@@ -65,9 +68,9 @@
 (defun cider-eval-last-sexpr-and-copy-to-clipboard ()
   (interactive)
   (cider-interactive-eval nil
-                         (cider-eval-clipboard-handler)
-                         (cider-last-sexp 'bounds)
-                         (cider--nrepl-pr-request-map)))
+                          (cider-eval-clipboard-handler)
+                          (cider-last-sexp 'bounds)
+                          (cider--nrepl-pr-request-map)))
 
 (defun magit-open-pr-page (target-branch)
   (interactive
