@@ -51,7 +51,7 @@ in
       # gnome3.nautilus
       ntfsprogs
       pavucontrol
-      peek
+      stable.peek
       polybarFull
       playerctl
       pulsemixer
@@ -92,7 +92,7 @@ in
       visualvm
       tektoncd-cli
       plantuml
-      protobuf
+      stable.protobuf
       stable.buf
       xsv
       # zoom-us
