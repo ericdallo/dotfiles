@@ -213,9 +213,7 @@ super+Return
 #       ~/.scripts/powermenu.sh
 
 super + a
-      profile=$(echo "personal-home-tv\nnubank-monitor\nnubank-notebook" | rofi -dmenu -p "Select profile" -no-custom)
-      autorandr -c $profile
-      bspc wm -r
+      ~/.dotfiles/scripts/monitor_switch.sh
 
 super + h
       betterlockscreen -l && \
