@@ -5,6 +5,7 @@
 
 (defun +present/org-present-start ()
   (setq header-line-format " ")
+  (set-face-background 'header-line "doom-modeline-bar-inactive")
   (org-display-inline-images)
   (org-present-hide-cursor)
   (org-present-read-only)
