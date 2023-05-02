@@ -170,10 +170,18 @@
         "C-<right>" #'org-present-next
 
         :desc "Previous slide"
-        "C-<left>" #'org-present-prev))
+        "C-<left>" #'org-present-prev
+
+        :desc "Next slide controller"
+        "<next>" #'org-present-next
+
+        :desc "Previous slide"
+        "<prior>" #'org-present-prev))
 
 (defun org-present-bindings-end ()
   (define-key org-present-mode-keymap (kbd "C-<up>") nil)
   (define-key org-present-mode-keymap (kbd "C-<down>") nil)
   (define-key org-present-mode-keymap (kbd "C-<right>") nil)
-  (define-key org-present-mode-keymap (kbd "C-<left>") nil))
+  (define-key org-present-mode-keymap (kbd "C-<left>") nil)
+  (define-key org-present-mode-keymap (kbd "<prior>") nil)
+  (define-key org-present-mode-keymap (kbd "<next>") nil))
