@@ -1,6 +1,6 @@
 ;;; init.el -*- lexical-binding: t; -*-
 
-;; Copy this file to ~/.doom.d/init.el or ~/.config/doom/init.el ('doom
+;; Copy this file to ~/.config/doom/init.el or ~/.config/doom/init.el ('doom
 ;; quickstart' will do this for you). The `doom!' block below controls what
 ;; modules are enabled and in what order they will be loaded. Remember to run
 ;; 'doom refresh' after modifying it.
@@ -98,7 +98,8 @@
        (lsp
         ;;+peek
         )
-       (magit +forge)           ; a git porcelain for Emacs
+       (magit ;+forge
+        )           ; a git porcelain for Emacs
        ;;make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
        ;;pdf               ; pdf enhancements

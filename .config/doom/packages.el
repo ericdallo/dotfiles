@@ -1,5 +1,5 @@
 ;; -*- no-byte-compile: t; -*-
-;;; ~/dev/dotfiles/emacs/.doom.d/packages.el
+;;; ~/dev/dotfiles/emacs/.config/doom/packages.el
 
 ;; (package! lsp-dart :recipe (:local-repo "~/dev/lsp-dart" :files ("*.el") :build (:not compile)))
 ;; (package! lsp-mode :recipe (:local-repo "~/dev/lsp-mode" :files ("*.el" "clients/*.el") :build (:not compile)))

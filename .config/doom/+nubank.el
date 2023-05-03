@@ -1,4 +1,4 @@
-;;; ../.dotfiles/.doom.d/+nubank.el -*- lexical-binding: t; -*-
+;;; ../.dotfiles/.config/doom/+nubank.el -*- lexical-binding: t; -*-
 
 ;; Specific configurations for Nubank (work) environment
 

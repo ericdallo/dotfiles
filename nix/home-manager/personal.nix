@@ -65,7 +65,7 @@ in {
       mkdir -p ~/.config/clojure-lsp
       ln -sf ${dotfilesDir}/.config/clojure-lsp/config.edn ~/.config/clojure-lsp/config.edn
 
-      ln -Tsf ${dotfilesDir}/.doom.d ~/.doom.d
+      ln -Tsf ${dotfilesDir}/.config/doom ~/.config/doom
 
       ln -sf ${dotfilesDir}/.config/Code/User/keybindings.json ~/.config/Code/User/keybindings.json
       ln -sf ${dotfilesDir}/.config/Code/User/settings.json ~/.config/Code/User/settings.json

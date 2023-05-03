@@ -1,4 +1,4 @@
-;;; ../.dotfiles/.doom.d/+functions.el -*- lexical-binding: t; -*-
+;;; ../.dotfiles/.config/doom/+functions.el -*- lexical-binding: t; -*-
 
 (defun font-exists-p (font)
   (if (null (x-list-fonts font)) nil t))

@@ -1,4 +1,4 @@
-;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
+;;; ~/.config/doom/config.el -*- lexical-binding: t; -*-
 
 ;; Emacs 29 bug
 (general-auto-unbind-keys :off)
