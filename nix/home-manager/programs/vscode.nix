@@ -8,7 +8,7 @@
         # ms-python.python
         formulahendry.code-runner
         ms-dotnettools.csharp
-        msjsdiag.debugger-for-chrome
+        # msjsdiag.debugger-for-chrome
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       {
         name = "dart-code";

@@ -98,7 +98,7 @@ in
       # zoom-us
       insomnia
       # nubank.dart
-      (nubank.flutter.override { flutterPackages = master.flutterPackages; })
+      (nubank.flutter.override { flutterPackages = stable.flutterPackages; })
       # nubank.hover
     ] ++ nubank.jupyter-tools;
 
