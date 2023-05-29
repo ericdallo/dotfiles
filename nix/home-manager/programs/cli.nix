@@ -20,7 +20,7 @@
     google-drive-ocamlfuse
     go
     gotop
-    grub
+    grub2
     inotify-tools
     jq
     killall

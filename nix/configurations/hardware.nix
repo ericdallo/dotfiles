@@ -85,7 +85,6 @@
       };
       pulse.enable = true;
       # Bluetooth settings
-      media-session.enable = false;
       wireplumber.enable = true;
     };
 

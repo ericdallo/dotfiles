@@ -4,7 +4,7 @@ let
   layout = ../layout.xkb;
 in {
   boot = {
-    tmpOnTmpfs = true;
+    tmp.useTmpfs = true;
   };
 
   console = {
