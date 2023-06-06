@@ -31,7 +31,6 @@
     mediainfo
     neofetch
     nodejs-14_x
-    openfortivpn
     curlftpfs
     openssl
     pinentry

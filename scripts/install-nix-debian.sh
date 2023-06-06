@@ -5,7 +5,7 @@ set -ve
 echo "deb http://deb.debian.org/debian bullseye-backports main contrib non-free" >> /etc/apt/sources.list
 
 sudo apt update
-sudo apt install -y vim git build-essential dkms linux-headers-$(uname -r) bspwm bullseye-backports linux-image-amd64 openfortivpn libglfw3-dev libgles2-mesa-dev libgl1-mesa-dev xorg-dev
+sudo apt install -y vim git build-essential dkms linux-headers-$(uname -r) bspwm bullseye-backports linux-image-amd64 libglfw3-dev libgles2-mesa-dev libgl1-mesa-dev xorg-dev
 git clone https://github.com/ericdallo/dotfiles.git ~/.dotfiles
 
 sudo mkdir /nix

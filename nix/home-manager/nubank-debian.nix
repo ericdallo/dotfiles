@@ -71,7 +71,6 @@ in
       roboto-mono
       master.material-design-icons
       ibm-plex
-
       aws-iam-authenticator
       bspwm
       awslogs

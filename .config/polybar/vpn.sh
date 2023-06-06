@@ -7,7 +7,7 @@ if [ $# -eq 1 ]; then
         $VPN_START
         return
     fi
-    sudo kill "$vpn_running"
+    kill "$vpn_running"
     return
 fi
 
