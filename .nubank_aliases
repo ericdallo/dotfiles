@@ -7,7 +7,7 @@ alias nubank='tmuxinator start nubank'
 alias grt="nu auth get-refresh-token --env prod && nu-br auth get-access-token --env prod --country br"
 alias grt-staging="nu auth get-refresh-token --env staging && nu auth r --env staging"
 alias vpn="gpclient server zta.nubank.com.br --now --start-minimized"
-alias work-work="nu aws credentials refresh --maven-login && nu codeartifact login npm"
+alias work-work="nu aws credentials refresh && nu codeartifact login npm"
 
 function npmci() {
     cd $HOME/dev/nu/mini-meta-repo/native/cross-platform/react-native/ && npm ci
