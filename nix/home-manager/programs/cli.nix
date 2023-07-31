@@ -49,6 +49,7 @@
     wget
     wirelesstools
     wmctrl
+    xdotool
     xsel
   ];
 }

@@ -41,7 +41,7 @@ in
       feh
       font-manager
       gimp
-      master.google-chrome
+      # master.google-chrome
       gparted
       inkscape
       # master.flameshot # use it from apt, issues with ctrl+c when used with debian
