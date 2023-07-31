@@ -59,7 +59,10 @@
       "M-=" #'er/expand-region
 
       :desc "Reverse expand region"
-      "M--" (lambda () (interactive) (er/expand-region -1)))
+      "M--" (lambda () (interactive) (er/expand-region -1))
+
+      :desc "zone"
+      "C-<f12>" #'zone)
 
 (map! :nv
       :desc "Evil multiedit word"
