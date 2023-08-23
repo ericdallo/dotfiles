@@ -50,4 +50,6 @@ dunst &
 
 mount | grep "$HOME/google-drive" >/dev/null || google-drive-ocamlfuse "$HOME/google-drive" -xdgbd &
 
+~/dotfiles/scripts &
+
 # "$HOME/dev/clipure/clipure" listen &
