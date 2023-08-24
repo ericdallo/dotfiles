@@ -12,6 +12,7 @@ in
     ./programs/python.nix
     ./programs/android.nix
     ./programs/java.nix
+    ./programs/idea.nix
     ./programs/zsh.nix
   ];
 

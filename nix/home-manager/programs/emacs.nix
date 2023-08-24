@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  emacsPackage = (pkgs.emacsPackagesFor pkgs.emacsUnstable).emacsWithPackages
+  emacsPackage = (pkgs.emacsPackagesFor pkgs.emacs-unstable).emacsWithPackages
     (epkgs: [ epkgs.vterm ]);
 in {
 

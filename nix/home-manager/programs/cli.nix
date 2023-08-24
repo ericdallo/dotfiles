@@ -30,7 +30,7 @@
     nssTools
     mediainfo
     neofetch
-    nodejs-14_x
+    nodejs_20
     curlftpfs
     openssl
     pinentry
