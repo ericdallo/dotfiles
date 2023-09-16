@@ -1,7 +1,7 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, self, pkgs, ... }:
 
 {
   home.packages = with pkgs; [
-    jetbrains.idea-community
+    master.jetbrains.idea-community
   ];
 }

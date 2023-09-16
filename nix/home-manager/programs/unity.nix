@@ -135,7 +135,7 @@ let
 in
 {
   home.packages = [
-    unityhub
+    pkgs.unityhub
     pkgs.mono
     pkgs.omnisharp-roslyn
     pkgs.dotnet-sdk

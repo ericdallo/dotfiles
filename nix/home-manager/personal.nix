@@ -25,7 +25,7 @@ in {
       alda
       blender
       nodePackages.eask
-      master.graalvm11-ce
+      master.graalvm17-ce
       heroku
       imagemagick
       maven
@@ -40,10 +40,9 @@ in {
       sassc
       srt-to-vtt-cl
       teamviewer
-      # unityhub
       websocat
-      dart
-      flutter
+      master.dart
+      # flutter
       hover
       upx
       zoom-us
