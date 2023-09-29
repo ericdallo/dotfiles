@@ -34,6 +34,7 @@ in
       DOTFILES = "$HOME/.dotfiles";
     };
     packages = with pkgs; [
+      ant
       # from desktop.nix
       # bspwm
       # xsecurelock
