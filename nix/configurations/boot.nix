@@ -3,7 +3,6 @@
   boot = {
     tmp.useTmpfs = true;
     loader.grub.enable = true;
-    loader.grub.version = 2;
     initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "nvme" "rtsx_usb_sdmmc" "uas" "sd_mod" ];
     initrd.kernelModules = [ ];
     kernelModules = [ "kvm-intel" ];

@@ -119,7 +119,7 @@
   };
 
   fonts = {
-    fonts = with pkgs; [
+    packages = with pkgs; [
       emacs-all-the-icons-fonts
       hack-font
       roboto
