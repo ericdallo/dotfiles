@@ -2,6 +2,10 @@
 
 {
   home.packages = with pkgs; [
+    aircrack-ng
+    hashcat
+    # hashcat-utils
+    hcxtools
     stable.awscli
     stable.appimage-run
     aspell
