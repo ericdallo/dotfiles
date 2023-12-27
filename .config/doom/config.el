@@ -190,6 +190,11 @@
 (use-package! treemacs-all-the-icons
   :after treemacs)
 
+(setq projectile-project-root-functions '(projectile-root-local
+                                          projectile-root-top-down
+                                          projectile-root-top-down-recurring
+                                          projectile-root-bottom-up))
+
 (after! projectile
   (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")
   (add-to-list 'projectile-project-root-files-bottom-up "BUILD")
