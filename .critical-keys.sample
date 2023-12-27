@@ -19,3 +19,5 @@ export CLOJARS_PASSWORD=
 
 export CACHIX_AUTH_TOKEN=
 export JETBRAINS_TOKEN=
+
+export GPT_KEY=

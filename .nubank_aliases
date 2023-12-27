@@ -6,6 +6,6 @@ alias rebuild-gregnix-nubank-home-manager="NIXPKGS_ALLOW_UNFREE=1 home-manager s
 alias nubank='tmuxinator start nubank'
 alias grt="nu auth get-refresh-token --env prod && nu-br auth get-access-token --env prod --country br"
 alias grt-staging="nu auth get-refresh-token --env staging && nu auth r --env staging"
-alias vpn="gpclient server zta.nubank.com.br --now --start-minimized"
-alias work-work="nu aws credentials refresh && nu codeartifact login npm"
-alias customers="~/dotfiles/scripts/nubank/customers.sh"
+alias vpn="gpclient server zta.nubank.world --now --start-minimized"
+alias work-work-br="nu aws shared-role-credentials refresh --account-alias=br"
+alias work-work-mx="nu aws shared-role-credentials refresh --account-alias=mx"
