@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    dolphin-emu-beta
+    # dolphin-emu-beta
     lutris
     wineWowPackages.staging
     winetricks

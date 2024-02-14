@@ -25,7 +25,7 @@ in {
       alda
       blender
       nodePackages.eask
-      master.graalvm17-ce
+      master.graalvm-ce
       heroku
       imagemagick
       maven
@@ -33,16 +33,17 @@ in {
       nodePackages.node2nix
       hugo
       pandoc
-      postman
-      master.ferdium
+      # stable.postman
+      stable.ferdium
       s3cmd
       sass
       sassc
       srt-to-vtt-cl
       teamviewer
+      virtualbox
       websocat
-      master.dart
-      # flutter
+      # master.dart
+      flutter
       hover
       upx
       zoom-us
