@@ -16,7 +16,7 @@ super + e
       emacsclient -c
 
 super + shift + e
-      emacs
+      doom run
 
 super + ctrl + e
       systemctl --user restart emacs.service && \
