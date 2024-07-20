@@ -93,6 +93,8 @@
       enable = true;
     };
 
+    udisks2.enable = true;
+
     # Lock screen when lid is closed.
     logind.lidSwitch = "lock";
 

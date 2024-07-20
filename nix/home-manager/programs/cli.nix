@@ -39,7 +39,6 @@
     openssl
     pinentry
     ripgrep
-    rnix-lsp
     rxvt_unicode-with-plugins
     stable.sbt
     shellcheck
