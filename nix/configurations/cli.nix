@@ -30,6 +30,6 @@
     gnupg.agent.enable = true;
     gnupg.agent.enableSSHSupport = true;
 
-    bash.enableCompletion = true;
+    bash.completion.enable = true;
   };
 }

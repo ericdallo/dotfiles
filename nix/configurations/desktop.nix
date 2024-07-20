@@ -19,7 +19,7 @@
       libinput-gestures
       libnotify
       materia-theme
-      gnome3.nautilus
+      nautilus
       ntfsprogs
       pavucontrol
       peek
@@ -30,10 +30,10 @@
       sxhkd
       udiskie
       udisks
-      transmission-gtk
+      transmission_4-gtk
       vlc
       woeusb
-      gnome3.adwaita-icon-theme
+      adwaita-icon-theme
     ];
 
   environment.variables = {
@@ -50,16 +50,21 @@
     acpid.enable = true;
     gnome.gnome-keyring.enable = true;
 
+    libinput.enable = true;
+    libinput.touchpad.naturalScrolling = true;
+    displayManager.defaultSession = "none+bspwm";
+
     xserver = {
       enable = true;
-      layout = "us,br";
-      xkbVariant = "intl,abnt2";
+      xkb = {
+        layout = "us,br";
+        variant = "intl,abnt2";
+      };
 
       videoDrivers = [ "intel" ];
 
       modules = [ pkgs.xorg.xf86inputlibinput ];
 
-      displayManager.defaultSession = "none+bspwm";
       displayManager.sessionCommands = ''
         ${pkgs.xorg.xsetroot}/bin/xsetroot -cursor_name left_ptr &
         ${pkgs.xorg.xrdb}/bin/xrdb -merge <<EOF
@@ -104,9 +109,6 @@
 
       # desktopManager.xterm.enable = false;
       # displayManager.startx.enable = true;
-
-      libinput.enable = true;
-      libinput.touchpad.naturalScrolling = true;
 
       windowManager.bspwm = {
         enable = true;

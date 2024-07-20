@@ -50,7 +50,7 @@ in
       libinput-gestures
       libnotify
       materia-theme
-      # gnome3.nautilus
+      # nautilus
       ntfsprogs
       pavucontrol
       stable.peek
@@ -66,7 +66,7 @@ in
       woeusb
       scala
       scalafmt
-      # gnome3.adwaita-icon-theme
+      # adwaita-icon-theme
       emacs-all-the-icons-fonts
       hack-font
       roboto

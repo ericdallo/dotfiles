@@ -13,6 +13,7 @@ in {
     ./programs/gregflix.nix
     ./programs/python.nix
     ./programs/games.nix
+    ./programs/audio.nix
     ./programs/unity.nix
     # ./programs/java.nix
   ];
