@@ -1,0 +1,57 @@
+@import url("./colors.css");
+* {
+    border: none;
+    border-radius: 0;
+    font-family: IBM Plex Mono;
+    font-size: 1em;
+    min-height: 0;
+}
+window#waybar {
+    opacity: 1;
+    background: @background;
+    color: @foreground;
+}
+#workspaces button {
+    padding: 0 0.8em;
+    color: @foreground;
+    border-top: 0.1em solid @background;
+}
+
+#workspaces button:hover {
+    box-shadow: inherit;
+    text-shadow: inherit;
+    background-image: linear-gradient(0deg, @selection, @background);
+}
+#workspaces button.active {
+    color: @green;
+    border-top-color: @green;
+}
+#workspaces button.urgent {
+    color: @red;
+}
+#workspaces button.empty {
+    color: @selection;
+}
+#workspaces button.special {
+    color: @yellow;
+}
+
+.module {
+    padding: 0 0em;
+    margin: 0 0.4em;
+    color: @foreground;
+    border-top: 0.1em solid @background;
+}
+#cpu { border-top-color: @white; }
+#memory { border-top-color: @white; }
+#network { border-top-color: @yellow; }
+#network.disconnected { border-top-color: @yellow; }
+#network.disabled { border-top-color: @red; }
+#backlight { border-top-color: @green; }
+#pulseaudio { border-top-color: @purple; }
+#pulseaudio.bluetooth { color: @purple; }
+#bluetooth { border-top-color: @cyan; }
+#bluetooth.connected { color: @cyan; }
+#battery { border-top-color: @red; }
+#battery.warning { color: @yellow; }
+#battery.crtiical { color: @red; }

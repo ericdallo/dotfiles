@@ -65,8 +65,8 @@
     nm-applet.enable = true;
   };
 
-  security.pam.services.login.fprintAuth = true;
-  security.pam.services.xscreensaver.fprintAuth = true;
+  #security.pam.services.login.fprintAuth = true;
+  #security.pam.services.xscreensaver.fprintAuth = true;
 
   services = {
     # Trim SSD weekly.
@@ -77,16 +77,16 @@
 
     fprintd.enable = true;
 
-    pipewire = {
-      enable = true;
-      alsa = {
-        enable = true;
-        support32Bit = true;
-      };
-      pulse.enable = true;
-      # Bluetooth settings
-      wireplumber.enable = true;
-    };
+    #pipewire = {
+    #  enable = true;
+    #  alsa = {
+    #    enable = true;
+    #    support32Bit = true;
+    #  };
+    #  pulse.enable = true;
+    #  # Bluetooth settings
+    #  wireplumber.enable = true;
+    #};
 
     blueman = {
       enable = true;
@@ -98,16 +98,16 @@
     logind.lidSwitch = "lock";
 
     # Enable TLP to reduce power consumption.
-    tlp = {
-      enable = true;
-      settings = {
-        DEVICES_TO_DISABLE_ON_LAN_CONNECT = "wifi wwan";
-        DEVICES_TO_DISABLE_ON_WIFI_CONNECT = "wwan";
-        DEVICES_TO_DISABLE_ON_WWAN_CONNECT = "wifi";
-        DEVICES_TO_ENABLE_ON_LAN_DISCONNECT = "wifi wwan";
-        DEVICES_TO_ENABLE_ON_WIFI_DISCONNECT = "";
-        DEVICES_TO_ENABLE_ON_WWAN_DISCONNECT = "";
-      };
-    };
+    #tlp = {
+    #  enable = true;
+    #  settings = {
+    #    DEVICES_TO_DISABLE_ON_LAN_CONNECT = "wifi wwan";
+    #    DEVICES_TO_DISABLE_ON_WIFI_CONNECT = "wwan";
+    #    DEVICES_TO_DISABLE_ON_WWAN_CONNECT = "wifi";
+    #    DEVICES_TO_ENABLE_ON_LAN_DISCONNECT = "wifi wwan";
+    #    DEVICES_TO_ENABLE_ON_WIFI_DISCONNECT = "";
+    #    DEVICES_TO_ENABLE_ON_WWAN_DISCONNECT = "";
+    #  };
+    #};
   };
 }

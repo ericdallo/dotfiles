@@ -23,7 +23,8 @@
       ntfsprogs
       pavucontrol
       peek
-      polybarFull
+      #polybarFull
+      waybar
       playerctl
       pulsemixer
       rofi
@@ -45,6 +46,11 @@
     gesture swipe left 3 bspc desktop -f prev.local
   '';
 
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+
   services = {
     upower.enable = true;
     acpid.enable = true;
@@ -52,7 +58,7 @@
 
     libinput.enable = true;
     libinput.touchpad.naturalScrolling = true;
-    displayManager.defaultSession = "none+bspwm";
+    #displayManager.defaultSession = "none+bspwm";
 
     xserver = {
       enable = true;
@@ -65,59 +71,60 @@
 
       modules = [ pkgs.xorg.xf86inputlibinput ];
 
-      displayManager.sessionCommands = ''
-        ${pkgs.xorg.xsetroot}/bin/xsetroot -cursor_name left_ptr &
-        ${pkgs.xorg.xrdb}/bin/xrdb -merge <<EOF
-          Xcursor.theme: Adwaita
-          Xcursor.size: 24
-        EOF
-      '';
-      displayManager.lightdm = {
-        enable = true;
-        greeters.mini = {
-          enable = true;
-          user = "greg";
-          extraConfig = ''
-                [greeter]
-                show-password-label = false
-                show-input-cursor = true
-                invalid-password-text = "You shall not pass!"
-                password-alignment = left
-                cursor-theme-name = "Adwaita"
-                [greeter-theme]
-                background-image = ""
-                background-color = "#282a36"
-                window-color = "#bd93f9"
-                border-color = "#bd93f9"
-                layout-space = 16
-                font-size = 1.1em
-                password-background-color = "#44475a"
-                password-border-width = 4px
-                password-border-color = "#44475a"
-            '';
-        };
-      };
+      displayManager.gdm.enable = true;
+      displayManager.gdm.wayland = true; # xorg crashes on latest asus
+      desktopManager.gnome.enable = true;
+      desktopManager.xterm.enable = false;
+      #displayManager.startx.enable = true;
+      #windowManager.bspwm.enable = true;
 
-      xautolock = {
-        enable = true;
-        enableNotifier = true;
-        locker = "${pkgs.betterlockscreen}/bin/betterlockscreen -s";
-        notify = 40;
-        notifier = ''${pkgs.libnotify}/bin/notify-send -c "lockscreen"  "Locking in 40 seconds"'';
-        extraOptions = [ "-corners +00-" ];
-      };
+      #displayManager.sessionCommands = ''
+      #  ${pkgs.xorg.xsetroot}/bin/xsetroot -cursor_name left_ptr &
+      #  ${pkgs.xorg.xrdb}/bin/xrdb -merge <<EOF
+      #    Xcursor.theme: Adwaita
+      #    Xcursor.size: 24
+      #  EOF
+      #'';
 
-      # desktopManager.xterm.enable = false;
-      # displayManager.startx.enable = true;
+      #displayManager.lightdm = {
+      #  enable = true;
+      #  greeters.mini = {
+      #    enable = true;
+      #    user = "greg";
+      #    extraConfig = ''
+      #          [greeter]
+      #          show-password-label = false
+      #          show-input-cursor = true
+      #          invalid-password-text = "You shall not pass!"
+      #          password-alignment = left
+      #          cursor-theme-name = "Adwaita"
+      #          [greeter-theme]
+      #          background-image = ""
+      #          background-color = "#282a36"
+      #          window-color = "#bd93f9"
+      #          border-color = "#bd93f9"
+      #          layout-space = 16
+      #          font-size = 1.1em
+      #          password-background-color = "#44475a"
+      #          password-border-width = 4px
+      #          password-border-color = "#44475a"
+      #      '';
+      #  };
+      #};
 
-      windowManager.bspwm = {
-        enable = true;
-      };
+      #xautolock = {
+      #  enable = true;
+      #  enableNotifier = true;
+      #  locker = "${pkgs.betterlockscreen}/bin/betterlockscreen -s";
+      #  notify = 40;
+      #  notifier = ''${pkgs.libnotify}/bin/notify-send -c "lockscreen"  "Locking in 40 seconds"'';
+      #  extraOptions = [ "-corners +00-" ];
+      #};
     };
 
-    logind.extraConfig = ''
-      HandlePowerKey=suspend-then-hibernate
-    '';
+    #logind.extraConfig = ''
+    #  HandlePowerKey=suspend-then-hibernate
+    #'';
   };
 
   fonts = {

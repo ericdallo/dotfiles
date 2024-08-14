@@ -1,0 +1,144 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 28,
+  "spacing": 6,
+  "modules-left": [
+    "hyprland/workspaces"
+  ],
+  "modules-center": [
+    "custom/github",
+    "custom/vpn",
+    "custom/drive",
+    "custom/space",
+    "custom/space",
+    "clock",
+  ],
+  "modules-right": [
+    "custom/space",
+    "cpu",
+    "memory",
+    "custom/space",
+    "bluetooth",
+    "pulseaudio",
+    "backlight",
+    "network",
+    "battery",
+    "custom/system",
+  ],
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+        "1": "󰞷",
+        "2": "󰗀",
+        "3": "󰊯",
+        "4": "󰭻",
+        "5": "󰷏",
+        "6": "󰋩",
+    },
+    "all-outputs": false,
+    "persistent-workspaces": {
+      "*": 6
+    }
+  },
+  "wlr/workspaces": {
+    "on-click": "activate",
+    "on-scroll-up": "hyprctl dispatch workspace e-1",
+    "on-scroll-down": "hyprctl dispatch workspace e+1"
+  },
+  "hyprland/window": {
+    "max-length": 128
+  },
+  "clock": {
+    "format": "{:%c}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+  "tray": {
+    "spacing": 4
+  },
+  "custom/weather": {
+    "exec": "~/.config/waybar/wittr.sh",
+    "return-type": "json",
+    "format": "{}",
+    "tooltip": true,
+    "interval": 900
+  },
+  "hyprland/language": {
+    "format-pl": "[pl]",
+    "format-en": "[us]",
+    "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next"
+  },
+  "custom/space": {
+    "format": "    "
+  },
+  "custom/github": {
+  },
+  "custom/vpn": {
+  },
+  "custom/drive": {
+    "format": ""
+    "on-click": "exec ~/.config/waybar/drive.sh toggle"
+  },
+  "clock": {
+    "format": "{:%H:%M}",
+    "tooltip-format": "<big>{:%d/%m - %H:%M}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+  "cpu": {
+    "format": "{icon} {usage}",
+    "format-icons": ["󰻠"]
+  },
+  "memory": {
+    "format": "{icon} {percentage}",
+    "format-icons": ["󰘚"]
+  },
+  "bluetooth": {
+    "format": "󰂯",
+    "format-disabled": "󰂲",
+    "format-off": "󰂲",
+    "format-connected": "󰂯 {num_connections}",
+    "on-click": "exec ~/.config/waybar/toggle-bluetooth.sh",
+    "on-click-right": "blueman-manager",
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}",
+    "format-muted": "󰝟 {volume}",
+    "format-icons": {
+      "headphone": "",
+      "headset": "",
+      "phone": "",
+      "phone-muted": "",
+      "portable": "",
+      "car": "",
+      "default": [ "󰕿", "󰖀", "󰕾" ],
+    },
+    "max-volume": 150,
+    "scroll-step": 0.5,
+  },
+  "backlight": {
+    "format": "󰛨 {percent}",
+  },
+  "network": {
+    "interval": 3,
+    "format-wifi": "{icon} {signalStrength}",
+    "format-ethernet": "󰙅 {ifname}",
+    "format-disconnected": "󰤣 {signalStrength}",
+    "format-disabled": "󰤮 --",
+    "format-icons": {
+      "wifi": [ "󰤟", "󰤢", "󰤥", "󰤨", ],
+    },
+    "on-click": "networkmanager_dmenu",
+  },
+  "battery": {
+    "interval": 3,
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "states": {
+        "warning": 25,
+        "critical": 15,
+    },
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+  },
+  "custom/system": {
+    "format": "󰐦",
+  }
+}

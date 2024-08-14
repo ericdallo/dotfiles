@@ -94,7 +94,7 @@
     default = simple
 
 [commit]
-  gpgsign = true
+  gpgsign = false
 [url "git@github.com:"]
   insteadOf = https://github.com/
 [github]

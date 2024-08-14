@@ -52,10 +52,10 @@ in {
     activation.linkFiles = config.lib.dag.entryAfter [ "writeBoundary" ] ''
       cp -n ${dotfilesDir}/.critical-keys.sample ~/.critical-keys
 
-      ln -Tsf ${dotfilesDir}/.config/bspwm ~/.config/bspwm
+      ln -Tsf ${dotfilesDir}/.config/hypr ~/.config/hypr
+      ln -Tsf ${dotfilesDir}/.config/waybar ~/.config/waybar
       ln -Tsf ${dotfilesDir}/.config/sxhkd ~/.config/sxhkd
       ln -Tsf ${dotfilesDir}/.config/rofi ~/.config/rofi
-      ln -Tsf ${dotfilesDir}/.config/polybar ~/.config/polybar
       ln -Tsf ${dotfilesDir}/.config/dunst ~/.config/dunst
       ln -Tsf ${dotfilesDir}/.config/nvim ~/.config/nvim
       ln -Tsf ${dotfilesDir}/.config/libinput-gestures.conf ~/.config/libinput-gestures.conf
