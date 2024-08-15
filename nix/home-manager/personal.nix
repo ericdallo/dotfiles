@@ -30,6 +30,7 @@ in {
       heroku
       imagemagick
       kitty
+      kdePackages.polkit-kde-agent-1
       maven
       mysql
       nodePackages.node2nix

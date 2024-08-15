@@ -24,7 +24,7 @@
       waybar
       playerctl
       pulsemixer
-      rofi
+      rofi-wayland
       swaybg
       udiskie
       udisks
