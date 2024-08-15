@@ -55,7 +55,7 @@
 
     libinput.enable = true;
     libinput.touchpad.naturalScrolling = true;
-    #displayManager.defaultSession = "none+bspwm";
+    displayManager.defaultSession = "hyprland";
 
     xserver = {
       enable = true;
@@ -69,19 +69,10 @@
       modules = [ pkgs.xorg.xf86inputlibinput ];
 
       displayManager.gdm.enable = true;
-      displayManager.gdm.wayland = true; # xorg crashes on latest asus
-      desktopManager.gnome.enable = true;
+      displayManager.gdm.wayland = true;
+      # desktopManager.gnome.enable = true;
       desktopManager.xterm.enable = false;
       #displayManager.startx.enable = true;
-      #windowManager.bspwm.enable = true;
-
-      #displayManager.sessionCommands = ''
-      #  ${pkgs.xorg.xsetroot}/bin/xsetroot -cursor_name left_ptr &
-      #  ${pkgs.xorg.xrdb}/bin/xrdb -merge <<EOF
-      #    Xcursor.theme: Adwaita
-      #    Xcursor.size: 24
-      #  EOF
-      #'';
 
       #displayManager.lightdm = {
       #  enable = true;
@@ -119,9 +110,9 @@
       #};
     };
 
-    #logind.extraConfig = ''
-    #  HandlePowerKey=suspend-then-hibernate
-    #'';
+    logind.extraConfig = ''
+      HandlePowerKey=suspend-then-hibernate
+    '';
   };
 
   fonts = {
