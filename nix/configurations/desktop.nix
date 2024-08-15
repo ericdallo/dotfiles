@@ -6,10 +6,8 @@
   environment.systemPackages = with pkgs;
     [
       betterlockscreen
-      bspwm
       dmenu
       dunst
-      feh
       font-manager
       gimp
       google-chrome
@@ -23,12 +21,11 @@
       ntfsprogs
       pavucontrol
       peek
-      #polybarFull
       waybar
       playerctl
       pulsemixer
       rofi
-      sxhkd
+      swaybg
       udiskie
       udisks
       transmission_4-gtk

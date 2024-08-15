@@ -48,6 +48,7 @@ in {
       flutter
       hover
       upx
+      xdg-desktop-portal-hyprland
       zoom-us
     ];
     activation.linkFiles = config.lib.dag.entryAfter [ "writeBoundary" ] ''

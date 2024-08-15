@@ -35,17 +35,17 @@
       };
     };
 
-    # pulseaudio = {
-    #   enable = true;
-    #   package = pkgs.pulseaudioFull;
-    #   support32Bit = true;
+    pulseaudio = {
+      enable = false;
+    #  package = pkgs.pulseaudioFull;
+    #  support32Bit = true;
 
-    #   # Enable extra bluetooth codecs.
-    #   extraModules = [ pkgs.pulseaudio-modules-bt ];
-    #   extraConfig = "
-    #     load-module module-switch-on-connect
-    #   ";
-    # };
+    #  # Enable extra bluetooth codecs.
+    #  extraModules = [ pkgs.pulseaudio-modules-bt ];
+    #  extraConfig = "
+    #    load-module module-switch-on-connect
+    #  ";
+    };
 
     graphics = {
       enable = true;
@@ -77,16 +77,16 @@
 
     fprintd.enable = true;
 
-    #pipewire = {
-    #  enable = true;
-    #  alsa = {
-    #    enable = true;
-    #    support32Bit = true;
-    #  };
-    #  pulse.enable = true;
-    #  # Bluetooth settings
-    #  wireplumber.enable = true;
-    #};
+    pipewire = {
+      enable = true;
+      alsa = {
+        enable = true;
+        support32Bit = true;
+      };
+      pulse.enable = true;
+      # Bluetooth settings
+      wireplumber.enable = true;
+    };
 
     blueman = {
       enable = true;
@@ -96,18 +96,5 @@
 
     # Lock screen when lid is closed.
     logind.lidSwitch = "lock";
-
-    # Enable TLP to reduce power consumption.
-    #tlp = {
-    #  enable = true;
-    #  settings = {
-    #    DEVICES_TO_DISABLE_ON_LAN_CONNECT = "wifi wwan";
-    #    DEVICES_TO_DISABLE_ON_WIFI_CONNECT = "wwan";
-    #    DEVICES_TO_DISABLE_ON_WWAN_CONNECT = "wifi";
-    #    DEVICES_TO_ENABLE_ON_LAN_DISCONNECT = "wifi wwan";
-    #    DEVICES_TO_ENABLE_ON_WIFI_DISCONNECT = "";
-    #    DEVICES_TO_ENABLE_ON_WWAN_DISCONNECT = "";
-    #  };
-    #};
   };
 }
