@@ -12,8 +12,8 @@ if [ $# -eq 1 ]; then
 fi
 
 if [ -z "$vpn_running" ]; then
-    echo "󰯄"
+    echo '{"class": "off"}'
     return
 fi
 
-echo "%{F#FF79C6}󰯄"
+echo '{"class": "on"}'

@@ -4,14 +4,14 @@
   "height": 28,
   "spacing": 6,
   "modules-left": [
-    "hyprland/workspaces"
-  ],
-  "modules-center": [
+    "hyprland/workspaces",
+    "custom/space",
+    "custom/space",
     "custom/github",
     "custom/vpn",
     "custom/drive",
-    "custom/space",
-    "custom/space",
+  ],
+  "modules-center": [
     "clock",
   ],
   "modules-right": [
@@ -72,22 +72,35 @@
     "format": "    "
   },
   "custom/github": {
+    "format": " {}",
+    "interval": 30,
+    "exec": "~/.config/waybar/github.sh ericdallo",
   },
   "custom/vpn": {
+    "format": "󰯄",
+    "return-type": "json",
+    "interval": 3,
+    "exec": "~/.config/waybar/vpn.sh",
+    "on-click": "exec ~/.config/waybar/vpn.sh toggle",
   },
   "custom/drive": {
-    "format": ""
-    "on-click": "exec ~/.config/waybar/drive.sh toggle"
+    "format": "󰊶",
+    "return-type": "json",
+    "interval": 5,
+    "exec": "~/.config/waybar/drive.sh",
+    "on-click": "exec ~/.config/waybar/drive.sh toggle",
   },
   "clock": {
     "format": "{:%H:%M}",
     "tooltip-format": "<big>{:%d/%m - %H:%M}</big>\n<tt><small>{calendar}</small></tt>"
   },
   "cpu": {
+    "interval": 3,
     "format": "{icon} {usage}",
-    "format-icons": ["󰻠"]
+    "format-icons": ["󰻠"],
   },
   "memory": {
+    "interval": 3,
     "format": "{icon} {percentage}",
     "format-icons": ["󰘚"]
   },
@@ -140,5 +153,6 @@
   },
   "custom/system": {
     "format": "󰐦",
+    "on-click": "systemctl hibernate",
   }
 }

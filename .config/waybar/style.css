@@ -42,6 +42,10 @@ window#waybar {
     color: @foreground;
     border-top: 0.1em solid @background;
 }
+
+#custom-drive.on { color: @green; }
+#custom-drive.off { color: @white; }
+
 #cpu { border-top-color: @white; }
 #memory { border-top-color: @white; }
 #network { border-top-color: @yellow; }
@@ -55,3 +59,4 @@ window#waybar {
 #battery { border-top-color: @red; }
 #battery.warning { color: @yellow; }
 #battery.crtiical { color: @red; }
+#custom-system { margin: 0 1em; }

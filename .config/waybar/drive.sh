@@ -12,8 +12,8 @@ if [ $# -eq 1 ]; then
 fi
 
 if [ -z "$drive_running" ]; then
-    echo "󰊶"
+    echo '{"class": "off"}'
     return
 fi
 
-echo "%{F#50FA7B}󰊶"
+echo '{"class": "on"}'
