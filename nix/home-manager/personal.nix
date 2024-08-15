@@ -29,6 +29,7 @@ in {
       master.graalvm-ce
       heroku
       imagemagick
+      kitty
       maven
       mysql
       nodePackages.node2nix
@@ -54,7 +55,7 @@ in {
 
       ln -Tsf ${dotfilesDir}/.config/hypr ~/.config/hypr
       ln -Tsf ${dotfilesDir}/.config/waybar ~/.config/waybar
-      ln -Tsf ${dotfilesDir}/.config/sxhkd ~/.config/sxhkd
+      ln -Tsf ${dotfilesDir}/.config/kitty ~/.config/kitty
       ln -Tsf ${dotfilesDir}/.config/rofi ~/.config/rofi
       ln -Tsf ${dotfilesDir}/.config/dunst ~/.config/dunst
       ln -Tsf ${dotfilesDir}/.config/nvim ~/.config/nvim

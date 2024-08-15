@@ -10,7 +10,6 @@
     ./tmux.nix
     ./tmuxinator.nix
     ./urxvt.nix
-    ./kitty.nix
     ./emacs.nix
     ./autorandr.nix
   ];
