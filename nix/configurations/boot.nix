@@ -14,8 +14,6 @@
                             options snd-hda-intel model=asus-zenbook
                           '';
 
-    # loader.systemd-boot.enable = true;
-
     loader.grub = {
       enable = true;
       devices = ["nodev"];

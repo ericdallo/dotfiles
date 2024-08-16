@@ -2,8 +2,8 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: IBM Plex Mono;
-    font-size: 1em;
+    font-family: Hack;
+    font-size: 14pt;
     min-height: 0;
 }
 window#waybar {
