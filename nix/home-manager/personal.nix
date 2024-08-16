@@ -15,6 +15,7 @@ in {
     ./programs/games.nix
     ./programs/audio.nix
     ./programs/unity.nix
+    ./programs/vpn.nix
     # ./programs/java.nix
   ];
 

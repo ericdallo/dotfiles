@@ -1,15 +1,16 @@
 #!/usr/bin/env bash
 
 [[ -s ~/.nurc ]] && source $HOME/.nurc
-[[ -s ~/.nubank_aliases ]] && source $HOME/.nubank_aliases
+source $DOTFILES/.nubank_aliases
 
+export NU_HOME="$HOME/dev/nu"
 export PATH="$NU_HOME/nucli.py/bin:$PATH"
 export PATH="$NU_HOME/nucli.bb/bin:$PATH"
+# export PATH="$NU_HOME/nucli/bin:$PATH"
 
 export PATH="$HOME/flutter/bin:$PATH"
 
 export ANDROID_HOME="$HOME/Android/Sdk"
-export CUSTOMER_TOKEN=$(cat $NU_HOME/.nu/tokens/br/prod/customer_access)
 export FLUTTER_PLATFORM_CLIENT_ENV=staging
 
-eval `ssh-agent -s` && ssh-add ~/.ssh/github
+# eval `ssh-agent -s` && ssh-add ~/.ssh/github
