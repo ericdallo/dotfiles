@@ -21,7 +21,7 @@ in {
   nixpkgs.config.allowUnfree = true;
 
   home = {
-    stateVersion = "22.11";
+    stateVersion = "24.11";
     packages = with pkgs; [
       alda
       blender

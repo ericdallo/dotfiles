@@ -27,8 +27,6 @@ in
 
   services.printing.enable = true;
 
-  #sound.enable = true;
-
   users.users.greg = {
     isNormalUser = true;
     extraGroups = [

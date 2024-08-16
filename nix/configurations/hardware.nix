@@ -41,7 +41,7 @@
     #  support32Bit = true;
 
     #  # Enable extra bluetooth codecs.
-    #  extraModules = [ pkgs.pulseaudio-modules-bt ];
+    #  # extraModules = [ pkgs.pulseaudio-modules-bt ];
     #  extraConfig = "
     #    load-module module-switch-on-connect
     #  ";
@@ -65,6 +65,7 @@
     nm-applet.enable = true;
   };
   security.polkit.enable = true;
+  security.rtkit.enable = true;
   #security.pam.services.login.fprintAuth = true;
   #security.pam.services.xscreensaver.fprintAuth = true;
 
