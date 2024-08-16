@@ -36,6 +36,7 @@ in {
       mysql
       nodePackages.node2nix
       hugo
+      discord
       pandoc
       # stable.postman
       stable.ferdium
