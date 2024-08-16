@@ -21,6 +21,8 @@
  show-help-function nil
  compilation-scroll-output 'first-error
 
+ x-select-request-type 'text/plain\;charset=utf-8 ;; fix wayland clipboard paste
+
  read-process-output-max (* 1024 1024)
 
  projectile-project-search-path '("~/dev/")
