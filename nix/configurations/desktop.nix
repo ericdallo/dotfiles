@@ -25,6 +25,7 @@
       playerctl
       pulsemixer
       rofi-wayland
+      kanshi
       swaybg
       udiskie
       udisks

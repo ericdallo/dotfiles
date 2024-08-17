@@ -53,6 +53,7 @@ window#waybar {
 #network.disabled { border-top-color: @red; }
 #backlight { border-top-color: @green; }
 #pulseaudio { border-top-color: @purple; }
+#pulseaudio.muted { border-top-color: @red; }
 #pulseaudio.bluetooth { color: @purple; }
 #bluetooth { border-top-color: @cyan; }
 #bluetooth.connected { color: @cyan; }

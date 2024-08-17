@@ -45,6 +45,8 @@ in {
       sassc
       srt-to-vtt-cl
       teamviewer
+      pulseaudioFull
+      p7zip
       virtualbox
       websocat
       # master.dart
@@ -60,6 +62,7 @@ in {
       ln -Tsf ${dotfilesDir}/.config/hypr ~/.config/hypr
       ln -Tsf ${dotfilesDir}/.config/waybar ~/.config/waybar
       ln -Tsf ${dotfilesDir}/.config/kitty ~/.config/kitty
+      ln -Tsf ${dotfilesDir}/.config/kanshi ~/.config/kanshi
       ln -Tsf ${dotfilesDir}/.config/rofi ~/.config/rofi
       ln -Tsf ${dotfilesDir}/.config/dunst ~/.config/dunst
       ln -Tsf ${dotfilesDir}/.config/nvim ~/.config/nvim

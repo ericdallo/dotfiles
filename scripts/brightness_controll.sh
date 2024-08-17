@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-MON="eDP1"
+MON="eDP-1"
 STEP=5
 
 CurrBright=$( xrandr --verbose --current | grep ^"$MON" -A5 | tail -n1 )
