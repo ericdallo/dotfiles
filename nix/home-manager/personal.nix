@@ -48,6 +48,7 @@ in {
       pulseaudioFull
       p7zip
       virtualbox
+      stable.kubectl
       websocat
       # master.dart
       flutter

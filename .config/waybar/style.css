@@ -45,6 +45,8 @@ window#waybar {
 
 #custom-drive.on { color: @green; }
 #custom-drive.off { color: @white; }
+#custom-vpn.off { color: @white; }
+#custom-vpn.on { color: @pink; }
 
 #cpu { border-top-color: @white; }
 #memory { border-top-color: @white; }

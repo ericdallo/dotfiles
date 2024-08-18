@@ -12,8 +12,8 @@ if [ $# -eq 1 ]; then
 fi
 
 if [ -z "$vpn_running" ]; then
-    echo '{"class": "off"}'
+    echo '{"class": "on"}'
     exit 0
 fi
 
-echo '{"class": "on"}'
+echo '{"class": "off"}'

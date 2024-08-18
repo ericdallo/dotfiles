@@ -132,6 +132,7 @@
   },
   "backlight": {
     "format": "󰛨 {percent}",
+    "scroll-step": 10,
   },
   "network": {
     "interval": 3,
