@@ -12,8 +12,8 @@ if [ $# -eq 1 ]; then
 fi
 
 if [ -z "$drive_running" ]; then
-    echo '{"class": "on"}'
+    echo '{"class": "off"}'
     exit 0
 fi
 
-echo '{"class": "off"}'
+echo '{"class": "on"}'

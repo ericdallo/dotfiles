@@ -15,7 +15,7 @@ in {
     ./programs/games.nix
     ./programs/audio.nix
     ./programs/unity.nix
-    ./programs/vpn.nix
+    ./programs/nubank.nix
     # ./programs/java.nix
   ];
 
@@ -48,15 +48,12 @@ in {
       pulseaudioFull
       p7zip
       virtualbox
-      stable.kubectl
-      kubelogin-oidc
       websocat
       # master.dart
       flutter
       hover
       upx
       xdg-desktop-portal-hyprland
-      zoom-us
     ];
     activation.linkFiles = config.lib.dag.entryAfter [ "writeBoundary" ] ''
       cp -n ${dotfilesDir}/.critical-keys.sample ~/.critical-keys
@@ -72,7 +69,6 @@ in {
       ln -Tsf ${dotfilesDir}/.config/clojure ~/.config/clojure
       ln -Tsf ${dotfilesDir}/.config/gdfuse ~/.config/gdfuse
       ln -Tsf ${dotfilesDir}/.config/networkmanager-dmenu ~/.config/networkmanager-dmenu
-      ln -sf ${dotfilesDir}/.config/zoomus.conf ~/.config/zoomus.conf
       mkdir -p ~/.config/clojure-lsp
       ln -sf ${dotfilesDir}/.config/clojure-lsp/config.edn ~/.config/clojure-lsp/config.edn
 

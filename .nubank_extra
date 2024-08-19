@@ -6,7 +6,7 @@ source $DOTFILES/.nubank_aliases
 export NU_HOME="$HOME/dev/nu"
 export PATH="$NU_HOME/nucli.py/bin:$PATH"
 export PATH="$NU_HOME/nucli.bb/bin:$PATH"
-# export PATH="$NU_HOME/nucli/bin:$PATH"
+export PATH="$NU_HOME/nucli/bin:$PATH"
 
 export PATH="$HOME/flutter/bin:$PATH"
 
