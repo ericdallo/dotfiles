@@ -49,6 +49,7 @@ in {
       p7zip
       virtualbox
       stable.kubectl
+      kubelogin-oidc
       websocat
       # master.dart
       flutter
