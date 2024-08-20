@@ -54,6 +54,7 @@ in {
       hover
       upx
       xdg-desktop-portal-hyprland
+      hyprshot
     ];
     activation.linkFiles = config.lib.dag.entryAfter [ "writeBoundary" ] ''
       cp -n ${dotfilesDir}/.critical-keys.sample ~/.critical-keys
