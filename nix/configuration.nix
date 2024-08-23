@@ -1,8 +1,4 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, self, ... }:
+{ config, pkgs, system, self, ... }:
 let
   inherit (self) inputs;
 in
@@ -20,10 +16,12 @@ in
       ./configurations/misc.nix
     ];
 
-  networking.extraHosts = ''
-    172.17.0.1 mysql
-    172.17.0.1 datomic
-  '';
+  home-manager = {
+    useUserPackages = true;
+    extraSpecialArgs = {
+      inherit self system;
+    };
+  };
 
   services.printing.enable = true;
 
@@ -47,9 +45,6 @@ in
   nix = {
     settings.allowed-users = [ "greg" ];
     settings.trusted-users = [ "root" "greg" ];
-    # Set the $NIX_PATH entry for nixpkgs. This is necessary in
-    # this setup with flakes, otherwise commands like `nix-shell
-    # -p pkgs.htop` will keep using an old version of nixpkgs
     nixPath = [
       "nixpkgs=${self.inputs.nixpkgs}"
     ];
@@ -60,10 +55,5 @@ in
     '';
   };
 
-  # This value determines the NixOS release with which your system is to be
-  # compatible, in order to avoid breaking some software such as database
-  # servers. You should change this only after NixOS release notes say you
-  # should.
-  system.stateVersion = "22.11"; # Did you read the comment?
-
+  system.stateVersion = "24.05";
 }

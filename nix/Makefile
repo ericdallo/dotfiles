@@ -4,8 +4,6 @@
 .PHONY: build-% install activate clean update update-and-commit
 NIX_FLAGS := --experimental-features 'nix-command flakes'
 
-all: build-gregnix-personal build-gregnix-nubank build-gregnix-ssd
-
 clean:
 	rm -rf result
 

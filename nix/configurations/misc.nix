@@ -1,12 +1,6 @@
 { pkgs, ... }:
 
-let
-  layout = ../layout.xkb;
-in {
-  boot = {
-    tmp.useTmpfs = true;
-  };
-
+{
   console = {
     useXkbConfig = true;
   };
@@ -16,9 +10,4 @@ in {
   };
 
   time.timeZone = "America/Sao_Paulo";
-
-  # services.xserver = {
-    # xkbOptions = "ctrl:nocaps";
-    # displayManager.sessionCommands = "${pkgs.xorg.xkbcomp}/bin/xkbcomp ${layout} $DISPLAY";
-  # };
 }

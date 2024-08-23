@@ -1,25 +1,20 @@
-{ pkgs, config, ... }:
+{ config, lib, pkgs, ... }:
+
 let
   dotfilesDir = "$HOME/.dotfiles";
 in {
-  imports = [
-    ../configurations/overlays.nix
-    ./programs/common.nix
-    ./programs/clojure.nix
-    ./programs/rust.nix
-    ./programs/vscode.nix
-    ./programs/idea.nix
-    ./programs/android.nix
-    ./programs/gregflix.nix
-    ./programs/python.nix
-    ./programs/games.nix
-    ./programs/audio.nix
-    ./programs/unity.nix
-    ./programs/nubank.nix
-    # ./programs/java.nix
-  ];
-
   nixpkgs.config.allowUnfree = true;
+
+  imports = [
+    ./programs/cli.nix
+    ./programs/vim.nix
+    ./programs/shell.nix
+    ./programs/git.nix
+    ./programs/network-manager.nix
+    ./programs/tmux.nix
+    ./programs/tmuxinator.nix
+    ./programs/emacs.nix
+  ];
 
   home = {
     stateVersion = "24.11";
@@ -59,6 +54,9 @@ in {
     activation.linkFiles = config.lib.dag.entryAfter [ "writeBoundary" ] ''
       cp -n ${dotfilesDir}/.critical-keys.sample ~/.critical-keys
 
+      ln -sf ${dotfilesDir}/.nubank_aliases ~/.nubank_aliases
+      ln -sf ${dotfilesDir}/.nubank_extra ~/.extra
+
       ln -Tsf ${dotfilesDir}/.config/hypr ~/.config/hypr
       ln -Tsf ${dotfilesDir}/.config/waybar ~/.config/waybar
       ln -Tsf ${dotfilesDir}/.config/kitty ~/.config/kitty
@@ -77,9 +75,6 @@ in {
 
       ln -sf ${dotfilesDir}/.config/Code/User/keybindings.json ~/.config/Code/User/keybindings.json
       ln -sf ${dotfilesDir}/.config/Code/User/settings.json ~/.config/Code/User/settings.json
-
-      mkdir -p ~/.android/avd/device.avd
-      ln -sf ${dotfilesDir}/nix/android/emulator-config.ini ~/.android/avd/device.avd/config.ini
     '';
   };
 }

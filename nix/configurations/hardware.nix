@@ -3,6 +3,11 @@
 {
   networking = {
 
+    extraHosts = ''
+      172.17.0.1 mysql
+      172.17.0.1 datomic
+    '';
+
     networkmanager = {
       enable = true;
       dhcp = "internal";
@@ -21,7 +26,6 @@
     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
   };
 
-  # Configure special hardware in laptops.
   hardware = {
     enableRedistributableFirmware = true;
 

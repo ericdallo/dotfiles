@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    stable.url = "github:NixOS/nixpkgs/nixos-22.11";
+    stable.url = "github:NixOS/nixpkgs/nixos-24.05";
     master.url = "github:NixOS/nixpkgs/master";
     hardware.url = "github:NixOS/nixos-hardware/master";
     home-manager = {
@@ -11,7 +11,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-stable = {
-      url = "github:nix-community/home-manager/release-22.11";
+      url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "stable";
     };
     flake-utils.url = "github:numtide/flake-utils";
@@ -29,9 +29,9 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in {
       homeConfigurations.greg = home-manager.lib.homeManagerConfiguration {
-        modules = [ ./home-manager/nubank-debian.nix ];
+        modules = [ ./hosts/dell-precision ];
 
-        inherit  pkgs;
+        inherit pkgs;
         extraSpecialArgs = { inherit self system; };
       };
 
@@ -44,11 +44,9 @@
           };
       in
       {
-        gregnix-personal = mkSystem { modules = [ ./hosts/asus-zenbook ]; };
+        gregnix-personal = mkSystem { modules = [ ./hosts/asus-zenbook-oled ]; };
 
-        gregnix-nubank = mkSystem { modules = [ ./hosts/dell-nubank ]; };
-
-        gregnix-ssd = mkSystem { modules = [ ./hosts/samsung-ssd ]; };
+        gregnix-work = mkSystem { modules = [ ./hosts/asus-zenbook-deluxe ]; };
       };
   };
 }
