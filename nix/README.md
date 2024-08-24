@@ -1,6 +1,6 @@
 # NixOS
 
-here you find all the nix configurations for my NixOS for multiple devices.
+Here you find all the nix configurations for my NixOS for multiple devices.
 
 The configuration are categorized into:
 
@@ -10,10 +10,10 @@ The configuration are categorized into:
 - `configurations/`
 - `hosts/`
 
-NixOS System-wide configurations that build the OS without personal/work configurations.
+NixOS System-wide configurations that build the OS for each host.
 
 ## Home-manager
 
 - `home-manager/`
 
-Personal or Work specific apps/configurations.
+Programs and apps for a user.
