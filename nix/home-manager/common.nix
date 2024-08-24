@@ -23,6 +23,7 @@ in {
       blender
       nodePackages.eask
       master.graalvm-ce
+      gh
       heroku
       imagemagick
       kitty

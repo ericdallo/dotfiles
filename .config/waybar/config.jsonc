@@ -75,7 +75,7 @@
   "custom/github": {
     "format": " {}",
     "interval": 30,
-    "exec": "~/.config/waybar/github.sh ericdallo",
+    "exec": "gh api notifications | jq -r '. | length'",
   },
   "custom/vpn": {
     "format": "󰯄",
