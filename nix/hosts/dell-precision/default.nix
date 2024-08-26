@@ -20,6 +20,7 @@ in
     homeDirectory = "/home/${username}";
     sessionVariables = {
       DOTFILES = "$HOME/.dotfiles";
+      NIXOS_OZONE_WL = "1";
     };
   };
 }
