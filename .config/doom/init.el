@@ -121,6 +121,7 @@
        (csharp +lsp)                    ; unity, .NET, and mono shenanigans
        (dart +lsp +flutter)
        data   ; config/data formats
+       gdscript
        ;;erlang            ; an elegant language for a more civilized age
        ;;elixir            ; erlang done right
        ;;elm               ; care for a cup of TEA?

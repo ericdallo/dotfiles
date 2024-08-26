@@ -5,6 +5,7 @@
     # dolphin-emu-beta
     lutris
     wineWowPackages.staging
+    godot_4
     cemu
     winetricks
   ];

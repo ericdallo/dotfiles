@@ -12,7 +12,7 @@ _For more screenshots check [here](screenshots)_
 - [Dracula theme](https://draculatheme.com) on most everything
 - [NixOS](https://nixos.org/) - NixOS configurations
 - [NixOS Dracula wallpaper](background.jpg)
-- [hyprland](https://hyprland.org/) - Window manager
+- [hyprland](https://hyprland.org/) - Window manager using Wayland.
 - [waybar](https://github.com/Alexays/Waybar) - Customized bar
 - [dunst](https://github.com/dunst-project/dunst) - Notifications handler service
 - [rofi](https://github.com/davatorium/rofi) - Application launcher
@@ -21,4 +21,3 @@ _For more screenshots check [here](screenshots)_
 - [Tmux](https://github.com/tmux/tmux/wiki) - Terminal window and session manager
 - [zsh](https://ohmyz.sh/) - Z shell
 - [scripts](scripts) - Custom scripts
-

@@ -132,7 +132,12 @@
       :n
 
       :desc "Start lsp on buffer"
-      "M-l" #'lsp)
+      "M-l" #'lsp
+
+      :leader
+
+      :desc "Format workaround"
+      "c f" #'lsp-format-buffer)
 
 (map! :after dap-mode
       :map dap-mode-map
