@@ -4,4 +4,5 @@
 !.config/clj-kondo/config.edn
 .config/doom/local/
 .config/doom/*.elc
+.config/doom/custom.el
 *result

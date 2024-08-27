@@ -61,5 +61,5 @@ window#waybar {
 #bluetooth.connected { color: @cyan; }
 #battery { border-top-color: @red; }
 #battery.warning { color: @yellow; }
-#battery.crtiical { color: @red; }
+#battery.critical { color: @red; }
 #custom-system { margin: 0 1em; }
