@@ -39,7 +39,7 @@
     openssl
     pinentry
     ripgrep
-    rxvt_unicode-with-plugins
+    rxvt-unicode
     stable.sbt
     shellcheck
     sqlite

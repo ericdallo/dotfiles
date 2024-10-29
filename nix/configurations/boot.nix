@@ -2,7 +2,7 @@
 {
   boot = {
     tmp.useTmpfs = true;
-    loader.efi.canTouchEfiVariables = true;
+    loader.efi.canTouchEfiVariables = false;
     initrd.availableKernelModules = [ "xhci_pci" "ahci" "thunderbolt" "vmd" "usb_storage" "nvme" "rtsx_usb_sdmmc" "uas" "sd_mod" ];
     initrd.kernelModules = [ ];
     # kernelPackages = pkgs.linuxPackages_6_6;

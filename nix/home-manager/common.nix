@@ -29,10 +29,11 @@ in {
       kitty
       kdePackages.polkit-kde-agent-1
       maven
-      mysql
+      mariadb
       nodePackages.node2nix
       hugo
       discord
+      vesktop
       pandoc
       # stable.postman
       stable.ferdium
@@ -46,7 +47,7 @@ in {
       virtualbox
       websocat
       # master.dart
-      flutter
+      # flutter
       hover
       upx
       xdg-desktop-portal-hyprland

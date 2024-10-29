@@ -1,8 +1,8 @@
 { config, lib, pkgs, ... }:
 
 {
-  home.packages = with pkgs; [
-    globalprotect-openconnect
+  home.packages = [
+    # pkgs.vpn
   ];
 
   xdg.desktopEntries = {

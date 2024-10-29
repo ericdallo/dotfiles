@@ -21,6 +21,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nubank.url = "github:nubank/nixpkgs/master";
+    vpn = {
+      url = "github:yuezk/GlobalProtect-openconnect/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, flake-utils, ... }:

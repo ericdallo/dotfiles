@@ -6,6 +6,7 @@
   ];
 
   home.packages = with pkgs; [
+    aws-iam-authenticator
     kubelogin-oidc
     stable.kubectl
     zoom-us
