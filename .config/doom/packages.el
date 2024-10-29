@@ -24,5 +24,5 @@
 (package! map :pin "bb50dba")
 (unpin! iedit)
 (unpin! evil-multiedit)
-(unpin! evil)
+;; (unpin! evil)
 ;; (unpin! cider)
