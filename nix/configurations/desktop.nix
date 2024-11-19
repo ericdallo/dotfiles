@@ -10,10 +10,10 @@
       dunst
       font-manager
       gimp
-      google-chrome
+      stable.google-chrome
       gparted
       inkscape
-      flameshot
+      (flameshot.override { enableWlrSupport = true; })
       libinput-gestures
       libnotify
       materia-theme
@@ -26,12 +26,14 @@
       pulsemixer
       rofi-wayland
       kanshi
+      slurp
       swaybg
       udiskie
       udisks
       transmission_4-gtk
       vlc
       woeusb
+      wf-recorder
       adwaita-icon-theme
     ];
 

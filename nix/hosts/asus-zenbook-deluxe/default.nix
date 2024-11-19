@@ -16,7 +16,7 @@
       ../../home-manager/programs/gregflix.nix
       ../../home-manager/programs/python.nix
       ../../home-manager/programs/nubank.nix
-      # ./programs/java.nix
+      ../../home-manager/programs/java.nix
     ];
   };
   networking.hostName = "gregnix-nubank";

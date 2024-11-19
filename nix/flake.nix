@@ -22,7 +22,7 @@
     };
     nubank.url = "github:nubank/nixpkgs/master";
     vpn = {
-      url = "github:yuezk/GlobalProtect-openconnect/main";
+      url = "github:yuezk/GlobalProtect-openconnect/v2.3.8";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

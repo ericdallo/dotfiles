@@ -24,6 +24,7 @@ in {
       nodePackages.eask
       master.graalvm-ce
       gh
+      sway-contrib.grimshot
       heroku
       imagemagick
       kitty
