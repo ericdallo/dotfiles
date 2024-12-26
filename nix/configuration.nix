@@ -13,6 +13,7 @@ in
       ./configurations/hardware.nix
       ./configurations/desktop.nix
       ./configurations/cli.nix
+      ./configurations/samba.nix
       ./configurations/misc.nix
     ];
 
@@ -31,6 +32,7 @@ in
     extraGroups = [
       "wheel"
       "docker"
+      "gamemode"
       "networkmanager"
       "vboxusers"
       "video"

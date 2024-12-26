@@ -21,12 +21,10 @@ in {
         inherit system;
         config = prev.config;
       };
-
       vpn = import inputs.vpn {
         inherit system;
         config = prev.config;
       };
-
     })
   ];
 }

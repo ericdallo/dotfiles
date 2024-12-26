@@ -139,7 +139,9 @@
   (setq lsp-headerline-breadcrumb-enable nil
         lsp-signature-render-documentation nil
         lsp-signature-function 'lsp-signature-posframe
+        lsp-signature-auto-activate nil
         lsp-semantic-tokens-enable t
+        lsp-enable-indentation nil
         lsp-idle-delay 0.05 ;; Smoother LSP features response in cost of performance (Most servers I use have good performance)
         lsp-use-plists nil)
   (add-hook 'lsp-after-apply-edits-hook (lambda (&rest _) (save-buffer)))

@@ -26,7 +26,7 @@
   networking.hostName = "gregnix-personal";
 
   boot = {
-    kernelParams = [ "i915.force_probe=7d55" ];
+    kernelParams = [ "i915.force_probe=7d55" "intel_pstate=disable" ];
     extraModprobeConfig = ''
       options bluetooth disable_ertm=1
       options snd-hda-intel model=asus-zenbook
@@ -49,7 +49,30 @@
     fsType = "vfat";
     options = [ "fmask=0022" "dmask=0022" ];
   };
-  swapDevices = [ {device = "/dev/disk/by-uuid/5481837c-82f0-4231-880a-88df2c154d56";} ];
+  swapDevices = [ {device = "/dev/disk/by-uuid/54eb3f94-cafd-4afa-beb3-0e126a346252";} ];
 
-  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+  # powerManagement.cpuFreqGovernor = "performance";
+
+  powerManagement.enable = false;
+  services.thermald.enable = false;
+  services.tlp.enable = false;
+
+  services.auto-cpufreq = {
+    enable = true;
+    settings = {
+      battery = {
+        # governor = "powersave";
+        # energy_performance_preference = "power";
+        # turbo = "never";
+        governor = "performance";
+        energy_performance_preference = "performance";
+        turbo = "auto";
+      };
+      charger = {
+        governor = "performance";
+        energy_performance_preference = "performance";
+        turbo = "auto";
+      };
+    };
+  };
 }

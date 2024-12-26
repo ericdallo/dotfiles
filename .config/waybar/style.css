@@ -56,7 +56,7 @@ window#waybar {
 #backlight { border-top-color: @green; }
 #pulseaudio { border-top-color: @purple; }
 #pulseaudio.muted { border-top-color: @red; }
-#pulseaudio.bluetooth { color: @purple; }
+#pulseaudio.bluetooth { color: @cyan; }
 #bluetooth { border-top-color: @cyan; }
 #bluetooth.connected { color: @cyan; }
 #battery { border-top-color: @red; }
