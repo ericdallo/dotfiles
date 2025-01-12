@@ -9,6 +9,7 @@
     imports = [
       ../../home-manager/common.nix
       ../../configurations/overlays.nix
+      ../../home-manager/programs/zsh.nix
       ../../home-manager/programs/clojure.nix
       ../../home-manager/programs/vscode.nix
       ../../home-manager/programs/idea.nix

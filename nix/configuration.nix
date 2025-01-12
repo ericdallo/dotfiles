@@ -43,6 +43,7 @@ in
     ];
 
     shell = pkgs.zsh;
+    ignoreShellProgramCheck = true;
   };
 
   nix = {
