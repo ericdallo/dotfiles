@@ -13,7 +13,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        profile: [gregnix-personal, gregnix-nubank]
+        profile: [gregnix-personal, gregnix-work]
     steps:
       - uses: easimon/maximize-build-space@v6
         with:

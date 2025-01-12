@@ -34,9 +34,9 @@ jobs:
         run: |
           make build-gregnix-personal -C nix
 
-      - name: "Build gregnix-nubank ❄"
+      - name: "Build gregnix-work ❄"
         run: |
-          make build-gregnix-nubank -C nix
+          make build-gregnix-work -C nix
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4

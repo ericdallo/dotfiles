@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-alias rebuild-gregnix-nubank="sudo nixos-rebuild switch --flake ~/.dotfiles/nix#gregnix-nubank"
-alias rebuild-gregnix-nubank-home-manager="NIXPKGS_ALLOW_UNFREE=1 home-manager switch --impure --flake ~/.dotfiles/nix"
+alias rebuild-gregnix-work="sudo nixos-rebuild switch --flake ~/.dotfiles/nix#gregnix-work"
+alias rebuild-gregnix-work-home-manager="NIXPKGS_ALLOW_UNFREE=1 home-manager switch --impure --flake ~/.dotfiles/nix"
 
 alias nubank='tmuxinator start nubank'
 alias grt="nu auth get-refresh-token --env prod && nu-br auth get-access-token --env prod --country br"
