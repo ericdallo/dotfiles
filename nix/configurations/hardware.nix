@@ -40,18 +40,6 @@
       };
     };
 
-    pulseaudio = {
-      enable = false;
-    #  package = pkgs.pulseaudioFull;
-    #  support32Bit = true;
-
-    #  # Enable extra bluetooth codecs.
-    #  # extraModules = [ pkgs.pulseaudio-modules-bt ];
-    #  extraConfig = "
-    #    load-module module-switch-on-connect
-    #  ";
-    };
-
     graphics = {
       enable = true;
       enable32Bit = true;
@@ -82,6 +70,18 @@
     };
 
     fprintd.enable = true;
+
+    pulseaudio = {
+      enable = false;
+      # package = pkgs.pulseaudioFull;
+      # support32Bit = true;
+
+      # # Enable extra bluetooth codecs.
+      # # extraModules = [ pkgs.pulseaudio-modules-bt ];
+      # extraConfig = "
+      #   load-module module-switch-on-connect
+      # ";
+    };
 
     pipewire = {
       enable = true;

@@ -67,9 +67,7 @@
         variant = "intl,abnt2";
       };
 
-      videoDrivers = [ "intel" ];
-
-      modules = [ pkgs.xorg.xf86inputlibinput ];
+      videoDrivers = [ "modesetting" ];
 
       displayManager.gdm.enable = true;
       displayManager.gdm.wayland = true;
