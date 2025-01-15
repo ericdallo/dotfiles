@@ -75,7 +75,7 @@
   "custom/github": {
     "format": " {}",
     "interval": 30,
-    "exec": "gh api notifications | jq -r '. | length'",
+    "exec": "/home/greg/.dotfiles/.config/waybar/github.sh",
   },
   "custom/vpn": {
     "format": "󰯄",
