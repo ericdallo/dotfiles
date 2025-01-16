@@ -33,7 +33,6 @@ in {
       mariadb
       nodePackages.node2nix
       hugo
-      discord
       vesktop
       pandoc
       # stable.postman
@@ -51,7 +50,7 @@ in {
       # flutter
       hover
       upx
-      xdg-desktop-portal-hyprland
+      grim
       hyprshot
     ];
     activation.linkFiles = config.lib.dag.entryAfter [ "writeBoundary" ] ''
