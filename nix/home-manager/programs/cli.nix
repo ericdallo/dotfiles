@@ -6,7 +6,7 @@
     hashcat
     # hashcat-utils
     hcxtools
-    stable.awscli
+    awscli
     stable.appimage-run
     aspell
     aspellDicts.en
@@ -15,9 +15,12 @@
     curl
     docker-compose
     espeak
+    envsubst
     fd
+    fzf
     file
     ffmpeg
+    fontconfig
     gitFull
     gnumake
     stable.gnupg

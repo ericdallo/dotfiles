@@ -41,6 +41,7 @@ in {
       sass
       sassc
       srt-to-vtt-cl
+      stremio
       teamviewer
       pulseaudioFull
       p7zip
