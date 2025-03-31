@@ -46,6 +46,16 @@ in
     ignoreShellProgramCheck = true;
   };
 
+  security.sudo.extraRules= [
+    {  users = [ "greg" ];
+       commands = [
+         { command = "ALL" ;
+           options= [ "NOPASSWD" ];
+         }
+       ];
+    }
+  ];
+
   nix = {
     settings.allowed-users = [ "greg" ];
     settings.trusted-users = [ "root" "greg" ];
