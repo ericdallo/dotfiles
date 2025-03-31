@@ -131,6 +131,12 @@
   (setq lsp-java-references-code-lens-enabled t
         lsp-java-implementations-code-lens-enabled t))
 
+(after! lsp-java
+  (defun lsp-java--ls-command ()
+    (list "jdtls"
+          "-configuration" "../config-linux"
+          "-data" "../java-workspace")))
+
 (use-package! lsp-mode
   :commands lsp
   :config
@@ -142,6 +148,7 @@
         lsp-signature-auto-activate nil
         lsp-semantic-tokens-enable t
         lsp-enable-indentation nil
+        lsp-inlay-hint-enable t
         lsp-idle-delay 0.05 ;; Smoother LSP features response in cost of performance (Most servers I use have good performance)
         lsp-use-plists nil)
   (add-hook 'lsp-after-apply-edits-hook (lambda (&rest _) (save-buffer)))
@@ -194,15 +201,15 @@
 (use-package! treemacs-all-the-icons
   :after treemacs)
 
-(setq projectile-project-root-functions '(projectile-root-local
-                                          projectile-root-top-down
-                                          projectile-root-top-down-recurring
-                                          projectile-root-bottom-up))
+;; (setq projectile-project-root-functions '(projectile-root-local
+;;                                           projectile-root-top-down
+;;                                           projectile-root-top-down-recurring
+;;                                           projectile-root-bottom-up))
 
-(after! projectile
-  (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")
-  (add-to-list 'projectile-project-root-files-bottom-up "BUILD")
-  (add-to-list 'projectile-project-root-files-bottom-up "project.clj"))
+;; (after! projectile
+;;   (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")
+;;   (add-to-list 'projectile-project-root-files-bottom-up "BUILD")
+;;   (add-to-list 'projectile-project-root-files-bottom-up "project.clj"))
 
 (put 'narrow-to-region 'disabled nil)
 

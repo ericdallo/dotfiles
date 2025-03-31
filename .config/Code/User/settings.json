@@ -36,9 +36,6 @@
 			}
 		]
 	},
-	"calva.paredit.defaultKeyMap": "none",
-	"calva.testOnSave": true,
-	"calva.evalOnSave": true,
 	"workbench.startupEditor": "newUntitledFile",
 	"dart.previewFlutterUiGuides": true,
 	"[dart]": {
@@ -58,11 +55,6 @@
 	"html.trace.server": "verbose",
 	"dart.flutterSdkPath": "/home/greg/flutter",
 	"calva.referencesCodeLens.enabled": true,
-	"calva.clojureLspPath": "/home/greg/dev/clojure-lsp/clojure-lsp",
-	"editor.hover.enabled": false,
+	"editor.hover.enabled": true,
 	"calva.fmt.configPath": "CLOJURE-LSP",
-	"calva.definitionProviderPriority": [
-		"lsp",
-		"repl"
-	]
 }
