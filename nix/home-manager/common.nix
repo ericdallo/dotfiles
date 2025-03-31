@@ -22,7 +22,7 @@ in {
       alda
       blender
       nodePackages.eask
-      master.graalvm-ce
+      # master.graalvm-ce
       gh
       sway-contrib.grimshot
       heroku

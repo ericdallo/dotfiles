@@ -19,9 +19,9 @@
       ../../home-manager/programs/python.nix
       ../../home-manager/programs/games.nix
       ../../home-manager/programs/audio.nix
+      ../../home-manager/programs/java.nix
       # ../../home-manager/programs/unity.nix
       ../../home-manager/programs/nubank.nix
-      # ./programs/java.nix
     ];
   };
   networking.hostName = "gregnix-personal";
