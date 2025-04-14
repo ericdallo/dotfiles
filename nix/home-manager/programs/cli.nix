@@ -3,6 +3,8 @@
 {
   home.packages = with pkgs; [
     aircrack-ng
+    aider-chat
+    ollama
     hashcat
     # hashcat-utils
     hcxtools
