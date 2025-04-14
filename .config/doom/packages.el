@@ -12,6 +12,8 @@
 (package! company-quickhelp)
 (package! org-present)
 (package! visual-fill-column)
+(package! aidermacs)
+(package! ellama)
 
 (unpin! hover)
 (unpin! treemacs)

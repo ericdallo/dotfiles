@@ -9,3 +9,4 @@ alias grt-staging="nu auth get-refresh-token --env staging && nu auth r --env st
 alias vpn="$VPN_START"
 alias work-work-br="nu aws shared-role-credentials refresh --account-alias=br"
 alias work-work-mx="nu aws shared-role-credentials refresh --account-alias=mx"
+alias roxy="docker-compose -f ${NU_HOME}/nu-roxy/docker-compose.yml up"
