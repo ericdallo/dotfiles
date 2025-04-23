@@ -15,6 +15,7 @@
     aspellDicts.en-computers
     cachix
     curl
+    copilot-language-server-fhs
     docker-compose
     espeak
     envsubst
