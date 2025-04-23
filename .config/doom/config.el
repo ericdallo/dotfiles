@@ -147,6 +147,7 @@
         lsp-signature-function 'lsp-signature-posframe
         lsp-signature-auto-activate nil
         lsp-semantic-tokens-enable t
+        lsp-copilot-enabled t
         lsp-enable-indentation nil
         lsp-inlay-hint-enable t
         lsp-idle-delay 0.05 ;; Smoother LSP features response in cost of performance (Most servers I use have good performance)

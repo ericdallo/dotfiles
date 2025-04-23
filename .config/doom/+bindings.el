@@ -129,10 +129,18 @@
   (define-key company-active-map (kbd "M-h") #'company-quickhelp-manual-begin))
 
 (map! :after lsp-mode
+      :map lsp-mode-map
       :n
 
       :desc "Start lsp on buffer"
       "M-l" #'lsp
+
+      :ni
+      :desc "LSP copilot completion"
+      "C-0" (lambda ()
+              (interactive)
+              (company-abort)
+              (lsp-inline-completion-display))
 
       :leader
 
