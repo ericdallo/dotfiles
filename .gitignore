@@ -6,5 +6,3 @@
 .config/doom/*.elc
 .config/doom/custom.el
 *result
-.aider*
-.env

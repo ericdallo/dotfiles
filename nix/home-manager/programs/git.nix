@@ -12,6 +12,6 @@
     userEmail = "ericdallo06@hotmail.com";
     includes = [{ path = "~/.dotfiles/.gitconfig"; }];
 
-    ignores = [ ".lsp/.cache" ".clj-kondo/.cache" ];
+    ignores = [ ".lsp/.cache" ".clj-kondo/.cache" ".aider*" ];
   };
 }
