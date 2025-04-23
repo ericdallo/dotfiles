@@ -29,6 +29,7 @@
   (setq aidermacs-backend 'vterm
         aidermacs-auto-accept-architect t
         aidermacs-use-architect-mode t
+        aidermacs-extra-args '("--no-git")
         aidermacs-config-file (expand-file-name "nudev/aider/.aider.conf.yml" (getenv "NU_HOME"))))
 
 (after! aidermacs
