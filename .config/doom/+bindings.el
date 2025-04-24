@@ -135,8 +135,8 @@
       :desc "Start lsp on buffer"
       "M-l" #'lsp
 
-      :ni
-      :desc "LSP copilot completion"
+      :i
+      :desc "LSP copilot manual completion"
       "C-0" (lambda ()
               (interactive)
               (company-abort)
