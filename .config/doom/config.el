@@ -55,6 +55,8 @@
         cider-eldoc-display-for-symbol-at-point nil ; use lsp
         cider-prompt-for-symbol nil
         cider-reuse-dead-repls nil
+        cider-clojure-cli-aliases "dev:test"
+        cider-jack-in-nrepl-middlewares '("metrepl/middleware" "cider.nrepl/cider-middleware")
         cider-use-xref nil) ; use lsp
   (set-lookup-handlers! '(cider-mode cider-repl-mode) nil) ; use lsp
   (set-popup-rule! "*cider-test-report*" :side 'right :width 0.4)
@@ -85,18 +87,10 @@
   :config
   (setq clojure-indent-style 'align-arguments))
 
-(use-package! company
+(use-package! corfu
   :config
-  (setq company-tooltip-align-annotations t
-        company-frontends '(company-pseudo-tooltip-frontend)))
-
-(use-package! company-quickhelp
-  :init
-  (company-quickhelp-mode)
-  :config
-  (setq company-quickhelp-delay nil
-        company-quickhelp-use-propertized-text t
-        company-quickhelp-max-lines 10))
+  (setq corfu-min-width 30
+        corfu-preview-current t))
 
 (use-package! dap-mode
   :init
@@ -106,6 +100,10 @@
   (setq dap-enable-mouse-support nil)
   (set-popup-rule! "\\*dap-ui-locals\\*" :side 'right :width 0.3)
   (set-popup-rule! "\\*dap-ui-sessions\\*" :side 'right :width 0.3))
+
+(use-package! eca
+  :init
+  (setq eca-custom-command '("~/dev/eca/eca" "server" "--log-level" "debug")))
 
 (use-package! hover
   :after dart-mode
@@ -146,13 +144,13 @@
         lsp-signature-render-documentation nil
         lsp-signature-function 'lsp-signature-posframe
         lsp-signature-auto-activate nil
+        lsp-completion-provider :none
         lsp-semantic-tokens-enable t
         lsp-enable-indentation nil
         lsp-inlay-hint-enable t
         lsp-idle-delay 0.05 ;; Smoother LSP features response in cost of performance (Most servers I use have good performance)
         lsp-use-plists nil)
   (add-hook 'lsp-after-apply-edits-hook (lambda (&rest _) (save-buffer)))
-  (add-hook 'lsp-mode-hook (lambda () (setq-local company-format-margin-function #'company-vscode-dark-icons-margin)))
 
   ;; C#
   (when-let ((omnisharp-path (-some-> (executable-find "omnisharp") file-chase-links file-name-directory directory-file-name file-name-directory)))
