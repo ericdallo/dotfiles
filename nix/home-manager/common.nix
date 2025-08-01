@@ -22,7 +22,7 @@ in {
       alda
       blender
       nodePackages.eask
-      # master.graalvm-ce
+      graalvm-ce
       gh
       sway-contrib.grimshot
       heroku
@@ -47,7 +47,7 @@ in {
       p7zip
       virtualbox
       websocat
-      # master.dart
+      dart
       # flutter
       hover
       upx

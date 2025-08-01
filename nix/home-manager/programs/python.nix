@@ -19,5 +19,6 @@ let
 in {
   home.packages = with pkgs; [
     python-with-my-packages
+    uv
   ];
 }

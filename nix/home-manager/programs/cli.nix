@@ -4,7 +4,7 @@
   home.packages = with pkgs; [
     aircrack-ng
     aider-chat
-    ollama
+    master.ollama
     hashcat
     # hashcat-utils
     hcxtools
@@ -24,6 +24,7 @@
     file
     ffmpeg
     fontconfig
+    gifski
     gitFull
     gnumake
     stable.gnupg

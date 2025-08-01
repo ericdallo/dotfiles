@@ -6,6 +6,7 @@
   environment.systemPackages = with pkgs;
     [
       betterlockscreen
+      master.code-cursor
       dmenu
       dunst
       font-manager

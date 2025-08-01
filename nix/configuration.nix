@@ -30,8 +30,10 @@ in
   users.users.greg = {
     isNormalUser = true;
     extraGroups = [
+      "greg"
       "wheel"
       "docker"
+      "fido"
       "gamemode"
       "networkmanager"
       "vboxusers"

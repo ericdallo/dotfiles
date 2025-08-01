@@ -33,7 +33,7 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in {
       homeConfigurations.greg = home-manager.lib.homeManagerConfiguration {
-        modules = [ ./hosts/dell-precision ];
+        modules = [ ./hosts/asus-zenbook-oled/ubuntu.nix ];
 
         inherit pkgs;
         extraSpecialArgs = { inherit self system; };
@@ -50,7 +50,7 @@
       {
         gregnix-personal = mkSystem { modules = [ ./hosts/asus-zenbook-oled ]; };
 
-        gregnix-work = mkSystem { modules = [ ./hosts/asus-zenbook-deluxe ]; };
+        ubuntu-personal = mkSystem { modules = [ ./hosts/asus-zenbook-oled ]; };
       };
   };
 }
