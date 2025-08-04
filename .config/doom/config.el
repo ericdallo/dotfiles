@@ -90,6 +90,8 @@
 (use-package! corfu
   :config
   (setq corfu-min-width 30
+        corfu-auto-delay 0.1
+        corfu-preselect 'first
         corfu-preview-current t))
 
 (use-package! dap-mode

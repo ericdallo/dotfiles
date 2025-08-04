@@ -139,7 +139,7 @@
        kotlin                           ; a better, slicker Java(Script)
        ;;latex             ; writing papers in Emacs has never been so fun
        ;;ledger            ; an accounting system in Emacs
-       ;;lua               ; one-based indices? one-based indices
+       lua               ; one-based indices? one-based indices
        (markdown
         ;; +grip
         )           ; writing docs for people to ignore

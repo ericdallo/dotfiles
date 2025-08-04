@@ -125,9 +125,6 @@
       :desc "Cider eval last sexpr and copy to clipboard"
       "e c" #'cider-eval-last-sexpr-and-copy-to-clipboard)
 
-(after! company
-  (define-key company-active-map (kbd "M-h") #'company-quickhelp-manual-begin))
-
 (map! :after lsp-mode
       :map lsp-mode-map
       :n
@@ -139,7 +136,7 @@
       :desc "LSP copilot manual completion"
       "C-0" (lambda ()
               (interactive)
-              (company-abort)
+              (corfu-quit)
               (lsp-inline-completion-display))
 
       :leader
