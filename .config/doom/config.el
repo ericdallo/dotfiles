@@ -105,7 +105,8 @@
 
 (use-package! eca
   :init
-  (setq eca-custom-command '("~/dev/eca/eca" "server" "--log-level" "debug")))
+  (setq eca-custom-command '("~/dev/eca/eca" "server")
+        eca-extra-args '("--log-level" "debug")))
 
 (use-package! hover
   :after dart-mode
