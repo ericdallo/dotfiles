@@ -1,6 +1,7 @@
-plugins=(git sudo docker)
+plugins=(git sudo docker fzf)
 
 ZSH_THEME="simple"
+HISTSIZE="10000"
 source $ZSH/oh-my-zsh.sh
 
 source ~/.critical-keys
