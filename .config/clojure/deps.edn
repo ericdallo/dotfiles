@@ -1,0 +1,7 @@
+{:aliases
+ {:mcp
+  {:deps {org.slf4j/slf4j-nop {:mvn/version "2.0.16"} ;; Required for stdio server
+          com.bhauman/clojure-mcp {:git/url "https://github.com/bhauman/clojure-mcp.git"
+                                   :git/sha "1088242d4ff38420bf3f36292182dfc0730035a0"}}
+   :exec-fn clojure-mcp.main/start-mcp-server
+   :exec-args {:port 7888}}}}
