@@ -24,6 +24,10 @@ in
     };
   };
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "libsoup-2.74.3"
+  ];
+
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   services.printing.enable = true;
 

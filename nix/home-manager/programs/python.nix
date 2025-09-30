@@ -15,7 +15,7 @@ let
       fonttools
       pip
     ];
-  python-with-my-packages = pkgs.python3Full; # .withPackages custom-python-packages;
+  python-with-my-packages = pkgs.python314; # .withPackages custom-python-packages;
 in {
   home.packages = with pkgs; [
     python-with-my-packages

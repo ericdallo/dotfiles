@@ -2,12 +2,12 @@
 
 {
   home.packages = with pkgs; [
-    (clojure.override { jdk = jdk17; })
+    clojure
     clojure-lsp
     babashka
     clj-kondo
     polylith
-    (leiningen.override { jdk = jdk17; })
+    # override
     neil
     master.jet
   ];

@@ -6,10 +6,10 @@
   environment.systemPackages = with pkgs;
     [
       betterlockscreen
-      master.code-cursor
+      # master.code-cursor
       dmenu
       dunst
-      font-manager
+      # font-manager
       gimp
       stable.google-chrome
       gparted
@@ -113,9 +113,9 @@
       #};
     };
 
-    logind.extraConfig = ''
-      HandlePowerKey=suspend-then-hibernate
-    '';
+    # logind.extraConfig = ''
+    #   HandlePowerKey=suspend-then-hibernate
+    # '';
   };
 
   fonts = {

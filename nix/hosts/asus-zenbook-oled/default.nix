@@ -11,11 +11,11 @@
       ../../configurations/overlays.nix
       ../../home-manager/programs/zsh.nix
       ../../home-manager/programs/clojure.nix
-      ../../home-manager/programs/rust.nix
+      # ../../home-manager/programs/rust.nix
       ../../home-manager/programs/vscode.nix
       ../../home-manager/programs/idea.nix
-      ../../home-manager/programs/android.nix
-      ../../home-manager/programs/gregflix.nix
+      # ../../home-manager/programs/android.nix
+      # ../../home-manager/programs/gregflix.nix
       ../../home-manager/programs/python.nix
       ../../home-manager/programs/games.nix
       ../../home-manager/programs/audio.nix
