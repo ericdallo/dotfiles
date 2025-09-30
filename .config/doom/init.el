@@ -14,7 +14,7 @@
        ;;layout            ; auie,ctsrnm is the superior home row
 
        :checkers
-       syntax                        ; tasing you for every semicolon you forget
+       (syntax)                        ; tasing you for every semicolon you forget
        ;;(spell +aspell)
        ;; grammar
        

@@ -152,7 +152,7 @@
         lsp-enable-indentation nil
         lsp-inlay-hint-enable t
         lsp-idle-delay 0.05 ;; Smoother LSP features response in cost of performance (Most servers I use have good performance)
-        lsp-use-plists nil)
+        lsp-use-plists t)
   (add-hook 'lsp-after-apply-edits-hook (lambda (&rest _) (save-buffer)))
 
   ;; C#
@@ -169,12 +169,10 @@
             lsp-completion-use-last-result nil)))
 
   ;; Rust
-  (setq lsp-rust-analyzer-server-display-inlay-hints t
-        lsp-rust-analyzer-display-parameter-hints t
+  (setq lsp-rust-analyzer-display-parameter-hints t
         lsp-rust-analyzer-display-chaining-hints t)
   ;; Copilot
-  (setq lsp-inline-completion-idle-delay 1
-        lsp-copilot-enabled t))
+  (setq lsp-copilot-enabled nil))
 
 (use-package! lsp-treemacs
   :config

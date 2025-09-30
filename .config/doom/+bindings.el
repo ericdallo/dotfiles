@@ -77,7 +77,23 @@
       "f t" #'find-in-dotfiles
 
       :desc "Present slide"
-      "t p" #'org-present)
+      "t p" #'org-present
+
+      :desc "ECA: start/open"
+      "e e" #'eca
+
+      :desc "ECA: restart"
+      "e E" #'eca-restart
+
+      :desc "ECA: approve tool call"
+      "e a" #'eca-chat-tool-call-accept-all)
+
+(map! :i
+      :desc "ECA: complete"
+      "C-0" (lambda ()
+              (interactive)
+              (corfu-quit)
+              (eca-complete)))
 
 (after! paredit
   (define-key paredit-mode-map (kbd "C-<left>") nil)
@@ -131,13 +147,6 @@
 
       :desc "Start lsp on buffer"
       "M-l" #'lsp
-
-      :i
-      :desc "LSP copilot manual completion"
-      "C-0" (lambda ()
-              (interactive)
-              (corfu-quit)
-              (lsp-inline-completion-display))
 
       :leader
 
