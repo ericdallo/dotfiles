@@ -57,4 +57,6 @@
 	"calva.referencesCodeLens.enabled": true,
 	"editor.hover.enabled": true,
 	"calva.fmt.configPath": "CLOJURE-LSP",
+	"eca.serverPath": "/home/greg/dev/eca/eca",
+	"eca.serverArgs": "--log-level debug",
 }
