@@ -1,0 +1,20 @@
+# AGENTS
+- Repo: Nix flakes in nix/ (NixOS + Home Manager).
+- Build a single host: make -C nix build-gregnix-personal (replace with target).
+- Activate built system: make -C nix switch.
+- Build+run host VM: make -C nix build-vm-gregnix-personal && make -C nix run-vm-gregnix-personal.
+- Update flake inputs: make -C nix update (or update-and-commit).
+- Validate flake: nix flake check ./nix --show-trace.
+- Apply Home Manager config: home-manager switch --flake ./nix#greg.
+- Format Nix: nix run nixpkgs#nixpkgs-fmt -- ./nix.
+- Single-test equivalent: build one host or run its VM above.
+- Module layout: system in nix/configurations; user programs in nix/home-manager/programs.
+- Import via nix/configuration.nix and nix/home-manager/common.nix; keep lists alphabetized.
+- Style: 2-space indent, no tabs; keep attrs/imports sorted and grouped.
+- Prefer flake inputs (self.inputs.*); avoid ad-hoc fetchTarball in modules.
+- Use inherit for explicit scope; use with pkgs only in package lists.
+- Naming: kebab-case filenames; lowerCamelCase option keys; descriptive host names.
+- Error handling (Nix): use lib.asserts/assertMsg for invariants.
+- Error handling (shell): set -euo pipefail; quote vars; test with shellcheck/shfmt.
+- Secrets: never commit tokens/keys; keep machine-local overrides out of VCS.
+- Run commands from repo root; examples use -C nix to target the flake.
