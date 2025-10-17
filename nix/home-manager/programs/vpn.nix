@@ -2,7 +2,7 @@
 
 {
   home.packages = [
-    pkgs.vpn
+    # pkgs.vpn  # Temporarily disabled to debug webkitgtk issue
   ];
 
   xdg.desktopEntries = {

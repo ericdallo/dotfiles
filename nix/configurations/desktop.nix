@@ -25,7 +25,7 @@
       waybar
       playerctl
       pulsemixer
-      rofi-wayland
+      rofi
       kanshi
       slurp
       swaybg
@@ -62,6 +62,9 @@
     libinput.touchpad.naturalScrolling = true;
     displayManager.defaultSession = "hyprland";
 
+    displayManager.gdm.enable = true;
+    displayManager.gdm.wayland = true;
+
     xserver = {
       enable = true;
       xkb = {
@@ -70,9 +73,6 @@
       };
 
       videoDrivers = [ "modesetting" ];
-
-      displayManager.gdm.enable = true;
-      displayManager.gdm.wayland = true;
       # desktopManager.gnome.enable = true;
       desktopManager.xterm.enable = false;
       #displayManager.startx.enable = true;

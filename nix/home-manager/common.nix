@@ -3,8 +3,6 @@
 let
   dotfilesDir = "$HOME/.dotfiles";
 in {
-  nixpkgs.config.allowUnfree = true;
-
   imports = [
     ./programs/cli.nix
     ./programs/vim.nix

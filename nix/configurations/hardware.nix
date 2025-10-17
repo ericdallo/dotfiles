@@ -101,6 +101,6 @@
     udisks2.enable = true;
 
     # Lock screen when lid is closed.
-    logind.lidSwitch = "lock";
+    logind.settings.Login.HandleLidSwitch = "lock";
   };
 }

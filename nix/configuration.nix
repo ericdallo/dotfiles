@@ -18,6 +18,7 @@ in
     ];
 
   home-manager = {
+    useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = {
       inherit self system;
@@ -26,6 +27,7 @@ in
 
   nixpkgs.config.permittedInsecurePackages = [
     "libsoup-2.74.3"
+    "qtwebengine-5.15.19"
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
