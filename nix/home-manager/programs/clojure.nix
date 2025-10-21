@@ -7,6 +7,7 @@
     babashka
     clj-kondo
     polylith
+    leiningen
     # override
     neil
     master.jet

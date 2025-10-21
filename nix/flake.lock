@@ -178,6 +178,22 @@
     },
     "nixpkgs_3": {
       "locked": {
+        "lastModified": 1735563628,
+        "narHash": "sha256-OnSAY7XDSx7CtDoqNh8jwVwh4xNL/2HaJxGjryLWzX8=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "b134951a4c9f3c995fd7be05f3243f8ecd65d798",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-24.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_4": {
+      "locked": {
         "lastModified": 1718428119,
         "narHash": "sha256-WdWDpNaq6u1IPtxtYHHWpl5BmabtpmLnMAx0RdJ/vo8=",
         "owner": "NixOS",
@@ -224,7 +240,7 @@
     },
     "rust-overlay": {
       "inputs": {
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_4"
       },
       "locked": {
         "lastModified": 1720318855,
@@ -274,9 +290,7 @@
     "vpn": {
       "inputs": {
         "naersk": "naersk",
-        "nixpkgs": [
-          "nixpkgs"
-        ],
+        "nixpkgs": "nixpkgs_3",
         "rust-overlay": "rust-overlay"
       },
       "locked": {
