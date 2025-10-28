@@ -2,6 +2,6 @@
 
 {
   home.packages = with pkgs; [
-    master.jetbrains.idea-community
+    jetbrains.idea-community-bin
   ];
 }
