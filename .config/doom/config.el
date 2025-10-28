@@ -104,6 +104,7 @@
   (set-popup-rule! "\\*dap-ui-sessions\\*" :side 'right :width 0.3))
 
 (use-package! eca
+  :hook (prog-mode . eca-completion-mode)
   :init
   (setq eca-custom-command '("~/dev/eca/eca" "server")
         eca-extra-args '("--log-level" "debug")))
