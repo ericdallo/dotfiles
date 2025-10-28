@@ -1,0 +1,97 @@
+{
+    "defaultModel": "nubank/gpt-5",
+    "providers": {
+        "nubank": {
+            "api": "openai-responses",
+            "urlEnv": "NULITELLM_API_URL",
+            "keyEnv": "NULITELLM_API_KEY",
+            "models": {"gpt-5": {}, 
+                       "gpt-5-high": {
+                           "modelName": "gpt-5",
+                           "extraPayload": {"reasoning": {"effort": "high"}}
+                       },
+                       "gpt-5-codex": {"reasoning": { "effort": "high" }},
+                       "gpt-5-nano": {},
+                       "gpt-4.1": {},
+                       "gpt-4.1-mini": {},
+                       "gpt-4o": {}}
+        },
+        "openrouter": {
+            "api": "openai-chat",
+            "url": "https://openrouter.ai/api/v1",
+            "keyEnv": "OPENROUTER_API_KEY",
+            "models": {"z-ai/glm-4.5-air:free": {},
+                       "qwen/qwen3-coder:free": {}}
+        },
+        "github-copilot": {
+            "models": {
+                "gpt-5-mini-non-stream": {
+                    "modelName": "gpt-5-mini",
+                    "extraPayload": {"stream": false}
+                }
+            }
+        }
+    },
+    "completion": {"model": "nubank/gpt-4.1"},
+    "hooks": {
+        // "notify-me": {
+        //     "type": "postRequest",
+        //     "matcher": "eca__eca_shell_command",
+        //     "actions": [
+        //         {
+        //             "type": "shell",
+        //             "shell": "echo \"Hey 👋, ECA finished there\" && notify-send \"Hey 👋, ECA finished there\""
+        //         }
+        //     ]
+        // },
+        // "check-my-tool": {
+        //   "type": "preToolCall", 
+        //   "matcher": ".*",
+        //   "actions": [
+        //     {
+        //       "type": "shell",
+        //       "shell": "tool=$(jq '.\"tool-name\"' <<< \"$1\"); echo \"We should not run the $tool tool bro!\" >&2 && exit 2"
+        //     }
+        //   ]
+        // }
+    },
+    // "toolCall": {
+    //     "approval": {
+    //         "allow": {"nu-mcp": {},
+    //                   "fetch": {}},
+    //         "ask": {"clojure-mcp__edit_file": {},
+    //                 "eca_create_file": {}}
+    //     }
+    // },
+    "mcpServers": {
+        // "clojure-mcp-clj": {
+        //     "command": "bash",
+        //      "args": ["-c", "clojure -X:mcp-deps"]
+        // },
+        // "nu-mcp": {
+        //     "command": "$HOME/dev/nu/nu-mcp/run.sh",
+        //     "args": ["--modules", "on-call"],
+        //     "env": {"MCP_DEBUG": "true"}
+        // },
+        // "hugging": {
+        //     "url": "https://huggingface.co/mcp"
+        // }
+        // "fetch": {
+        //     "command": "docker",
+        //     "args": ["run", "-i", "--rm", "mcp/fetch"]
+        // }
+        // "github": {
+        //     "command": "npx",
+        //     "args": ["mcp-remote", "https://api.githubcopilot.com/mcp/"]
+        // }
+        // "memory": {
+        //     "command": "npx",
+        //     "args": ["-y", "@modelcontextprotocol/server-memory"]
+        // },
+
+        // "filesystem": {
+        //     "command": "npx",
+        //     "args": ["-y", "@modelcontextprotocol/server-filesystem", "$HOME/dev"]
+        // }
+    }
+}
