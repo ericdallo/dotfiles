@@ -11,7 +11,7 @@
       dunst
       # font-manager
       gimp
-      stable.google-chrome
+      google-chrome
       gparted
       inkscape
       (flameshot.override { enableWlrSupport = true; })
