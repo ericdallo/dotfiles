@@ -1,5 +1,5 @@
 {
-    "defaultModel": "nubank/gpt-5",
+    "defaultModel": "nubank/gpt-5-high",
     "providers": {
         "nubank": {
             "api": "openai-responses",
@@ -33,27 +33,19 @@
         }
     },
     "completion": {"model": "nubank/gpt-4.1"},
+    "rewrite": {"model": "nubank/gpt-4.1"},
     "hooks": {
-        // "notify-me": {
-        //     "type": "postRequest",
-        //     "matcher": "eca__eca_shell_command",
-        //     "actions": [
-        //         {
-        //             "type": "shell",
-        //             "shell": "echo \"Hey 👋, ECA finished there\" && notify-send \"Hey 👋, ECA finished there\""
-        //         }
-        //     ]
-        // },
-        // "check-my-tool": {
-        //   "type": "preToolCall", 
-        //   "matcher": ".*",
-        //   "actions": [
-        //     {
-        //       "type": "shell",
-        //       "shell": "tool=$(jq '.\"tool-name\"' <<< \"$1\"); echo \"We should not run the $tool tool bro!\" >&2 && exit 2"
-        //     }
-        //   ]
-        // }
+        "notify-me": {
+            "type": "postRequest",
+            "matcher": "*",
+            "visible": false,
+            "actions": [
+                {
+                    "type": "shell",
+                    "shell": "canberra-gtk-play -i complete"
+                }
+            ]
+        }
     },
     // "toolCall": {
     //     "approval": {

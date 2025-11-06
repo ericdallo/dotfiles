@@ -86,7 +86,10 @@
       "e E" #'eca-restart
 
       :desc "ECA: approve tool call"
-      "e a" #'eca-chat-tool-call-accept-all)
+      "e a" #'eca-chat-tool-call-accept-all
+
+      :desc "ECA: rewrite"
+      "e r" #'eca-rewrite)
 
 (map! :i
       :desc "ECA: complete"
