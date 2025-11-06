@@ -1,6 +1,7 @@
 { pkgs, ... }:
 
 {
+  zramSwap.enable = true;
   networking = {
 
     extraHosts = ''
