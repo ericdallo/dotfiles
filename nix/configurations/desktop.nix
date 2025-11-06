@@ -17,6 +17,7 @@
       (flameshot.override { enableWlrSupport = true; })
       libinput-gestures
       libnotify
+      libcanberra-gtk3
       materia-theme
       nautilus
       ntfsprogs
