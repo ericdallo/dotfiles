@@ -28,6 +28,7 @@
       rofi
       kanshi
       slurp
+      sound-theme-freedesktop
       swaybg
       udiskie
       udisks
