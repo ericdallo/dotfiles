@@ -1,10 +1,13 @@
 { config, lib, pkgs, ... }:
 
 {
+  home.file.".zsh_aliases".source = ../../../.zsh_aliases;
+
   programs.zsh = {
     enable = true;
     enableCompletion = false;
     autosuggestion.enable = true;
+    initContent = (builtins.readFile ../../../.zshrc);
     syntaxHighlighting = {
       enable = true;
       styles.cursor = "fg=#ffffff";
