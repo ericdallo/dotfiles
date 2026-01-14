@@ -5,6 +5,7 @@
     aircrack-ng
     aider-chat
     master.ollama
+    stable.lmstudio
     hashcat
     # hashcat-utils
     hcxtools
@@ -51,12 +52,15 @@
     shellcheck
     sqlite
     inetutils
+    python313Packages.trafilatura
     translate-shell
     tree
     unrar
     unzip
+    zip
     usbutils
     wget
+    wtype
     wirelesstools
     wmctrl
     xdotool

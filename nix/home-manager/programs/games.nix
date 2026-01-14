@@ -7,7 +7,8 @@
     lutris
     steam
     wineWowPackages.staging
-    godot_4
+    godot
+    audacity
     steam-run
     cemu
     winetricks

@@ -5,6 +5,7 @@
     clojure
     clojure-lsp
     babashka
+    bbin
     clj-kondo
     polylith
     leiningen

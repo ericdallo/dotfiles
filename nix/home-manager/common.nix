@@ -34,7 +34,7 @@ in {
       vesktop
       pandoc
       # stable.postman
-      stable.ferdium
+      ferdium
       s3cmd
       sass
       sassc

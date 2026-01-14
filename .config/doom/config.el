@@ -32,7 +32,7 @@
  evil-vsplit-window-right t
 
  doom-font (font-spec :family "Hack" :size 18)
- doom-unicode-font (font-spec :size 18)
+ doom-symbol-font (font-spec :size 18)
  doom-big-font-increment 2
 
  doom-theme 'doom-dracula

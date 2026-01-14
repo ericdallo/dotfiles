@@ -2,12 +2,16 @@
 
 {
   zramSwap.enable = true;
+  zramSwap.memoryPercent = 100;
+
   networking = {
 
     extraHosts = ''
       172.17.0.1 mysql
       172.17.0.1 datomic
     '';
+
+    nameservers = [ "8.8.8.8" "8.8.4.4" ];
 
     networkmanager = {
       enable = true;
