@@ -1,43 +1,90 @@
 {
-    "defaultModel": "nubank/gpt-5-high",
+    "defaultModel": "nubank-anthropic/opus-4.5",
     "providers": {
         "nubank": {
             "api": "openai-responses",
-            "urlEnv": "NULITELLM_API_URL",
-            "keyEnv": "NULITELLM_API_KEY",
-            "models": {"gpt-5": {}, 
-                       "gpt-5-high": {
-                           "modelName": "gpt-5",
-                           "extraPayload": {"reasoning": {"effort": "high"}}
+            "url": "${env:NULITELLM_API_URL}",
+            "key": "${env:NULITELLM_API_KEY}",
+            "models": {"gpt-5.2": {},
+                       "gpt-5.2-xhigh": {
+                           "modelName": "openai/gpt-5.2",
+                           "extraPayload": {"reasoning": {"effort": "xhigh"}}
                        },
                        "gpt-5-codex": {"reasoning": { "effort": "high" }},
                        "gpt-5-nano": {},
-                       "gpt-4.1": {},
-                       "gpt-4.1-mini": {},
-                       "gpt-4o": {}}
-        },
-        "openrouter": {
-            "api": "openai-chat",
-            "url": "https://openrouter.ai/api/v1",
-            "keyEnv": "OPENROUTER_API_KEY",
-            "models": {"z-ai/glm-4.5-air:free": {},
-                       "qwen/qwen3-coder:free": {}}
-        },
-        "github-copilot": {
+                       "gpt-5-mini": {},
+                       "gpt-4.1": {}}
+        }, 
+        "nubank-anthropic": {
+            "api": "anthropic",
+            "url": "${env:NULITELLM_API_URL}",
+            "key": "${env:NULITELLM_API_KEY}",
             "models": {
-                "gpt-5-mini-non-stream": {
-                    "modelName": "gpt-5-mini",
-                    "extraPayload": {"stream": false}
+                "sonnet-4.5": {
+                    "modelName": "anthropic/claude-sonnet-4-5-20250929"
+                },
+                "opus-4.5": {
+                    "modelName": "anthropic/claude-opus-4-5-20251101"
                 }
             }
         }
+        // "nubank-inference": {
+        //     "api": "openai-chat",
+        //     "url": "${env:NU_INFERENCE_API_URL}",
+        //     "key": "${env:NU_INFERENCE_API_KEY}",
+        //     "models": {
+        //         "bdc-model": {
+        //             "modelName": "nubank-custom-model"
+        //         }
+        //     }
+        // }
+        // "openrouter": {
+        //     "api": "openai-chat",
+        //     "url": "https://openrouter.ai/api/v1",
+        //     "key": "${env:OPENROUTER_API_KEY}",
+        //     "models": {"z-ai/glm-4.5-air:free": {},
+        //                "qwen/qwen3-coder:free": {}}
+        // },
+        // "github-copilot": {
+        //     "models": {
+        //         "gpt-5-mini-non-stream": {
+        //             "modelName": "gpt-5-mini",
+        //             "extraPayload": {"stream": false}
+        //         }
+        //     }
+        // },
+        // "lmstudio": {
+        //     "api": "openai-chat",
+        //     "url": "http://localhost:1234",
+        //     "completionUrlRelativePath": "/v1/chat/completions",
+        //     "httpClient": {
+        //         "version": "http-1.1"
+        //     },
+        //     "models": {
+        //         "foo": {}
+        //     }
+        // }
     },
-    "completion": {"model": "nubank/gpt-4.1"},
-    "rewrite": {"model": "nubank/gpt-4.1"},
+    "customTools": {
+        "clj-nrepl-eval": {
+            "description": "${file:tools/clj-nrepl-eval.md}",
+            "command": "/home/greg/.local/bin/clj-nrepl-eval -p $(cat .nrepl-port) $'{{code}}'",
+            "schema": {
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "description": "A string of clojure code to evaluate in the application runtime. It will be wrapped in ANSI-CE quoting automatically: $'...' be sure to  escape single quotes as \\', backslashes as \\\\. Example: $'(let [r (+ 1  2 3)] (println r))'"
+                    }
+                },
+                "required": ["code"]
+            }
+        }
+    },
+    "completion": {"model": "nubank/gpt-5.2"},
+    "rewrite": {"model": "nubank/gpt-5.2"},
     "hooks": {
-        "notify-me": {
+        "notify-finished": {
             "type": "postRequest",
-            "matcher": "*",
             "visible": false,
             "actions": [
                 {
@@ -47,14 +94,12 @@
             ]
         }
     },
-    // "toolCall": {
-    //     "approval": {
-    //         "allow": {"nu-mcp": {},
-    //                   "fetch": {}},
-    //         "ask": {"clojure-mcp__edit_file": {},
-    //                 "eca_create_file": {}}
-    //     }
-    // },
+    "toolCall": {
+        "approval": {
+            "allow": {"nu-mcp": {},
+                      "clojure-mcp-clj": {}}
+        }
+    },
     "mcpServers": {
         // "clojure-mcp-clj": {
         //     "command": "bash",
@@ -64,7 +109,16 @@
         //     "command": "$HOME/dev/nu/nu-mcp/run.sh",
         //     "args": ["--modules", "on-call"],
         //     "env": {"MCP_DEBUG": "true"}
-        // },
+        // }
+        // "github-http": {
+        //     "url": "https://api.githubcopilot.com/mcp/"
+        // }
+        // "miro": {
+        //     "url": "https://mcp.miro.com/" 
+        // }
+        "atlasian-http": {
+            "url": "https://mcp.atlassian.com/v1/sse"
+        }
         // "hugging": {
         //     "url": "https://huggingface.co/mcp"
         // }

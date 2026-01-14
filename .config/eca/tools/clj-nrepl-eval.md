@@ -1,0 +1,2 @@
+Evaluate Clojure code in the running nrepl server. The tool will wrap whatever code you supply in ANSI-C quoting: $'...' Escaping rules WITHIN $'...': Single quotes should be escaped: \\' Backslashes: \\\\ (for literal \\\\ in Clojure strings use \\\\)  Newlines: \\n  Double quotes: NO escaping needed Examples: (+ 1 2 3) (println \"Hello\") (str \"It\\'s working\") (let [x 10]\\n  (* x 2))' DO NOT double-escape (use \\' not \\\\'). 
+
