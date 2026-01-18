@@ -68,7 +68,7 @@
     "customTools": {
         "clj-nrepl-eval": {
             "description": "${file:tools/clj-nrepl-eval.md}",
-            "command": "/home/greg/.local/bin/clj-nrepl-eval -p $(cat .nrepl-port) $'{{code}}'",
+            "command": "read -r -d '' CLJ_PAYLOAD << 'Mjz9q5s8' || true\n{{code}}\nMjz9q5s8\n/home/greg/.local/bin/clj-nrepl-eval -p $(cat .nrepl-port) \"$CLJ_PAYLOAD\"",
             "schema": {
                 "properties": {
                     "code": {
@@ -116,9 +116,9 @@
         // "miro": {
         //     "url": "https://mcp.miro.com/" 
         // }
-        "atlasian-http": {
-            "url": "https://mcp.atlassian.com/v1/sse"
-        }
+        // "atlasian-http": {
+        //     "url": "https://mcp.atlassian.com/v1/sse"
+        // }
         // "hugging": {
         //     "url": "https://huggingface.co/mcp"
         // }
