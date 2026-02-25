@@ -1,16 +1,20 @@
 {
-    "defaultModel": "nubank-anthropic/opus-4.5",
+    "$schema": "https://eca.dev/config.json",
+    "defaultModel": "nubank-anthropic/opus-4.6",
+    "autoCompactPercentage": 85,
     "providers": {
         "nubank": {
             "api": "openai-responses",
             "url": "${env:NULITELLM_API_URL}",
             "key": "${env:NULITELLM_API_KEY}",
+            "fetchModels": false,
             "models": {"gpt-5.2": {},
                        "gpt-5.2-xhigh": {
                            "modelName": "openai/gpt-5.2",
                            "extraPayload": {"reasoning": {"effort": "xhigh"}}
                        },
-                       "gpt-5-codex": {"reasoning": { "effort": "high" }},
+                       "gpt-5.2-codex": {"extraPayload": {"reasoning": { "effort": "high" }}},
+                       "gpt-5.3-codex": {},
                        "gpt-5-nano": {},
                        "gpt-5-mini": {},
                        "gpt-4.1": {}}
@@ -19,25 +23,28 @@
             "api": "anthropic",
             "url": "${env:NULITELLM_API_URL}",
             "key": "${env:NULITELLM_API_KEY}",
+            "fetchModels": false,
             "models": {
-                "sonnet-4.5": {
-                    "modelName": "anthropic/claude-sonnet-4-5-20250929"
+                "sonnet-4.6": {
+                    "modelName": "anthropic/claude-sonnet-4-6"
                 },
-                "opus-4.5": {
-                    "modelName": "anthropic/claude-opus-4-5-20251101"
+                "opus-4.6": {
+                    "modelName": "anthropic/claude-opus-4-6",
+                    "variants": {"max": {"output_config": {"effort": "max"}, "thinking": {"type": "adaptive"}}}
+                }
+            }
+        },
+        "nubank-inference": {
+            "api": "openai-chat",
+            "url": "${env:NULITELLM_API_URL}",
+            "key": "${env:NULITELLM_API_KEY}",
+            "fetchModels": false,
+            "models": {
+                "bdc": {
+                    "modelName": "inference/nubank-custom-model-original"
                 }
             }
         }
-        // "nubank-inference": {
-        //     "api": "openai-chat",
-        //     "url": "${env:NU_INFERENCE_API_URL}",
-        //     "key": "${env:NU_INFERENCE_API_KEY}",
-        //     "models": {
-        //         "bdc-model": {
-        //             "modelName": "nubank-custom-model"
-        //         }
-        //     }
-        // }
         // "openrouter": {
         //     "api": "openai-chat",
         //     "url": "https://openrouter.ai/api/v1",
@@ -65,21 +72,6 @@
         //     }
         // }
     },
-    "customTools": {
-        "clj-nrepl-eval": {
-            "description": "${file:tools/clj-nrepl-eval.md}",
-            "command": "read -r -d '' CLJ_PAYLOAD << 'Mjz9q5s8' || true\n{{code}}\nMjz9q5s8\n/home/greg/.local/bin/clj-nrepl-eval -p $(cat .nrepl-port) \"$CLJ_PAYLOAD\"",
-            "schema": {
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "description": "A string of clojure code to evaluate in the application runtime. It will be wrapped in ANSI-CE quoting automatically: $'...' be sure to  escape single quotes as \\', backslashes as \\\\. Example: $'(let [r (+ 1  2 3)] (println r))'"
-                    }
-                },
-                "required": ["code"]
-            }
-        }
-    },
     "completion": {"model": "nubank/gpt-5.2"},
     "rewrite": {"model": "nubank/gpt-5.2"},
     "hooks": {
@@ -92,12 +84,55 @@
                     "shell": "canberra-gtk-play -i complete"
                 }
             ]
+        },
+        "notify-approval": {
+            "type": "preToolCall",
+            "visible": false,
+            "actions": [
+                {
+                    "type": "shell",
+                    "shell": "jq -e '.approval == \"ask\"' > /dev/null && canberra-gtk-play -i message"
+                }
+            ]
+        },
+        "brepl-validate" : {
+            "type" : "preToolCall",
+            "matcher" : "eca__(write_file|edit_file)",
+            "visible": false,
+            "actions" : [ {
+                "type" : "shell",
+                "shell" : "/home/greg/dev/brepl/brepl eca validate"
+            } ]
+        },
+        "brepl-eval" : {
+            "type" : "postToolCall",
+            "visible": false,
+            "matcher" : "eca__(write_file|edit_file)",
+            "actions" : [ {
+                "type" : "shell",
+                "shell" : "/home/greg/dev/brepl/brepl eca eval"
+            } ]
+        },
+        "brepl-session-end" : {
+            "type" : "sessionEnd",
+            "visible": false,
+            "actions" : [ {
+                "type" : "shell",
+                "shell" : "/home/greg/dev/brepl/brepl eca session-end"
+            } ]
         }
     },
     "toolCall": {
         "approval": {
             "allow": {"nu-mcp": {},
                       "clojure-mcp-clj": {}}
+        }
+    },
+    "agent": {
+        "code-reviewer": {
+            "mode": "subagent",
+            "description": "Code reviewer for project changes, use it when asked to review code",
+            "systemPrompt": "You are expert in code review, analyze the changes in git and be rigorous about the changes."
         }
     },
     "mcpServers": {
@@ -107,8 +142,17 @@
         // },
         // "nu-mcp": {
         //     "command": "$HOME/dev/nu/nu-mcp/run.sh",
-        //     "args": ["--modules", "on-call"],
+        //     "args": ["--auto"],
         //     "env": {"MCP_DEBUG": "true"}
+        // }
+        // "web-reader": {
+        //     "url": "https://api.z.ai/api/mcp/web_reader/mcp",
+        //     "headers": {
+        //         "Authorization": "Bearer APIKEY"
+        //     }
+        // }
+        // "data-discovery": {
+        //     "command": "nu-data services mcp global data-discovery --env prod --country data"
         // }
         // "github-http": {
         //     "url": "https://api.githubcopilot.com/mcp/"
@@ -140,4 +184,8 @@
         //     "args": ["-y", "@modelcontextprotocol/server-filesystem", "$HOME/dev"]
         // }
     }
+    , "otlp": {
+    "otel.exporter.otlp.metrics.protocol": "http/protobuf",
+    "otel.exporter.otlp.metrics.endpoint": "https://prod-global-workstation-proxy.ist.nubank.world/api/telemetry/metrics"
+  }
 }
