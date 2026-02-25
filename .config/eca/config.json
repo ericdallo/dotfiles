@@ -72,8 +72,8 @@
         //     }
         // }
     },
-    "completion": {"model": "nubank/gpt-5.2"},
-    "rewrite": {"model": "nubank/gpt-5.2"},
+    "completion": {"model": "nubank/gpt-5.3-codex"},
+    "rewrite": {"model": "nubank/gpt-5.3-codex"},
     "hooks": {
         "notify-finished": {
             "type": "postRequest",
