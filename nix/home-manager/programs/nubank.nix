@@ -7,6 +7,7 @@
 
   home.packages = with pkgs; [
     aws-iam-authenticator
+    databricks-cli
     kubelogin-oidc
     stable.kubectl
     zoom-us
@@ -16,6 +17,7 @@
     stable.yubikey-personalization-gui
     scala
     scalafmt
+    teleport
     mob
     stable.protobuf
     stable.buf

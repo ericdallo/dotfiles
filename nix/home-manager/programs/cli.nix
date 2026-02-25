@@ -5,7 +5,9 @@
     aircrack-ng
     aider-chat
     master.ollama
+    llama-cpp
     stable.lmstudio
+    claude-code
     hashcat
     # hashcat-utils
     hcxtools
