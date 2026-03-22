@@ -36,10 +36,7 @@
  doom-big-font-increment 2
 
  doom-theme 'doom-dracula
- doom-themes-treemacs-theme "all-the-icons"
  doom-localleader-key ","
-
- +format-on-save-enabled-modes '(dart-mode)
 
  treemacs-width-is-initially-locked nil
  evil-collection-setup-minibuffer t
@@ -107,6 +104,7 @@
   :hook (prog-mode . eca-completion-mode)
   :init
   (setq eca-custom-command '("~/dev/eca/eca" "server")
+        eca-chat-trust-enable t
         eca-extra-args '("--log-level" "debug")))
 
 (use-package! hover
