@@ -1,6 +1,5 @@
 {
 	"window.zoomLevel": 2,
-	"workbench.colorTheme": "Dracula",
 	"files.associations": {
 		"*.ect": "html",
 	},
@@ -55,9 +54,10 @@
 	"html.trace.server": "verbose",
 	"dart.flutterSdkPath": "/home/greg/flutter",
 	"calva.referencesCodeLens.enabled": true,
-	"editor.hover.enabled": true,
+	"editor.hover.enabled": "on",
 	"calva.fmt.configPath": "CLOJURE-LSP",
 	"eca.serverPath": "/home/greg/dev/eca/eca",
-	"eca.serverArgs": "--log-level debug",
+	"eca.serverArgs": "--verbose",
 	"git.openRepositoryInParentFolders": "never",
+	"github.copilot.nextEditSuggestions.enabled": true,
 }
