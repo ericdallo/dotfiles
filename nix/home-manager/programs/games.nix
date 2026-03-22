@@ -6,8 +6,8 @@
     aseprite
     lutris
     steam
-    wineWowPackages.staging
-    godot
+    # wineWowPackages.staging
+    master.godot
     audacity
     steam-run
     cemu

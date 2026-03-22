@@ -26,7 +26,9 @@
   networking.hostName = "gregnix-personal";
 
   boot = {
-    kernelParams = [ "i915.force_probe=7d55" "intel_pstate=disable" ];
+    kernelModules = [ "acpi_call" ];
+    extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
+    kernelParams = [ "i915.force_probe=7d55" ];
     extraModprobeConfig = ''
       options bluetooth disable_ertm=1
       options snd-hda-intel model=asus-zenbook
@@ -51,27 +53,36 @@
   };
   swapDevices = [ {device = "/dev/disk/by-uuid/54eb3f94-cafd-4afa-beb3-0e126a346252";} ];
 
-  # powerManagement.cpuFreqGovernor = "performance";
+  powerManagement = {
+    enable = true;
+    cpuFreqGovernor = "ondemand"; # scales frequency dynamically based on load
+  };
 
-  powerManagement.enable = false;
-  services.thermald.enable = false;
-  services.tlp.enable = false;
+  services.thermald.enable = true; # Intel thermal management
+
+  # Set ASUS thermal policy to "quiet" on boot (less aggressive fan curve)
+  # 0 = balanced, 1 = performance, 2 = quiet
+  systemd.services.asus-quiet-fan = {
+    description = "Set ASUS thermal policy to quiet mode";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "systemd-modules-load.service" ];
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "/bin/sh -c 'echo 2 > /sys/devices/platform/asus-nb-wmi/throttle_thermal_policy'";
+      RemainAfterExit = true;
+    };
+  };
 
   services.auto-cpufreq = {
-    enable = true;
+    enable = true; # dynamically switches governor based on load
     settings = {
-      battery = {
-        # governor = "powersave";
-        # energy_performance_preference = "power";
-        # turbo = "never";
-        governor = "performance";
-        energy_performance_preference = "performance";
-        turbo = "auto";
-      };
       charger = {
         governor = "performance";
-        energy_performance_preference = "performance";
         turbo = "auto";
+      };
+      battery = {
+        governor = "powersave";
+        turbo = "never";
       };
     };
   };

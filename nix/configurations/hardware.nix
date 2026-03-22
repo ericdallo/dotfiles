@@ -1,8 +1,12 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   zramSwap.enable = true;
   zramSwap.memoryPercent = 100;
+
+  services.tailscale.enable = true;
+  services.tailscale.useRoutingFeatures = "client";
+  networking.nftables.enable = true;
 
   networking = {
 
@@ -19,8 +23,11 @@
       dns = "dnsmasq";
     };
 
-    firewall.allowedTCPPorts = [8080];
+    firewall.allowedTCPPorts = [8080 7777 7778 7779 7780 7781 7782 7783 7784 7785 7786 7787];
     firewall.allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
+    firewall.trustedInterfaces = [ "tailscale0" ];
+    firewall.allowedUDPPorts = [ config.services.tailscale.port ];
+    firewall.checkReversePath = "loose";
   };
 
   environment.systemPackages = with pkgs; [
@@ -28,7 +35,7 @@
   ];
 
   nixpkgs.config.packageOverrides = pkgs: {
-    vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+    intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
   };
 
   hardware = {
@@ -52,8 +59,8 @@
         intel-compute-runtime
         intel-media-driver
         libvdpau-va-gl
-        vaapiIntel
-        vaapiVdpau
+        intel-vaapi-driver
+        libva-vdpau-driver
       ];
     };
   };

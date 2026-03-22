@@ -9,6 +9,7 @@ let
       # virtualenvwrapper
       python-language-server
       pybluez
+      pillow
       # bluepy
       # seaborn
       # pillow

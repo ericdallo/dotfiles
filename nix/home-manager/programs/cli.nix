@@ -29,6 +29,7 @@
     fontconfig
     gifski
     gitFull
+    github-mcp-server
     gnumake
     stable.gnupg
     google-drive-ocamlfuse
@@ -43,11 +44,11 @@
     man-pages
     nssTools
     mediainfo
-    neofetch
+    fastfetch
     nodejs_20
     curlftpfs
     openssl
-    pinentry
+    pinentry-curses
     ripgrep
     rxvt-unicode
     stable.sbt

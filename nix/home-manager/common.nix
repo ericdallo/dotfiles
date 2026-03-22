@@ -19,7 +19,8 @@ in {
     packages = with pkgs; [
       alda
       blender
-      nodePackages.eask
+      eask-cli
+      espeak
       #graalvm-ce
       gh
       sway-contrib.grimshot
@@ -29,7 +30,7 @@ in {
       kdePackages.polkit-kde-agent-1
       maven
       mariadb
-      nodePackages.node2nix
+      # nodePackages.node2nix
       hugo
       vesktop
       pandoc
@@ -39,7 +40,7 @@ in {
       sass
       sassc
       srt-to-vtt-cl
-      stremio
+      # stremio # slow to build
       teamviewer
       pulseaudioFull
       p7zip
