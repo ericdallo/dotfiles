@@ -24,13 +24,22 @@
             "url": "${env:NULITELLM_API_URL}",
             "key": "${env:NULITELLM_API_KEY}",
             "fetchModels": false,
+            "retryRules": [
+                {
+                    "status": 401,
+                    "errorPattern": "Authentication Error",
+                    "label": "Flaky auth error"
+                }
+            ],
             "models": {
                 "sonnet-4.6": {
                     "modelName": "anthropic/claude-sonnet-4-6"
                 },
+                "sonnet-4.5": {
+                    "modelName": "anthropic/claude-sonnet-4-5"
+                },
                 "opus-4.6": {
-                    "modelName": "anthropic/claude-opus-4-6",
-                    "variants": {"max": {"output_config": {"effort": "max"}, "thinking": {"type": "adaptive"}}}
+                    "modelName": "anthropic/claude-opus-4-6"
                 }
             }
         },
@@ -50,8 +59,9 @@
         //     "url": "https://openrouter.ai/api/v1",
         //     "key": "${env:OPENROUTER_API_KEY}",
         //     "models": {"z-ai/glm-4.5-air:free": {},
+        //                "arcee-ai/trinity-large-preview:free": {},
         //                "qwen/qwen3-coder:free": {}}
-        // },
+        // }
         // "github-copilot": {
         //     "models": {
         //         "gpt-5-mini-non-stream": {
@@ -95,15 +105,6 @@
                 }
             ]
         },
-        "brepl-validate" : {
-            "type" : "preToolCall",
-            "matcher" : "eca__(write_file|edit_file)",
-            "visible": false,
-            "actions" : [ {
-                "type" : "shell",
-                "shell" : "/home/greg/dev/brepl/brepl eca validate"
-            } ]
-        },
         "brepl-eval" : {
             "type" : "postToolCall",
             "visible": false,
@@ -125,15 +126,26 @@
     "toolCall": {
         "approval": {
             "allow": {"nu-mcp": {},
-                      "clojure-mcp-clj": {}}
+                      "glean": {},
+                      "eca__shell_command": {"argsMatchers": {"command": ["gh.*"]}}}
         }
     },
     "agent": {
         "code-reviewer": {
             "mode": "subagent",
-            "description": "Code reviewer for project changes, use it when asked to review code",
-            "systemPrompt": "You are expert in code review, analyze the changes in git and be rigorous about the changes."
+            "description": "Code reviewer for project changes, use it when asked to review code, present to user the final review before doing it.",
+            "systemPrompt": "You are doing a code review, analyze the changes in git and be rigorous about the changes."
         }
+    },
+    "plugins": {
+        "nubank": {
+            "source": "https://github.com/nubank/ai-agents-plugins.git"
+        },
+        "install": ["gba-debit-card"]
+    },
+    "remote": {
+        "enabled": true,
+        "password": "foo"
     },
     "mcpServers": {
         // "clojure-mcp-clj": {
