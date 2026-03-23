@@ -10,6 +10,7 @@
     "custom/space",
     "custom/github",
     "custom/vpn",
+    "custom/tailscale",
     "custom/drive",
   ],
   "modules-center": [
@@ -83,6 +84,13 @@
     "interval": 3,
     "exec": "~/.config/waybar/vpn.sh",
     "on-click": "exec ~/.config/waybar/vpn.sh toggle",
+  },
+  "custom/tailscale": {
+    "format": "󰖂",
+    "return-type": "json",
+    "interval": 3,
+    "exec": "~/.config/waybar/tailscale.sh",
+    "on-click": "exec ~/.config/waybar/tailscale.sh toggle",
   },
   "custom/drive": {
     "format": "󰊶",
