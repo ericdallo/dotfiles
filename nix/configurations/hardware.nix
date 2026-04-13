@@ -2,7 +2,7 @@
 
 {
   zramSwap.enable = true;
-  zramSwap.memoryPercent = 100;
+  zramSwap.memoryPercent = 50;
 
   services.tailscale.enable = true;
   services.tailscale.useRoutingFeatures = "client";
@@ -23,7 +23,7 @@
       dns = "dnsmasq";
     };
 
-    firewall.allowedTCPPorts = [8080 7777 7778 7779 7780 7781 7782 7783 7784 7785 7786 7787];
+    firewall.allowedTCPPorts = [8000 8080 7777 7778 7779 7780 7781 7782 7783 7784 7785 7786 7787];
     firewall.allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
     firewall.trustedInterfaces = [ "tailscale0" ];
     firewall.allowedUDPPorts = [ config.services.tailscale.port ];
@@ -112,7 +112,7 @@
 
     udisks2.enable = true;
 
-    # Lock screen when lid is closed.
-    logind.settings.Login.HandleLidSwitch = "lock";
+    # Suspend when lid is closed (toggle with lid-mode).
+    logind.settings.Login.HandleLidSwitch = "suspend";
   };
 }

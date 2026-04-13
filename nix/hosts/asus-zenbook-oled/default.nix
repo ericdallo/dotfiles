@@ -60,15 +60,17 @@
 
   services.thermald.enable = true; # Intel thermal management
 
-  # Set ASUS thermal policy to "quiet" on boot (less aggressive fan curve)
-  # 0 = balanced, 1 = performance, 2 = quiet
+  # Set ASUS thermal policy on boot
+  # 0 = balanced (EC ramps fans aggressively when hot, quiet at idle)
+  # 1 = performance (fans always aggressive)
+  # 2 = quiet (caps max fan speed — dangerous under sustained load!)
   systemd.services.asus-quiet-fan = {
-    description = "Set ASUS thermal policy to quiet mode";
+    description = "Set ASUS thermal policy to balanced mode";
     wantedBy = [ "multi-user.target" ];
     after = [ "systemd-modules-load.service" ];
     serviceConfig = {
       Type = "oneshot";
-      ExecStart = "/bin/sh -c 'echo 2 > /sys/devices/platform/asus-nb-wmi/throttle_thermal_policy'";
+      ExecStart = "/bin/sh -c 'echo 0 > /sys/devices/platform/asus-nb-wmi/throttle_thermal_policy'";
       RemainAfterExit = true;
     };
   };
