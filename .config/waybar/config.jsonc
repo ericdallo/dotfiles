@@ -152,6 +152,7 @@
       "wifi": [ "󰤟", "󰤢", "󰤥", "󰤨", ],
     },
     "on-click": "networkmanager_dmenu",
+    "on-click-right": "nmcli radio wifi off && sleep 1 && nmcli radio wifi on",
   },
   "battery": {
     "interval": 3,
@@ -165,6 +166,10 @@
   },
   "custom/system": {
     "format": "󰐦",
+    "return-type": "json",
+    "interval": 2,
+    "exec": "~/.config/waybar/lid-mode.sh",
     "on-click": "systemctl hibernate",
+    "on-click-right": "exec ~/.config/waybar/lid-mode.sh toggle",
   }
 }

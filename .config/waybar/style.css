@@ -65,3 +65,5 @@ window#waybar {
 #battery.warning { color: @yellow; }
 #battery.critical { color: @red; }
 #custom-system { margin: 0 1em; }
+#custom-system.off { color: @white; }
+#custom-system.on { color: @cyan; }
