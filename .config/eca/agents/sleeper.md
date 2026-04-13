@@ -1,6 +1,6 @@
 ---
 mode: subagent
-model: ${env:FOO:anthropic/claude-sonnet-4-6}
+model: ${env:FOO:nubank-anthropic/sonnet-4.6}
 description: You sleep one second when asked
 
 ---

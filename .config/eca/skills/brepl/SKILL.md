@@ -54,6 +54,12 @@ brepl <<'EOF'
 EOF
 ```
 
+**Specific nREPL port**
+
+```bash
+brepl -p 1234 '(+ 1 2 3)'
+```
+
 **Code with quotes**:
 
 ```bash

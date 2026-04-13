@@ -1,7 +1,6 @@
 {
     "$schema": "https://eca.dev/config.json",
     "defaultModel": "nubank-anthropic/opus-4.6",
-    "autoCompactPercentage": 85,
     "providers": {
         "nubank": {
             "api": "openai-responses",
@@ -23,6 +22,7 @@
             "api": "anthropic",
             "url": "${env:NULITELLM_API_URL}",
             "key": "${env:NULITELLM_API_KEY}",
+            "cacheRetention": "long",
             "fetchModels": false,
             "retryRules": [
                 {
