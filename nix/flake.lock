@@ -208,11 +208,11 @@
     },
     "zscaler-docker": {
       "locked": {
-        "lastModified": 1780492767,
-        "narHash": "sha256-b7GWTKUm98ebdBAUa6qrfj+1vH9ewqGyxIDr14oMqws=",
+        "lastModified": 1783608263,
+        "narHash": "sha256-XgIB2y3ed4dyQ5PXeM1Yo4w8VvnUT/vqmJz2DhmI3AA=",
         "ref": "master",
-        "rev": "02c475c32f2d2a757325850413b1b7ab5e0c6b9e",
-        "revCount": 3,
+        "rev": "2b06f6e673e6a68a41a5de18a70f2c2f65a9fc01",
+        "revCount": 4,
         "type": "git",
         "url": "ssh://git@github.com/nubank/zscaler-docker"
       },
