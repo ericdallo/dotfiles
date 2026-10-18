@@ -88,8 +88,18 @@
   :config
   (setq corfu-min-width 30
         corfu-auto-delay 0.1
-        corfu-preselect 'first
+        ;; 'first makes a plain RET insert candidates never explicitly selected
+        corfu-preselect 'prompt
         corfu-preview-current t))
+
+;; Doom adds yasnippet-capf to every yas-minor-mode buffer and eca chat
+;; derives from text-mode, so snippets like __license-mit leak into the
+;; prompt. yas-global-mode re-enables the mode after eca-chat-mode-hook,
+;; so this list is the only reliable off switch.
+(after! yasnippet
+  (add-hook 'yas-dont-activate-functions
+            (defun +yas-dont-activate-in-eca-chat-h ()
+              (derived-mode-p 'eca-chat-mode))))
 
 (use-package! dap-mode
   :init
@@ -104,7 +114,6 @@
   :hook (prog-mode . eca-completion-mode)
   :init
   (setq eca-custom-command '("~/dev/eca/eca" "server")
-        eca-chat-trust-enable t
         eca-extra-args '("--log-level" "debug")))
 
 (use-package! hover

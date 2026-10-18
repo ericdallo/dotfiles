@@ -89,7 +89,10 @@
       "e a" #'eca-chat-tool-call-accept-all
 
       :desc "ECA: rewrite"
-      "e r" #'eca-rewrite)
+      "e r" #'eca-rewrite
+
+      :desc "ECA: inline prompt"
+      "e i" #'eca-chat-inline-prompt)
 
 (map! :i
       :desc "ECA: complete"
