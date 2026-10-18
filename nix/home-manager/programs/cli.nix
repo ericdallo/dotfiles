@@ -63,6 +63,7 @@
     zip
     usbutils
     wget
+    wl-clipboard
     wtype
     wirelesstools
     wmctrl

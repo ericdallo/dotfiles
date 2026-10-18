@@ -60,4 +60,5 @@
 	"eca.serverArgs": "--verbose",
 	"git.openRepositoryInParentFolders": "never",
 	"github.copilot.nextEditSuggestions.enabled": true,
+	"calva.clojureLspPath": "/home/greg/dev/clojure-lsp/clojure-lsp",
 }

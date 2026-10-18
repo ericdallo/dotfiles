@@ -57,17 +57,20 @@ in
     kernelModules = [ "acpi_call" ];
     extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
     kernelParams = [ "i915.force_probe=7d55" ];
+    # NOTE: the `snd-hda-intel model=asus-zenbook` override and the
+    # `ssdt-csc3551.aml` ACPI injection used to be required, but linux 6.18
+    # supports this laptop's audio natively, so both were removed:
+    #   * The ALC294 fixup is auto-selected by PCI SSID 1043:1a63 (UX3405MA);
+    #     "asus-zenbook" isn't even a valid Realtek model alias, so model=
+    #     was a silent no-op.
+    #   * The cs35l41-hda driver has built-in _DSD properties for the dual
+    #     CS35L41 amps (SSID 10431A63) and logs "Using extra _DSD properties,
+    #     bypassing _DSD in ACPI" — i.e. it ignores the injected SSDT.
+    # The ssdt-csc3551.aml file is kept in-tree for easy revert; delete it
+    # once a reboot confirms speakers still work without it.
     extraModprobeConfig = ''
       options bluetooth disable_ertm=1
-      options snd-hda-intel model=asus-zenbook
-      '';
-    loader.grub.extraFiles = {
-      "ssdt-csc3551.aml" = "${./ssdt-csc3551.aml}"; # https://github.com/smallcms/asus_zenbook_ux3405ma
-    };
-    loader.grub.extraConfig = ''
-      acpi /ssdt-csc3551.aml
     '';
-
   };
 
   fileSystems."/" = {

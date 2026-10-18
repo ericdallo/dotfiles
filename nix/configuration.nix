@@ -15,6 +15,7 @@ in
       ./configurations/cli.nix
       ./configurations/flatpak.nix
       ./configurations/samba.nix
+      ./configurations/sunshine.nix
       ./configurations/misc.nix
       self.inputs.zscaler-docker.nixosModules.zscaler
     ];
