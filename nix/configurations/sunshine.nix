@@ -37,4 +37,11 @@
   # reached on every login, and sunshine does not need the Wayland session
   # environment anyway (KMS capture + uinput input).
   systemd.user.services.sunshine.wantedBy = lib.mkForce [ "default.target" ];
+
+  # It is a *global* user unit (/etc/systemd/user), so EVERY user manager
+  # starts it — including the SDDM greeter's (sddm, a system user). That
+  # instance grabs the ports at the login screen and makes greg's die with
+  # "Couldn't bind RTSP server to port [48010], Address already in use".
+  # Only start it for regular (non-system) users.
+  systemd.user.services.sunshine.unitConfig.ConditionUser = "!@system";
 }
