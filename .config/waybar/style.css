@@ -47,15 +47,17 @@ window#waybar {
 #custom-drive.off { color: @white; }
 #custom-vpn.off { color: @white; }
 #custom-vpn.connecting { color: @yellow; }
+#custom-vpn.needs-auth { color: @orange; }
 #custom-vpn.on { color: @pink; }
 #custom-tailscale.off { color: @white; }
 #custom-tailscale.on { color: @cyan; }
 
 #cpu { border-top-color: @white; }
 #memory { border-top-color: @white; }
-#network { border-top-color: @yellow; }
-#network.disconnected { border-top-color: @yellow; }
-#network.disabled { border-top-color: @red; }
+#custom-wifi { border-top-color: @yellow; }
+#custom-wifi.external { color: @green; }
+#custom-wifi.disconnected { color: @red; border-top-color: @red; }
+#custom-wifi.disabled { color: @red; border-top-color: @red; }
 #backlight { border-top-color: @green; }
 #pulseaudio { border-top-color: @purple; }
 #pulseaudio.muted { border-top-color: @red; }

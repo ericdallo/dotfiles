@@ -169,35 +169,67 @@
     "remote": {
         "enabled": true,
         "password": "foo"
-    },
-    "mcpServers": {
-        // "clojure-mcp-clj": {
-        //     "command": "bash",
-        //      "args": ["-c", "clojure -X:mcp-deps"]
-        // },
-        // "nu-mcp": {
-        //     "command": "$HOME/dev/nu/nu-mcp/run.sh",
-        //     "args": ["--auto"],
-        //     "env": {"MCP_DEBUG": "true"}
-        // }
-        // "web-reader": {
-        //     "url": "https://api.z.ai/api/mcp/web_reader/mcp",
-        //     "headers": {
-        //         "Authorization": "Bearer APIKEY"
-        //     }
-        // }
-        // "data-discovery": {
-        //     "command": "nu-data services mcp global data-discovery --env prod --country data"
-        // }
-        // "github-http": {
-        //     "url": "https://api.githubcopilot.com/mcp/"
-        // }
-        ,"miro": {
-            "url": "https://mcp.miro.com/",
+    },}
+"mcpServers": {
+        "google-docs": {
+            "url": "https://runlayer.nubankdev.com/api/v1/proxy/e9f3ddf1-7c88-4209-b6cc-4458f6a3c72c/mcp",
             "disabled": true
         },
+        "google-sheets": {
+            "url": "https://runlayer.nubankdev.com/api/v1/proxy/840eeef2-2389-450a-80a4-19ca536f7d72/mcp"
+        },
+        "nu-mcp-remote": {
+            "url": "https://runlayer.nubankdev.com/api/v1/proxy/f97deb8a-9b7e-4aef-ab67-4ed8a854585a/mcp"
+        },
+        "slack": {
+            "url": "https://runlayer.nubankdev.com/api/v1/proxy/8203c718-c1e5-46e6-9136-1434755f5c0e/mcp",
+            "disabled": true
+        },
+        "glean": {
+            "url": "https://runlayer.nubankdev.com/api/v1/proxy/820411d2-935b-462a-abe1-2e3dde3d3f02/mcp"
+        },
+        "figma": {
+            "url": "https://mcp.figma.com/mcp",
+            "clientName": "Claude Code",
+            "disabled": true
+        },
+        "databricks-sql": {
+            "url": "https://nubank-e2-general.cloud.databricks.com/api/2.0/mcp/sql",
+            "clientId": "5e044bc8-2700-4763-8e76-b2f44faaf13b"
+        },
+        "whatsapp": {
+            "command": "nix-shell",
+            "args": [
+                "-p",
+                "uv",
+                "python311",
+                "--run",
+                "UV_PYTHON_DOWNLOADS=never UV_PYTHON_PREFERENCE=only-system uv --directory /home/greg/dev/whatsapp-mcp/whatsapp-mcp-server run --default-index https://pypi.org/simple --python python3.11 main.py"
+            ],
+            "disabled": true
+        },
+        // "tiny-image": {
+            //     "command": "bb",
+            //     "args": ["/tmp/tiny-image-mcp.clj"]
+            // }
+        // "web-reader": {
+            //     "url": "https://api.z.ai/api/mcp/web_reader/mcp",
+            //     "headers": {
+                //         "Authorization": "Bearer APIKEY"
+                //     }
+            // }
+        // "data-discovery": {
+            //     "command": "nu-data services mcp global data-discovery --env prod --country data"
+            // }
+        // "github-http": {
+            //     "url": "https://api.githubcopilot.com/mcp/"
+            // }
+        ,"miro": {
+            "url": "https://mcp.miro.com/",
+            "disabled": true 
+        },
         "clojure-mcp-clj": {
-          "disabled": true
+            "disabled": true
         },
         "openai-image": {
             "command": "$HOME/dev/openai-gpt-image-mcp/start-mcp-nix.sh",
@@ -230,7 +262,7 @@
         }
     }
     , "otlp": {
-    "otel.exporter.otlp.metrics.protocol": "http/protobuf",
-    "otel.exporter.otlp.metrics.endpoint": "https://prod-global-workstation-proxy.ist.nubank.world/api/telemetry/metrics"
-  }
-}
+        "otel.exporter.otlp.metrics.protocol": "http/protobuf",
+        "otel.exporter.otlp.metrics.endpoint": "https://prod-global-workstation-proxy.ist.nubank.world/api/telemetry/metrics"
+    }
+

@@ -25,7 +25,7 @@
     "bluetooth",
     "pulseaudio",
     "backlight",
-    "network",
+    "custom/wifi",
     "battery",
     "custom/system",
   ],
@@ -151,15 +151,19 @@
     "format": "󰛨 {percent}",
     "scroll-step": 10,
   },
-  "network": {
+  "custom/wifi": {
+    // Script instead of the built-in `network` module so the bar follows
+    // the adapter that actually carries traffic: the external USB adapter
+    // whenever it is connected (the onboard antenna is flaky — see the
+    // route metrics in nix/configurations/hardware.nix), the onboard card
+    // otherwise. The built-in module either tracks the default route
+    // (docker0 whenever the Zscaler VPN is up) or stays pinned to the
+    // first interface matching a pattern, ignoring the USB adapter.
+    "format": "{}",
+    "return-type": "json",
     "interval": 3,
-    "format-wifi": "{icon} {signalStrength}",
-    "format-ethernet": "󰙅 {ifname}",
-    "format-disconnected": "󰤣 {signalStrength}",
-    "format-disabled": "󰤮 --",
-    "format-icons": {
-      "wifi": [ "󰤟", "󰤢", "󰤥", "󰤨", ],
-    },
+    "exec": "~/.config/waybar/wifi.sh",
+    "tooltip": true,
     "on-click": "networkmanager_dmenu",
     "on-click-right": "nmcli radio wifi off && sleep 1 && nmcli radio wifi on",
   },
