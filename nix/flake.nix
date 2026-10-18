@@ -64,6 +64,7 @@
           };
       in
       {
+        gregnix-deluxe = mkSystem { modules = [ ./hosts/asus-zenbook-deluxe ]; };
         gregnix-personal = mkSystem { modules = [ ./hosts/asus-zenbook-oled ]; };
       };
   };

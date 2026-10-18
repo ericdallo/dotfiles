@@ -4,6 +4,7 @@
 alias v="TERM=xterm-256color emacsclient -t -a \"\""
 
 # Nix
+alias rebuild-gregnix-deluxe="sudo nixos-rebuild switch --flake ~/.dotfiles/nix#gregnix-deluxe"
 alias rebuild-gregnix-personal="sudo nixos-rebuild switch --flake ~/.dotfiles/nix#gregnix-personal"
 
 # Clojure
