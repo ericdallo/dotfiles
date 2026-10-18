@@ -1,2 +1,3 @@
 {:log-path "/tmp/clojure-lsp.out"
- :use-metadata-for-privacy? true}
+ :use-metadata-for-privacy? true
+ :semantic-tokens {:default-library-for-core? false}}
