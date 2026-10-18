@@ -41,6 +41,12 @@
     # Docker users can use it too. It exposes `nixosModules.zscaler`, which
     # configuration.nix imports.
     zscaler-docker.url = "git+ssh://git@github.com/nubank/zscaler-docker?ref=master";
+
+    # grog, the home voice assistant: the oled host's second boot entry runs
+    # it (hosts/asus-zenbook-oled/grog-station.nix). Its packages keep grog's
+    # own pinned nixpkgs, the one its tests run on, so no `follows`.
+    # Bump with `nix flake update grog`.
+    grog.url = "github:ericdallo/grog";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }:

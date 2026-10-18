@@ -16,6 +16,8 @@ in
 {
   imports = [
     ../../configuration.nix
+    # A second boot entry running only grog, now that the screen broke.
+    ./grog-station.nix
     # Hardware quirks from nixos-hardware. No Zenbook UX3405MA-specific
     # module exists upstream yet, so we compose the generic baselines.
     # The bespoke i915.force_probe=7d55 below stays — it targets this

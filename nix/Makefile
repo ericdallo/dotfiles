@@ -27,8 +27,11 @@ ifeq (,$(wildcard ./result/activate))
 endif
 	./result/activate
 
+# Booted into a specialisation (/etc/specialisation names it, like grog), it
+# stays in it; the boot menu still comes from the system itself.
 switch:
-	./result/bin/switch-to-configuration switch
+	./result/bin/switch-to-configuration boot
+	./result$(if $(wildcard /etc/specialisation),/specialisation/$(shell cat /etc/specialisation))/bin/switch-to-configuration test
 
 build-%:
 	nix $(NIX_FLAGS) build '.#nixosConfigurations.$*.config.system.build.toplevel'
