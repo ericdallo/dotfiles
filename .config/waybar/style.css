@@ -65,6 +65,7 @@ window#waybar {
 #custom-monitor { border-top-color: @orange; }
 #custom-monitor.mirror { color: @orange; }
 #custom-monitor.extend { color: @cyan; }
+#custom-monitor.internal-off { color: @green; }
 #custom-monitor.hidden {
     padding: 0;
     margin: 0;

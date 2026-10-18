@@ -120,6 +120,7 @@
     "interval": 3,
     "exec": "~/.config/waybar/monitor.sh",
     "on-click": "exec ~/.config/waybar/monitor.sh toggle",
+    "on-click-right": "exec ~/.config/waybar/monitor.sh internal-toggle",
     "tooltip": true,
   },
   "bluetooth": {
