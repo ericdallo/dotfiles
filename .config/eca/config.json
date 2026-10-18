@@ -1,20 +1,23 @@
 {
     "$schema": "https://eca.dev/config.json",
-    "defaultModel": "nubank-anthropic/opus-4.7",
+    "defaultModel": "nubank-anthropic/opus-5.5",
     "includeParentAgentsFiles": true,
     "providers": {
         "nubank": {
             "api": "openai-responses",
-            "url": "${env:NULITELLM_API_URL}",
-            "key": "${env:NULITELLM_API_KEY}",
+            // "url": "${env:NULITELLM_API_URL}",
+            // "key": "${env:NULITELLM_API_KEY}",
+            "url": "${cmd:nu genai ai-gateway url}",
+            "key": "${cmd:nu genai ai-gateway token}",
             "fetchModels": false,
-            "models": {"openai/gpt-5.3-codex": {},
-                       "openai/gpt-5.5": {}}
+            "models": {"openai/gpt-6-astra": {}}
         }, 
         "nubank-anthropic": {
             "api": "anthropic",
-            "url": "${env:NULITELLM_API_URL}",
-            "key": "${env:NULITELLM_API_KEY}",
+            // "url": "${env:NULITELLM_API_URL}",
+            // "key": "${env:NULITELLM_API_KEY}",
+            "url": "${cmd:nu genai ai-gateway url}",
+            "key": "${cmd:nu genai ai-gateway token}",
             "cacheRetention": "long",
             "fetchModels": false,
             "retryRules": [
@@ -22,20 +25,24 @@
                     "status": 401,
                     "errorPattern": "Authentication Error",
                     "label": "Flaky auth error"
+                },
+                {
+                    "status": 504,
+                    "label": "Gateway timeout"
                 }
             ],
             "models": {
-                "sonnet-4.6": {
-                    "modelName": "anthropic/claude-sonnet-4-6"
+                "sonnet-5": {
+                    "modelName": "anthropic/claude-sonnet-5"
                 },
-                "sonnet-4.5": {
-                    "modelName": "anthropic/claude-sonnet-4-5"
+                "opus-5.5": {
+                    "modelName": "anthropic/claude-opus-5-5"
                 },
-                "opus-4.6": {
-                    "modelName": "anthropic/claude-opus-4-6"
+                "opus-5": {
+                    "modelName": "anthropic/claude-opus-5"
                 },
-                "opus-4.7": {
-                    "modelName": "anthropic/claude-opus-4-7"
+                "fable-5.1": {
+                    "modelName": "anthropic/claude-fable-5-1"
                 }
             }
         },
@@ -56,15 +63,15 @@
             "key": "REDACTED",
             "fetchModels": false,
             "models": {"qwen3.5-397b-a17b": {}}
+        },
+        "openrouter": {
+            "api": "openai-chat",
+            "url": "https://openrouter.ai/api/v1",
+            "key": "${env:OPENROUTER_API_KEY}",
+            "models": {"z-ai/glm-4.5-air:free": {},
+                       "arcee-ai/trinity-large-preview:free": {},
+                       "openrouter/x-ai/grok-4.5": {}}
         }
-        // "openrouter": {
-        //     "api": "openai-chat",
-        //     "url": "https://openrouter.ai/api/v1",
-        //     "key": "${env:OPENROUTER_API_KEY}",
-        //     "models": {"z-ai/glm-4.5-air:free": {},
-        //                "arcee-ai/trinity-large-preview:free": {},
-        //                "qwen/qwen3-coder:free": {}}
-        // }
         // "github-copilot": {
         //     "models": {
         //         "gpt-5-mini-non-stream": {
@@ -84,11 +91,19 @@
         //         "foo": {}
         //     }
         // }
+        // "qwen": {
+        //     "api": "openai-responses",
+        //     "url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+        //     "key": "KEY-HERE"
+        // }
     },
     "completion": {
-        // "model": "nubank/openai/gpt-5.3-codex",
-        "model": "github-copilot/gemini-3-flash-preview",
+        "model": "nubank/openai/gpt-6-astra",
         "responseEncoding": "udiff"
+    },
+    "chat": {
+        "defaultTrust": true
+        // "defaultTrust": false
     },
     "rewrite": {"model": "nubank/openai/gpt-5.3-codex"},
     "hooks": {
@@ -98,7 +113,7 @@
             "actions": [
                 {
                     "type": "shell",
-                    "shell": "canberra-gtk-play -i complete"
+                    "shell": "jq -e '.chat_id | startswith(\"subagent-\") | not' > /dev/null && canberra-gtk-play -i complete"
                 }
             ]
         },
@@ -149,7 +164,6 @@
             "source": "https://github.com/nubank/ai-agents-plugins.git"
         },
         "install": [
-          "glean-mcp"
         ]
     },
     "remote": {
@@ -178,32 +192,42 @@
         // "github-http": {
         //     "url": "https://api.githubcopilot.com/mcp/"
         // }
-        // "miro": {
-        //     "url": "https://mcp.miro.com/" 
-        // }
-        // "atlasian-http": {
-        //     "url": "https://mcp.atlassian.com/v1/sse"
-        // }
-        // "hugging": {
-        //     "url": "https://huggingface.co/mcp"
-        // }
-        // "fetch": {
-        //     "command": "docker",
-        //     "args": ["run", "-i", "--rm", "mcp/fetch"]
-        // }
-        // "github": {
-        //     "command": "npx",
-        //     "args": ["mcp-remote", "https://api.githubcopilot.com/mcp/"]
-        // }
-        // "memory": {
-        //     "command": "npx",
-        //     "args": ["-y", "@modelcontextprotocol/server-memory"]
-        // },
-
-        // "filesystem": {
-        //     "command": "npx",
-        //     "args": ["-y", "@modelcontextprotocol/server-filesystem", "$HOME/dev"]
-        // }
+        ,"miro": {
+            "url": "https://mcp.miro.com/",
+            "disabled": true
+        },
+        "clojure-mcp-clj": {
+          "disabled": true
+        },
+        "openai-image": {
+            "command": "$HOME/dev/openai-gpt-image-mcp/start-mcp-nix.sh",
+            "env": {
+                "OPENAI_API_KEY":  "${env:NULITELLM_API_KEY}",
+                "OPENAI_BASE_URL": "${env:NULITELLM_API_URL}/openai/v1"
+            },
+            "disabled": true
+        },
+        "pluggy": {
+            "command": "node",
+            "args": ["/home/greg/dev/pluggy-mcp/dist/index.js"],
+            "env": {
+                "PLUGGY_CLIENT_ID": "${env:PLUGGY_CLIENT_ID}",
+                "PLUGGY_CLIENT_SECRET": "${env:PLUGGY_CLIENT_SECRET}"
+            },
+            "disabled": true
+        },
+        "chrome-devtools": {
+            "command": "sh",
+            "args": [
+                "-c",
+                "mkdir -p \"$npm_config_prefix/lib\" && exec npx -y chrome-devtools-mcp@latest --autoConnect --no-usage-statistics --no-performance-crux"
+            ],
+            "env": {
+                "npm_config_prefix": "${env:HOME}/.npm-global",
+                "npm_config_registry": "https://registry.npmjs.org/"
+            },
+            "disabled": true
+        }
     }
     , "otlp": {
     "otel.exporter.otlp.metrics.protocol": "http/protobuf",

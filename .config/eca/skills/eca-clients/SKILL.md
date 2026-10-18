@@ -17,7 +17,7 @@ First and most important ECA client, new features goes here.
 
 ## eca-vscode
 
-Uses shared eca-webview project
+Uses eca-webview project as submodule
 
 ### Release
 
@@ -29,18 +29,18 @@ Uses shared eca-webview project
 
 ## eca-intellij
 
-Uses shared eca-webview project
+Uses eca-webview project as submodule
 
 ### Release
 
 1. Add entry to changelog (max 180 chars) unreleased if not there
 2. Commit and push your changes
    - if there are changes in eca-webview folder, first commit and push there then on git root after or pull if commited from other repo the webview.
-3. run `bb tag <version-tag>` considering user choice otherwise a patch number
+3. run `bb tag <version-tag>` considering user choice otherwise a patch number, CI takes care of the rest
 
 ## eca-web
 
-Uses shared eca-webview project
+Uses eca-webview project as submodule
 
 ### Release
 
@@ -49,14 +49,14 @@ Uses shared eca-webview project
 
 ## eca-desktop
 
-Uses shared eca-webview project
+Uses eca-webview project as submodule
 
 ### Release
 
 1. Commit and push
    - if there are changes in eca-webview folder, first commit and push there then on git root after or pull if commited from other repo the webview.
 2. run `npm version <patch|minor|major>` considering user choice otherwise patch
-3. push the new tag
+3. push the new tag, CI takes care of the rest
 
 ## eca-nvim
 
