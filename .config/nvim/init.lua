@@ -1,1 +1,3 @@
-/nix/store/8xk4npk3v2m9nmkzb5dn083w9gkjr545-home-manager-files/.config/nvim/init.lua
+require("config.lazy")
+
+vim.cmd[[colorscheme dracula]]
