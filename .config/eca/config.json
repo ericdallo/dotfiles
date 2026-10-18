@@ -169,8 +169,8 @@
     "remote": {
         "enabled": true,
         "password": "foo"
-    },}
-"mcpServers": {
+    },
+    "mcpServers": {
         "google-docs": {
             "url": "https://runlayer.nubankdev.com/api/v1/proxy/e9f3ddf1-7c88-4209-b6cc-4458f6a3c72c/mcp",
             "disabled": true
@@ -208,23 +208,7 @@
             ],
             "disabled": true
         },
-        // "tiny-image": {
-            //     "command": "bb",
-            //     "args": ["/tmp/tiny-image-mcp.clj"]
-            // }
-        // "web-reader": {
-            //     "url": "https://api.z.ai/api/mcp/web_reader/mcp",
-            //     "headers": {
-                //         "Authorization": "Bearer APIKEY"
-                //     }
-            // }
-        // "data-discovery": {
-            //     "command": "nu-data services mcp global data-discovery --env prod --country data"
-            // }
-        // "github-http": {
-            //     "url": "https://api.githubcopilot.com/mcp/"
-            // }
-        ,"miro": {
+        "miro": {
             "url": "https://mcp.miro.com/",
             "disabled": true 
         },
@@ -265,4 +249,5 @@
         "otel.exporter.otlp.metrics.protocol": "http/protobuf",
         "otel.exporter.otlp.metrics.endpoint": "https://prod-global-workstation-proxy.ist.nubank.world/api/telemetry/metrics"
     }
+}
 
