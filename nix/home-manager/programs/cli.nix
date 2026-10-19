@@ -15,7 +15,8 @@
     stable.appimage-run
     aspell
     aspellDicts.en
-    aspellDicts.en-computers
+    # aspellDicts.en-computers: removed from nixpkgs (its upstream URL
+    # turned into a gambling website).
     cachix
     curl
     copilot-language-server
@@ -45,8 +46,10 @@
     nssTools
     mediainfo
     fastfetch
-    nodejs_20
-    curlftpfs
+    # Node.js 20 left nixpkgs at its end of life (2026-04-30): the next LTS.
+    nodejs_22
+    # curlftpfs: removed from nixpkgs (no FUSE 3 support). `rclone mount`
+    # mounts FTP too.
     openssl
     pinentry-curses
     ripgrep

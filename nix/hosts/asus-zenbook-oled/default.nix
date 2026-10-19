@@ -12,6 +12,17 @@ let
       allowBroken = true;
     };
   };
+  # The pin predates the only two attributes newer NixOS modules read off
+  # the kernel that it lacks; these are their x86 values. passthru: they
+  # survive NixOS's own kernel.override and leave the build untouched.
+  pinnedLinuxPackages = kernelPkgs.linuxPackages.extend (final: prev: {
+    kernel = prev.kernel.overrideAttrs (old: {
+      passthru = (old.passthru or { }) // {
+        target = "bzImage";
+        buildDTBs = false;
+      };
+    });
+  });
 in
 {
   imports = [
@@ -27,16 +38,10 @@ in
     self.inputs.hardware.nixosModules.common-pc-laptop-ssd
   ];
 
-  # home-manager activation refuses to overwrite pre-existing, unmanaged
-  # dotfiles (e.g. ~/.config/nvim/init.lua) and otherwise aborts the WHOLE
-  # activation (home-manager-greg.service fails), leaving the session
-  # unconfigured. Back such files up (.hm-bak) instead of aborting.
-  home-manager.backupFileExtension = "hm-bak";
-
+  # Overlays come with the system's pkgs (home-manager.useGlobalPkgs).
   home-manager.users.greg = {
     imports = [
       ../../home-manager/common.nix
-      ../../configurations/overlays.nix
       ../../home-manager/programs/zsh.nix
       ../../home-manager/programs/clojure.nix
       # ../../home-manager/programs/rust.nix
@@ -54,8 +59,8 @@ in
   networking.hostName = "gregnix-personal";
 
   boot = {
-    # Pinned kernel (linux 6.18.16) — see the `kernelPkgs` let-binding above.
-    kernelPackages = kernelPkgs.linuxPackages;
+    # Pinned kernel (linux 6.18.16) — see the let-bindings above.
+    kernelPackages = pinnedLinuxPackages;
     kernelModules = [ "acpi_call" ];
     extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
     kernelParams = [ "i915.force_probe=7d55" ];
@@ -70,9 +75,6 @@ in
     #     bypassing _DSD in ACPI" — i.e. it ignores the injected SSDT.
     # The ssdt-csc3551.aml file is kept in-tree for easy revert; delete it
     # once a reboot confirms speakers still work without it.
-    extraModprobeConfig = ''
-      options bluetooth disable_ertm=1
-    '';
   };
 
   fileSystems."/" = {
@@ -86,12 +88,9 @@ in
   };
   swapDevices = [ {device = "/dev/disk/by-uuid/54eb3f94-cafd-4afa-beb3-0e126a346252";} ];
 
-  powerManagement = {
-    enable = true;
-    cpuFreqGovernor = "ondemand"; # scales frequency dynamically based on load
-  };
-
-  services.thermald.enable = true; # Intel thermal management
+  # The rest of the power management (auto-cpufreq, thermald) is shared:
+  # configurations/power.nix.
+  powerManagement.cpuFreqGovernor = "ondemand"; # scales frequency dynamically based on load
 
   # Set ASUS thermal policy on boot
   # 0 = balanced (EC ramps fans aggressively when hot, quiet at idle)
@@ -105,20 +104,6 @@ in
       Type = "oneshot";
       ExecStart = "/bin/sh -c 'echo 0 > /sys/devices/platform/asus-nb-wmi/throttle_thermal_policy'";
       RemainAfterExit = true;
-    };
-  };
-
-  services.auto-cpufreq = {
-    enable = true; # dynamically switches governor based on load
-    settings = {
-      charger = {
-        governor = "performance";
-        turbo = "auto";
-      };
-      battery = {
-        governor = "powersave";
-        turbo = "never";
-      };
     };
   };
 }

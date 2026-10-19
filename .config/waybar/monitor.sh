@@ -6,8 +6,8 @@
 #                      framebuffer borders that appear on initial hot-plug)
 #                      AND set the primary panel to MIRROR_MODE so the
 #                      mirror is 1:1 (no letterboxing on the external).
-#   `restore-native` : reset the primary panel to its panel-native (preferred)
-#                      mode. Used on monitor unplug or extend-mode entry.
+#   `restore-native` : reset the primary panel to its configured (native)
+#                      rule. Used on monitor unplug or extend-mode entry.
 #   `internal-toggle`: flip "external only" mode: the primary panel is
 #                      disabled while an external display is connected (e.g.
 #                      a broken/unused laptop screen, to save power). The
@@ -23,13 +23,19 @@
 set -u
 
 PRIMARY="eDP-1"
-# Everything after the mode field of the eDP-1 monitor line: position, scale,
-# bitdepth. Must match hyprland.conf for `restore-native` to fully match the
-# config-defined state.
-PRIMARY_TAIL="0x0,1.2,bitdepth,8"
+# The primary panel's configured rule, everything after its name (mode,
+# position, scale, bitdepth): hyprland.conf's, as overridden per host by
+# /etc/hypr/host.conf (sourced last, so its rule wins). `restore-native`
+# re-applies it to fully match the config-defined state.
+PRIMARY_NATIVE=$(grep -hE "^[[:space:]]*monitor[[:space:]]*=[[:space:]]*${PRIMARY}[[:space:]]*," \
+    "${XDG_CONFIG_HOME:-$HOME/.config}/hypr/hyprland.conf" /etc/hypr/host.conf 2>/dev/null |
+    tail -n1 | sed -E 's/#.*//; s/^[^,]*,//; s/[[:space:]]//g')
+PRIMARY_NATIVE=${PRIMARY_NATIVE:-preferred,0x0,1.2,bitdepth,8}
 # Mode forced on the primary while mirroring so the external display sees a
-# 1:1 frame (matches the Dell P2719H's preferred resolution).
+# 1:1 frame (matches the Dell P2719H's preferred resolution), and the rest of
+# the rule for that frame (position, scale, bitdepth).
 MIRROR_MODE="1920x1080@60"
+MIRROR_TAIL="0x0,1.2,bitdepth,8"
 ICON="󰍺"
 # Machine-local (not in the dotfiles repo): present = "external only" mode.
 STATE_FILE="${XDG_STATE_HOME:-$HOME/.local/state}/hypr/internal-off"
@@ -85,12 +91,12 @@ is_mirroring() {
 # Force the primary panel into the mirror-friendly mode so mirroring an
 # external display whose preferred resolution is MIRROR_MODE is 1:1.
 set_primary_mirror_mode() {
-    hyprctl keyword monitor "${PRIMARY},${MIRROR_MODE},${PRIMARY_TAIL}" >/dev/null
+    hyprctl keyword monitor "${PRIMARY},${MIRROR_MODE},${MIRROR_TAIL}" >/dev/null
 }
 
-# Restore the primary panel to its panel-native (preferred) mode.
+# Restore the primary panel to its configured (native) rule.
 set_primary_native_mode() {
-    hyprctl keyword monitor "${PRIMARY},preferred,${PRIMARY_TAIL}" >/dev/null
+    hyprctl keyword monitor "${PRIMARY},${PRIMARY_NATIVE}" >/dev/null
 }
 
 internal_off_wanted() {

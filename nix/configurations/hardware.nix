@@ -59,6 +59,11 @@
     iw
   ];
 
+  # ERTM off: lets Xbox wireless controllers pair over Bluetooth.
+  boot.extraModprobeConfig = ''
+    options bluetooth disable_ertm=1
+  '';
+
   hardware = {
     enableRedistributableFirmware = true;
 

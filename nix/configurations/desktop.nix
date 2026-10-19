@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
   nixpkgs.config.allowBroken = true;
@@ -56,6 +56,13 @@
     portalPackage = pkgs.xdg-desktop-portal-hyprland;
     xwayland.enable = true;
   };
+
+  # Per-host Hyprland overrides (e.g. the built-in panel's mode and scale),
+  # sourced last by .config/hypr/hyprland.conf, so its rules win. Hosts set
+  # this text; Hyprland errors out on a missing source file, hence the default.
+  environment.etc."hypr/host.conf".text = lib.mkDefault ''
+    # No per-host Hyprland overrides on this host.
+  '';
 
   services = {
     upower.enable = true;

@@ -17,12 +17,18 @@ in
       ./configurations/samba.nix
       ./configurations/sunshine.nix
       ./configurations/misc.nix
+      ./configurations/power.nix
       self.inputs.zscaler-docker.nixosModules.zscaler
     ];
 
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
+    # home-manager activation refuses to overwrite pre-existing, unmanaged
+    # dotfiles (e.g. ~/.config/nvim/init.lua) and otherwise aborts the WHOLE
+    # activation (home-manager-greg.service fails), leaving the session
+    # unconfigured. Back such files up (.hm-bak) instead of aborting.
+    backupFileExtension = "hm-bak";
     extraSpecialArgs = {
       inherit self system;
     };
@@ -30,11 +36,6 @@ in
 
   nixpkgs.config.permittedInsecurePackages = [
     "libsoup-2.74.3"
-    # Pulled in transitively (likely by an Electron-based app such as
-    # Ferdium). Node 20 is EOL upstream; we accept the risk because the
-    # app sandboxes its renderer.
-    "nodejs-20.20.2"
-    "nodejs-slim-20.20.2"
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
