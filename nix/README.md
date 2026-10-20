@@ -19,7 +19,7 @@ The NixOS configurations of all my machines, as a flake (`flake.nix`).
 
 ```sh
 make -C nix build-gregnix-s14   # build a host (result/)
-make -C nix switch              # activate it
+sudo make -C nix switch         # make it the next boot and activate it
 make -C nix update              # bump flake.lock
 ```
 
@@ -43,11 +43,19 @@ Install NixOS the normal way, then one script turns it into the host.
    installer generated (with the encrypted swap only its
    `configuration.nix` declares), builds the host and makes it the next
    boot. Reboot: the LUKS passphrase, and you're in Hyprland.
-4. **Finish**, with the GitHub SSH key (YubiKey) set up: commit and push the
-   new `hardware-configuration.nix`. The private `zscaler-docker` input
-   needs that key, so without it the bootstrap built with its stand-in
-   (`stubs/`): rebuild for the real one,
-   `make -C nix build-gregnix-s14 && sudo make -C nix switch`.
+4. **Finish**: copy the keys from another machine, the GitHub SSH key in
+   `~/.ssh` and the GPG key that signs commits in `~/.gnupg` (set a fresh
+   `~/.gnupg` aside: its keyboxd would ignore the copied keyring).
+   ```sh
+   gpgconf --kill all; mv ~/.gnupg ~/.gnupg.fresh
+   ssh greg@<other machine> tar -cf - .ssh .gnupg | tar -C ~ -xpf -
+   ```
+   The private `zscaler-docker` input needs that SSH key, so the bootstrap
+   built with its stand-in (`stubs/`). Rebuild for the real one, then commit
+   and push the new `hardware-configuration.nix`:
+   ```sh
+   make -C ~/.dotfiles/nix build-gregnix-s14 && sudo make -C ~/.dotfiles/nix switch
+   ```
 
 ### A new machine
 

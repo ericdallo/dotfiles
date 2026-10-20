@@ -96,7 +96,7 @@ sudo nix-env -p /nix/var/nix/profiles/system --set "$system"
 sudo "$system/bin/switch-to-configuration" boot
 
 step "Done: reboot"
-echo "Then, with the GitHub SSH key (YubiKey) set up:"
+echo "Then copy ~/.ssh and ~/.gnupg from another machine (nix/README.md), and:"
 if ((${#overrides[@]})); then
   echo "  make -C $flake build-$host && sudo make -C $flake switch   # the real zscaler-docker"
 fi

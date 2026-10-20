@@ -20,9 +20,12 @@ ifeq (,$(wildcard ./result/activate))
 endif
 	./result/activate
 
-# Booted into a specialisation (/etc/specialisation names it, like grog), it
-# stays in it; the boot menu still comes from the system itself.
+# Like nixos-rebuild switch: a new generation of the system profile (the boot
+# menu lists those; systemd-boot boots nothing else), the next boot and the
+# running system. Booted into a specialisation (/etc/specialisation names it,
+# like grog), it stays in it; the boot menu still comes from the system itself.
 switch:
+	nix-env -p /nix/var/nix/profiles/system --set "$$(readlink -f result)"
 	./result/bin/switch-to-configuration boot
 	./result$(if $(wildcard /etc/specialisation),/specialisation/$(shell cat /etc/specialisation))/bin/switch-to-configuration test
 

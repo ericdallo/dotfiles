@@ -76,6 +76,9 @@ in {
 
       ln -Tsf ${dotfilesDir}/.config/doom ~/.config/doom
 
+      # Not there until VSCode first runs (a fresh install): without it, ln
+      # fails and aborts the whole home-manager activation.
+      mkdir -p ~/.config/Code/User
       ln -sf ${dotfilesDir}/.config/Code/User/keybindings.json ~/.config/Code/User/keybindings.json
       ln -sf ${dotfilesDir}/.config/Code/User/settings.json ~/.config/Code/User/settings.json
     '';
