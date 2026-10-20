@@ -15,12 +15,6 @@
     stable.url = "github:NixOS/nixpkgs/nixos-25.11";
     master.url = "github:NixOS/nixpkgs/master";
     hardware.url = "github:NixOS/nixos-hardware/master";
-    # Declarative partitioning: a host's disk layout (hosts/*/disko.nix) is
-    # both what the installer formats and the host's fileSystems/LUKS/swap.
-    disko = {
-      url = "github:nix-community/disko/latest";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -79,8 +73,6 @@
         gregnix-deluxe = mkSystem { modules = [ ./hosts/asus-zenbook-deluxe ]; };
         gregnix-personal = mkSystem { modules = [ ./hosts/asus-zenbook-oled ]; };
         gregnix-s14 = mkSystem { modules = [ ./hosts/asus-zenbook-s14 ]; };
-        # The installer ISO, for any of the hosts above: `make iso`.
-        installer = mkSystem { modules = [ ./hosts/installer ]; };
       };
   };
 }

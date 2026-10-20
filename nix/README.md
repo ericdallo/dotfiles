@@ -3,9 +3,10 @@
 The NixOS configurations of all my machines, as a flake (`flake.nix`).
 
 - `configuration.nix`, `configurations/`: the system, shared by every host.
-- `hosts/<machine>/`: what's specific to each machine (hardware, disk
-  layout, programs), each a `nixosConfigurations.<hostname>` in `flake.nix`.
-- `hosts/installer/`: the installer ISO.
+- `hosts/<machine>/`: what's specific to each machine (hardware, programs),
+  each a `nixosConfigurations.<hostname>` in `flake.nix`.
+- `bootstrap.sh`: turns a fresh NixOS install into one of the hosts.
+- `stubs/`: stand-ins for private flake inputs, until there's a key.
 - `home-manager/`: my user's programs and dotfiles.
 
 | Host               | Machine                                                     |
@@ -24,39 +25,36 @@ make -C nix update              # bump flake.lock
 
 ## Installing a machine
 
-NixOS only: whatever is on the disk, Windows included, is erased. One USB
-stick, and most of the time goes into downloading from cache.nixos.org.
+Install NixOS the normal way, then one script turns it into the host.
 
-1. **Push** first: the installer clones github.com/ericdallo/dotfiles.
-2. **Make the USB stick**, on any machine with this repo:
+1. **Boot the official NixOS ISO**, the graphical one (BIOS: Secure Boot
+   off; on ASUS, F2 is the BIOS and Esc the boot menu). On new hardware,
+   pick the entry with the newest kernel, e.g. "GNOME (Linux 7.2.10)": the
+   installed system then gets that kernel too.
+2. **Install**: user `greg`; **Erase disk**, **Encrypt system** and swap
+   **with hibernate**; desktop: **No desktop** (the flake brings its own).
+   Reboot.
+3. **Bootstrap**: log in, get online (`nmtui`), and
    ```sh
-   make -C nix iso                   # newest kernel, nmtui, gregnix-install
-   lsblk                             # which one is the stick? e.g. sda
-   make -C nix usb DEVICE=/dev/sda   # refuses anything but a USB disk
+   nix-shell -p git --run 'git clone https://github.com/ericdallo/dotfiles ~/.dotfiles'
+   ~/.dotfiles/nix/bootstrap.sh gregnix-s14
    ```
-3. **BIOS** (F2 while powering on): disable Secure Boot. Then boot the stick
-   (Esc while powering on: boot menu).
-4. **Get online**: `nmtui` for Wi-Fi, or a cable, or phone USB tethering.
-5. **Install**: `sudo gregnix-install gregnix-s14`. It
-   - checks the host evaluates, before touching the disk;
-   - shows the disk, and erases it only once you type the host's name;
-   - asks for the LUKS passphrase, the one boot asks for (US keymap);
-   - installs, copies this repo to `~/.dotfiles` and the Wi-Fi connections,
-     and asks for greg's password.
-6. **Reboot** without the stick: the LUKS passphrase, and you're in Hyprland
-   (home-manager links the dotfiles on that first boot).
-
-The flake's private inputs (`zscaler-docker`, over SSH) ride along in the
-ISO, so installing needs no GitHub key. After bumping one in `flake.lock`,
-rebuild the ISO.
+   It writes `hosts/<machine>/hardware-configuration.nix` from what the
+   installer generated (with the encrypted swap only its
+   `configuration.nix` declares), builds the host and makes it the next
+   boot. Reboot: the LUKS passphrase, and you're in Hyprland.
+4. **Finish**, with the GitHub SSH key (YubiKey) set up: commit and push the
+   new `hardware-configuration.nix`. The private `zscaler-docker` input
+   needs that key, so without it the bootstrap built with its stand-in
+   (`stubs/`): rebuild for the real one,
+   `make -C nix build-gregnix-s14 && sudo make -C nix switch`.
 
 ### A new machine
 
-1. `hosts/<machine>/default.nix`, starting from `hosts/asus-zenbook-s14`,
-   and its `disko.nix`: the disk layout, both what the installer formats
-   and the host's file systems.
+1. `hosts/<machine>/default.nix`, starting from `hosts/asus-zenbook-s14`.
 2. Its line in `flake.nix`'s `nixosConfigurations`.
-3. Push, and install as above.
+3. Push, and install as above: the bootstrap writes its
+   `hardware-configuration.nix`.
 
 ### Zenbook S14 notes
 

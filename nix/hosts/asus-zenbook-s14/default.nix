@@ -1,17 +1,33 @@
 # ASUS Zenbook S14 UX5406AA (2026): Core Ultra 9 386H (Panther Lake, Intel
 # Graphics with 4 Xe3 cores), 32G, 1T NVMe, 14" 2880x1800 120Hz OLED touch,
-# Wi-Fi 7. NixOS only, installed from the installer ISO (nix/README.md).
-{ pkgs, self, ... }:
+# Wi-Fi 7. NixOS only: installed with the official ISO, then turned into this
+# host by nix/bootstrap.sh (nix/README.md).
+{ config, lib, pkgs, self, ... }:
 
+let
+  # The disk as the NixOS installer set it up (LUKS, swap, ESP), written
+  # here by nix/bootstrap.sh on the machine.
+  hardwareConfig = ./hardware-configuration.nix;
+  installed = builtins.pathExists hardwareConfig;
+in
 {
   imports = [
     ../../configuration.nix
-    self.inputs.disko.nixosModules.disko
-    ./disko.nix
     # Microcode, and the `hardware.intelgpu.*` options configurations/
     # hardware.nix sets. Unlike the other hosts, NOT common-pc-laptop: it
     # turns TLP on, which fights auto-cpufreq (configurations/power.nix).
     self.inputs.hardware.nixosModules.common-cpu-intel
+  ] ++ lib.optional installed hardwareConfig;
+
+  assertions = [
+    {
+      assertion = installed;
+      message = "gregnix-s14 has no hardware-configuration.nix yet: run nix/bootstrap.sh gregnix-s14 on the machine (nix/README.md).";
+    }
+    {
+      assertion = !installed || config.boot.initrd.luks.devices != { };
+      message = "gregnix-s14 logs in automatically, which is only OK on an encrypted disk: install with the installer's \"Encrypt system\".";
+    }
   ];
 
   networking.hostName = "gregnix-s14";
@@ -41,10 +57,16 @@
     # The OLED takes brightness over DPCD AUX, but xe follows the VBT (PWM):
     # without this, the brightness keys change nothing.
     kernelParams = [ "xe.enable_dpcd_backlight=1" ];
-    # NixOS only: GRUB goes to the removable-media path, EFI/BOOT/BOOTX64.EFI,
-    # which the firmware always boots, no NVRAM entry needed
-    # (configurations/boot.nix doesn't touch EFI variables).
-    loader.grub.efiInstallAsRemovable = true;
+    # Kept as the NixOS installer sets it up on UEFI (the other hosts use
+    # GRUB, configurations/boot.nix). Its ESP is 1G: room for 10.
+    loader = {
+      grub.enable = false;
+      systemd-boot = {
+        enable = true;
+        configurationLimit = 10;
+      };
+      efi.canTouchEfiVariables = true;
+    };
   };
 
   # Xe3 iGPU: the xe driver (in the initrd too: early KMS for the LUKS

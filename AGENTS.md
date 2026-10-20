@@ -8,9 +8,9 @@
 - Apply Home Manager config: home-manager switch --flake ./nix#greg.
 - Format Nix: nix run nixpkgs#nixpkgs-fmt -- ./nix.
 - Single-test equivalent: build one host or run its VM above.
-- Install a machine: make -C nix iso, make -C nix usb DEVICE=/dev/sdX, boot it, sudo gregnix-install <host> (nix/README.md).
-- Module layout: system in nix/configurations; one dir per machine in nix/hosts (default.nix + disko.nix disk layout); user programs in nix/home-manager/programs.
-- New host: nix/hosts/<machine>/{default.nix,disko.nix} + its nixosConfigurations line in nix/flake.nix.
+- Install a machine: official NixOS ISO installer (Erase disk, Encrypt system, swap with hibernate), then nix/bootstrap.sh <host> (nix/README.md).
+- Module layout: system in nix/configurations; one dir per machine in nix/hosts (default.nix + hardware-configuration.nix written by nix/bootstrap.sh); user programs in nix/home-manager/programs.
+- New host: nix/hosts/<machine>/default.nix + its nixosConfigurations line in nix/flake.nix.
 - Import via nix/configuration.nix and nix/home-manager/common.nix; keep lists alphabetized.
 - Style: 2-space indent, no tabs; keep attrs/imports sorted and grouped.
 - Prefer flake inputs (self.inputs.*); avoid ad-hoc fetchTarball in modules.
