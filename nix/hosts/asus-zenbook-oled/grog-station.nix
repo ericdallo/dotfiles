@@ -111,7 +111,19 @@ in
     services.grog = {
       enable = true;
       user = "grog";
-      voice.enable = true;
+      # Tuned for this Core Ultra 7 155H, measured on it (grog's
+      # plans/voice.md): Parakeet in fp32 hears more on its own mics (14 of
+      # 15 against 12 of 15), for ~2.6 GB more (two of them, with partials),
+      # and with 4 threads it's as fast as int8 with 2. Supertonic is fastest
+      # on its 6 performance cores: the first sentence in 0.16 to 0.36 s.
+      voice = {
+        enable = true;
+        sttPrecision = "fp32";
+        settings = {
+          stt.threads = 4;
+          tts.threads = 6;
+        };
+      };
       # The volume, how the machine is doing, and a shell (as grog, who can
       # use sudo).
       hands.enable = true;
@@ -121,6 +133,13 @@ in
         user = null;
       };
       settings.skin.captions = true;
+      # Updates when asked (by voice, on its screen, or `grog update`): this
+      # flake with grog's input at the latest push, built as greg, switched
+      # to staying in this specialisation.
+      update = {
+        enable = true;
+        flake = "/home/greg/.dotfiles/nix";
+      };
     };
 
     users.users.grog = {
@@ -156,6 +175,10 @@ in
       Restart = "always";
       RestartSec = 2;
     };
+    # Switching (an update, say) starts getty.target, whose login prompt on
+    # tty1 would stop cage.
+    systemd.services."getty@tty1".enable = false;
+    systemd.services."autovt@tty1".enable = false;
     # No login screen, nor X.
     services.displayManager.sddm.enable = lib.mkForce false;
     services.xserver.enable = lib.mkForce false;
@@ -184,6 +207,17 @@ in
     services.logind.settings.Login.HandleLidSwitch = lib.mkForce "ignore";
     # Power saving makes SSH laggy on Wi-Fi.
     networking.networkmanager.wifi.powersave = false;
+
+    # Plugged in for good: it may always turbo. auto-cpufreq's "auto" turns
+    # turbo on only under sustained load, too late for grog's bursts (a
+    # second or so to write down what was said, or synthesize a sentence),
+    # which then ran at 1.4 GHz: with turbo, Parakeet takes 0.10 s rather
+    # than 0.27 s, and grog's first sentence 0.16 to 0.36 s rather than up
+    # to 0.73 s.
+    services.auto-cpufreq.settings.charger.turbo = lib.mkForce "always";
+    # common-pc-laptop turns TLP on, which fights auto-cpufreq (see
+    # hosts/asus-zenbook-s14).
+    services.tlp.enable = lib.mkForce false;
 
     # Always plugged in: the battery lasts longer stopping at 80%. ASUS
     # forgets it on each boot, and asus-wmi adds the knob a bit after boot.

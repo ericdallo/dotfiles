@@ -71,11 +71,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1792366542,
-        "narHash": "sha256-wO+MKSa3q7UayUkOZRrHNWMO06VOBBuSa7rWApFuSMc=",
+        "lastModified": 1792550388,
+        "narHash": "sha256-c4eKK0AZc8kIWNOxTzKr5aV8F0Q0UDJDWarPf0kxk2s=",
         "owner": "ericdallo",
         "repo": "grog",
-        "rev": "292bcac006e2a1b9e193298ef5610d8babb969cb",
+        "rev": "c429d1c244bb18ef02f8660d7ddf2fbc48aed760",
         "type": "github"
       },
       "original": {
