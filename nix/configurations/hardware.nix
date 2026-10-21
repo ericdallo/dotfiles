@@ -145,11 +145,12 @@
 
     udisks2.enable = true;
 
-    # Suspend when lid is closed — but only on battery. On AC the lid is
-    # ignored so the notebook stays reachable for remote access
-    # (Sunshine/Moonlight over Tailscale, see sunshine.nix) when left
-    # plugged in with the lid shut.
+    # Always suspend when the lid is closed, on battery or AC. The only way
+    # to keep the notebook awake with the lid shut (e.g. for remote access
+    # via Sunshine/Moonlight over Tailscale, see sunshine.nix) is the waybar
+    # lid toggle: right-click the power button (turns cyan), which holds a
+    # `systemd-inhibit --what=sleep:handle-lid-switch` (lid-mode.sh).
     logind.settings.Login.HandleLidSwitch = "suspend";
-    logind.settings.Login.HandleLidSwitchExternalPower = "ignore";
+    logind.settings.Login.HandleLidSwitchExternalPower = "suspend";
   };
 }
