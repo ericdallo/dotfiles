@@ -13,6 +13,8 @@
       gimp
       google-chrome
       gparted
+      hypridle
+      hyprlock
       inkscape
       (flameshot.override { enableWlrSupport = true; })
       libinput-gestures
@@ -56,6 +58,21 @@
     portalPackage = pkgs.xdg-desktop-portal-hyprland;
     xwayland.enable = true;
   };
+
+  # hyprlock (the lock screen, .config/hypr/hyprlock.conf) checks the
+  # password through PAM, so it needs its own PAM service. Not
+  # `programs.hyprlock.enable`: that also turns on hypridle's user unit,
+  # which waits for graphical-session.target, and here that target is
+  # pulled in at login by sunshine (sunshine.nix) before Hyprland exports
+  # WAYLAND_DISPLAY. The unit's ConditionEnvironment=WAYLAND_DISPLAY then
+  # skips it, so hypridle would never run. hyprland.conf starts it
+  # (exec-once) instead.
+  #
+  # No pam_fprintd (which fprintd.enable, hardware.nix, would add first): on
+  # a host with a reader it blocks the password until the finger scan times
+  # out. hyprlock reads fingerprints itself (auth:fingerprint in
+  # hyprlock.conf), alongside the password, as its upstream advises.
+  security.pam.services.hyprlock.fprintAuth = false;
 
   # Per-host Hyprland overrides (e.g. the built-in panel's mode and scale),
   # sourced last by .config/hypr/hyprland.conf, so its rules win. Hosts set
