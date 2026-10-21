@@ -114,8 +114,9 @@ in
       # Tuned for this Core Ultra 7 155H, measured on it (grog's
       # plans/voice.md): Parakeet in fp32 hears more on its own mics (14 of
       # 15 against 12 of 15), for ~2.6 GB more (two of them, with partials),
-      # and with 4 threads it's as fast as int8 with 2. Supertonic is fastest
-      # on its 6 performance cores: the first sentence in 0.16 to 0.36 s.
+      # and with 4 threads it's as fast as int8 with 2. grog's voice, Pocket
+      # TTS's deep-calm, is faster on its 6 performance cores than on 2 or
+      # 4: 0.17 s per second of speech, its first sound in 0.03 to 0.05 s.
       voice = {
         enable = true;
         sttPrecision = "fp32";
