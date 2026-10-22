@@ -115,8 +115,9 @@ in
       # plans/voice.md): Parakeet in fp32 hears more on its own mics (14 of
       # 15 against 12 of 15), for ~2.6 GB more (two of them, with partials),
       # and with 4 threads it's as fast as int8 with 2. grog's voice, Pocket
-      # TTS's deep-calm, is faster on its 6 performance cores than on 2 or
-      # 4: 0.17 s per second of speech, its first sound in 0.03 to 0.05 s.
+      # TTS's deep-calm on 24 layers, runs on its 6 performance cores: 0.5 s
+      # per second of speech, its first sound in 0.1 s (6 were also the
+      # fastest for the 6-layer model, of 2, 4 and 6).
       voice = {
         enable = true;
         sttPrecision = "fp32";
