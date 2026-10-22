@@ -121,6 +121,13 @@ in
       voice = {
         enable = true;
         sttPrecision = "fp32";
+        # In a carioca friend's voice, as he agreed to: Pocket TTS cloned
+        # from 15 s of his recordings, the steadiest of 15 cuts of them
+        # (grog's plans/voice.md, "Accents"). The file stays on this
+        # machine, in no repository; without this line grog speaks in
+        # deep-calm again. Here it takes 0.58 s per second of speech
+        # (deep-calm 0.48), its first sound in 0.1 s.
+        ttsVoice = "/home/grog/.local/share/grog-voice/carioca.npz";
         settings = {
           stt.threads = 4;
           tts.threads = 6;
