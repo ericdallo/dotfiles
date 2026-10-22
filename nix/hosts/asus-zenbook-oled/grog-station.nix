@@ -142,6 +142,16 @@ in
         user = null;
       };
       settings.skin.captions = true;
+      # A little carioca in its words too, like its voice: added to grog's
+      # prompt for this home only (grog's brain/README.md, "The prompt").
+      settings.instructions = ''
+        When you speak Portuguese, sound a little carioca, like someone from
+        Rio de Janeiro: relaxed and warm, with a carioca's everyday words where
+        they fit ("beleza", "de boa", "tranquilo", "valeu", "maneiro", "tá",
+        "pra", now and then "cara"). Lightly: one such touch per answer at
+        most, never forced or overdone, and never at the expense of being
+        clear and brief.
+      '';
       # Updates when asked (by voice, on its screen, or `grog update`): this
       # flake with grog's input at the latest push, built as greg, switched
       # to staying in this specialisation.
