@@ -121,13 +121,6 @@ in
       voice = {
         enable = true;
         sttPrecision = "fp32";
-        # In a carioca friend's voice, as he agreed to: Pocket TTS cloned
-        # from 15 s of his recordings, the steadiest of 15 cuts of them
-        # (grog's plans/voice.md, "Accents"). The file stays on this
-        # machine, in no repository; without this line grog speaks in
-        # deep-calm again. Here it takes 0.58 s per second of speech
-        # (deep-calm 0.48), its first sound in 0.1 s.
-        ttsVoice = "/home/grog/.local/share/grog-voice/carioca.npz";
         settings = {
           stt.threads = 4;
           tts.threads = 6;
@@ -136,14 +129,19 @@ in
       # The volume, how the machine is doing, and a shell (as grog, who can
       # use sudo).
       hands.enable = true;
+      # Music through its speaker, or a Bluetooth speaker paired with it:
+      # grog-music, its player, in grog's session (grog's body/README.md,
+      # "Music").
+      music.enable = true;
       # Shown by cage, below, rather than by a desktop session.
       skin = {
         enable = true;
         user = null;
       };
       settings.skin.captions = true;
-      # A little carioca in its words too, like its voice: added to grog's
-      # prompt for this home only (grog's brain/README.md, "The prompt").
+      # A carioca touch in its words, which the user kept when its voice
+      # went back to deep-calm: added to grog's prompt for this home only
+      # (grog's brain/README.md, "The prompt").
       settings.instructions = ''
         When you speak Portuguese, talk like a carioca, a friendly guy from
         Rio de Janeiro at home: relaxed, warm and a bit playful. Give most
