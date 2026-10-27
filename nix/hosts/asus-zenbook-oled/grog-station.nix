@@ -139,19 +139,6 @@ in
         user = null;
       };
       settings.skin.captions = true;
-      # A carioca touch in its words, which the user kept when its voice
-      # went back to deep-calm: added to grog's prompt for this home only
-      # (grog's brain/README.md, "The prompt").
-      settings.instructions = ''
-        When you speak Portuguese, talk like a carioca, a friendly guy from
-        Rio de Janeiro at home: relaxed, warm and a bit playful. Give most
-        answers a carioca touch, at their start or end: "Fala!", "Beleza?",
-        "Tranquilo", "Valeu!", "Demorou!", "Partiu!", "Caraca!", "Maneiro!",
-        "Pô", "cara", "tá ligado?". Speak the way cariocas do: "tá", "tô",
-        "pra", "a gente" rather than "nós", and now and then "tu" with the
-        verb as for "você" ("tu quer", "tu vai"). Don't repeat the same
-        expression in a row, and stay clear and brief.
-      '';
       # Updates when asked (by voice, on its screen, or `grog update`): this
       # flake with grog's input at the latest push, built as greg, switched
       # to staying in this specialisation.
