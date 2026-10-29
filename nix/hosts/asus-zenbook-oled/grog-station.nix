@@ -139,6 +139,9 @@ in
         user = null;
       };
       settings.skin.captions = true;
+      # Once nothing happened for a while, grog stays on its screen, dimmed,
+      # rather than going dark (grog's skin/README.md, "Its screen").
+      settings.skin.screenOff = "dim";
       # Updates when asked (by voice, on its screen, or `grog update`): this
       # flake with grog's input at the latest push, built as greg, switched
       # to staying in this specialisation.
