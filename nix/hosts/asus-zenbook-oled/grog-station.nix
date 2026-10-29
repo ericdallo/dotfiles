@@ -148,6 +148,38 @@ in
       };
     };
 
+    # Home Assistant, for the lights: NovaDigital's, on Tuya's cloud, which
+    # its Tuya integration reaches with the Smart Life app's account (a QR
+    # code). grog turns them on and off through its MCP server (grog's
+    # brain/README.md, "Home Assistant"). Its page is on port 8123. Without
+    # default_config, whose Bluetooth would scan with the adapter the
+    # speaker plays through, nor its cloud, cameras, USB and DHCP: only
+    # what's below.
+    services.home-assistant = {
+      enable = true;
+      extraComponents = [
+        # What onboarding sets up.
+        "analytics"
+        "met"
+        "tuya"
+        "mcp_server"
+      ];
+      config = {
+        assist_pipeline = { };
+        conversation = { };
+        history = { };
+        logbook = { };
+        mobile_app = { };
+        my = { };
+        sun = { };
+        # Says where it is on the network, for grog to find it.
+        zeroconf = { };
+      };
+    };
+    networking.firewall.allowedTCPPorts = [ 8123 ];
+    # grog-voice, on the same CPU, comes first, as with grog-music.
+    systemd.services.home-assistant.serviceConfig.CPUWeight = 50;
+
     users.users.grog = {
       extraGroups = [ "wheel" ];
       # Its session (PipeWire, grog-voice, its hands) starts at boot, with or
