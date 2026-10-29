@@ -253,6 +253,13 @@ in
     # than 0.27 s, and grog's first sentence 0.16 to 0.36 s rather than up
     # to 0.73 s.
     services.auto-cpufreq.settings.charger.turbo = lib.mkForce "always";
+    # But no faster than 2.4 GHz: with its lid closed it gets rid of little
+    # heat, and at full turbo it reached 97-106 °C seconds into grog's
+    # answers, throttling down to 0.4 GHz, so long ones were made slower
+    # than they play, and crackled. At 2.4 GHz three long answers back to
+    # back stayed unthrottled, at 0.55 s per second of speech (grog's
+    # plans/voice.md, "Long answers"). Open, it could run faster.
+    services.auto-cpufreq.settings.charger.scaling_max_freq = 2400000;
     # common-pc-laptop turns TLP on, which fights auto-cpufreq (see
     # hosts/asus-zenbook-s14).
     services.tlp.enable = lib.mkForce false;
