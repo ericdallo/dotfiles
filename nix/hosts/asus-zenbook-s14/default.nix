@@ -15,7 +15,8 @@ in
     ../../configuration.nix
     # Microcode, and the `hardware.intelgpu.*` options configurations/
     # hardware.nix sets. Unlike the other hosts, NOT common-pc-laptop: it
-    # turns TLP on, which fights auto-cpufreq (configurations/power.nix).
+    # turns TLP on, which fights auto-cpufreq and would take over from the
+    # CPU power policy this host uses (configurations/power.nix).
     self.inputs.hardware.nixosModules.common-cpu-intel
   ] ++ lib.optional installed hardwareConfig;
 
@@ -68,6 +69,10 @@ in
       efi.canTouchEfiVariables = true;
     };
   };
+
+  # Not auto-cpufreq: configurations/power.nix's event-driven CPU policy,
+  # without its polling and with turbo on battery too.
+  services.auto-cpufreq.enable = false;
 
   # Xe3 iGPU: the xe driver (in the initrd too: early KMS for the LUKS
   # prompt) and the iHD VA-API driver.

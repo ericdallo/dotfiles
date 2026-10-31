@@ -108,8 +108,8 @@
     # Offer GNOME as a selectable session next to Hyprland. This only
     # registers the GNOME sessions in the chooser; it does NOT pull in GDM.
     desktopManager.gnome.enable = true;
-    # GNOME defaults to power-profiles-daemon, which conflicts with the
-    # auto-cpufreq configured on this host. Keep auto-cpufreq; disable ppd.
+    # GNOME defaults to power-profiles-daemon, which conflicts with the CPU
+    # power policy of power.nix (auto-cpufreq, or its own). Disable ppd.
     power-profiles-daemon.enable = false;
 
     xserver = {
