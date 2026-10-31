@@ -58,6 +58,11 @@ in
     # The OLED takes brightness over DPCD AUX, but xe follows the VBT (PWM):
     # without this, the brightness keys change nothing.
     kernelParams = [ "xe.enable_dpcd_backlight=1" ];
+    # xe, in the initrd (early KMS), starts the GPU's security controller
+    # (GSC: protected video, HDCP) through the ME, whose drivers otherwise
+    # load only once the disk is unlocked: xe gave up waiting after 20s
+    # ("GSC proxy component not bound!") and left the GSC down until reboot.
+    initrd.kernelModules = [ "mei_me" "mei_gsc_proxy" ];
     # Kept as the NixOS installer sets it up on UEFI (the other hosts use
     # GRUB, configurations/boot.nix). Its ESP is 1G: room for 10.
     loader = {
