@@ -27,6 +27,7 @@ in
 {
   imports = [
     ../../configuration.nix
+    ../../configurations/nubank.nix
     # A second boot entry running only grog, now that the screen broke.
     ./grog-station.nix
     # Hardware quirks from nixos-hardware. No Zenbook UX3405MA-specific

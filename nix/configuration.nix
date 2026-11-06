@@ -18,6 +18,7 @@ in
       ./configurations/sunshine.nix
       ./configurations/misc.nix
       ./configurations/power.nix
+      ./configurations/wifi-audit.nix
       self.inputs.zscaler-docker.nixosModules.zscaler
     ];
 

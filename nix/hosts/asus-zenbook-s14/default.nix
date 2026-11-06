@@ -13,6 +13,7 @@ in
 {
   imports = [
     ../../configuration.nix
+    ../../configurations/nubank.nix
     # Microcode, and the `hardware.intelgpu.*` options configurations/
     # hardware.nix sets. Unlike the other hosts, NOT common-pc-laptop: it
     # turns TLP on, which fights auto-cpufreq and would take over from the
@@ -32,6 +33,7 @@ in
   ];
 
   networking.hostName = "gregnix-s14";
+  programs.wifiAudit.enable = true;
 
   # Same programs as the oled host (hosts/asus-zenbook-oled). Overlays come
   # with the system's pkgs (home-manager.useGlobalPkgs).

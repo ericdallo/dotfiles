@@ -3,6 +3,7 @@
 {
   imports = [
     ../../configuration.nix
+    ../../configurations/nubank.nix
     # Same nixos-hardware baselines as the oled host. Besides the laptop/SSD
     # defaults, common-cpu-intel defines the `hardware.intelgpu.*` options
     # that configurations/hardware.nix sets, so it is required to evaluate.
