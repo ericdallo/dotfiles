@@ -19,6 +19,7 @@
             "url": "${cmd:nu genai ai-gateway url}",
             "key": "${cmd:nu genai ai-gateway token}",
             "cacheRetention": "long",
+            "streamIdleTimeoutSeconds": 120,
             "fetchModels": false,
             "retryRules": [
                 {

@@ -64,4 +64,8 @@ Outdated client, missing features, we don't change manually here but someone wil
 
 ## eca-cli
 
-WIP, do not touch yet
+babashka TUI alternative.
+
+### Release
+
+1. commit and push, no tag needed
